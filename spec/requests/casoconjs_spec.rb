@@ -5,6 +5,7 @@ require 'spec_helper'
 describe "Llenar caso con javascript", :js => true do
 
   before { 
+    skip
     usuario = Usuario.find_by(nusuario: 'cor1440')
     usuario.password = 'cor1440'
     visit new_usuario_session_path 
@@ -19,6 +20,7 @@ describe "Llenar caso con javascript", :js => true do
 
   describe "administrador llena" do
     it "puede crear caso" do
+      skip
       visit "/casos/nuevo"
       @numcaso=find_field('Código').value
 
