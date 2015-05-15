@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: f650b9946d30549a53ec7ba1946ffa8d0045cefe
+  revision: a32f3ded17b528c406f2bda0e9bc6a4fb6572a16
   specs:
-    cor1440_gen (1.0.a3)
+    cor1440_gen (1.0.a4)
       devise
       jquery-rails
       paperclip
