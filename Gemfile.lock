@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: a7f89093a0f02d74a02cce7013d44cdc36466c12
+  revision: d64bdf528da3fc0b8ae840b2d8a02edcf110b1cf
   specs:
-    cor1440_gen (1.0.a4)
+    cor1440_gen (1.0.a5)
       devise
       jquery-rails
       paperclip
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 86f4eb6054c6461e75155eefedb4ae686f20de2d
+  revision: 75f03c72d6f4d186298527f1676ab085084608d4
   specs:
     sip (2.0.a6)
       devise
