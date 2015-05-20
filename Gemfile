@@ -4,7 +4,13 @@ source 'https://rubygems.org'
 gem "rails", '~> 4.2.0'
 gem "rails-i18n"
 
+# CSS
 gem 'sass'
+
+# Generación de PDF
+gem "prawn"
+gem "prawnto_2",  :require => "prawnto"
+gem "prawn-table"
 
 # Postgresql
 gem "pg"
