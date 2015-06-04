@@ -6,6 +6,14 @@ gem "rails-i18n"
 
 # CSS
 gem 'sass'
+gem "sass-rails"
+gem "compass-rails"
+
+# Cuadros de selección para búsquedas
+gem 'chosen-rails'
+
+# Dialogo modal
+gem 'lazybox'
 
 # Generación de PDF
 gem "prawn"
@@ -73,6 +81,11 @@ gem 'sip', github: 'pasosdeJesus/sip'
 # Motor Cor1440_gen
 gem 'cor1440_gen', github: 'pasosdeJesus/cor1440_gen'
 #gem "cor1440_gen", path: '../cor1440_gen'
+
+# Motor Sal7711_gen
+gem 'sal7711_gen', github: 'pasosdeJesus/sal7711_gen'
+#gem "sal7711_gen", path: '../sal7711_gen'
+
 
 group :doc do
     # Genera documentación en doc/api con bundle exec rake doc:rails
