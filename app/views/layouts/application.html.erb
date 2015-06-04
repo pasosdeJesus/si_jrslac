@@ -6,7 +6,10 @@
   <%= menu_group do %>
     <% if !current_usuario.nil? %>
       <%= menu_item "Actividades", cor1440_gen.actividades_path %>
-      <%= menu_item "Artículos de Prensa", cor1440_gen.actividades_path %>
+      <%= drop_down "Artículos de Prensa" do %>
+        <%= menu_item "Buscar", sal7711_gen.buscar_path %>
+        <%= menu_item "Añadir Artículo", sal7711_gen.new_articulo_path %>
+      <% end %>
     <% end %>
   <% end %>
   <%= menu_group :pull => :right do %>
@@ -33,6 +36,7 @@
   <p><span class='derechos'>Dominio Público de acuerdo a Legislación Colombiana<br/>
     Desarrollado para <a href="http://www.sjrlac.org">SJR LAC</a> y <a href="http://www.sjrcol.com">SJR Colombia</a> por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2015. 
   </span></p>
+  <%= render_lazybox %>
 <% end %>
 
 <%= render template: "layouts/sip/application" %>

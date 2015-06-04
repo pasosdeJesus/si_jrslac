@@ -13,4 +13,5 @@
  *= require_self
  *= require_tree .
  *= require cor1440_gen/application.css
+ *= require sal7711_gen/application.css
  */

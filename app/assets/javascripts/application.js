@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require cor1440_gen/application
+//= require sal7711_gen/application
 //= require_tree .
 
 
