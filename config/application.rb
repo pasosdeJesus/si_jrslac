@@ -24,5 +24,7 @@ module Cor1440
     config.active_record.raise_in_transactional_callbacks = true
 
     config.active_record.schema_format = :sql
+
+    config.formato_fecha = 'yyyy-mm-dd'
   end
 end

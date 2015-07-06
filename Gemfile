@@ -87,7 +87,7 @@ gem 'cor1440_gen', github: 'pasosdeJesus/cor1440_gen'
 
 # Motor Sal7711_gen
 gem 'sal7711_gen', github: 'pasosdeJesus/sal7711_gen'
-# gem "sal7711_gen", path: '../sal7711_gen'
+#gem "sal7711_gen", path: '../sal7711_gen'
 
 
 group :doc do
