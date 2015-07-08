@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: a1e24f2b00bc1bb6d0ffd4c08f7d1f1963413649
+  revision: 60299ed9bc99d8c9957011a4e6d4b71cd0b1bcf5
   specs:
     cor1440_gen (1.0.a5)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: ee7e90568e0ecbbd7463419240c6340e937421ce
+  revision: 17c78931dc8f79d9d51b19dc8396e59e5d87d4af
   specs:
     sal7711_gen (1.0.a2)
       rails
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 94e1661c25967b9a963cc1bb37ef176c4e0b863d
+  revision: b17380faeefb322e928bf15deb0f7ce37ca7ac11
   specs:
     sip (2.0.a6)
       devise
@@ -84,8 +84,6 @@ GEM
     bootstrap-datepicker-rails (1.4.0)
       railties (>= 3.0)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
     camertron-eprun (1.1.0)
     cancancan (1.12.0)
     capybara (2.4.4)
@@ -119,7 +117,6 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
-    columnize (0.9.0)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -347,7 +344,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootstrap-datepicker-rails
-  byebug
   cancancan
   capybara
   capybara-webkit (= 1.4.1)
