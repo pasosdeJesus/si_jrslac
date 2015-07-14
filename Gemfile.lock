@@ -1,6 +1,16 @@
 GIT
+  remote: git://github.com/pasosdeJesus/cor1440_gen.git
+  revision: 806ba01b6d357f6c6867f197d78a08dd956b1d63
+  specs:
+    cor1440_gen (1.0.a5)
+      devise
+      jquery-rails
+      paperclip
+      rails
+
+GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 17c78931dc8f79d9d51b19dc8396e59e5d87d4af
+  revision: dfe82a1949a93c1a2bc213b1b58fc07f2bc7eb27
   specs:
     sal7711_gen (1.0.a2)
       rails
@@ -8,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: b17380faeefb322e928bf15deb0f7ce37ca7ac11
+  revision: dd219944c0350d65cb561955eeb9934531c3eb81
   specs:
     sip (2.0.a6)
       devise
@@ -26,15 +36,6 @@ GIT
   revision: 944cf4164ea511a2977f91031cc7f69d3e06e6cb
   specs:
     jquery-ui-bootstrap-rails (0.1.1)
-      rails
-
-PATH
-  remote: ../cor1440_gen
-  specs:
-    cor1440_gen (1.0.a5)
-      devise
-      jquery-rails
-      paperclip
       rails
 
 GEM
@@ -76,7 +77,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    arel (6.0.0)
+    arel (6.0.2)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -268,7 +269,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    sass (3.4.15)
+    sass (3.4.16)
     sass-rails (5.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
