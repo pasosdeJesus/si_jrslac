@@ -154,6 +154,20 @@ END;
 $$;
 
 
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: actividad_poa; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE actividad_poa (
+    actividad_id integer NOT NULL,
+    poa_id integer NOT NULL
+);
+
+
 --
 -- Name: actividadoficio_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
@@ -249,10 +263,6 @@ CREATE SEQUENCE contexto_seq
     NO MAXVALUE
     CACHE 1;
 
-
-SET default_tablespace = '';
-
-SET default_with_oids = false;
 
 --
 -- Name: cor1440_gen_actividad; Type: TABLE; Schema: public; Owner: -; Tablespace: 
@@ -548,6 +558,50 @@ CREATE SEQUENCE cor1440_gen_financiador_id_seq
 --
 
 ALTER SEQUENCE cor1440_gen_financiador_id_seq OWNED BY cor1440_gen_financiador.id;
+
+
+--
+-- Name: cor1440_gen_informe; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE cor1440_gen_informe (
+    id integer NOT NULL,
+    filtrofechaini date NOT NULL,
+    filtrofechafin date NOT NULL,
+    filtroproyecto integer,
+    filtroarea integer,
+    filtropoa integer,
+    columnanombre boolean,
+    columnatipo boolean,
+    columnaobjetivo boolean,
+    columnaproyecto boolean,
+    columnapoblacion boolean,
+    recomendaciones character varying(5000),
+    avances character varying(5000),
+    logros character varying(5000),
+    dificultades character varying(5000),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: cor1440_gen_informe_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE cor1440_gen_informe_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: cor1440_gen_informe_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE cor1440_gen_informe_id_seq OWNED BY cor1440_gen_informe.id;
 
 
 --
@@ -851,6 +905,40 @@ CREATE SEQUENCE personadesea_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
+
+
+--
+-- Name: poa; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE poa (
+    id integer NOT NULL,
+    nombre character varying(500) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: poa_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE poa_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: poa_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE poa_id_seq OWNED BY poa.id;
 
 
 --
@@ -2436,6 +2524,13 @@ ALTER TABLE ONLY cor1440_gen_financiador ALTER COLUMN id SET DEFAULT nextval('co
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY cor1440_gen_informe ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_informe_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY cor1440_gen_proyecto ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_proyecto_id_seq'::regclass);
 
 
@@ -2451,6 +2546,13 @@ ALTER TABLE ONLY cor1440_gen_proyectofinanciero ALTER COLUMN id SET DEFAULT next
 --
 
 ALTER TABLE ONLY cor1440_gen_rangoedadac ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_rangoedadac_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY poa ALTER COLUMN id SET DEFAULT nextval('poa_id_seq'::regclass);
 
 
 --
@@ -2767,6 +2869,14 @@ ALTER TABLE ONLY cor1440_gen_financiador
 
 
 --
+-- Name: cor1440_gen_informe_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY cor1440_gen_informe
+    ADD CONSTRAINT cor1440_gen_informe_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: cor1440_gen_proyecto_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -2908,6 +3018,14 @@ ALTER TABLE ONLY sip_persona
 
 ALTER TABLE ONLY sip_persona_trelacion
     ADD CONSTRAINT persona_trelacion_pkey PRIMARY KEY (persona1, persona2, id_trelacion);
+
+
+--
+-- Name: poa_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY poa
+    ADD CONSTRAINT poa_pkey PRIMARY KEY (id);
 
 
 --
@@ -3924,6 +4042,14 @@ ALTER TABLE ONLY sip_departamento
 
 
 --
+-- Name: fk_rails_1f28618438; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividad_poa
+    ADD CONSTRAINT fk_rails_1f28618438 FOREIGN KEY (poa_id) REFERENCES poa(id);
+
+
+--
 -- Name: fk_rails_395faa0882; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3953,6 +4079,14 @@ ALTER TABLE ONLY cor1440_gen_actividad_actividadtipo
 
 ALTER TABLE ONLY sal7711_gen_articulo
     ADD CONSTRAINT fk_rails_65eae7449f FOREIGN KEY (departamento_id) REFERENCES sip_departamento(id);
+
+
+--
+-- Name: fk_rails_6ac9cbf2a2; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividad_poa
+    ADD CONSTRAINT fk_rails_6ac9cbf2a2 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
 
 
 --
@@ -4504,4 +4638,10 @@ INSERT INTO schema_migrations (version) VALUES ('20150624200701');
 INSERT INTO schema_migrations (version) VALUES ('20150702224217');
 
 INSERT INTO schema_migrations (version) VALUES ('20150707164448');
+
+INSERT INTO schema_migrations (version) VALUES ('20150709133244');
+
+INSERT INTO schema_migrations (version) VALUES ('20150709135211');
+
+INSERT INTO schema_migrations (version) VALUES ('20150710012947');
 

@@ -13,6 +13,16 @@ Rails.application.routes.draw do
   end
   resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' } 
 
+  namespace :admin do
+    Ability.tablasbasicas.each do |t|
+      if (t[0] == "") 
+        c = t[1].pluralize
+        resources c.to_sym, 
+          path_names: { new: 'nueva', edit: 'edita' }
+      end
+    end
+  end
+
   mount Sip::Engine, at: "/", as: 'sip'
   mount Cor1440Gen::Engine, at: "/", as: 'cor1440_gen'
   mount Sal7711Gen::Engine, at: "/", as: 'sal7711_gen'

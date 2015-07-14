@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 60299ed9bc99d8c9957011a4e6d4b71cd0b1bcf5
-  specs:
-    cor1440_gen (1.0.a5)
-      devise
-      jquery-rails
-      paperclip
-      rails
-
-GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
   revision: 17c78931dc8f79d9d51b19dc8396e59e5d87d4af
   specs:
@@ -36,6 +26,15 @@ GIT
   revision: 944cf4164ea511a2977f91031cc7f69d3e06e6cb
   specs:
     jquery-ui-bootstrap-rails (0.1.1)
+      rails
+
+PATH
+  remote: ../cor1440_gen
+  specs:
+    cor1440_gen (1.0.a5)
+      devise
+      jquery-rails
+      paperclip
       rails
 
 GEM
