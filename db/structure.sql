@@ -566,11 +566,11 @@ ALTER SEQUENCE cor1440_gen_financiador_id_seq OWNED BY cor1440_gen_financiador.i
 
 CREATE TABLE cor1440_gen_informe (
     id integer NOT NULL,
+    titulo character varying(500) NOT NULL,
     filtrofechaini date NOT NULL,
     filtrofechafin date NOT NULL,
     filtroproyecto integer,
-    filtroarea integer,
-    filtropoa integer,
+    filtroactividadarea integer,
     columnanombre boolean,
     columnatipo boolean,
     columnaobjetivo boolean,
@@ -4050,6 +4050,14 @@ ALTER TABLE ONLY actividad_poa
 
 
 --
+-- Name: fk_rails_294895347e; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_informe
+    ADD CONSTRAINT fk_rails_294895347e FOREIGN KEY (filtroproyecto) REFERENCES cor1440_gen_proyecto(id);
+
+
+--
 -- Name: fk_rails_395faa0882; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4111,6 +4119,14 @@ ALTER TABLE ONLY sal7711_gen_articulo
 
 ALTER TABLE ONLY sal7711_gen_articulo
     ADD CONSTRAINT fk_rails_bdb4c828f9 FOREIGN KEY (anexo_id) REFERENCES sip_anexo(id);
+
+
+--
+-- Name: fk_rails_c02831dd89; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_informe
+    ADD CONSTRAINT fk_rails_c02831dd89 FOREIGN KEY (filtroactividadarea) REFERENCES cor1440_gen_actividadarea(id);
 
 
 --
