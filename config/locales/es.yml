@@ -1,0 +1,10 @@
+es:
+  attributes:
+    poa: Plan Operativo Anual
+    poas: Plan Operativo Anual
+  activerecord:
+    attributes:
+      "poa":
+        Poa: Plan Operativo Anual
+        Poas: Plan Operativo Anual
+
