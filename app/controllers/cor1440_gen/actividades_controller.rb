@@ -17,6 +17,7 @@ module Cor1440Gen
         :actividadtipo_ids => [],
         :poa_ids => [],
         :proyecto_ids => [],
+        :proyectofinanciero_ids => [],
         :usuario_ids => [],
         :actividad_rangoedadac_attributes => [
           :id, :rangoedadac_id, :fl, :fr, :ml, :mr, :_destroy
