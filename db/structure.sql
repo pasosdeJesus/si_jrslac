@@ -358,6 +358,16 @@ ALTER SEQUENCE cor1440_gen_actividad_proyecto_id_seq OWNED BY cor1440_gen_activi
 
 
 --
+-- Name: cor1440_gen_actividad_proyectofinanciero; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE cor1440_gen_actividad_proyectofinanciero (
+    actividad_id integer NOT NULL,
+    proyectofinanciero_id integer NOT NULL
+);
+
+
+--
 -- Name: cor1440_gen_actividad_rangoedadac; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -4066,6 +4076,14 @@ ALTER TABLE ONLY cor1440_gen_actividad_proyecto
 
 
 --
+-- Name: fk_rails_524486e06b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
+    ADD CONSTRAINT fk_rails_524486e06b FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
+
+
+--
 -- Name: fk_rails_52d9d2f700; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4111,6 +4129,14 @@ ALTER TABLE ONLY sal7711_gen_articulo_categoriaprensa
 
 ALTER TABLE ONLY sal7711_gen_articulo
     ADD CONSTRAINT fk_rails_8e3e0703f9 FOREIGN KEY (municipio_id) REFERENCES sip_municipio(id);
+
+
+--
+-- Name: fk_rails_a8489e0d62; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
+    ADD CONSTRAINT fk_rails_a8489e0d62 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
 
 
 --
@@ -4658,6 +4684,8 @@ INSERT INTO schema_migrations (version) VALUES ('20150707164448');
 INSERT INTO schema_migrations (version) VALUES ('20150709133244');
 
 INSERT INTO schema_migrations (version) VALUES ('20150709135211');
+
+INSERT INTO schema_migrations (version) VALUES ('20150709203137');
 
 INSERT INTO schema_migrations (version) VALUES ('20150710012947');
 
