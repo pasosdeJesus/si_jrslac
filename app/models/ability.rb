@@ -2,13 +2,22 @@
 
 class Ability  < Cor1440Gen::Ability
 
-  @@tablasbasicas += Sal7711Gen::Ability::BASICAS_NUEVAS + [
-    ['', 'poa']
-  ]
+  BASICAS_PROPIAS = [ ['', 'poa'] ]
 
-  @@basicas_seq_con_id += Sal7711Gen::Ability::BASICAS_SID_NUEVAS + [
-    ['', 'poa']
-  ]
+  @@tablasbasicas = Sal7711Gen::Ability::BASICAS_PROPIAS + 
+    Cor1440Gen::Ability::BASICAS_PROPIAS + BASICAS_PROPIAS
+
+  @@basicas_id_noauto = Sip::Ability::BASICAS_ID_NOAUTO +
+    Cor1440Gen::Ability::BASICAS_ID_NOAUTO +
+    Sal7711Gen::Ability::BASICAS_ID_NOAUTO 
+
+  @@nobasicas_indice_seq_con_id = Sip::Ability::NOBASICAS_INDSEQID +
+    Cor1440Gen::Ability::NOBASICAS_INDSEQID +
+    Sal7711Gen::Ability::NOBASICAS_INDSEQID 
+
+  @@tablasbasicas_prio = Sip::Ability::BASICAS_PRIO +
+    Cor1440Gen::Ability::BASICAS_PRIO +
+    Sal7711Gen::Ability::BASICAS_PRIO
 
   # Ver documentacion de este metodo en app/models/ability de sip
   def initialize(usuario)
