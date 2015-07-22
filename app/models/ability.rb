@@ -4,8 +4,17 @@ class Ability  < Cor1440Gen::Ability
 
   BASICAS_PROPIAS = [ ['', 'poa'] ]
 
-  @@tablasbasicas = Sal7711Gen::Ability::BASICAS_PROPIAS + 
-    Cor1440Gen::Ability::BASICAS_PROPIAS + BASICAS_PROPIAS
+  @@tablasbasicas = Sip::Ability::BASICAS_PROPIAS +
+    Sal7711Gen::Ability::BASICAS_PROPIAS + 
+    Cor1440Gen::Ability::BASICAS_PROPIAS + BASICAS_PROPIAS - [
+      ['Sip', 'clase'],
+      ['Sip', 'etiqueta'], 
+      ['Sip', 'tclase'],
+      ['Sip', 'tdocumento'], 
+      ['Sip', 'trelacion'], 
+      ['Sip', 'tsitio']
+    ]
+
 
   @@basicas_id_noauto = Sip::Ability::BASICAS_ID_NOAUTO +
     Cor1440Gen::Ability::BASICAS_ID_NOAUTO +
