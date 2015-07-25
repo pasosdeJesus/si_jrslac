@@ -358,6 +358,16 @@ ALTER SEQUENCE cor1440_gen_actividad_proyecto_id_seq OWNED BY cor1440_gen_activi
 
 
 --
+-- Name: cor1440_gen_actividad_proyectofinanciero; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE cor1440_gen_actividad_proyectofinanciero (
+    actividad_id integer NOT NULL,
+    proyectofinanciero_id integer NOT NULL
+);
+
+
+--
 -- Name: cor1440_gen_actividad_rangoedadac; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -561,16 +571,26 @@ ALTER SEQUENCE cor1440_gen_financiador_id_seq OWNED BY cor1440_gen_financiador.i
 
 
 --
+-- Name: cor1440_gen_financiador_proyectofinanciero; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE cor1440_gen_financiador_proyectofinanciero (
+    financiador_id integer NOT NULL,
+    proyectofinanciero_id integer NOT NULL
+);
+
+
+--
 -- Name: cor1440_gen_informe; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE cor1440_gen_informe (
     id integer NOT NULL,
+    titulo character varying(500) NOT NULL,
     filtrofechaini date NOT NULL,
     filtrofechafin date NOT NULL,
     filtroproyecto integer,
-    filtroarea integer,
-    filtropoa integer,
+    filtroactividadarea integer,
     columnanombre boolean,
     columnatipo boolean,
     columnaobjetivo boolean,
@@ -581,7 +601,8 @@ CREATE TABLE cor1440_gen_informe (
     logros character varying(5000),
     dificultades character varying(5000),
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    filtroproyectofinanciero integer
 );
 
 
@@ -658,7 +679,6 @@ CREATE TABLE cor1440_gen_proyecto_proyectofinanciero (
 CREATE TABLE cor1440_gen_proyectofinanciero (
     id integer NOT NULL,
     nombre character varying(1000),
-    financiador_id integer,
     observaciones character varying(5000),
     fechainicio date,
     fechacierre date,
@@ -2450,7 +2470,7 @@ CREATE TABLE usuario (
     regionsjr_id integer,
     oficina_id integer,
     CONSTRAINT usuario_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion))),
-    CONSTRAINT usuario_rol_check CHECK (((rol >= 1) AND (rol <= 6)))
+    CONSTRAINT usuario_rol_check CHECK ((rol >= 1))
 );
 
 
@@ -4042,6 +4062,14 @@ ALTER TABLE ONLY sip_departamento
 
 
 --
+-- Name: fk_rails_0cd09d688c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_financiador_proyectofinanciero
+    ADD CONSTRAINT fk_rails_0cd09d688c FOREIGN KEY (financiador_id) REFERENCES cor1440_gen_financiador(id);
+
+
+--
 -- Name: fk_rails_1f28618438; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -4050,11 +4078,35 @@ ALTER TABLE ONLY actividad_poa
 
 
 --
+-- Name: fk_rails_294895347e; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_informe
+    ADD CONSTRAINT fk_rails_294895347e FOREIGN KEY (filtroproyecto) REFERENCES cor1440_gen_proyecto(id);
+
+
+--
 -- Name: fk_rails_395faa0882; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY cor1440_gen_actividad_proyecto
     ADD CONSTRAINT fk_rails_395faa0882 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
+
+
+--
+-- Name: fk_rails_40cb623d50; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_informe
+    ADD CONSTRAINT fk_rails_40cb623d50 FOREIGN KEY (filtroproyectofinanciero) REFERENCES cor1440_gen_proyectofinanciero(id);
+
+
+--
+-- Name: fk_rails_524486e06b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
+    ADD CONSTRAINT fk_rails_524486e06b FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
 
 
 --
@@ -4106,11 +4158,35 @@ ALTER TABLE ONLY sal7711_gen_articulo
 
 
 --
+-- Name: fk_rails_a8489e0d62; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
+    ADD CONSTRAINT fk_rails_a8489e0d62 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
+
+
+--
 -- Name: fk_rails_bdb4c828f9; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY sal7711_gen_articulo
     ADD CONSTRAINT fk_rails_bdb4c828f9 FOREIGN KEY (anexo_id) REFERENCES sip_anexo(id);
+
+
+--
+-- Name: fk_rails_c02831dd89; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_informe
+    ADD CONSTRAINT fk_rails_c02831dd89 FOREIGN KEY (filtroactividadarea) REFERENCES cor1440_gen_actividadarea(id);
+
+
+--
+-- Name: fk_rails_ca93eb04dc; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_financiador_proyectofinanciero
+    ADD CONSTRAINT fk_rails_ca93eb04dc FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
 
 
 --
@@ -4159,14 +4235,6 @@ ALTER TABLE ONLY cor1440_gen_actividad_sip_anexo
 
 ALTER TABLE ONLY cor1440_gen_actividad_sip_anexo
     ADD CONSTRAINT lf_actividad_anexo_anexo FOREIGN KEY (anexo_id) REFERENCES sip_anexo(id);
-
-
---
--- Name: lf_proyectofinanciero_financiador; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY cor1440_gen_proyectofinanciero
-    ADD CONSTRAINT lf_proyectofinanciero_financiador FOREIGN KEY (financiador_id) REFERENCES cor1440_gen_financiador(id);
 
 
 --
@@ -4643,7 +4711,17 @@ INSERT INTO schema_migrations (version) VALUES ('20150709133244');
 
 INSERT INTO schema_migrations (version) VALUES ('20150709135211');
 
+INSERT INTO schema_migrations (version) VALUES ('20150709203137');
+
 INSERT INTO schema_migrations (version) VALUES ('20150710012947');
 
 INSERT INTO schema_migrations (version) VALUES ('20150710114451');
+
+INSERT INTO schema_migrations (version) VALUES ('20150716085420');
+
+INSERT INTO schema_migrations (version) VALUES ('20150717101243');
+
+INSERT INTO schema_migrations (version) VALUES ('20150720115701');
+
+INSERT INTO schema_migrations (version) VALUES ('20150720120236');
 

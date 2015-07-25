@@ -25,7 +25,6 @@ class Ability  < Cor1440Gen::Ability
     Cor1440Gen::Ability::Ability::BASICAS_PRIO +
     Sal7711Gen::Ability::BASICAS_PRIO + BASICAS_PRIO
 
-
   # Ver documentacion de este metodo en app/models/ability de sip
   def initialize(usuario)
     # Sin autenticación puede consultarse información geográfica 
