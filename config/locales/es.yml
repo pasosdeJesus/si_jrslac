@@ -7,4 +7,6 @@ es:
       "poa":
         Poa: Plan Operativo Anual
         Poas: Plan Operativo Anual
-
+      "cor1440_gen/informe":
+        contextointerno:  Contexto interno
+        contextoexterno:  Contexto externo

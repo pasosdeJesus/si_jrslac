@@ -602,7 +602,9 @@ CREATE TABLE cor1440_gen_informe (
     dificultades character varying(5000),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    filtroproyectofinanciero integer
+    filtroproyectofinanciero integer,
+    contextointerno character varying(5000),
+    contextoexterno character varying(5000)
 );
 
 
@@ -4759,4 +4761,6 @@ INSERT INTO schema_migrations (version) VALUES ('20150724003736');
 INSERT INTO schema_migrations (version) VALUES ('20150803082520');
 
 INSERT INTO schema_migrations (version) VALUES ('20150809032138');
+
+INSERT INTO schema_migrations (version) VALUES ('20151015091923');
 
