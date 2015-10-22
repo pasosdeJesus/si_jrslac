@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 21f6506c9582ecacb408107156ca708cd542ac60
+  revision: e7671a69d7d19f84750cbb824327158b44f0c2ae
   specs:
     sal7711_gen (1.0.a2)
       rails
@@ -18,9 +18,9 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 50e093fa2c962898cc1f47042a293e599fb30a79
+  revision: a13a875b1ba74a526ac3dc353b2a2f4dca513605
   specs:
-    sip (2.0.a6)
+    sip (2.0.a7)
       devise
       jquery-rails
       rails
