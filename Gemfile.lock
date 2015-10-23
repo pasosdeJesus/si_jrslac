@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: e7671a69d7d19f84750cbb824327158b44f0c2ae
+  revision: 6b9058b5093c4718c268fa7751cb9fbb03d30077
   specs:
     sal7711_gen (1.0.a2)
       rails
@@ -234,8 +234,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails-i18n (4.0.5)
-      i18n (~> 0.6)
+    rails-i18n (4.0.6)
+      i18n (~> 0.7)
       railties (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
