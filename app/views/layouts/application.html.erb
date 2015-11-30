@@ -7,6 +7,7 @@
     <% if !current_usuario.nil? %>
       <%= drop_down "Actividades" do %>
         <%= menu_item "Listado", cor1440_gen.actividades_path %>
+        <%= menu_item "Convenios Financiados", cor1440_gen.admin_proyectosfinancieros_path %>
         <%= menu_item "Informes", cor1440_gen.informes_path %>
       <% end %>
       <%= drop_down "Archivo de Prensa" do %>
