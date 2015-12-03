@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 6b7cb4146faf62ebb71a14f3eecc8d3e5fc15477
+  revision: 986faff307bf0a87e1601603aeda660ebcb9e68a
   specs:
     cor1440_gen (1.0.a5)
       devise
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 88a9f63163385660fb83d3a54fd5354716e329ee
+  revision: f2dcbfee43abdde870b13467a915bc6fd1d50bbe
   specs:
     sip (2.0.a7)
       bootstrap-datepicker-rails
@@ -129,6 +129,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     colorize (0.7.7)
+    commonjs (0.2.7)
     compass (1.0.3)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.2)
@@ -185,6 +186,13 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     lazybox (1.1.5)
+    less (2.6.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.7.0)
+      actionpack (>= 4.0)
+      less (~> 2.6.0)
+      sprockets (> 2, < 4)
+      tilt
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -297,7 +305,7 @@ GEM
     simple_form (3.2.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
-    simplecov (0.11.0)
+    simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
@@ -321,11 +329,11 @@ GEM
     ttfunk (1.4.0)
     turbolinks (2.5.3)
       coffee-rails
-    twitter-bootstrap-rails (3.2.0)
-      actionpack (~> 4.1)
-      execjs (~> 2.2)
-      rails (~> 4.1)
-      railties (~> 4.1)
+    twitter-bootstrap-rails (3.2.2)
+      actionpack (>= 3.1)
+      execjs (>= 2.2.2, >= 2.2)
+      less-rails (>= 2.5.0)
+      railties (>= 3.1)
     twitter_cldr (3.2.1)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0.0)
