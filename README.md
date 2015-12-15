@@ -1,4 +1,4 @@
-# Cor1440
+# Cor1440 SJR LAC
 [![Estado Construcción](https://api.travis-ci.org/pasosdeJesus/cor1440_sjrlac.svg?branch=master)](https://travis-ci.org/pasosdeJesus/cor1440_sjrlac) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac) [![security](https://hakiri.io/github/pasosdeJesus/cor1440_sjrlac/master.svg)](https://hakiri.io/github/pasosdeJesus/cor1440_sjrlac/master) [![Dependencias](https://gemnasium.com/pasosdeJesus/cor1440_sjrlac.svg)](https://gemnasium.com/pasosdeJesus/cor1440_sjrlac) 
 
 Sistema para planeación y seguimiento de actividades e informes en el SJR.
