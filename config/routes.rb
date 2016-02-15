@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' } 
 
+  get "/informes/:id/impreso" => "cor1440_gen/informes#impreso", 
+    as: :impresion
+
   namespace :admin do
     Ability.tablasbasicas.each do |t|
       if (t[0] == "") 
