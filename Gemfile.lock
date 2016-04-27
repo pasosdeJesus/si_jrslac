@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 1d185b1f3d32e07d8600f59c18fcd21412ea5f64
+  revision: 2a6b567c0cdebcbc9c6901e2553ffc7f8bc76e38
   specs:
     cor1440_gen (1.0.a6)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: d7f5f4a856f31d3a2db68ff9a3c1a9ee6515536e
+  revision: b1b34c425651ba836ffb4ac767ba51790d8895ad
   specs:
     sal7711_gen (1.0.a2)
       rails
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 6b8f8327bab48ae142ba0ceb39601c9b9da13506
+  revision: f9943d10a2e3967c48504320a002e3ef5bf98e6d
   specs:
     sip (2.0.a7)
       bootstrap-datepicker-rails
@@ -105,7 +105,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.10.1)
+    capybara-webkit (1.11.0)
       capybara (>= 2.3.0, < 2.8.0)
       json
     chosen-rails (1.5.2)
@@ -148,7 +148,7 @@ GEM
       sprockets (< 4.0)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
-    devise (4.0.0)
+    devise (4.0.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -203,7 +203,7 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    multi_json (1.11.2)
+    multi_json (1.11.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     odf-report (0.5.1)
