@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 2a6b567c0cdebcbc9c6901e2553ffc7f8bc76e38
+  revision: a39897ee78d358b3fae2ff3d9860345b4ba24639
   specs:
     cor1440_gen (1.0.a6)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: b1b34c425651ba836ffb4ac767ba51790d8895ad
+  revision: c18de5ae833d43fca0bbd209ae817789f696e9c3
   specs:
     sal7711_gen (1.0.a2)
       rails
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: f9943d10a2e3967c48504320a002e3ef5bf98e6d
+  revision: 6af482ba8a6e1c3bcd342edad4b12d783f020ae6
   specs:
     sip (2.0.a7)
       bootstrap-datepicker-rails
@@ -98,14 +98,14 @@ GEM
     builder (3.2.2)
     camertron-eprun (1.1.0)
     cancancan (1.13.1)
-    capybara (2.7.0)
+    capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.11.0)
+    capybara-webkit (1.11.1)
       capybara (>= 2.3.0, < 2.8.0)
       json
     chosen-rails (1.5.2)
@@ -146,9 +146,9 @@ GEM
       compass (~> 1.0.0)
       sass-rails (< 5.1)
       sprockets (< 4.0)
-    concurrent-ruby (1.0.1)
+    concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
-    devise (4.0.1)
+    devise (4.1.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -165,7 +165,7 @@ GEM
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     ffi (1.9.10)
-    font-awesome-rails (4.6.1.0)
+    font-awesome-rails (4.6.2.0)
       railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -203,7 +203,7 @@ GEM
     mimemagic (0.3.0)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    multi_json (1.11.3)
+    multi_json (1.12.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     odf-report (0.5.1)
@@ -278,7 +278,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
-    responders (2.1.2)
+    responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
