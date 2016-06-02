@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 73a5c20b2f4b149da4096e593b96bba3559f241e
+  revision: df375f08e8a7829b93258bc59274f566320b5f97
   specs:
     cor1440_gen (1.0.a6)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: ca4b602aa426c4bddb72a403fa5677c8f0410220
+  revision: da4a3fba9737f0ee4e91afc8a461b93237db296b
   specs:
     sal7711_gen (1.0.a2)
       rails
