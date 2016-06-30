@@ -3,10 +3,13 @@ log/*.log
 pkg/
 spec/dummy/db/*.sqlite3
 config/database.yml
+config/initializers/sip.rb
 spec/dummy/db/*.sqlite3-journal
 spec/dummy/log/*.log
 spec/dummy/tmp/
 spec/dummy/.sass-cache
 public/assets
+public/colchon-articulos
 tmp/
 *~
+*swp
