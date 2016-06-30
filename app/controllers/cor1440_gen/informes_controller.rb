@@ -16,6 +16,19 @@ module Cor1440Gen
       })
     end
 
+    def completa_encabezado(enctabla)
+      if @informe.columnapoa
+        enctabla << "POA"
+      end
+    end
+
+    def completa_fila(actividad, fila)
+      if @informe.columnapoa
+        fila << actividad.poa.inject("") { |memo, i| 
+          (memo == "" ? "" : memo + "; ") + i.nombre }
+      end
+    end
+
     def impreso
       @informe = Informe.find(@informe.id)
       @actividades = filtra_actividades
@@ -62,6 +75,7 @@ module Cor1440Gen
         :filtropoa,
         :columnanombre, :columnatipo, 
         :columnaobjetivo, :columnaproyecto, :columnapoblacion, 
+        :columnapoa,
         :recomendaciones, :avances, :logros, :dificultades,
         :contextointerno, :contextoexterno
       )
