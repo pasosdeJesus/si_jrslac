@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 471fb31f7f42907f7fc0efd12ad589cef679c7cc
+  revision: 18fcebe7619ace9fdc1ef86eca19b4a50c4797dc
   specs:
     cor1440_gen (1.0.a6)
       devise
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: da4a3fba9737f0ee4e91afc8a461b93237db296b
+  revision: 19d5f2cd5e8404b790327e97476762e70cb60abe
   specs:
     sal7711_gen (1.0.a2)
       rails
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/pasosdeJesus/sip.git
-  revision: 6fba18d2869f0fbddd8561c74b0c4baa8235f569
+  revision: ba5c21c5cfce976cfb01ca41a399c8bb04922b65
   specs:
     sip (2.0.a7)
       bootstrap-datepicker-rails
@@ -128,7 +128,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    colorize (0.8.0)
+    colorize (0.8.1)
     commonjs (0.2.7)
     compass (1.0.3)
       chunky_png (~> 1.2)
@@ -325,7 +325,7 @@ GEM
     sprockets (3.6.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.1.0)
+    sprockets-rails (3.1.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)

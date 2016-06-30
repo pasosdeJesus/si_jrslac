@@ -1,0 +1,15 @@
+<div class="imagen-contenido">
+  <%= image_tag @descargajpg, width: "100%", id: 'imagen-detalle' %>
+</div>
+<div class="modal-texto">
+  <%= CGI.escapeHTML(@texto) if @texto %>
+</div>
+<div class="descarga">
+  <p style="width: 100%">
+  <%= link_to(@descargapdf, {target: "_blank", 
+                             class: "btn"}) do
+  %>
+    <%= fa_icon 'fa file-pdf-o', text: 'Descarga PDF' %>
+  <% end %>
+  </p>
+</div>

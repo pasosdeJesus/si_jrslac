@@ -10,3 +10,11 @@ es:
       "cor1440_gen/informe":
         contextointerno:  Contexto interno
         contextoexterno:  Contexto externo
+      "sip/departamento":
+        Departamento: Departamento/Estado/Provincia
+        Departamentos: Departamentos/Estados/Provincias
+        id_deplocal: Código dentro del país
+      "sip/municipio":
+        Municipio: Municipio/Cantón
+        Municipios: Municipios/Cantones
+        id_munlocal: Código dentro del Departamento/Estado/Provincia
