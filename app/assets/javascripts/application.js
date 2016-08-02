@@ -12,7 +12,7 @@
 //
 //= require sip/motor
 //= require cor1440_gen/motor
-//= require sal7711_gen/motor
+//= require sal7711_web/motor
 //= require lazybox
 //= require chosen-jquery
 //= require_tree .
