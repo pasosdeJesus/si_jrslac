@@ -3,6 +3,10 @@ es:
     poa: Plan Operativo Anual
     poas: Plan Operativo Anual
   activerecord:
+    models:
+      "cor1440_gen/proyectofinanciero":
+        one: Convenio Financiado
+        other: Convenios Financiados
     attributes:
       "poa":
         Poa: Plan Operativo Anual
