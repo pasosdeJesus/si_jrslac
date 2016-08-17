@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 1390ab310837e3703760552f158d40fe965aaad7
+  revision: df44106fb601e42105383bbc61acd65bd0c5dd48
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -257,7 +257,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 5.0.0.1)
       sprockets-rails (>= 2.0.0)
-    rails-controller-testing (1.0.0)
+    rails-controller-testing (1.0.1)
       actionpack (~> 5.x)
       actionview (~> 5.x)
       activesupport (~> 5.x)
