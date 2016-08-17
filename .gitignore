@@ -14,4 +14,8 @@ tmp/
 *~
 *swp
 archivos
+app/views/sip/
+bin/actu.sh
+bin/s.sh
+herram/
 
