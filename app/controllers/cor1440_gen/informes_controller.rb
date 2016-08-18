@@ -44,6 +44,10 @@ module Cor1440Gen
             ac.actividadtipo.inject("") { |memo, i| 
               (memo == "" ? "" : memo + "; ") + i.nombre }
           }
+          t.add_column(:poaact) { |ac| 
+            ac.poa.inject("") { |memo, i| 
+              (memo == "" ? "" : memo + "; ") + i.nombre }
+          }
           t.add_column(:pobact) { |ac| 
             pob = ac.actividad_rangoedadac.map { |i| 
               (i.ml ? i.ml : 0) + (i.mr ? i.mr : 0) +
