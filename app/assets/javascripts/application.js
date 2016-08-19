@@ -17,18 +17,18 @@
 //= require chosen-jquery
 //= require_tree .
 
-$(document).on('ready page:load', function() {
+$(document).on('turbolinks:load ready page:load', function() {
 	var root;
 	root = typeof exports !== "undefined" && exports !== null ? 
-		exports : this;	
+		exports : window;	
 	sip_prepara_eventos_comunes(root);
 	cor1440_gen_prepara_eventos_comunes(root);
 	sal7711_gen_prepara_eventos_comunes(root);
 
-	formato_fecha = 'yyyy-mm-dd'
-	if ($('meta[name=formato_fecha]') != []) {
-		formato_fecha = $('meta[name=formato_fecha]').attr('content')
-	}
+//	formato_fecha = 'yyyy-mm-dd'
+//	if ($('meta[name=formato_fecha]') != []) {
+//		formato_fecha = $('meta[name=formato_fecha]').attr('content')
+//	}
 	$('[data-behaviour~=datepicker]').datepicker({
 		format: formato_fecha,
 		autoclose: true,
