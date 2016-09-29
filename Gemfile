@@ -114,7 +114,7 @@ end
 # Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo
 group :test do
   # Pruebas de regresión que no requieren javascript
-  gem "capybara"
+  gem "capybara"#, '~> 2.8.0'
   
   # Pruebas de regresión que requieren javascript
   gem "capybara-webkit"
