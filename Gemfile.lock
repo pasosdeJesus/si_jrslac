@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/pasosdeJesus/cor1440_gen.git
-  revision: f09bd7fb179bcf769c5aa4465e7663eb2741bc4c
+  remote: https://github.com/pasosdeJesus/cor1440_gen.git
+  revision: 308c930aaf144e1e5e254a06eb40ca4b534fdfc3
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -9,24 +9,24 @@ GIT
       rails
 
 GIT
-  remote: git://github.com/pasosdeJesus/sal7711_gen.git
-  revision: badee41cb20767015b5efeec9a82bb62b2ae3f12
+  remote: https://github.com/pasosdeJesus/sal7711_gen.git
+  revision: 9f3fb6f585bcfc0a6aa2f482fea6b074eea7f544
   specs:
     sal7711_gen (1.0.b1)
       rails
       sip
 
 GIT
-  remote: git://github.com/pasosdeJesus/sal7711_web.git
-  revision: 04cc273dd6c92991ebc6dd5bdf1076cd86907e1f
+  remote: https://github.com/pasosdeJesus/sal7711_web.git
+  revision: a6b4ee30f802955c3e70f4f51db9cbb28fd899a9
   specs:
     sal7711_web (1.0.a3)
       rails
       sal7711_gen
 
 GIT
-  remote: git://github.com/pasosdeJesus/sip.git
-  revision: b7a09bfed6c239f9b8203fccc1be436c8b98ed08
+  remote: https://github.com/pasosdeJesus/sip.git
+  revision: e2a0a660b0dd3fb2672f40e96732f740be0aa01b
   specs:
     sip (2.0.b1)
       bootstrap-datepicker-rails
@@ -45,7 +45,7 @@ GIT
       will_paginate
 
 GIT
-  remote: git://github.com/vtamara/cocoon.git
+  remote: https://github.com/vtamara/cocoon.git
   revision: 20f8f3bab2fee21309c57b586f5fab9921ac0894
   specs:
     cocoon (1.2.6)
@@ -289,7 +289,7 @@ GEM
       json (~> 1.4)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
-    rspec-core (3.5.3)
+    rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)

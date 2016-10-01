@@ -60,7 +60,7 @@ gem "bootstrap-datepicker-rails"
 gem "simple_form"
 
 # Formularios anidados (algunos con ajax)
-gem "cocoon", github: "vtamara/cocoon"
+gem "cocoon", git: "https://github.com/vtamara/cocoon.git"
 
 # Autenticación y roles
 gem "devise"
@@ -82,19 +82,19 @@ gem "tzinfo"
 gem "tzinfo-data"
 
 # Motor generico
-gem 'sip', github: 'pasosdeJesus/sip'
+gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
 # Motor Cor1440_gen
-gem 'cor1440_gen', github: 'pasosdeJesus/cor1440_gen'
+gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
 #gem "cor1440_gen", path: '../cor1440_gen'
 
 # Motor Sal7711_gen
-gem 'sal7711_gen', github: 'pasosdeJesus/sal7711_gen'
+gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"
 #gem "sal7711_gen", path: '../sal7711_gen'
 
 # Motor Sal7711_web
-gem 'sal7711_web', github: 'pasosdeJesus/sal7711_web'
+gem 'sal7711_web', git: "https://github.com/pasosdeJesus/sal7711_web.git"
 #gem "sal7711_web", path: '../sal7711_web'
 
 group :doc do
