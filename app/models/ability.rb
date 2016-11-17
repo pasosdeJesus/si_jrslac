@@ -5,28 +5,36 @@ class Ability  < Cor1440Gen::Ability
   BASICAS_PROPIAS = [
     ['', 'poa']
   ]
-  @@tablasbasicas = Sip::Ability::BASICAS_PROPIAS + 
-    Cor1440Gen::Ability::BASICAS_PROPIAS +
-    Sal7711Gen::Ability::BASICAS_PROPIAS + 
-    BASICAS_PROPIAS 
+  def tablasbasicas 
+    Sip::Ability::BASICAS_PROPIAS + 
+      Cor1440Gen::Ability::BASICAS_PROPIAS +
+      Sal7711Gen::Ability::BASICAS_PROPIAS + 
+      BASICAS_PROPIAS 
+  end
 
   BASICAS_ID_NOAUTO = []
-  @@basicas_id_noauto = Sip::Ability::BASICAS_ID_NOAUTO +
-    Cor1440Gen::Ability::BASICAS_ID_NOAUTO +
-    Sal7711Gen::Ability::BASICAS_ID_NOAUTO + BASICAS_ID_NOAUTO 
-  
+  def basicas_id_noauto 
+    Sip::Ability::BASICAS_ID_NOAUTO +
+      Cor1440Gen::Ability::BASICAS_ID_NOAUTO +
+      Sal7711Gen::Ability::BASICAS_ID_NOAUTO + BASICAS_ID_NOAUTO 
+  end
+
   NOBASICAS_INDSEQID = []
-  @@nobasicas_indice_seq_con_id = Sip::Ability::NOBASICAS_INDSEQID +
-    Cor1440Gen::Ability::NOBASICAS_INDSEQID +
-    Sal7711Gen::Ability::NOBASICAS_INDSEQID + NOBASICAS_INDSEQID
+  def nobasicas_indice_seq_con_id 
+    Sip::Ability::NOBASICAS_INDSEQID +
+      Cor1440Gen::Ability::NOBASICAS_INDSEQID +
+      Sal7711Gen::Ability::NOBASICAS_INDSEQID + NOBASICAS_INDSEQID
+  end
 
   BASICAS_PRIO = []
-  @@tablasbasicas_prio = Sip::Ability::BASICAS_PRIO +
-    Cor1440Gen::Ability::BASICAS_PRIO +
-    Sal7711Gen::Ability::BASICAS_PRIO + BASICAS_PRIO
+  def tablasbasicas_prio 
+    Sip::Ability::BASICAS_PRIO +
+      Cor1440Gen::Ability::BASICAS_PRIO +
+      Sal7711Gen::Ability::BASICAS_PRIO + BASICAS_PRIO
+  end
 
-  # Ver documentacion de este metodo en app/models/ability de sip
-  def initialize(usuario)
+  # Autorizaciones con CanCanCan
+  def initialize(usuario = nil)
     # Sin autenticación puede consultarse información geográfica 
     can :read, [Sip::Pais, Sip::Departamento, Sip::Municipio, Sip::Clase]
     if !usuario || usuario.fechadeshabilitacion
@@ -63,7 +71,7 @@ class Ability  < Cor1440Gen::Ability
         can :manage, Sal7711Gen::Articulo
         can :manage, Usuario
         can :manage, :tablasbasicas
-        @@tablasbasicas.each do |t|
+        tablasbasicas.each do |t|
           c = Ability.tb_clase(t)
           can :manage, c
         end
