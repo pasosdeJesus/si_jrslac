@@ -9,6 +9,9 @@ gem 'colorize'
 
 gem 'puma'
 
+# Mientras solucionan https://github.com/sparklemotion/nokogiri/issues/1569
+gem 'nokogiri', '1.6.8.1' 
+
 # CSS
 gem 'sass'
 gem "sass-rails"
@@ -96,11 +99,6 @@ gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"
 # Motor Sal7711_web
 gem 'sal7711_web', git: "https://github.com/pasosdeJesus/sal7711_web.git"
 #gem "sal7711_web", path: '../sal7711_web'
-
-group :doc do
-    # Genera documentación en doc/api con bundle exec rake doc:rails
-    gem "sdoc", require: false
-end
 
 # Los siguientes son para desarrollo o para pruebas con generadores
 group :development do
