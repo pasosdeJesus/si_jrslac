@@ -9,9 +9,6 @@ gem 'colorize'
 
 gem 'puma'
 
-# Mientras solucionan https://github.com/sparklemotion/nokogiri/issues/1569
-gem 'nokogiri', '1.6.8.1' 
-
 # CSS
 gem 'sass'
 gem "sass-rails"
