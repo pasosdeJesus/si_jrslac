@@ -25,5 +25,6 @@ module Cor1440
     config.active_record.schema_format = :sql
 
     config.x.formato_fecha = 'yyyy-mm-dd'
+    config.x.url_colchon = 'colchon-articulos' 
   end
 end
