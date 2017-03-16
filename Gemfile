@@ -122,18 +122,19 @@ group :test do
   # Acelera ejecutando en fondo.  https://github.com/jonleighton/spring
   gem "spring"
 
-  # Pruebas con rspec
-  gem 'spring-commands-rspec'
-  gem 'rspec-rails'
+  gem 'connection_pool'
+  gem 'minitest-reporters'
+  gem 'turn', :require => false
 
-  # Maneja datos de prueba
-  gem "factory_girl_rails", group: [:development, :test]
+  gem 'simplecov'
+  # Envia resultados de pruebas desde travis a codeclimate
+  gem "codeclimate-test-reporter"
 
   # https://www.relishapp.com/womply/rails-style-guide/docs/developing-rails-applications/bundler
   # Lanza programas para examinar resultados
   gem "launchy"
 
-  # Para examinar errores, usar "rescue rspec" en lugar de "rspec"
+  # Para examinar errores
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
 
