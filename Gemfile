@@ -111,9 +111,6 @@ group :test do
   # Pruebas de regresión que no requieren javascript
   gem "capybara"#, '~> 2.8.0'
   
-  # Pruebas de regresión que requieren javascript
-  gem "capybara-webkit"
-
   gem 'rails-controller-testing'
 
   # Envia resultados de pruebas desde travis a codeclimate
