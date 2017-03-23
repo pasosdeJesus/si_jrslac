@@ -2,4 +2,5 @@
 
 module ApplicationHelper
   include Sal7711Gen::ApplicationHelper
+  include FontAwesome::Rails::IconHelper
 end

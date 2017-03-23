@@ -40,4 +40,5 @@ Rails.application.routes.draw do
   mount Cor1440Gen::Engine, at: "/", as: 'cor1440_gen'
   mount Sal7711Gen::Engine, at: "/", as: 'sal7711_gen'
   mount Sal7711Web::Engine, at: "/", as: 'sal7711_web'
+  mount Heb412Gen::Engine,  at: "/", as: 'heb412_gen'
 end

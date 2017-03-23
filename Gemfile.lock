@@ -50,6 +50,11 @@ GIT
   specs:
     cocoon (1.2.6)
 
+PATH
+  remote: ../heb412_gen
+  specs:
+    heb412_gen (1.0.a1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -371,6 +376,7 @@ DEPENDENCIES
   devise
   devise-i18n
   font-awesome-rails
+  heb412_gen!
   jbuilder
   jquery-rails
   jquery-ui-rails
