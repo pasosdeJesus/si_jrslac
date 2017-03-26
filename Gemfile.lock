@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: d56f73f2264833144d703992227dd17c5e6fc639
+  revision: 61928ad8923d1db626fcc46d974a6890c0d68dac
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -9,8 +9,14 @@ GIT
       rails
 
 GIT
+  remote: https://github.com/pasosdeJesus/heb412_gen.git
+  revision: 519f61d92c3c22a46e4ff58b17cbafd5b1b54add
+  specs:
+    heb412_gen (1.0.a1)
+
+GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: c42b69d62b093142afac305bad9803ccce6e5103
+  revision: a39764427df890baf6899a0eae906c003e802bd4
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -18,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 424862a19f35565b48dcd3812be8515be995afbc
+  revision: 80435a4ef2eeb6a1ba9e7dd8280387c969ba8ff4
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -26,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: f6e698f2435d5c3276be184217c42f527c7254b5
+  revision: 18c03d9d245af3b1ad70aa8a3a59fe76676a6762
   specs:
     sip (2.0.b2)
       bootstrap-datepicker-rails
@@ -49,11 +55,6 @@ GIT
   revision: 20f8f3bab2fee21309c57b586f5fab9921ac0894
   specs:
     cocoon (1.2.6)
-
-PATH
-  remote: ../heb412_gen
-  specs:
-    heb412_gen (1.0.a1)
 
 GEM
   remote: https://rubygems.org/
@@ -334,11 +335,11 @@ GEM
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
-    tzinfo (1.2.2)
+    tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2017.1)
+    tzinfo-data (1.2017.2)
       tzinfo (>= 1.0.0)
-    uglifier (3.1.9)
+    uglifier (3.1.10)
       execjs (>= 0.3.0, < 3)
     unicorn (5.2.0)
       kgio (~> 2.6)
@@ -416,4 +417,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.14.3
+   1.14.6
