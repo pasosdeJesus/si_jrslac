@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 61928ad8923d1db626fcc46d974a6890c0d68dac
+  revision: 640f26b2caafc6e2cf21dd0387ce5166126fbd28
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -10,13 +10,13 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 519f61d92c3c22a46e4ff58b17cbafd5b1b54add
+  revision: 4ad02eecba2e67970baf32946fe9abab096b614b
   specs:
     heb412_gen (1.0.a1)
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: a39764427df890baf6899a0eae906c003e802bd4
+  revision: 1cd1f5b940bb2987fe4db8b0890693134dc965d0
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 80435a4ef2eeb6a1ba9e7dd8280387c969ba8ff4
+  revision: e3491e5f31030d1e28fe459fb677122ddb1d3fdc
   specs:
     sal7711_web (1.0.a3)
       rails
