@@ -18,4 +18,8 @@ app/views/sip/
 bin/actu.sh
 bin/s.sh
 herram/
-
+coverage
+*_test.rb.copia
+config/application.rb
+public/heb412
+.byebug_history

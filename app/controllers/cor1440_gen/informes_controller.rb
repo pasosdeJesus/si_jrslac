@@ -16,18 +16,90 @@ module Cor1440Gen
       })
     end
 
-    def completa_encabezado(enctabla)
-      if @informe.columnapoa
-        enctabla << "POA"
+    def max_columnas
+      10
+    end
+
+    def nombre_campo 
+      return {
+        'Fecha' => :fecha,
+        'Responsable' => :responsable,
+        'Objetivo' => :objetivo,
+        'Área' => :actividadarea,
+        'Poblacion' => :actividad_rangoedadac,
+        'Nombre' => :nombre,
+        'Tipo de Actividad' => :actividadtipo,
+        'Resultado' => :resultado,
+        'Observaciones' => :observaciones,
+        'Componente del POA' => :poa
+      }
+    end
+
+    def otra_columna(actividad, ncol)
+      if ncol == :poa
+        return actividad.poa.inject("") { |memo, i| 
+          (memo == "" ? "" : memo + "; ") + i.nombre }
+      else 
+        return nil
       end
     end
 
-    def completa_fila(actividad, fila)
-      if @informe.columnapoa
-        fila << actividad.poa.inject("") { |memo, i| 
-          (memo == "" ? "" : memo + "; ") + i.nombre }
+    # GET /informes/1
+    def show
+      @actividades = filtra_actividades
+      @numactividades = @actividades.size
+     
+
+      @enctabla = []
+      (1..max_columnas).each do |i|
+        @enctabla << @informe['col' + i.to_s].to_s unless 
+          @informe['col' + i.to_s].nil? || @informe['col' + i.to_s] == ''
+      end
+
+      @cuerpotabla = []
+      @actividades.try(:each) do |actividad|
+        fila = []
+        (1..max_columnas).each do |i|
+          unless @informe['col' + i.to_s].nil? || 
+            @informe['col' + i.to_s] == ''
+            nomh=@informe['col'+i.to_s]
+            unless nombre_campo[nomh].nil?
+              nomc=nombre_campo[nomh]
+              case nomc
+              when :actividadarea then
+                fila << actividad.actividadareas.inject("") { 
+                  |memo, i| 
+                  (memo == "" ? "" : memo + "; ") + i.nombre }
+              when :actividad_rangoedadac then
+                pob = actividad.actividad_rangoedadac.map { |r| 
+                  (r.ml ? r.ml : 0) + (r.mr ? r.mr : 0) +
+                    (r.fl ? r.fl : 0) + (r.fr ? r.fr : 0)
+                } 
+                fila << pob.reduce(:+)
+              when :actividadtipo then
+                fila << actividad.actividadtipo.inject("") { |memo, r| 
+                  (memo == "" ? "" : memo + "; ") + r.nombre }
+              when :proyecto then
+                fila << actividad.proyecto.inject("") { |memo, r| 
+                  (memo == "" ? "" : memo + "; ") + r.nombre }
+              when :responsable then
+                fila << actividad.responsable.nusuario
+              else
+                oc = otra_columna(actividad, nomc)
+                if (oc.nil?)
+                  fila << actividad[nomc]
+                else
+                  fila << oc
+                end
+              end
+            end
+          end
+        end
+        completa_fila(actividad, fila)
+        @cuerpotabla << fila
       end
     end
+
 
     def impreso
       @informe = Informe.find(@informe.id)
@@ -77,6 +149,8 @@ module Cor1440Gen
         :filtroactividadarea, 
         :filtroproyectofinanciero, 
         :filtropoa,
+        :col1, :col2, :col3, :col4, :col5, 
+        :col6, :col7, :col8, :col9, :col10,
         :columnanombre, :columnatipo, 
         :columnaobjetivo, :columnaproyecto, :columnapoblacion, 
         :columnapoa,

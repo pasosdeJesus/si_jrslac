@@ -21,7 +21,11 @@ if (test "$?" = "0") then {
 	echo "Gemfile incluye un sal7711_web cableado al sistema de archivos"
 	exit 1;
 } fi;
-
+grep "^ *gem.*.heb412_gen.*,.*path:" Gemfile > /dev/null 2> /dev/null
+if (test "$?" = "0") then {
+	echo "Gemfile incluye un heb412_gen cableado al sistema de archivos"
+	exit 1;
+} fi;
 
 grep "^ *gem *.debugger*" Gemfile > /dev/null 2> /dev/null
 if (test "$?" = "0") then {
@@ -53,7 +57,7 @@ if (test "$?" != "0") then {
 	exit 1;
 } fi;
 
-bundle exec rspec
+bundle exec rails test
 if (test "$?" != "0") then {
 	echo "No pasaron pruebas";
 	exit 1;

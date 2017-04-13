@@ -21,7 +21,7 @@ module Cor1440Gen
       params.require(:actividad).permit(
         :oficina_id, :nombre, 
         :objetivo, :proyecto, :resultado,
-        :fecha, :actividad, :observaciones, 
+        :fecha_localizada, :actividad, :observaciones, 
         :usuario_id,
         :lugar,
         :actividadarea_ids => [],

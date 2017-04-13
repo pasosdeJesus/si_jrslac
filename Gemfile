@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Rails (internacionalización)
-gem "rails", '~> 5.0.0'
+gem "rails", '~> 5.0'
 gem "rails-i18n"
 
 # Color en terminal
@@ -97,6 +97,10 @@ gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"
 gem 'sal7711_web', git: "https://github.com/pasosdeJesus/sal7711_web.git"
 #gem "sal7711_web", path: '../sal7711_web'
 
+# Motor Heb412_gen
+gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git"
+#gem 'heb412_gen', path: '../heb412_gen'
+
 # Los siguientes son para desarrollo o para pruebas con generadores
 group :development do
   # Depurar
@@ -111,9 +115,6 @@ group :test do
   # Pruebas de regresión que no requieren javascript
   gem "capybara"#, '~> 2.8.0'
   
-  # Pruebas de regresión que requieren javascript
-  gem "capybara-webkit"
-
   gem 'rails-controller-testing'
 
   # Envia resultados de pruebas desde travis a codeclimate
@@ -122,18 +123,19 @@ group :test do
   # Acelera ejecutando en fondo.  https://github.com/jonleighton/spring
   gem "spring"
 
-  # Pruebas con rspec
-  gem 'spring-commands-rspec'
-  gem 'rspec-rails'
+  gem 'connection_pool'
+  gem 'minitest-reporters'
+  gem 'turn', :require => false
 
-  # Maneja datos de prueba
-  gem "factory_girl_rails", group: [:development, :test]
+  gem 'simplecov'
+  # Envia resultados de pruebas desde travis a codeclimate
+  gem "codeclimate-test-reporter"
 
   # https://www.relishapp.com/womply/rails-style-guide/docs/developing-rails-applications/bundler
   # Lanza programas para examinar resultados
   gem "launchy"
 
-  # Para examinar errores, usar "rescue rspec" en lugar de "rspec"
+  # Para examinar errores
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
 

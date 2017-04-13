@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery-ui
  *= require cor1440_gen/application.css
  *= require sal7711_web/application.css
  */

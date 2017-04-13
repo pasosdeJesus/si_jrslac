@@ -49,12 +49,14 @@ class Ability  < Cor1440Gen::Ability
     if !usuario.nil? && !usuario.rol.nil? then
       case usuario.rol 
       when Ability::ROLSISTACT
+        can :read, Cor1440Gen::Proyectofinanciero
         can :read, Cor1440Gen::Actividad
         can :read, Cor1440Gen::Informe
         can :new, Cor1440Gen::Actividad
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
           oficina: { id: usuario.oficina_id}
       when Ability::ROLCOOR
+        can :read, Cor1440Gen::Proyectofinanciero
         can :read, Cor1440Gen::Actividad
         can :new, Cor1440Gen::Actividad
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
@@ -66,6 +68,7 @@ class Ability  < Cor1440Gen::Ability
         cannot :buscar, Cor1440Gen::Actividad
         can :read, Cor1440Gen::Actividad
       when Ability::ROLADMIN,Ability::ROLDIR
+        can :manage, Cor1440Gen::Proyectofinanciero
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :manage, Sal7711Gen::Articulo
