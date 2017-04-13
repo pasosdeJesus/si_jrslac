@@ -15,7 +15,8 @@
 //= require sal7711_web/motor
 //= require lazybox
 //= require chosen-jquery
-//= require jquery-ui
+//= require jquery-ui/widgets/sortable
+//= require jquery-ui/widgets/autocomplete
 //= require_tree .
 
 $(document).on('turbolinks:load ready page:load', function() {

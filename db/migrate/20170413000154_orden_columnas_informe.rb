@@ -19,17 +19,17 @@ class OrdenColumnasInforme < ActiveRecord::Migration[5.0]
     UPDATE cor1440_gen_informe SET col6='Área' WHERE columnaobjetivo;
     UPDATE cor1440_gen_informe SET col7='Población' WHERE columnapoblacion;
     SQL
-#    execute <<-SQL
-#    ALTER TABLE cor1440_gen_informe ALTER col1 SET DEFAULT 'Fecha';
-#    ALTER TABLE cor1440_gen_informe ALTER col2 SET DEFAULT 'Responsable';
-#    ALTER TABLE cor1440_gen_informe ALTER col3 SET DEFAULT 'Nombre';
-#    ALTER TABLE cor1440_gen_informe ALTER col4 SET DEFAULT 'Tipo de Actividad';
-#    ALTER TABLE cor1440_gen_informe ALTER col5 SET DEFAULT 'Objetivo';
-#    ALTER TABLE cor1440_gen_informe ALTER col6 SET DEFAULT 'Área';
-#    ALTER TABLE cor1440_gen_informe ALTER col7 SET DEFAULT 'Población';
-#    ALTER TABLE cor1440_gen_informe ALTER col8 SET DEFAULT 'Resultado';
-#    ALTER TABLE cor1440_gen_informe ALTER col9 SET DEFAULT 'Observaciones';
-#    SQL
+    execute <<-SQL
+    ALTER TABLE cor1440_gen_informe ALTER col1 SET DEFAULT 'Fecha';
+    ALTER TABLE cor1440_gen_informe ALTER col2 SET DEFAULT 'Responsable';
+    ALTER TABLE cor1440_gen_informe ALTER col3 SET DEFAULT 'Nombre';
+    ALTER TABLE cor1440_gen_informe ALTER col4 SET DEFAULT 'Tipo de Actividad';
+    ALTER TABLE cor1440_gen_informe ALTER col5 SET DEFAULT 'Objetivo';
+    ALTER TABLE cor1440_gen_informe ALTER col6 SET DEFAULT 'Área';
+    ALTER TABLE cor1440_gen_informe ALTER col7 SET DEFAULT 'Población';
+    ALTER TABLE cor1440_gen_informe ALTER col8 SET DEFAULT 'Resultado';
+    ALTER TABLE cor1440_gen_informe ALTER col9 SET DEFAULT 'Observaciones';
+    SQL
   end
 
   def down

@@ -25,9 +25,8 @@ module Cor1440Gen
         'Fecha' => :fecha,
         'Responsable' => :responsable,
         'Objetivo' => :objetivo,
-        B
         'Área' => :actividadarea,
-        'Poblacion' => :actividad_rangoedadac,
+        'Población' => :actividad_rangoedadac,
         'Nombre' => :nombre,
         'Tipo de Actividad' => :actividadtipo,
         'Resultado' => :resultado,
@@ -96,7 +95,6 @@ module Cor1440Gen
             end
           end
         end
-        completa_fila(actividad, fila)
         @cuerpotabla << fila
       end
     end
@@ -145,7 +143,7 @@ module Cor1440Gen
 
     def informe_params
       r = params.require(:informe).permit(
-        :titulo, :filtrofechaini, :filtrofechafin, 
+        :titulo, :filtrofechaini_localizada, :filtrofechafin_localizada, 
         :filtroproyecto, 
         :filtroactividadarea, 
         :filtroproyectofinanciero, 

@@ -519,15 +519,16 @@ CREATE TABLE cor1440_gen_informe (
     columnapoa boolean,
     columnafecha boolean,
     columnaresponsable boolean,
-    col1 character varying(100),
-    col2 character varying(100),
-    col3 character varying(100),
-    col4 character varying(100),
-    col5 character varying(100),
+    col1 character varying(100) DEFAULT 'Componente del POA'::character varying,
+    col2 character varying(100) DEFAULT 'Nombre'::character varying,
+    col3 character varying(100) DEFAULT 'Tipo de Actividad'::character varying,
+    col4 character varying(100) DEFAULT 'Resultado'::character varying,
+    col5 character varying(100) DEFAULT 'Observaciones'::character varying,
     col6 character varying(100),
     col7 character varying(100),
     col8 character varying(100),
-    col9 character varying(100)
+    col9 character varying(100),
+    col10 character varying(100)
 );
 
 
@@ -2675,6 +2676,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20161108102349'),
 ('20161212175928'),
 ('20170405104322'),
-('20170413000154');
+('20170413000154'),
+('20170413141755');
 
 

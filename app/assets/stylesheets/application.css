@@ -12,7 +12,8 @@
  *
  *= require_self
  *= require_tree .
- *= require jquery-ui
+ *= require jquery-ui/sortable
+ *= require jquery-ui/autocomplete
  *= require cor1440_gen/application.css
  *= require sal7711_web/application.css
  */
