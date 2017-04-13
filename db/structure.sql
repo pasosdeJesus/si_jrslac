@@ -527,8 +527,7 @@ CREATE TABLE cor1440_gen_informe (
     col6 character varying(100),
     col7 character varying(100),
     col8 character varying(100),
-    col9 character varying(100),
-    col10 character varying(100)
+    col9 character varying(100)
 );
 
 

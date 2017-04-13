@@ -25,6 +25,7 @@ module Cor1440Gen
         'Fecha' => :fecha,
         'Responsable' => :responsable,
         'Objetivo' => :objetivo,
+        B
         'Área' => :actividadarea,
         'Poblacion' => :actividad_rangoedadac,
         'Nombre' => :nombre,
