@@ -15,6 +15,7 @@
 //= require sal7711_web/motor
 //= require lazybox
 //= require chosen-jquery
+//= require jquery-ui
 //= require_tree .
 
 $(document).on('turbolinks:load ready page:load', function() {
@@ -35,6 +36,21 @@ $(document).on('turbolinks:load ready page:load', function() {
 		todayHighlight: true,
 		language: 'es'	
 	});
+
+	$( "#sortable1, #sortable2" ).sortable({
+		connectWith: ".connectedSortable"
+	}).disableSelection();
+
+	$(document).on('click', 'form[action*=informes] input[name=commit]', 
+	  	function(e) {
+
+			$('input[id^=informe_col]').each(function(i, d) {
+				$(d).val('')
+			})
+			$('#sortable2 li').each(function(i, d) {
+				$('#informe_col' + (i+1)).val($(d).text())
+			}) 
+		})
 });
 
 

@@ -1,0 +1,38 @@
+<%
+    sel = []
+    (1..controller.max_columnas).each do |i|
+       if @informe && !@informe['col' + i.to_s].nil? &&
+         @informe['col' + i.to_s] != ''
+         sel << @informe['col' + i.to_s]
+       end
+    end
+    nosel = []
+    controller.nombre_campo.each do |nh, nc| 
+      if !sel.include? nh
+        nosel << nh
+      end
+    end
+%>
+
+<div class="row">
+  <div class="col-xs-6 col-m-3"><p>Disponibles</p>
+    <ul id="sortable1" class="connectedSortable">
+      <% nosel.each do |i| %>
+          <li class="ui-state-default"><%= i %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-xs-6 col-m-3"><p>Por presentar (en este orden)</p>
+    <ul id="sortable2" class="connectedSortable">
+      <% sel.each do |i| %>
+          <li class="ui-state-default"><%= i %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<% (1..controller.max_columnas).each do |i| %>
+  <% nc = 'col' + i.to_s %>
+  <%= f.input nc.to_sym, as: :hidden %>
+<% end %>

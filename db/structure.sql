@@ -518,7 +518,17 @@ CREATE TABLE cor1440_gen_informe (
     filtrooficina integer,
     columnapoa boolean,
     columnafecha boolean,
-    columnaresponsable boolean
+    columnaresponsable boolean,
+    col1 character varying(100),
+    col2 character varying(100),
+    col3 character varying(100),
+    col4 character varying(100),
+    col5 character varying(100),
+    col6 character varying(100),
+    col7 character varying(100),
+    col8 character varying(100),
+    col9 character varying(100),
+    col10 character varying(100)
 );
 
 
@@ -2665,6 +2675,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20161103083352'),
 ('20161108102349'),
 ('20161212175928'),
-('20170405104322');
+('20170405104322'),
+('20170413000154');
 
 

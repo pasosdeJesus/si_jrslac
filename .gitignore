@@ -16,3 +16,5 @@ tmp/
 archivos
 coverage
 *_test.rb.copia
+config/application.rb
+public/heb412
