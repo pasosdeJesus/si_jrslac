@@ -103,11 +103,14 @@ gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git"
 
 # Los siguientes son para desarrollo o para pruebas con generadores
 group :development do
-  # Depurar
-  #gem 'byebug'
 
   # Consola irb en páginas con excepciones o usando <%= console %> en vistas
   gem 'web-console'
+end
+
+group :development, :test do
+  # Depurar
+  #gem 'byebug'
 end
 
 # Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo
