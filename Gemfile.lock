@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 8b8751004c1f1ea4927d633ee4a1f6f623ce7982
+  revision: 8d90f4322bf1fa1aa7dcaca352b72c1d59b28ef6
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 6e71d00860e13f94f5eca82fb2b02c4e901b90d8
+  revision: 66b99e615e06e76b3ee4aac445879133b0087ca5
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 7ca6f6e3729282d900f16e695d0d54c34ff6f6fc
+  revision: 5faa45b2275648b684a4e75811cb1666db72c750
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 8d50d2d1854bcf061bb99fa9716ed8c7f98c25c2
+  revision: 5108360fbc2ddd1a63fdec4286397e407f54798e
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -38,11 +38,12 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 0c513925e6872c57543fd27ed66856064026d0a6
+  revision: 3ed95de0d8aff70017c643e100643b8f05a8ef65
   specs:
-    sip (2.0.b2)
+    sip (2.0.b3)
       bootstrap-datepicker-rails
       cancancan
+      chosen-rails
       colorize
       devise
       devise-i18n
@@ -176,8 +177,8 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     i18n (0.8.1)
     interception (0.5)
     jbuilder (2.6.3)
