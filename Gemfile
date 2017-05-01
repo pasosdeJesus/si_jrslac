@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Rails (internacionalización)
-gem "rails", '~> 5.0'
+gem "rails", '5.0.2'
 gem "rails-i18n"
 
 # Color en terminal
