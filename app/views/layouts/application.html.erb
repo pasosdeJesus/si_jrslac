@@ -32,6 +32,10 @@
         <% if current_usuario.rol == Ability::ROLADMIN || current_usuario.rol == Ability::ROLDIR %>
           <%= menu_item "Tablas Básicas", sip.tablasbasicas_path %>
         <% end %>
+        <% if can? :manage, Heb412Gen::Doc %>
+          <%= menu_item "Definir plantilla para listado en hoja de calculo",  
+            heb412_gen.new_plantillahcm_path %>
+        <% end %>
       <% end %>
       <%= menu_item "Salir #{current_usuario.nusuario}", main_app.sign_out_path %>
     <% else %>

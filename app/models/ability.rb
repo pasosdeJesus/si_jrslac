@@ -55,6 +55,7 @@ class Ability  < Cor1440Gen::Ability
         can :new, Cor1440Gen::Actividad
         can [:update, :create, :destroy], Cor1440Gen::Actividad, 
           oficina: { id: usuario.oficina_id}
+        can :read, Heb412Gen::Doc
       when Ability::ROLCOOR
         can :read, Cor1440Gen::Proyectofinanciero
         can :read, Cor1440Gen::Actividad
@@ -64,6 +65,7 @@ class Ability  < Cor1440Gen::Ability
         can [:new, :update, :create, :destroy], Cor1440Gen::Informe
         can :new, Usuario
         can [:read, :manage], Usuario, oficina: { id: usuario.oficina_id}
+        can :read, Heb412Gen::Doc
       when Ability::ROLINV
         cannot :buscar, Cor1440Gen::Actividad
         can :read, Cor1440Gen::Actividad
@@ -73,6 +75,7 @@ class Ability  < Cor1440Gen::Ability
         can :manage, Cor1440Gen::Informe
         can :manage, Sal7711Gen::Articulo
         can :manage, Usuario
+        can :manage, Heb412Gen::Doc
         can :manage, :tablasbasicas
         tablasbasicas.each do |t|
           c = Ability.tb_clase(t)

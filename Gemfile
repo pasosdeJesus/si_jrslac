@@ -29,6 +29,10 @@ gem "prawn-table"
 # Plantilla ODT
 gem "odf-report"
 
+# Plantilla ODS
+gem 'rspreadsheet'
+gem 'libxml-ruby'
+
 # Postgresql
 gem "pg"
 
