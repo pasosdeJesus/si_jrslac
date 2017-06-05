@@ -144,10 +144,12 @@ module Cor1440Gen
     def informe_params
       r = params.require(:informe).permit(
         :titulo, :filtrofechaini_localizada, :filtrofechafin_localizada, 
+        :filtrooficina, 
         :filtroproyecto, 
         :filtroactividadarea, 
         :filtroproyectofinanciero, 
         :filtropoa,
+        :filtroresponsable,
         :col1, :col2, :col3, :col4, :col5, 
         :col6, :col7, :col8, :col9, :col10,
         :columnanombre, :columnatipo, 

@@ -49,6 +49,7 @@ $(document).on('turbolinks:load ready page:load', function() {
 				$(d).val('')
 			})
 			$('#sortable2 li').each(function(i, d) {
+				debugger
 				$('#informe_col' + (i+1)).val($(d).text())
 			}) 
 		})
