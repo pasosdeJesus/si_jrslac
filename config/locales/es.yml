@@ -1,7 +1,11 @@
 es:
   attributes:
+    actividadarea: Área de actividad
+    actividadareas: Áreas de actividad
     poa: Plan Operativo Anual
     poas: Plan Operativo Anual
+    proyecto: Proyecto
+    proyectos: Proyectos
   activerecord:
     models:
       "cor1440_gen/proyectofinanciero":
@@ -14,6 +18,15 @@ es:
       "cor1440_gen/informe":
         contextointerno:  Contexto interno
         contextoexterno:  Contexto externo
+      "cor1440_gen/actividadarea":
+        Actividadarea: Área de actividad
+        Actividadareas: Áreas de actividad
+      "cor1440_gen/informe":
+        filtroactividadarea: Área
+        filtroproyecto: Proyecto
+      "cor1440_gen/proyecto":
+        Proyecto: Proyecto
+        Proyectos: Proyectos
       "sip/departamento":
         Departamento: Departamento/Estado/Provincia
         Departamentos: Departamentos/Estados/Provincias
