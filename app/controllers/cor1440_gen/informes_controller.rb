@@ -107,6 +107,10 @@ module Cor1440Gen
         r.add_field(:numact, @actividades.size)
         r.add_table("ACTIVIDADES", @actividades) do |t|
           t.add_column(:nombreact) { |ac| "#{ac.nombre}" }
+          t.add_column(:resultadoact) { |ac| 
+            "#{ac.resultado}" 
+          }
+          t.add_column(:observacionesact) { |ac| "#{ac.observaciones}" }
           t.add_column(:tipoact) { |ac| 
             ac.actividadtipo.inject("") { |memo, i| 
               (memo == "" ? "" : memo + "; ") + i.nombre }

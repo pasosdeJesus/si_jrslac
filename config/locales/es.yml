@@ -15,15 +15,14 @@ es:
       "poa":
         Poa: Plan Operativo Anual
         Poas: Plan Operativo Anual
-      "cor1440_gen/informe":
-        contextointerno:  Contexto interno
-        contextoexterno:  Contexto externo
       "cor1440_gen/actividadarea":
         Actividadarea: Área de actividad
         Actividadareas: Áreas de actividad
       "cor1440_gen/informe":
         filtroactividadarea: Área
         filtroproyecto: Proyecto
+        contextointerno:  Contexto interno
+        contextoexterno:  Contexto externo
       "cor1440_gen/proyecto":
         Proyecto: Proyecto
         Proyectos: Proyectos
