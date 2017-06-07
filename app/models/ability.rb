@@ -9,7 +9,10 @@ class Ability  < Cor1440Gen::Ability
     Sip::Ability::BASICAS_PROPIAS + 
       Cor1440Gen::Ability::BASICAS_PROPIAS +
       Sal7711Gen::Ability::BASICAS_PROPIAS + 
-      BASICAS_PROPIAS - [['Sip', 'grupo']]
+      BASICAS_PROPIAS - [
+        ['Sip', 'grupo'],
+        ['Cor1440Gen', 'proyecto']
+      ]
   end
 
   BASICAS_ID_NOAUTO = []

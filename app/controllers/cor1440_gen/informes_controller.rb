@@ -9,7 +9,6 @@ module Cor1440Gen
       return Cor1440Gen::ActividadesController.filtra({
         fechaini: @informe.filtrofechaini,
         fechafin: @informe.filtrofechafin,
-        busproyecto: @informe.filtroproyecto,
         busarea: @informe.filtroactividadarea,
         busproyectofinanciero: @informe.filtroproyectofinanciero,
         buspoa: @informe.filtropoa
@@ -79,9 +78,6 @@ module Cor1440Gen
               when :actividadtipo then
                 fila << actividad.actividadtipo.inject("") { |memo, r| 
                   (memo == "" ? "" : memo + "; ") + r.nombre }
-              when :proyecto then
-                fila << actividad.proyecto.inject("") { |memo, r| 
-                  (memo == "" ? "" : memo + "; ") + r.nombre }
               when :responsable then
                 fila << actividad.responsable.nusuario
               else
@@ -145,7 +141,6 @@ module Cor1440Gen
       r = params.require(:informe).permit(
         :titulo, :filtrofechaini_localizada, :filtrofechafin_localizada, 
         :filtrooficina, 
-        :filtroproyecto, 
         :filtroactividadarea, 
         :filtroproyectofinanciero, 
         :filtropoa,
@@ -153,7 +148,7 @@ module Cor1440Gen
         :col1, :col2, :col3, :col4, :col5, 
         :col6, :col7, :col8, :col9, :col10,
         :columnanombre, :columnatipo, 
-        :columnaobjetivo, :columnaproyecto, :columnapoblacion, 
+        :columnaobjetivo, :columnaareaactividad, :columnapoblacion, 
         :columnapoa,
         :recomendaciones, :avances, :logros, :dificultades,
         :contextointerno, :contextoexterno
