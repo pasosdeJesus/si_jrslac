@@ -90,8 +90,8 @@ gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
 # Motor Cor1440_gen
-#gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
-gem "cor1440_gen", path: '../cor1440_gen'
+gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
+#gem "cor1440_gen", path: '../cor1440_gen'
 
 # Motor Sal7711_gen
 gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"
