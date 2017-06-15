@@ -174,6 +174,38 @@ CREATE TABLE actividad_poa (
 
 
 --
+-- Name: actividadpf; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE actividadpf (
+    id integer NOT NULL,
+    proyectofinanciero_id integer,
+    nombrecorto character varying(15),
+    titulo character varying(255),
+    descripcion character varying(5000)
+);
+
+
+--
+-- Name: actividadpf_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE actividadpf_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: actividadpf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE actividadpf_id_seq OWNED BY actividadpf.id;
+
+
+--
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1570,6 +1602,13 @@ CREATE TABLE usuario (
 
 
 --
+-- Name: actividadpf id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividadpf ALTER COLUMN id SET DEFAULT nextval('actividadpf_id_seq'::regclass);
+
+
+--
 -- Name: cor1440_gen_actividad id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1767,6 +1806,14 @@ ALTER TABLE ONLY cor1440_gen_actividadarea
 
 ALTER TABLE ONLY cor1440_gen_actividadareas_actividad
     ADD CONSTRAINT actividadareas_actividad_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: actividadpf actividadpf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividadpf
+    ADD CONSTRAINT actividadpf_pkey PRIMARY KEY (id);
 
 
 --
@@ -2446,6 +2493,14 @@ ALTER TABLE ONLY heb412_gen_campoplantillahcm
 
 
 --
+-- Name: actividadpf fk_rails_f941b0c512; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividadpf
+    ADD CONSTRAINT fk_rails_f941b0c512 FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
+
+
+--
 -- Name: sal7711_gen_articulo_categoriaprensa fk_rails_fcf649bab3; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2754,6 +2809,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170413000154'),
 ('20170413141755'),
 ('20170413185012'),
-('20170414035328');
+('20170414035328'),
+('20170607125033');
 
 
