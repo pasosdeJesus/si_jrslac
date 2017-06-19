@@ -1,0 +1,15 @@
+<div class='control-group nested-fields'>
+  <div class="controls">
+    <%  f.object = ::Actividadpf.new if !f.object %>
+
+    <%= f.input :nombrecorto %>
+    <%= f.input :titulo %>
+    <%= f.input :descripcion %>
+
+    <%= f.input :id, as: :hidden %>
+
+    <%= link_to_remove_association "Eliminar Actividad de Convenio", 
+      f, :class => 'btn-danger' 
+    %> 
+  </div>
+</div>

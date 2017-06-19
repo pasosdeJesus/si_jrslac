@@ -10,5 +10,10 @@ module Cor1440Gen
       class_name: '::ActividadPoa', foreign_key: 'actividad_id'
     has_many :poa, through: :actividad_poa,
       class_name: '::Poa'
+
+    has_many :actividad_actividadpf, dependent: :delete_all,
+      class_name: '::ActividadActividadpf', foreign_key: 'actividad_id'
+    has_many :actividadpf, through: :actividad_actividadpf,
+      class_name: '::Actividadpf'
   end
 end

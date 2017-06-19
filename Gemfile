@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Rails (internacionalización)
-gem "rails", '5.0.2'
+gem "rails", '~>5.0.0'
 gem "rails-i18n"
 
 # Color en terminal
@@ -86,12 +86,12 @@ gem "tzinfo"
 gem "tzinfo-data"
 
 # Motor generico
-gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
-#gem 'sip', path: '../sip'
+#gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
+gem 'sip', path: '../sip'
 
 # Motor Cor1440_gen
-gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
-#gem "cor1440_gen", path: '../cor1440_gen'
+#gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
+gem "cor1440_gen", path: '../cor1440_gen'
 
 # Motor Sal7711_gen
 gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"

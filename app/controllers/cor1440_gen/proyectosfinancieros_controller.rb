@@ -16,7 +16,12 @@ module Cor1440Gen
       [ "compromisos", 
         "monto",
         "observaciones"
+      ] +
+      [ :actividadpf_attributes =>  [
+          :id, :nombrecorto, :titulo, 
+          :descripcion, :_destroy ] 
       ] 
+
     end
 
   end

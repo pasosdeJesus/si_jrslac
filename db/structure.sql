@@ -164,6 +164,16 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: actividad_actividadpf; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE actividad_actividadpf (
+    actividad_id integer NOT NULL,
+    actividadpf_id integer NOT NULL
+);
+
+
+--
 -- Name: actividad_poa; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2293,6 +2303,14 @@ ALTER TABLE ONLY sip_departamento
 
 
 --
+-- Name: actividad_actividadpf fk_rails_08b9aa072b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividad_actividadpf
+    ADD CONSTRAINT fk_rails_08b9aa072b FOREIGN KEY (actividadpf_id) REFERENCES actividadpf(id);
+
+
+--
 -- Name: cor1440_gen_financiador_proyectofinanciero fk_rails_0cd09d688c; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2442,6 +2460,14 @@ ALTER TABLE ONLY sal7711_gen_articulo
 
 ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
     ADD CONSTRAINT fk_rails_a8489e0d62 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
+
+
+--
+-- Name: actividad_actividadpf fk_rails_baad271930; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividad_actividadpf
+    ADD CONSTRAINT fk_rails_baad271930 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
 
 
 --
