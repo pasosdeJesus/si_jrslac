@@ -77,7 +77,8 @@ class Ability  < Cor1440Gen::Ability
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :manage, Sal7711Gen::Articulo
-        can :manage, Usuario
+        can :manage, ::Usuario
+        can :manage, Sip::Respaldo7z
         can :manage, Heb412Gen::Doc
         can :manage, :tablasbasicas
         tablasbasicas.each do |t|
