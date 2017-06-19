@@ -1,6 +1,18 @@
 GIT
+  remote: https://github.com/pasosdeJesus/cor1440_gen.git
+  revision: 5a0425906135362c830ec115dd228f326907780c
+  specs:
+    cor1440_gen (1.0.b1)
+      devise
+      heb412_gen
+      jquery-rails
+      paperclip
+      rails
+      sip
+
+GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 904473087a3c03c7fd2c6d2e0c76bd3275be2ff6
+  revision: e18fa12285cf1c34ef263d2604fa1f7739429d17
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -25,24 +37,8 @@ GIT
       sal7711_gen
 
 GIT
-  remote: https://github.com/vtamara/cocoon.git
-  revision: 20f8f3bab2fee21309c57b586f5fab9921ac0894
-  specs:
-    cocoon (1.2.6)
-
-PATH
-  remote: ../cor1440_gen
-  specs:
-    cor1440_gen (1.0.b1)
-      devise
-      heb412_gen
-      jquery-rails
-      paperclip
-      rails
-      sip
-
-PATH
-  remote: ../sip
+  remote: https://github.com/pasosdeJesus/sip.git
+  revision: 4fcfe4d225560fdc1259ea8023a14fc831cd0070
   specs:
     sip (2.0.b3)
       bootstrap-datepicker-rails
@@ -61,6 +57,12 @@ PATH
       twitter-bootstrap-rails
       twitter_cldr
       will_paginate
+
+GIT
+  remote: https://github.com/vtamara/cocoon.git
+  revision: 20f8f3bab2fee21309c57b586f5fab9921ac0894
+  specs:
+    cocoon (1.2.6)
 
 GEM
   remote: https://rubygems.org/
