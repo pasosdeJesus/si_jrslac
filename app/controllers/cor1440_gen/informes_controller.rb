@@ -79,8 +79,8 @@ module Cor1440Gen
                 fila << actividad.actividadtipo.inject("") { |memo, r| 
                   (memo == "" ? "" : memo + "; ") + r.nombre }
               when :responsable then
-                fila << actividad.responsable ? actividad.responsable.nusuario :
-                  ''
+                fila << (!actividad.responsable.nil? ? 
+                  actividad.responsable.nusuario : '')
               else
                 oc = otra_columna(actividad, nomc)
                 if (oc.nil?)
