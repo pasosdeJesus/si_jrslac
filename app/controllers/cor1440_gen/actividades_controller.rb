@@ -84,6 +84,7 @@ module Cor1440Gen
         :usuario_id,
         :lugar,
         :actividadarea_ids => [],
+        :actividadpf_ids => [],
         :actividadtipo_ids => [],
         :poa_ids => [],
         :proyecto_ids => [],

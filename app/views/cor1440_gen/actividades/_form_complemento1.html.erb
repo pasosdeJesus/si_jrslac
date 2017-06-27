@@ -4,3 +4,11 @@
   value_method: :id,
   input_html: { class: 'chosen-select' }
 %>
+
+<%= f.association :actividadpf, 
+  collection: ::Actividadpf.where(proyectofinanciero_id: 
+                                  f.object.proyectofinanciero.map(&:id)),
+  label_method: lambda { |t| t.nombrecorto + ':' + t.titulo},
+  value_method: :id,
+  input_html: { class: 'chosen-select' }
+%>
