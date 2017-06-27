@@ -5,6 +5,9 @@ class Actividadpf < ActiveRecord::Base
     class_name: '::ActividadActividadpf', foreign_key: 'actividadpf_id'
   has_many :actividad, through: :actividad_actividadpf,
     class_name: 'Cor1440Gen::Actividad'
+  belongs_to :proyectofinanciero, 
+    class_name: 'Cor1440Gen::Proyectofinanciero',
+    foreign_key: 'proyectofinanciero_id'
 
   validates :nombrecorto, length: {maximum: 15}
   validates :titulo, length: {maximum: 255}

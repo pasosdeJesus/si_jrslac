@@ -12,9 +12,16 @@ es:
         one: Convenio Financiado
         other: Convenios Financiados
     attributes:
+      "actividadpf":
+        actividadpf: Actividad de convenio
+        nombrecorto: Nombre corto
+        titulo: Título
+        descripcion: Descripción
       "poa":
         Poa: Plan Operativo Anual
         Poas: Plan Operativo Anual
+      "cor1440_gen/actividad":
+        actividadpf: Actividad de convenio
       "cor1440_gen/actividadarea":
         Actividadarea: Área de actividad
         Actividadareas: Áreas de actividad
@@ -26,6 +33,9 @@ es:
       "cor1440_gen/proyecto":
         Proyecto: Proyecto
         Proyectos: Proyectos
+      "cor1440_gen/proyectofinanciero":
+        "{:actividadpf_attributes=>[:id, :nombrecorto, :titulo, :descripcion, :_destroy]}": Actividad de convenio
+        actividadpf: Actividad de convenio
       "sip/departamento":
         Departamento: Departamento/Estado/Provincia
         Departamentos: Departamentos/Estados/Provincias
