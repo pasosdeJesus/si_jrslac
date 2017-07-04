@@ -51,7 +51,10 @@ $(document).on('turbolinks:load ready page:load', function() {
 			$('#sortable2 li').each(function(i, d) {
 				$('#informe_col' + (i+1)).val($(d).text())
 			}) 
-		})
+		}
+	)
+	prepara_actividadpf(root)
+
 });
 
 

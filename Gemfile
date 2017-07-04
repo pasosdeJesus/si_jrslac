@@ -32,7 +32,7 @@ gem "odf-report"
 # Plantilla ODS
 gem 'rspreadsheet'
 gem 'libxml-ruby'
-gem 'rubyzip', '~> 1.1' # requerido por odf-report
+gem 'rubyzip', '~> 1.1'  # Por odf-report al pasar a 1.2 con zip-zip genera mal documento
 
 # Postgresql
 gem "pg"
@@ -115,7 +115,7 @@ end
 
 group :development, :test do
   # Depurar
-  #gem 'byebug'
+  gem 'byebug'
 end
 
 # Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo

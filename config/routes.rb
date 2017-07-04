@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
   resources :usuarios, path_names: { new: 'nuevo', edit: 'edita' } 
 
+  #get '/actividadespf/' => 'actividadespf/porfecha', as: :actividadespf
   get "/informes/:id/impreso" => "cor1440_gen/informes#impreso", 
     as: :impresion
 
