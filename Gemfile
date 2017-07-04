@@ -32,8 +32,8 @@ gem "odf-report"
 # Plantilla ODS
 gem 'rspreadsheet'
 gem 'libxml-ruby'
-gem 'rubyzip', '~> 1.2'
-gem 'zip-zip' # Comptabilidad con rubyzip-1.1.x por falta de actualización de odf-report aunque enviamos actualización https://github.com/sandrods/odf-report/issues/87
+gem 'rubyzip', '~> 1.1' # requerido por odf-report
+
 # Postgresql
 gem "pg"
 
