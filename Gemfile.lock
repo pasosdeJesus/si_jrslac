@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: a7ab7bbbd325e75512ba6d24e20fc2d0e9619224
+  revision: c03c404db213af944e5cda79349f5a758ab575d7
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 4892f5b6a74045a6358f6c06c953aabd1dbf2989
+  revision: 3782caf5f751faa8f7f0732ed785c0cdec3cc0c0
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 7c2f16ccda6a32c99799e852bf6cc1cd714310b7
+  revision: d584b91d351869c26130adfb84b58f1da6f5704a
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: b647ecec658d25353e5939c4de5cf993755a3719
+  revision: c40488b4b43bb1bb7804f6eca10c8cd0cba2efad
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -116,7 +116,6 @@ GEM
     bootstrap-datepicker-rails (1.6.4.1)
       railties (>= 3.0)
     builder (3.2.3)
-    byebug (9.0.6)
     camertron-eprun (1.1.1)
     cancancan (2.0.0)
     capybara (2.14.4)
@@ -380,7 +379,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootstrap-datepicker-rails
-  byebug
   cancancan
   capybara
   chosen-rails
