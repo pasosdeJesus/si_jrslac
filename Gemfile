@@ -133,11 +133,8 @@ group :test do
 
   gem 'connection_pool'
   gem 'minitest-reporters'
-  gem 'turn', :require => false
 
   gem 'simplecov'
-  # Envia resultados de pruebas desde travis a codeclimate
-  gem "codeclimate-test-reporter"
 
   # https://www.relishapp.com/womply/rails-style-guide/docs/developing-rails-applications/bundler
   # Lanza programas para examinar resultados

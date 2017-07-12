@@ -134,8 +134,6 @@ GEM
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
-    codeclimate-test-reporter (1.0.8)
-      simplecov (<= 0.13)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -317,7 +315,7 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
-    simplecov (0.13.0)
+    simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
@@ -339,8 +337,6 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
-    turn (0.9.6)
-      ansi
     twitter-bootstrap-rails (4.0.0)
       actionpack (~> 5.0, >= 5.0.1)
       execjs (~> 2.7)
@@ -383,7 +379,6 @@ DEPENDENCIES
   capybara
   chosen-rails
   cocoon!
-  codeclimate-test-reporter
   coffee-rails
   colorize
   compass-rails
@@ -424,7 +419,6 @@ DEPENDENCIES
   sip!
   spring
   turbolinks
-  turn
   twitter-bootstrap-rails
   twitter_cldr
   tzinfo
