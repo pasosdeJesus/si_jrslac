@@ -5,17 +5,6 @@ module Cor1440Gen
   class ProyectosfinancierosController < Sip::ModelosController
     include Cor1440Gen::Concerns::Controllers::ProyectosfinancierosController
 
-    include Sip::FormatoFechaHelper
-
-    def index
-      c = nil
-      if params[:fecha] && params[:fecha] != ''
-        fecha = fecha_local_estandar params[:fecha]
-        c = Cor1440Gen::Proyectofinanciero.where('fechainicio <= ? AND
-            ? <= fechacierre ', fecha, fecha)
-      end
-      super(c)
-    end  
 
     def actividadespf
       pfl = []
