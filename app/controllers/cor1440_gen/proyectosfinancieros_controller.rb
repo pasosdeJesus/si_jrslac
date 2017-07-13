@@ -5,7 +5,6 @@ module Cor1440Gen
   class ProyectosfinancierosController < Sip::ModelosController
     include Cor1440Gen::Concerns::Controllers::ProyectosfinancierosController
 
-
     def actividadespf
       pfl = []
       if params[:pfl] && params[:pfl] != ''
