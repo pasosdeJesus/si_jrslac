@@ -100,7 +100,6 @@ module Cor1440Gen
     def impreso
       @informe = Informe.find(@informe.id)
       @actividades = filtra_actividades
-      byebug
 
       # Ejemplo de https://github.com/sandrods/odf-report
       report = ODFReport::Report.new("#{Rails.root}/app/reportes/Plantilla-InformeActividades.odt") do |r|
