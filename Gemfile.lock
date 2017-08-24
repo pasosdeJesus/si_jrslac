@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 0f034c7218654dca8693c236a999738e1e9668da
+  revision: e726d55fd04ee5968b988b2e2024263daab7cf95
   specs:
     cor1440_gen (1.0.b1)
       devise
@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 4aef58379d1297f69b09656432c69885f01085f8
+  revision: 030ea5c743e694d23d92fae4401624fdb60c31d1
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 8dafa16b551efe657a41065fa53e4f7e6924e21a
+  revision: efcd83c643af00c15eea0c61d7e67686db6d55b2
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: fa1ea4fed3590bcf921697912dbf2277e3c3eb4e
+  revision: 31d1a87eb8902aa98a3dc06ffb81421a4b5afeff
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 6214b17dfa0d632a01e912d6e557d3eb1b2b9d9a
+  revision: a9c912fc40bbde92909172e816fdb0a8d379e2ae
   specs:
     sip (2.0.b4)
       bootstrap-datepicker-rails
@@ -214,7 +214,7 @@ GEM
     mini_mime (0.1.4)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
-    minitest-reporters (1.1.15)
+    minitest-reporters (1.1.16)
       ansi
       builder
       minitest (>= 5.0)
@@ -430,4 +430,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.15.3
+   1.15.4
