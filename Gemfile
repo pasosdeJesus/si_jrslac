@@ -12,7 +12,6 @@ gem 'puma'
 # CSS
 gem 'sass'
 gem "sass-rails"
-gem "compass-rails"
 gem "font-awesome-rails"
 
 # Cuadros de selección para búsquedas
