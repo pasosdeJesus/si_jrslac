@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 16ed13598fdf5ac222e5753b039e7ae2c4e3a40d
+  revision: cf6f54265cae1f4b9c6f1a443c5dcc712b98e503
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 01c7c6c855f4c02265a412b9ecd2d2ab8ae4afca
+  revision: 2586e5f6691d028ec75c506468aa0edeea586ec0
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: c06de2343aed4245dfcee34cc084f01d01f5e646
+  revision: c03635502663fe755af92a8c3e479e76effb2056
   specs:
     sal7711_web (1.0.a3)
       rails
