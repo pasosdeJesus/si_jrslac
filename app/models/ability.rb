@@ -38,11 +38,7 @@ class Ability  < Cor1440Gen::Ability
 
   ROLES = [
       ["Administrador", ROLADMIN], 
-      ["", 0], 
       ["Directivo", ROLDIR], 
-      ["", 0], 
-      ["", 0], 
-      ["", 0], 
       ["Sistematizador de Actividades", ROLSISTACT]
   ]
 
@@ -95,12 +91,14 @@ class Ability  < Cor1440Gen::Ability
         can :manage, Cor1440Gen::Informe
         can :read, Cor1440Gen::Proyectofinanciero
         can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantillahcm
       when Ability::ROLADMIN,Ability::ROLDIR
         can :manage, ::Usuario
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :manage, Cor1440Gen::Proyectofinanciero
         can :manage, Heb412Gen::Doc
+        can :manage, Heb412Gen::Plantillahcm
         can :manage, Sal7711Gen::Articulo
         can :manage, Sip::Respaldo7z
         can :manage, :tablasbasicas
