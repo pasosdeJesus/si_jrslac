@@ -38,7 +38,11 @@ class Ability  < Cor1440Gen::Ability
 
   ROLES = [
       ["Administrador", ROLADMIN], 
+      ["", 0], 
       ["Directivo", ROLDIR], 
+      ["", 0], 
+      ["", 0], 
+      ["", 0], 
       ["Sistematizador de Actividades", ROLSISTACT]
   ]
 
@@ -69,7 +73,6 @@ class Ability  < Cor1440Gen::Ability
     'Ver convenios financiados. ' +
     'Ver artículos del archivo de prensa. ' +
     'Ver documentos en nube. ' # ROLSISTACT
-
   ]
 
   # Autorizaciones con CanCanCan
