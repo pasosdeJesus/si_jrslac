@@ -1,19 +1,17 @@
 <div class='control-group nested-fields'>
   <div class="controls">
-    <%  f.object = ::Actividadpf.new if !f.object %>
+    <%  f.object = ::Indicadorpf.new if !f.object %>
 
     <%= f.association :resultadopf,
         label_method: :numero %>
 
-    <%= f.input :nombrecorto %>
+    <%= f.input :numero %>
 
-    <%= f.input :titulo %>
-
-    <%= f.input :descripcion %>
+    <%= f.input :indicador %>
 
     <%= f.input :id, as: :hidden %>
 
-    <%= link_to_remove_association "Eliminar Actividad de convenio", 
+    <%= link_to_remove_association "Eliminar Indicador", 
       f, :class => 'btn-danger' 
     %> 
   </div>
