@@ -185,7 +185,8 @@ CREATE TABLE actividadpf (
     proyectofinanciero_id integer,
     nombrecorto character varying(15),
     titulo character varying(255),
-    descripcion character varying(5000)
+    descripcion character varying(5000),
+    resultadopf_id integer
 );
 
 
@@ -854,6 +855,69 @@ ALTER SEQUENCE heb412_gen_plantillahcm_id_seq OWNED BY heb412_gen_plantillahcm.i
 
 
 --
+-- Name: indicadorpf; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE indicadorpf (
+    id bigint NOT NULL,
+    proyectofinanciero_id integer,
+    resultadopf_id integer,
+    numero character varying(15) NOT NULL,
+    indicador character varying(5000) NOT NULL
+);
+
+
+--
+-- Name: indicadorpf_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE indicadorpf_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: indicadorpf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE indicadorpf_id_seq OWNED BY indicadorpf.id;
+
+
+--
+-- Name: objetivopf; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE objetivopf (
+    id bigint NOT NULL,
+    proyectofinanciero_id integer,
+    numero character varying(15) NOT NULL,
+    objetivo character varying(5000) NOT NULL
+);
+
+
+--
+-- Name: objetivopf_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE objetivopf_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: objetivopf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE objetivopf_id_seq OWNED BY objetivopf.id;
+
+
+--
 -- Name: poa; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -885,6 +949,38 @@ CREATE SEQUENCE poa_id_seq
 --
 
 ALTER SEQUENCE poa_id_seq OWNED BY poa.id;
+
+
+--
+-- Name: resultadopf; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE resultadopf (
+    id bigint NOT NULL,
+    proyectofinanciero_id integer,
+    objetivopf_id integer,
+    numero character varying(15) NOT NULL,
+    resultado character varying(5000) NOT NULL
+);
+
+
+--
+-- Name: resultadopf_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE resultadopf_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: resultadopf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE resultadopf_id_seq OWNED BY resultadopf.id;
 
 
 --
@@ -1717,10 +1813,31 @@ ALTER TABLE ONLY heb412_gen_plantillahcm ALTER COLUMN id SET DEFAULT nextval('he
 
 
 --
+-- Name: indicadorpf id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY indicadorpf ALTER COLUMN id SET DEFAULT nextval('indicadorpf_id_seq'::regclass);
+
+
+--
+-- Name: objetivopf id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY objetivopf ALTER COLUMN id SET DEFAULT nextval('objetivopf_id_seq'::regclass);
+
+
+--
 -- Name: poa id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY poa ALTER COLUMN id SET DEFAULT nextval('poa_id_seq'::regclass);
+
+
+--
+-- Name: resultadopf id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY resultadopf ALTER COLUMN id SET DEFAULT nextval('resultadopf_id_seq'::regclass);
 
 
 --
@@ -1940,6 +2057,22 @@ ALTER TABLE ONLY heb412_gen_plantillahcm
 
 
 --
+-- Name: indicadorpf indicadorpf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY indicadorpf
+    ADD CONSTRAINT indicadorpf_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: objetivopf objetivopf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY objetivopf
+    ADD CONSTRAINT objetivopf_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: sip_pais pais_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1977,6 +2110,14 @@ ALTER TABLE ONLY cor1440_gen_rangoedadac
 
 ALTER TABLE ONLY sip_oficina
     ADD CONSTRAINT regionsjr_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: resultadopf resultadopf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY resultadopf
+    ADD CONSTRAINT resultadopf_pkey PRIMARY KEY (id);
 
 
 --
@@ -2296,11 +2437,27 @@ ALTER TABLE ONLY sip_departamento
 
 
 --
+-- Name: resultadopf fk_rails_06ba24bd54; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY resultadopf
+    ADD CONSTRAINT fk_rails_06ba24bd54 FOREIGN KEY (objetivopf_id) REFERENCES objetivopf(id);
+
+
+--
 -- Name: actividad_actividadpf fk_rails_08b9aa072b; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY actividad_actividadpf
     ADD CONSTRAINT fk_rails_08b9aa072b FOREIGN KEY (actividadpf_id) REFERENCES actividadpf(id);
+
+
+--
+-- Name: actividadpf fk_rails_0b10834ba7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY actividadpf
+    ADD CONSTRAINT fk_rails_0b10834ba7 FOREIGN KEY (resultadopf_id) REFERENCES resultadopf(id);
 
 
 --
@@ -2392,6 +2549,14 @@ ALTER TABLE ONLY sal7711_gen_bitacora
 
 
 --
+-- Name: objetivopf fk_rails_57b4fd8780; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY objetivopf
+    ADD CONSTRAINT fk_rails_57b4fd8780 FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
+
+
+--
 -- Name: sal7711_gen_articulo fk_rails_65eae7449f; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2440,6 +2605,14 @@ ALTER TABLE ONLY sal7711_gen_articulo
 
 
 --
+-- Name: resultadopf fk_rails_95485cfc7a; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY resultadopf
+    ADD CONSTRAINT fk_rails_95485cfc7a FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
+
+
+--
 -- Name: sal7711_gen_articulo fk_rails_97ebadca1b; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2453,6 +2626,14 @@ ALTER TABLE ONLY sal7711_gen_articulo
 
 ALTER TABLE ONLY cor1440_gen_actividad_proyectofinanciero
     ADD CONSTRAINT fk_rails_a8489e0d62 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
+
+
+--
+-- Name: indicadorpf fk_rails_b5b70fb7f7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY indicadorpf
+    ADD CONSTRAINT fk_rails_b5b70fb7f7 FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
 
 
 --
@@ -2485,6 +2666,14 @@ ALTER TABLE ONLY cor1440_gen_financiador_proyectofinanciero
 
 ALTER TABLE ONLY cor1440_gen_actividad_proyecto
     ADD CONSTRAINT fk_rails_cf5d592625 FOREIGN KEY (proyecto_id) REFERENCES cor1440_gen_proyecto(id);
+
+
+--
+-- Name: indicadorpf fk_rails_d264d408b0; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY indicadorpf
+    ADD CONSTRAINT fk_rails_d264d408b0 FOREIGN KEY (resultadopf_id) REFERENCES resultadopf(id);
 
 
 --
@@ -2829,6 +3018,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20170413141755'),
 ('20170413185012'),
 ('20170414035328'),
-('20170607125033');
+('20170607125033'),
+('20171011212156'),
+('20171011213037'),
+('20171011213405'),
+('20171011213548');
 
 

@@ -1,0 +1,18 @@
+<div class='control-group nested-fields'>
+  <div class="controls">
+    <%  f.object = ::Resultadopf.new if !f.object %>
+
+    <%= f.association :objetivopf,
+        label_method: :numero %>
+
+    <%= f.input :numero %>
+
+    <%= f.input :resultado %>
+
+    <%= f.input :id, as: :hidden %>
+
+    <%= link_to_remove_association "Eliminar Resultado", 
+      f, :class => 'btn-danger' 
+    %> 
+  </div>
+</div>
