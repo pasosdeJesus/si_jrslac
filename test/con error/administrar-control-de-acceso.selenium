@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://ac.sjrlac.info:5300/" />
+<title>administrar-control-de-acceso</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">administrar-control-de-acceso</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/usuarios</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Nuevo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Nuevo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_nusuario</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_nusuario</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_nombre</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_nombre</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_descripcion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_descripcion</td>
+	<td>gggg</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_rol</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=usuario_rol</td>
+	<td>label=Sistematizador de Actividades</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=a.chosen-single.chosen-default &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=a.chosen-single.chosen-default &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>active-result result-selected</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>css=a.chosen-single.chosen-default &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_email</td>
+	<td>aaa@aaa.org</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_email</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_encrypted_password</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=td.today.day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Salir sjrlac</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Iniciar Sesión</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_nusuario</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_nusuario</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>id=usuario_password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_password</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=b.caret</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Listado</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Nueva</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=actividad_nombre</td>
+	<td>aaa</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=td.today.day</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Eliminar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertConfirmation</td>
+	<td>¿Está seguro(a)?</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Salir aaa</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Iniciar Sesión</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_nusuario</td>
+	<td>sjrlac</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=usuario_password</td>
+	<td>sjrlac</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.close</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
