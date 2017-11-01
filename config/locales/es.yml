@@ -14,12 +14,25 @@ es:
     attributes:
       "actividadpf":
         actividadpf: Actividad de convenio
-        nombrecorto: Nombre corto
-        titulo: Título
         descripcion: Descripción
+        nombrecorto: Nombre corto
+        resultadopf: Resultado
+        titulo: Título
+      "indicadorpf":
+        indicadorpf: Indicador
+        numero: Número
+        indicador: Descripción del indicador
+      "objetivopf":
+        objetivopf: Objetivo
+        numero: Número
+        objetivo: Descripción del objetivo
       "poa":
         Poa: Plan Operativo Anual
         Poas: Plan Operativo Anual
+      "resultadopf":
+        resultadopf: Resultado
+        numero: Número
+        resultado: Descripción del resultado
       "cor1440_gen/actividad":
         actividadpf: Actividad de convenio
       "cor1440_gen/actividadarea":
@@ -34,8 +47,14 @@ es:
         Proyecto: Proyecto
         Proyectos: Proyectos
       "cor1440_gen/proyectofinanciero":
-        "{:actividadpf_attributes=>[:id, :nombrecorto, :titulo, :descripcion, :_destroy]}": Actividad de convenio
+        "{:actividadpf_attributes=>[:id, :resultadopf_id, :nombrecorto, :titulo, :descripcion, :_destroy]}": Actividad de convenio
+        "{:indicadorpf_attributes=>[:id, :resultadopf_id, :numero, :indicador, :_destroy]}": Indicador
+        "{:objetivopf_attributes=>[:id, :numero, :objetivo, :_destroy]}": Objetivo
+        "{:resultadopf_attributes=>[:id, :objetivopf_id, :numero, :resultado, :_destroy]}": Resultado
         actividadpf: Actividad de convenio
+        objetivopf: Objetivo
+        resultadopf: Resultado
+        indicador: Indicador
       "sip/departamento":
         Departamento: Departamento/Estado/Provincia
         Departamentos: Departamentos/Estados/Provincias
