@@ -4,7 +4,7 @@
     proyectofinanciero_id: @informe.filtroproyectofinanciero).
     order(:id).each do |apf| %>
     <% lac = @actividades.where(
-      "id IN (SELECT actividad_id FROM actividad_actividadpf 
+      "cor1440_gen_actividad.id IN (SELECT actividad_id FROM actividad_actividadpf 
       WHERE actividadpf_id=?)", 
       apf.id).reorder(:fecha) %>
     <table border='1' width='100%'>
