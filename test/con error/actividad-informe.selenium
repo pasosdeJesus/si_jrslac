@@ -37,12 +37,37 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>id=informe_titulo</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
 	<td>id=informe_titulo</td>
-	<td>aaaa</td>
+	<td>aaa</td>
 </tr>
 <tr>
 	<td>click</td>
+	<td>id=informe_filtrofechaini_localizada</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>name=goog_517029055</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=goog_517029055</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=td.today.day</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
 	<td>css=td.today.day</td>
 	<td></td>
 </tr>
