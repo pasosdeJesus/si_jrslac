@@ -32,12 +32,13 @@
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
+	<td>clickAndWait</td>
 	<td>link=Nuevo</td>
 	<td></td>
 </tr>
 <tr>
 	<td>waitForElementPresent</td>
+<<<<<<< HEAD:test/con error/actividad-informe.selenium
 	<td>id=informe_titulo</td>
 	<td></td>
 </tr>
@@ -69,32 +70,25 @@
 <tr>
 	<td></td>
 	<td>css=td.today.day</td>
+=======
+	<td>id=informe_titulo</td>
+>>>>>>> 9129c09ab16c44e4bad476a840deef1bd86888a2:test/seleniumide/actividad-informe.selenium
 	<td></td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>css=th.next</td>
-	<td></td>
+	<td>type</td>
+	<td>id=informe_titulo</td>
+	<td>aaaa</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>css=th.next</td>
-	<td></td>
+	<td>type</td>
+	<td>id=informe_filtrofechaini_localizada</td>
+	<td>2017-11-01</td>
 </tr>
 <tr>
-	<td>click</td>
-	<td>css=th.next</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>css=th.prev</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>//div[@id='sizzle1508863495681']/div/table/tbody/tr[5]/td[7]</td>
-	<td></td>
+	<td>type</td>
+	<td>id=informe_filtrofechafin_localizada</td>
+	<td>2017-11-30</td>
 </tr>
 <tr>
 	<td>select</td>
