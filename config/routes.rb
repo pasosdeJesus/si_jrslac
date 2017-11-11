@@ -27,6 +27,11 @@ Rails.application.routes.draw do
   get "/informes/:id/impreso" => "cor1440_gen/informes#impreso", 
     as: :impresion
 
+  resources :objetivospf, only: [:new, :destroy]
+  resources :resultadospf, only: [:new, :destroy]
+  resources :indicadorespf, only: [:new, :destroy]
+  resources :actividadespf, only: [:new, :destroy]
+
   namespace :admin do
     ab = ::Ability.new
     ab.tablasbasicas.each do |t|

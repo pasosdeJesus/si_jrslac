@@ -25,6 +25,15 @@ module Cor1440Gen
       end
     end
 
+    def new
+      @registro = clase.constantize.new
+      @registro.monto = 1
+      @registro.nombre = 'N'
+      byebug
+      @registro.save!
+      redirect_to cor1440_gen.edit_proyectofinanciero_path(@registro)
+    end
+
     def atributos_index
       [ "id", 
         "nombre" ] +
