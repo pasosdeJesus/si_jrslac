@@ -8,7 +8,6 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="pruebas-suit.selenium">pruebas-suit</a></td></tr>
 <tr><td><a href="tabla-area-actividad.selenium">tabla-area-actividad</a></td></tr>
 <tr><td><a href="tabla-categoria-prensa.selenium">tabla-categoria-prensa</a></td></tr>
 <tr><td><a href="tabla-etiqueta.selenium">tabla-etiqueta</a></td></tr>
@@ -24,7 +23,10 @@
 <tr><td><a href="tabla-tipo-de-sitio.selenium">tabla-tipo-de-sitio</a></td></tr>
 <tr><td><a href="administra-crear-y elimnar-usuario.selenium">administra-crear-y elimnar-usuario</a></td></tr>
 <tr><td><a href="administra-ver-control-de accesso.selenium">administra-ver-control-de accesso</a></td></tr>
-<tr><td><a href="../../../cor1440_cinep/test/seleniumide/actividad-informe.selenium">actividad-informe</a></td></tr>
+<<<<<<< HEAD
+=======
+<tr><td><a href="actividad-informe.selenium">actividad-informe</a></td></tr>
+>>>>>>> 9129c09ab16c44e4bad476a840deef1bd86888a2
 </tbody></table>
 </body>
 </html>
