@@ -26,7 +26,8 @@ gem "prawnto_2",  :require => "prawnto"
 gem "prawn-table"
 
 # Plantilla ODT
-gem "odf-report"
+gem "odf-report", git: 'https://github.com/vtamara/odf-report.git', branch: 'update-rubyzip'
+
 
 # Plantilla ODS
 gem 'rspreadsheet'
