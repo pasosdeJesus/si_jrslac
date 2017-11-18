@@ -32,8 +32,9 @@ gem "odf-report", git: 'https://github.com/vtamara/odf-report.git', branch: 'upd
 # Plantilla ODS
 gem 'rspreadsheet'
 gem 'libxml-ruby'
-gem 'rubyzip', '~> 1.1'  # Por odf-report al pasar a 1.2 con zip-zip genera mal documento
+gem 'rubyzip', '~> 1.2'  # Por odf-report al pasar a 1.2 con zip-zip genera mal documento
 
+gem 'redcarpet'
 # Postgresql
 gem "pg"
 

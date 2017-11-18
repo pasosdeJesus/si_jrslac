@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 73edd74b1fea7404e80a9f47995994645179664e
+  revision: 7fdd576a15bad9b1a772daf99bd8f71b6401ee53
   specs:
-    cor1440_gen (1.0.b1)
+    cor1440_gen (1.0b2)
       devise
       heb412_gen
       jquery-rails
@@ -406,8 +406,9 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n
   rails_12factor
+  redcarpet
   rspreadsheet
-  rubyzip (~> 1.1)
+  rubyzip (~> 1.2)
   sal7711_gen!
   sal7711_web!
   sass

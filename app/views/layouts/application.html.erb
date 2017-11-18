@@ -38,6 +38,8 @@
           <%= menu_item "Copia de respaldo cifrada", sip.respaldo7z_path %>
         <% end %>
         <% if can? :manage, Heb412Gen::Doc %>
+           <%= menu_item "Plantillas para listados en hojas de calculo",
+             heb412_gen.plantillashcm_path %>
           <%= menu_item "Definir plantilla para listado en hoja de calculo",  
             heb412_gen.new_plantillahcm_path %>
         <% end %>
