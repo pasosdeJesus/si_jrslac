@@ -12,7 +12,7 @@ module Cor1440Gen
           pfl << pf.to_i
         end
       end
-      c = ::Actividadpf.where(proyectofinanciero_id: pfl)
+      c = Cor1440Gen::Actividadpf.where(proyectofinanciero_id: pfl)
       respond_to do |format|
         format.json {
           @registros = @registro = c.all
