@@ -23,10 +23,6 @@
 <tr><td><a href="tabla-tipo-de-sitio.selenium">tabla-tipo-de-sitio</a></td></tr>
 <tr><td><a href="administra-crear-y elimnar-usuario.selenium">administra-crear-y elimnar-usuario</a></td></tr>
 <tr><td><a href="administra-ver-control-de accesso.selenium">administra-ver-control-de accesso</a></td></tr>
-<<<<<<< HEAD
-=======
-<tr><td><a href="actividad-informe.selenium">actividad-informe</a></td></tr>
->>>>>>> 9129c09ab16c44e4bad476a840deef1bd86888a2
 </tbody></table>
 </body>
 </html>
