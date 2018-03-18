@@ -348,6 +348,36 @@ CREATE TABLE cor1440_gen_actividad_usuario (
 
 
 --
+-- Name: cor1440_gen_actividad_valorcampotind; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE cor1440_gen_actividad_valorcampotind (
+    id bigint NOT NULL,
+    actividad_id integer,
+    valorcampotind_id integer
+);
+
+
+--
+-- Name: cor1440_gen_actividad_valorcampotind_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE cor1440_gen_actividad_valorcampotind_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: cor1440_gen_actividad_valorcampotind_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE cor1440_gen_actividad_valorcampotind_id_seq OWNED BY cor1440_gen_actividad_valorcampotind.id;
+
+
+--
 -- Name: cor1440_gen_actividadarea; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -423,7 +453,8 @@ CREATE TABLE cor1440_gen_actividadpf (
     nombrecorto character varying(15),
     titulo character varying(255),
     descripcion character varying(5000),
-    resultadopf_id integer
+    resultadopf_id integer,
+    actividadtipo_id integer
 );
 
 
@@ -478,6 +509,37 @@ CREATE SEQUENCE cor1440_gen_actividadtipo_id_seq
 --
 
 ALTER SEQUENCE cor1440_gen_actividadtipo_id_seq OWNED BY cor1440_gen_actividadtipo.id;
+
+
+--
+-- Name: cor1440_gen_campoact; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE cor1440_gen_campoact (
+    id bigint NOT NULL,
+    actividadtipo_id integer,
+    nombrecampo character varying(128),
+    ayudauso character varying(1024)
+);
+
+
+--
+-- Name: cor1440_gen_campoact_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE cor1440_gen_campoact_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: cor1440_gen_campoact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE cor1440_gen_campoact_id_seq OWNED BY cor1440_gen_campoact.id;
 
 
 --
@@ -869,6 +931,37 @@ CREATE SEQUENCE cor1440_gen_tipoindicador_id_seq
 --
 
 ALTER SEQUENCE cor1440_gen_tipoindicador_id_seq OWNED BY cor1440_gen_tipoindicador.id;
+
+
+--
+-- Name: cor1440_gen_valorcampoact; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE cor1440_gen_valorcampoact (
+    id bigint NOT NULL,
+    actividad_id integer,
+    campoact_id integer,
+    valor character varying(5000)
+);
+
+
+--
+-- Name: cor1440_gen_valorcampoact_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE cor1440_gen_valorcampoact_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: cor1440_gen_valorcampoact_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE cor1440_gen_valorcampoact_id_seq OWNED BY cor1440_gen_valorcampoact.id;
 
 
 --
@@ -1818,6 +1911,13 @@ ALTER TABLE ONLY cor1440_gen_actividad_rangoedadac ALTER COLUMN id SET DEFAULT n
 
 
 --
+-- Name: cor1440_gen_actividad_valorcampotind id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_valorcampotind ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_actividad_valorcampotind_id_seq'::regclass);
+
+
+--
 -- Name: cor1440_gen_actividadarea id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1843,6 +1943,13 @@ ALTER TABLE ONLY cor1440_gen_actividadpf ALTER COLUMN id SET DEFAULT nextval('co
 --
 
 ALTER TABLE ONLY cor1440_gen_actividadtipo ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_actividadtipo_id_seq'::regclass);
+
+
+--
+-- Name: cor1440_gen_campoact id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_campoact ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_campoact_id_seq'::regclass);
 
 
 --
@@ -1913,6 +2020,13 @@ ALTER TABLE ONLY cor1440_gen_resultadopf ALTER COLUMN id SET DEFAULT nextval('co
 --
 
 ALTER TABLE ONLY cor1440_gen_tipoindicador ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_tipoindicador_id_seq'::regclass);
+
+
+--
+-- Name: cor1440_gen_valorcampoact id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_valorcampoact ALTER COLUMN id SET DEFAULT nextval('cor1440_gen_valorcampoact_id_seq'::regclass);
 
 
 --
@@ -2086,6 +2200,14 @@ ALTER TABLE ONLY cor1440_gen_actividad_sip_anexo
 
 
 --
+-- Name: cor1440_gen_actividad_valorcampotind cor1440_gen_actividad_valorcampotind_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_valorcampotind
+    ADD CONSTRAINT cor1440_gen_actividad_valorcampotind_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: cor1440_gen_actividadpf cor1440_gen_actividadpf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2099,6 +2221,14 @@ ALTER TABLE ONLY cor1440_gen_actividadpf
 
 ALTER TABLE ONLY cor1440_gen_actividadtipo
     ADD CONSTRAINT cor1440_gen_actividadtipo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cor1440_gen_campoact cor1440_gen_campoact_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_campoact
+    ADD CONSTRAINT cor1440_gen_campoact_pkey PRIMARY KEY (id);
 
 
 --
@@ -2171,6 +2301,14 @@ ALTER TABLE ONLY cor1440_gen_resultadopf
 
 ALTER TABLE ONLY cor1440_gen_tipoindicador
     ADD CONSTRAINT cor1440_gen_tipoindicador_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cor1440_gen_valorcampoact cor1440_gen_valorcampoact_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_valorcampoact
+    ADD CONSTRAINT cor1440_gen_valorcampoact_pkey PRIMARY KEY (id);
 
 
 --
@@ -2578,6 +2716,14 @@ ALTER TABLE ONLY sip_departamento
 
 
 --
+-- Name: cor1440_gen_actividad_valorcampotind fk_rails_0104bf757c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_valorcampotind
+    ADD CONSTRAINT fk_rails_0104bf757c FOREIGN KEY (valorcampotind_id) REFERENCES cor1440_gen_valorcampotind(id);
+
+
+--
 -- Name: cor1440_gen_resultadopf fk_rails_06ba24bd54; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2655,6 +2801,14 @@ ALTER TABLE ONLY cor1440_gen_informe
 
 ALTER TABLE ONLY heb412_gen_doc
     ADD CONSTRAINT fk_rails_2dd6d3dac3 FOREIGN KEY (dirpapa) REFERENCES heb412_gen_doc(id);
+
+
+--
+-- Name: cor1440_gen_valorcampoact fk_rails_3060a94455; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_valorcampoact
+    ADD CONSTRAINT fk_rails_3060a94455 FOREIGN KEY (campoact_id) REFERENCES cor1440_gen_campoact(id);
 
 
 --
@@ -2810,11 +2964,27 @@ ALTER TABLE ONLY cor1440_gen_informe
 
 
 --
+-- Name: cor1440_gen_actividadpf fk_rails_c68e2278b2; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividadpf
+    ADD CONSTRAINT fk_rails_c68e2278b2 FOREIGN KEY (actividadtipo_id) REFERENCES cor1440_gen_actividadtipo(id);
+
+
+--
 -- Name: cor1440_gen_financiador_proyectofinanciero fk_rails_ca93eb04dc; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY cor1440_gen_financiador_proyectofinanciero
     ADD CONSTRAINT fk_rails_ca93eb04dc FOREIGN KEY (proyectofinanciero_id) REFERENCES cor1440_gen_proyectofinanciero(id);
+
+
+--
+-- Name: cor1440_gen_campoact fk_rails_ceb6f1a7f0; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_campoact
+    ADD CONSTRAINT fk_rails_ceb6f1a7f0 FOREIGN KEY (actividadtipo_id) REFERENCES cor1440_gen_actividadtipo(id);
 
 
 --
@@ -2863,6 +3033,22 @@ ALTER TABLE ONLY cor1440_gen_informe
 
 ALTER TABLE ONLY heb412_gen_campoplantillahcm
     ADD CONSTRAINT fk_rails_e0e38e0782 FOREIGN KEY (plantillahcm_id) REFERENCES heb412_gen_plantillahcm(id);
+
+
+--
+-- Name: cor1440_gen_valorcampoact fk_rails_e36cf046d1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_valorcampoact
+    ADD CONSTRAINT fk_rails_e36cf046d1 FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
+
+
+--
+-- Name: cor1440_gen_actividad_valorcampotind fk_rails_e8cd697f5d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY cor1440_gen_actividad_valorcampotind
+    ADD CONSTRAINT fk_rails_e8cd697f5d FOREIGN KEY (actividad_id) REFERENCES cor1440_gen_actividad(id);
 
 
 --
@@ -3193,6 +3379,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171130125044'),
 ('20171130133741'),
 ('20171212001011'),
-('20171217135318');
+('20171217135318'),
+('20180219032546'),
+('20180220103644'),
+('20180220104234'),
+('20180223091622');
 
 
