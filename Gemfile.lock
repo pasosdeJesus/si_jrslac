@@ -227,7 +227,7 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     pdf-core (0.7.0)
-    pg (0.21.0)
+    pg (1.0.0)
     prawn (2.2.2)
       pdf-core (~> 0.7.0)
       ttfunk (~> 1.5)
@@ -395,7 +395,7 @@ DEPENDENCIES
   minitest-reporters
   odf-report!
   paperclip
-  pg (~> 0.21)
+  pg
   prawn
   prawn-table
   prawnto_2

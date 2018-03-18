@@ -36,7 +36,7 @@ gem 'rubyzip', '~> 1.2'  # Por odf-report al pasar a 1.2 con zip-zip genera mal 
 
 gem 'redcarpet'
 # Postgresql
-gem "pg", '~> 0.21'
+gem "pg"#, '~> 0.21'
 
 # Maneja variables de ambiente (como claves y secretos) en .env
 #gem "foreman"
