@@ -1,3 +1,9 @@
+<%= f.association :actividadtipo,     
+  collection: Cor1440Gen::Actividadtipo.habilitados,   
+  label_method: :nombre,     
+  value_method: :id,   
+  input_html: { class: 'chosen-select' }   %>
+
 <%= f.association :poa, 
   collection: ::Poa.habilitados,
   label_method: :nombre, 

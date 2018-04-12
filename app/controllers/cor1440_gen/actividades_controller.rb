@@ -13,6 +13,13 @@ module Cor1440Gen
           @buspoa.to_i
         )
       end
+      @busactividadtipo = param_escapa(par, 'busactividadtipo')
+      if @busactividadtipo != '' then
+        ac = ac.joins(:actividad_actividadtipo).where(
+          "cor1440_gen_actividad_actividadtipo.actividadtipo_id = ?",
+          @busactividadtipo.to_i
+        ) 
+      end
       return ac
     end
 
