@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 # Rails (internacionalización)
-gem "rails", '~>5.2.0'
+#gem "rails", '~> 5.2.0'
+# Resuelve problema con minitest y rails 5.2.0
+gem "rails", '~> 5.2.0', git: 'https://github.com/rails/rails.git', ref: '4887f97bd8a8859294ad02ccea20d83a94ec0812'
+
 gem "rails-i18n"
 
 gem 'bootsnap', '>=1.1.0', require: false
@@ -28,7 +31,7 @@ gem "prawnto_2",  :require => "prawnto"
 gem "prawn-table"
 
 # Plantilla ODT
-gem "odf-report", git: 'https://github.com/vtamara/odf-report.git', branch: 'update-rubyzip'
+gem "odf-report"
 
 
 # Plantilla ODS
@@ -89,23 +92,23 @@ gem "paperclip"
 gem "tzinfo"
 
 # Motor generico
-gem 'sip', git: "https://github.com/pasosdeJesus/sip.git", branch: 'rails5.2'
+gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
 # Motor Cor1440_gen
-gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git", branch: 'rails5.2'
+gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
 #gem "cor1440_gen", path: '../cor1440_gen'
 
 # Motor Sal7711_gen
-gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git", branch: 'rails5.2'
+gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"
 #gem "sal7711_gen", path: '../sal7711_gen'
 
 # Motor Sal7711_web
-gem 'sal7711_web', git: "https://github.com/pasosdeJesus/sal7711_web.git", branch: 'rails5.2'
+gem 'sal7711_web', git: "https://github.com/pasosdeJesus/sal7711_web.git"
 #gem "sal7711_web", path: '../sal7711_web'
 
 # Motor Heb412_gen
-gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git", branch: 'rails5.2'
+gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git"
 #gem 'heb412_gen', path: '../heb412_gen'
 
 # Los siguientes son para desarrollo o para pruebas con generadores
