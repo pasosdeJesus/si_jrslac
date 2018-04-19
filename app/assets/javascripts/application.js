@@ -12,6 +12,7 @@
 //
 //= require sip/motor
 //= require cor1440_gen/motor
+//= require heb412_gen/motor
 //= require sal7711_web/motor
 //= require lazybox
 //= require chosen-jquery
@@ -24,6 +25,7 @@ $(document).on('turbolinks:load ready page:load', function() {
   root = typeof exports !== "undefined" && exports !== null ? 
     exports : window;	
   sip_prepara_eventos_comunes(root);
+  heb412_gen_prepara_eventos_comunes(root);
   cor1440_gen_prepara_eventos_comunes(root);
   sal7711_gen_prepara_eventos_comunes(root);
 
