@@ -125,11 +125,7 @@ end
 
 # Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo
 group :test do
-  # Pruebas de regresión que no requieren javascript
-  gem "capybara"#, '~> 2.8.0'
   
-  gem 'rails-controller-testing'
-
   # Envia resultados de pruebas desde travis a codeclimate
   #gem "codeclimate-test-reporter", require: nil
 
@@ -138,8 +134,11 @@ group :test do
 
   gem 'connection_pool'
   gem 'minitest-reporters'
-
+  gem 'minitest-rails-capybara'
+  gem 'poltergeist'
+  # Pruebas de regresión que no requieren javascript
   gem 'simplecov'
+
 
   # https://www.relishapp.com/womply/rails-style-guide/docs/developing-rails-applications/bundler
   # Lanza programas para examinar resultados
