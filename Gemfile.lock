@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 602d738d107a71a99e373014377569835040fffe
+  revision: cc07200a28deaa364ca4f3cf7e00da49f91a8454
+  branch: vista_actividad_obsoleta
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -31,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 69d5c91a21a89ee09ce12f0bceb27296d2872f99
+  revision: 1e780416547d8ee3f143e5c2367c45ff7df936b4
   specs:
     sal7711_web (1.0.a3)
       rails
