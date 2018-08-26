@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: d931824e10891d20236c18152e594f8a523413c5
+  revision: c746a8cbe532d5475196e837cde83a3472458a2f
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 7d6ba9665a5ec6481b4180ed8367c3040ddaa63c
+  revision: ce8d3f0bd81b3f17611ca20a3485a6273195a80c
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 031c6204ff0eb8cd21c3d9de33b779433727ab1e
+  revision: 968b46e9432349841d0e600d9ad1f0bd48bfef72
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 5b760d415ff3de52a75fb75f45afeb2401f3e8f9
+  revision: 7788d19c50337604c5f23c838947ef5bcb67c84c
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -271,7 +271,7 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     pdf-core (0.7.0)
-    pg (1.0.0)
+    pg (1.1.0)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
@@ -452,4 +452,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.16.3
+   1.16.4
