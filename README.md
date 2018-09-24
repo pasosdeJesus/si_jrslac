@@ -1,23 +1,29 @@
-# Cor1440 SJR LAC
-[![Estado Construcción](https://api.travis-ci.org/pasosdeJesus/cor1440_sjrlac.svg?branch=master)](https://travis-ci.org/pasosdeJesus/cor1440_sjrlac) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/cor1440_sjrlac) [![security](https://hakiri.io/github/pasosdeJesus/cor1440_sjrlac/master.svg)](https://hakiri.io/github/pasosdeJesus/cor1440_sjrlac/master) [![Dependencias](https://gemnasium.com/pasosdeJesus/cor1440_sjrlac.svg)](https://gemnasium.com/pasosdeJesus/cor1440_sjrlac) 
+# SI JRSLAC
+[![Estado Construcción](https://api.travis-ci.org/pasosdeJesus/si_jrslac.svg?branch=master)](https://travis-ci.org/pasosdeJesus/si_jrslac) [![Clima del Código](https://codeclimate.com/github/pasosdeJesus/si_jrslac/badges/gpa.svg)](https://codeclimate.com/github/pasosdeJesus/si_jrslac) [![Cobertura de Pruebas](https://codeclimate.com/github/pasosdeJesus/si_jrslac/badges/coverage.svg)](https://codeclimate.com/github/pasosdeJesus/si_jrslac) [![security](https://hakiri.io/github/pasosdeJesus/si_jrslac/master.svg)](https://hakiri.io/github/pasosdeJesus/si_jrslac/master) [![Dependencias](https://gemnasium.com/pasosdeJesus/si_jrslac.svg)](https://gemnasium.com/pasosdeJesus/si_jrslac) 
 
-Sistema para planeación y seguimiento de actividades e informes en el SJR.
+Proyectos, actividades, casos, seguimiento y monitoreo en JRS LAC.
 
 ### Requerimientos
-* Ruby version >= 2.1
-* PostgreSQL >= 9.3 con extensión unaccent disponible
-* Recomendado sobre adJ 5.6 (que incluye todos los componentes mencionados).  
+* Ruby version >= 2.5
+* PostgreSQL >= 10.5 con extensión unaccent disponible
+* Recomendado sobre adJ 6.3 (que incluye todos los componentes mencionados).  
   Las siguientes instrucciones suponen que opera en este ambiente.
 
 ### Arquitectura
-Es una aplicación que emplea el motor genérico estilo Pasos de Jesús ```sip```
- https://github.com/pasosdeJesus/sip
-y el motor cor1440_gen
- https://github.com/pasosdeJesus/cor1440_gen
+Es una aplicación que se basa en el motor `sivel2_sjr` https://github.com/pasosdeJesus/sivel2_sjr que a su vez emplea los motores:
+- `cor1440_gen` Motor para proyectos y actividades https://github.com/pasosdeJesus/cor1440_gen
+- `heb412_gen` Motor para gestionar nube y generación de reportes en hojas de cálculo y documentos https://github.com/pasosdeJesus/heb412_gen
+- `sal7711_web` Archivo de noticias https://github.com/pasosdeJesus/sal7711_web
+
+Todos estos a su vez emplean:
+- `sip` Motor genérico estilo Pasos de Jesús https://github.com/pasosdeJesus/sip
+cor1440_gen
 
 ### Configuracion, uso, desarrollo
 
 Puede seguir las mismas instrucciones de sivel2:
+  https://github.com/pasosdeJesus/sivel2/blob/master/README.md
+
 
 Los cambios son:
 

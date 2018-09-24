@@ -1,0 +1,7 @@
+<%= f.association :poa, 
+  collection: ::Poa.habilitados,
+  label_method: :nombre, 
+  value_method: :id,
+  label: false,
+  input_html: { class: 'chosen-select' }
+%>

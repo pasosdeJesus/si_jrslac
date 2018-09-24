@@ -1,4 +1,4 @@
-class CreaActividadPoa < ActiveRecord::Migration
+class CreaActividadPoa < ActiveRecord::Migration[4.2]
   def change
     create_join_table :actividad, :poa, {
       table_name: 'actividad_poa' 
