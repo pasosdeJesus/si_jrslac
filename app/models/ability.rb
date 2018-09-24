@@ -81,6 +81,16 @@ class Ability  < Cor1440Gen::Ability
     can :contar, Sip::Ubicacion
     can :buscar, Sip::Ubicacion
     can :lista, Sip::Ubicacion
+
+    can :contar, Sivel2Gen::Caso
+    can :buscar, Sivel2Gen::Caso
+    can :lista, Sivel2Gen::Caso
+    can :nuevo, Sivel2Gen::Presponsable
+    can :nuevo, Sivel2Gen::Victima
+
+    can :nuevo, Sivel2Sjr::Desplazamiento
+    can :nuevo, Sivel2Sjr::Respuesta
+
     if !usuario.nil? && !usuario.rol.nil? then
       can :descarga_anexo, Sip::Anexo
       can :nuevo, Cor1440Gen::Actividad
@@ -90,17 +100,37 @@ class Ability  < Cor1440Gen::Ability
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :read, Cor1440Gen::Proyectofinanciero
+
         can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantilladoc
         can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantillahcr
+
+        can :manage, Sivel2Gen::Acto
+        can :read, Sivel2Gen::Caso
+        can :new, Sivel2Gen::Caso
+        can [:update, :create, :destroy, :edit], Sivel2Gen::Caso#,
+          #casosjr: { oficina_id: usuario.oficina_id }
+
       when Ability::ROLADMIN,Ability::ROLDIR
         can :manage, ::Usuario
+
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :manage, Cor1440Gen::Proyectofinanciero
+
         can :manage, Heb412Gen::Doc
+        can :manage, Heb412Gen::Plantilladoc
         can :manage, Heb412Gen::Plantillahcm
+        can :manage, Heb412Gen::Plantillahcr
+
         can :manage, Sal7711Gen::Articulo
+
         can :manage, Sip::Respaldo7z
+
+        can :manage, Sivel2Gen::Caso
+        can :manage, Sivel2Gen::Acto
+
         can :manage, :tablasbasicas
         tablasbasicas.each do |t|
           c = Ability.tb_clase(t)

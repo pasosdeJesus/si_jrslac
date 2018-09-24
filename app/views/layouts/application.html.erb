@@ -1,9 +1,9 @@
 <% content_for :titulo do %>
-  Actividades y Archivo de Prensa SJR LAC
+  <%= Sip.titulo %>
 <% end %>
 
 <% content_for :marca do %>
-  Actividades y Archivo de Prensa SJR LAC
+  <%= Sip.titulo %>
 <% end %>
 
 
@@ -15,6 +15,17 @@
         <%= menu_item "Convenios Financiados", cor1440_gen.proyectosfinancieros_path %>
         <%= menu_item "Informes", cor1440_gen.informes_path %>
       <% end %>
+      <% if can? :read, Sivel2Gen::Caso then %>
+        <%= drop_down "Casos" do %>
+          <%= menu_item "Listado", sivel2_gen.casos_path %>
+          <% if can? :edit, Sivel2Gen::Caso then %>
+            <%= menu_item "Nuevo", sivel2_gen.new_caso_path %>
+            <%= menu_item "Validaciones", sivel2_gen.validarcasos_path %>
+          <% end %>
+          <%= menu_item "Conteo Personas Atendidas", '/conteos/personas' %>
+        <% end %>
+      <% end %>
+
       <%= drop_down "Archivo de Prensa" do %>
         <%= menu_item "Buscar", sal7711_gen.buscar_path %>
         <%= menu_item "Añadir Artículo", sal7711_gen.new_articulo_path %>
