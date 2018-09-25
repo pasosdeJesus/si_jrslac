@@ -22,8 +22,11 @@ class Ability  < Cor1440Gen::Ability
   BASICAS_ID_NOAUTO = []
   def basicas_id_noauto 
     Sip::Ability::BASICAS_ID_NOAUTO +
+      Sivel2Gen::Ability::BASICAS_ID_NOAUTO + 
+      Sivel2Sjr::Ability::BASICAS_ID_NOAUTO + 
       Cor1440Gen::Ability::BASICAS_ID_NOAUTO +
-      Sal7711Gen::Ability::BASICAS_ID_NOAUTO + BASICAS_ID_NOAUTO 
+      Sal7711Gen::Ability::BASICAS_ID_NOAUTO + 
+      BASICAS_ID_NOAUTO 
   end
 
   NOBASICAS_INDSEQID = []
