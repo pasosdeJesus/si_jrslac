@@ -9,6 +9,8 @@ class Ability  < Cor1440Gen::Ability
     Sip::Ability::BASICAS_PROPIAS + 
       Cor1440Gen::Ability::BASICAS_PROPIAS +
       Sal7711Gen::Ability::BASICAS_PROPIAS + 
+      Sivel2Gen::Ability::BASICAS_PROPIAS + 
+      Sivel2Sjr::Ability::BASICAS_PROPIAS + 
       BASICAS_PROPIAS - [
         ['Sip', 'grupo'],
         ['Cor1440Gen', 'proyecto']
@@ -26,13 +28,17 @@ class Ability  < Cor1440Gen::Ability
   def nobasicas_indice_seq_con_id 
     Sip::Ability::NOBASICAS_INDSEQID +
       Cor1440Gen::Ability::NOBASICAS_INDSEQID +
-      Sal7711Gen::Ability::NOBASICAS_INDSEQID + NOBASICAS_INDSEQID
+      Sal7711Gen::Ability::NOBASICAS_INDSEQID + 
+      Sivel2Gen::Ability::NOBASICAS_INDSEQID + 
+      Sivel2Sjr::Ability::NOBASICAS_INDSEQID + NOBASICAS_INDSEQID
   end
 
   BASICAS_PRIO = []
   def tablasbasicas_prio 
     Sip::Ability::BASICAS_PRIO +
       Cor1440Gen::Ability::BASICAS_PRIO +
+      Sivel2Gen::Ability::BASICAS_PRIO +
+      Sivel2Sjr::Ability::BASICAS_PRIO +
       Sal7711Gen::Ability::BASICAS_PRIO + BASICAS_PRIO
   end
 
