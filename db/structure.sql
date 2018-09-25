@@ -178,18 +178,6 @@ CREATE SEQUENCE public.acto_seq
 
 
 --
--- Name: anexo_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.anexo_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2626,6 +2614,7 @@ CREATE TABLE public.sivel2_gen_actividadoficio (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT actividadoficio_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2673,10 +2662,10 @@ CREATE TABLE public.sivel2_gen_actocolectivo (
 
 
 --
--- Name: sivel2_gen_anexo_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: sivel2_gen_anexo_caso_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE public.sivel2_gen_anexo_seq
+CREATE SEQUENCE public.sivel2_gen_anexo_caso_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -2689,7 +2678,7 @@ CREATE SEQUENCE public.sivel2_gen_anexo_seq
 --
 
 CREATE TABLE public.sivel2_gen_anexo_caso (
-    id integer DEFAULT nextval('public.sivel2_gen_anexo_seq'::regclass) NOT NULL,
+    id integer DEFAULT nextval('public.sivel2_gen_anexo_caso_id_seq'::regclass) NOT NULL,
     id_caso integer NOT NULL,
     fecha date NOT NULL,
     fuenteprensa_id integer,
@@ -3223,6 +3212,7 @@ CREATE TABLE public.sivel2_gen_escolaridad (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT escolaridad_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3250,6 +3240,7 @@ CREATE TABLE public.sivel2_gen_estadocivil (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT estadocivil_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -3444,6 +3435,7 @@ CREATE TABLE public.sivel2_gen_maternidad (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    observaciones character varying(5000),
     CONSTRAINT maternidad_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -8215,6 +8207,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171130133741'),
 ('20171212001011'),
 ('20171217135318'),
+('20180101000000'),
 ('20180126035129'),
 ('20180126055129'),
 ('20180212223621'),

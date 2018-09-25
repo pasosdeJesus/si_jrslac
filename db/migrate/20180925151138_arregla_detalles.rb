@@ -6,7 +6,7 @@ class ArreglaDetalles < ActiveRecord::Migration[5.2]
         PRIMARY KEY (id_victima);
 
 
-      INSERT INTO sip_tsitio (id, nombre, fechacreacion, fechadeshabilitacion, created_at, updated_at, observaciones) VALUES (1, 'SIN INFORMACIÓN', '2001-01-01', NULL, NULL, NULL, NULL);
+      --INSERT INTO sip_tsitio (id, nombre, fechacreacion, fechadeshabilitacion, created_at, updated_at, observaciones) VALUES (1, 'SIN INFORMACIÓN', '2001-01-01', NULL, NULL, NULL, NULL);
     SQL
   end
 end

@@ -22,19 +22,6 @@ SET default_with_oids = false;
 
 
 --
--- Name: anexo_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.anexo_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-
---
 -- Name: sivel2_sjr_casosjr; Type: TABLE; Schema: public; Owner: -
 --
 
