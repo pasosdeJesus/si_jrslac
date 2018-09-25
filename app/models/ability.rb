@@ -2,6 +2,8 @@
 
 class Ability  < Cor1440Gen::Ability
 
+  ROLSIST = 7 # Igul a ROLSISTACT
+
   BASICAS_PROPIAS = [
     ['', 'poa']
   ]
@@ -30,7 +32,8 @@ class Ability  < Cor1440Gen::Ability
       Cor1440Gen::Ability::NOBASICAS_INDSEQID +
       Sal7711Gen::Ability::NOBASICAS_INDSEQID + 
       Sivel2Gen::Ability::NOBASICAS_INDSEQID + 
-      Sivel2Sjr::Ability::NOBASICAS_INDSEQID + NOBASICAS_INDSEQID
+      Sivel2Sjr::Ability::NOBASICAS_INDSEQID + 
+      NOBASICAS_INDSEQID
   end
 
   BASICAS_PRIO = []
@@ -45,7 +48,7 @@ class Ability  < Cor1440Gen::Ability
   ROLES = [
       ["Administrador", ROLADMIN], 
       ["Directivo", ROLDIR], 
-      ["Sistematizador de Actividades", ROLSISTACT]
+      ["Sistematizador", ROLSIST]
   ]
 
   ROLES_CA = [
@@ -74,7 +77,7 @@ class Ability  < Cor1440Gen::Ability
     'Administrar actividades. ' +
     'Ver convenios financiados. ' +
     'Ver artículos del archivo de prensa. ' +
-    'Ver documentos en nube. ' # ROLSISTACT
+    'Ver documentos en nube. ' # ROLSIST
   ]
 
   # Autorizaciones con CanCanCan
@@ -102,7 +105,7 @@ class Ability  < Cor1440Gen::Ability
       can :nuevo, Cor1440Gen::Actividad
       can :nuevo, Sip::Ubicacion
       case usuario.rol 
-      when Ability::ROLSISTACT
+      when Ability::ROLSIST
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :read, Cor1440Gen::Proyectofinanciero
