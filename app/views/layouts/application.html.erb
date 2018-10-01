@@ -14,6 +14,8 @@
         <%= menu_item "Listado", cor1440_gen.actividades_path %>
         <%= menu_item "Convenios Financiados", cor1440_gen.proyectosfinancieros_path %>
         <%= menu_item "Informes", cor1440_gen.informes_path %>
+        <%= menu_item "Actores sociales", sip.actoressociales_path %>
+        <%= menu_item "Beneficiarios", sip.personas_path %>
       <% end %>
       <% if can? :read, Sivel2Gen::Caso then %>
         <%= drop_down "Casos" do %>

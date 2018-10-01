@@ -90,6 +90,8 @@ class Ability  < Cor1440Gen::Ability
     if !usuario || usuario.fechadeshabilitacion
       return
     end
+    can :read, Sip::Actorsocial
+    can :read, Sip::Persona
     can :contar, Sip::Ubicacion
     can :buscar, Sip::Ubicacion
     can :lista, Sip::Ubicacion
@@ -117,6 +119,9 @@ class Ability  < Cor1440Gen::Ability
         can :read, Heb412Gen::Plantilladoc
         can :read, Heb412Gen::Plantillahcm
         can :read, Heb412Gen::Plantillahcr
+        
+        can :manage, Sip::Actorsocial
+        can :manage, Sip::Persona
 
         can :manage, Sivel2Gen::Acto
         can :read, Sivel2Gen::Caso
@@ -138,7 +143,9 @@ class Ability  < Cor1440Gen::Ability
 
         can :manage, Sal7711Gen::Articulo
 
+        can :manage, Sip::Actorsocial
         can :manage, Sip::Respaldo7z
+        can :manage, Sip::Persona
 
         can :manage, Sivel2Gen::Caso
         can :manage, Sivel2Gen::Acto

@@ -90,15 +90,15 @@ gem "paperclip"
 gem "tzinfo"
 
 # Motor generico
-gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
+gem 'sip', git: "https://github.com/pasosdeJesus/sip.git", branch: :persona_sipmodelo
 #gem 'sip', path: '../sip'
 
 # Motor Cor1440_gen
-gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
+gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git", branch: :persona_sipmodelo
 #gem "sivel2_sjr", path: '../sivel2_sjr'
 
   # Motor Cor1440_gen
-gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
+gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git", branch: :persona_sipmodelo
 #gem "sivel2_gen", path: '../sivel2_gen'
 
 # Motor Cor1440_gen
