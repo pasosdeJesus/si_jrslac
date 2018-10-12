@@ -2069,7 +2069,6 @@ CREATE TABLE public.sip_actorsocial (
     direccion character varying(500),
     pais_id integer,
     web character varying(500),
-    observaciones character varying(5000),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -8257,6 +8256,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20180924130355'),
 ('20180925150235'),
 ('20180925151138'),
-('20180925152511');
+('20180925152511'),
+('20181011104537');
 
 
