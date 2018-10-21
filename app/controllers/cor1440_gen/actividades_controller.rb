@@ -6,24 +6,24 @@ module Cor1440Gen
 
     include Cor1440Gen::Concerns::Controllers::ActividadesController
 
-#    def self.filtramas(par, ac, current_usuario)
-#      @buspoa = param_escapa(par, 'buspoa')
-#      if @buspoa != '' then
-#        ac = ac.joins(:actividad_poa).where(
-#          "actividad_poa.poa_id= ?",
-#          @buspoa.to_i
-#        )
-#      end
-#      @busactividadtipo = param_escapa(par, 'busactividadtipo')
-#      if @busactividadtipo != '' then
-#        ac = ac.joins(:actividad_actividadtipo).where(
-#          "cor1440_gen_actividad_actividadtipo.actividadtipo_id = ?",
-#          @busactividadtipo.to_i
-#        ) 
-#      end
-#      return ac
-#    end
-#
+    def self.filtramas(par, ac, current_usuario)
+      @buspoa = param_escapa(par, 'buspoa')
+      if @buspoa != '' then
+        ac = ac.joins(:actividad_poa).where(
+          "actividad_poa.poa_id= ?",
+          @buspoa.to_i
+        )
+      end
+      @busactividadtipo = param_escapa(par, 'busactividadtipo')
+      if @busactividadtipo != '' then
+        ac = ac.joins(:actividad_actividadtipo).where(
+          "cor1440_gen_actividad_actividadtipo.actividadtipo_id = ?",
+          @busactividadtipo.to_i
+        ) 
+      end
+      return ac
+    end
+
 #    # Encabezado comun para HTML y PDF (primeras filas)
 #    def encabezado_comun
 #      return [ Cor1440Gen::Actividad.human_attribute_name(:id), 

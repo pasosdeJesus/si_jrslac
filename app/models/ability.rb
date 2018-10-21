@@ -14,8 +14,11 @@ class Ability  < Cor1440Gen::Ability
       Sivel2Gen::Ability::BASICAS_PROPIAS + 
       Sivel2Sjr::Ability::BASICAS_PROPIAS + 
       BASICAS_PROPIAS - [
+        ['Cor1440Gen', 'proyecto'],
         ['Sip', 'grupo'],
-        ['Cor1440Gen', 'proyecto']
+        ['Sivel2Sjr', 'ayudaestado'],
+        ['Sivel2Sjr', 'clasifdesp'],
+        ['Sivel2Sjr', 'declaroante']
       ]
   end
 
@@ -120,13 +123,16 @@ class Ability  < Cor1440Gen::Ability
         can :read, Heb412Gen::Plantillahcm
         can :read, Heb412Gen::Plantillahcr
         
+        can :manage, Sal7711Gen::Articulo
+
         can :manage, Sip::Actorsocial
         can :manage, Sip::Persona
 
         can :manage, Sivel2Gen::Acto
-        can :read, Sivel2Gen::Caso
-        can :new, Sivel2Gen::Caso
-        can [:update, :create, :destroy, :edit], Sivel2Gen::Caso#,
+        can :manage, Sivel2Gen::Caso
+        can :manage, Sivel2Sjr::Casosjr
+        #can :new, Sivel2Gen::Caso
+        #can [:update, :create, :destroy, :edit], Sivel2Gen::Caso#,
           #casosjr: { oficina_id: usuario.oficina_id }
 
       when Ability::ROLADMIN,Ability::ROLDIR

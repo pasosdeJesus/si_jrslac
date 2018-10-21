@@ -39,29 +39,17 @@ module Cor1440Gen
         [ :financiador_ids =>  [] ] +
         [ "fechainicio_localizada",
           "fechacierre_localizada",
-          "responsable_id"
+          "responsable"
       ] +
       [ "compromisos", 
         "monto",
-        "observaciones"
-      ] +
-      [ :objetivopf_attributes =>  [
-          :id, :numero, :objetivo, :_destroy ] 
-      ] +
-      [ :resultadopf_attributes =>  [
-          :id, :objetivopf_id,
-          :numero, :resultado, :_destroy ] 
-      ] +
-      [ :indicadorpf_attributes =>  [
-          :id, :resultadopf_id,
-          :numero, :indicador, :_destroy ] 
-      ] +
-      [ :actividadpf_attributes =>  [
-          :id, :resultadopf_id,
-          :nombrecorto, :titulo, 
-          :descripcion, :_destroy ] 
-      ] 
-
+        "observaciones",
+        "objetivopf",
+        "indicadorobjetivo",
+        "resultadopf",
+        "indicadorpf",
+        "actividadpf"
+      ]
     end
 
   end

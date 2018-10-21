@@ -14,6 +14,8 @@
 //= require cor1440_gen/motor
 //= require heb412_gen/motor
 //= require sal7711_web/motor
+//= require sivel2_gen/motor
+//= require sivel2_sjr/motor
 //= require lazybox
 //= require chosen-jquery
 //= require jquery-ui/widgets/sortable
@@ -26,13 +28,12 @@ $(document).on('turbolinks:load ready page:load', function() {
     exports : window;	
   sip_prepara_eventos_comunes(root);
   heb412_gen_prepara_eventos_comunes(root);
+  sivel2_gen_prepara_eventos_comunes(root,'antecedentes/causas');
+  sivel2_sjr_prepara_eventos_comunes(root);
   cor1440_gen_prepara_eventos_comunes(root);
   sal7711_gen_prepara_eventos_comunes(root);
+  sivel2_sjr_prepara_eventos_unicos(root);
 
-  //	formato_fecha = 'yyyy-mm-dd'
-  //	if ($('meta[name=formato_fecha]') != []) {
-  //		formato_fecha = $('meta[name=formato_fecha]').attr('content')
-  //	}
   $('[data-behaviour~=datepicker]').datepicker({
     format: formato_fecha,
     autoclose: true,
