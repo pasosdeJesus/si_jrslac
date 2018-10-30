@@ -9,7 +9,7 @@ motor.each do |m|
     Sip::carga_semillas_sql(conexion, m, :datos)
 end
 
-# cor1440, cor1440
+# jrslac jrslac
 conexion.execute("INSERT INTO usuario 
 	(nusuario, nombre, email, encrypted_password, password, 
   fechacreacion, created_at, updated_at, rol) 
