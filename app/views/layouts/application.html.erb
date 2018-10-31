@@ -35,9 +35,25 @@
     <% end %>
   <% end %>
   <%= menu_group :pull => :right do %>
-    <% if can? :read, Heb412Gen::Doc %>
-      <%= menu_item "Documentos", heb412_gen.sisini_path %>
+    <%= drop_down "Documentos" do %>
+      <% if can? :read, Heb412Gen::Doc %>
+        <%= menu_item "Manual", 'https://docs.google.com/document/d/1-465_FK-oApJTwvBu5bio1LAM_YYRMM0Co9SCacR5pE/edit?usp=sharing' %>
+        <%= menu_item "Nube", heb412_gen.sisini_path %>
+      <% end %>
+      <% if can? :manage, ::Heb412Gen::Plantillahcm %>
+        <%= menu_item "Plantillas para listados en hojas de calculo",
+          heb412_gen.plantillashcm_path %>
+      <% end %>
+      <% if can? :manage, ::Heb412Gen::Plantillahcr %>
+        <%= menu_item "Plantillas para un registro en hoja de calculo",
+          heb412_gen.plantillashcr_path %>
+      <% end %>
+      <% if can? :manage, ::Heb412Gen::Plantilladoc %>
+        <%= menu_item "Plantillas para un registro en documento",
+          heb412_gen.plantillasdoc_path %>
+      <% end %>
     <% end %>
+
     <% if !current_usuario.nil? %>
       <%= drop_down "Administrar" do %>
         <%= menu_item "Clave", main_app.editar_registro_usuario_path %>
@@ -49,18 +65,6 @@
         <% end %>
         <% if can? :manage, Sip::Respaldo7z %>
           <%= menu_item "Copia de respaldo cifrada", sip.respaldo7z_path %>
-        <% end %>
-        <% if can? :manage, ::Heb412Gen::Plantillahcm %>
-          <%= menu_item "Plantillas para listados en hojas de calculo",
-            heb412_gen.plantillashcm_path %>
-        <% end %>
-        <% if can? :manage, ::Heb412Gen::Plantillahcr %>
-          <%= menu_item "Plantillas para un registro en hoja de calculo",
-            heb412_gen.plantillashcr_path %>
-        <% end %>
-        <% if can? :manage, ::Heb412Gen::Plantilladoc %>
-          <%= menu_item "Plantillas para un registro en documento",
-            heb412_gen.plantillasdoc_path %>
         <% end %>
         <%= menu_item "Ver Control de Acceso", sip.ayuda_controldeacceso_path %>
       <% end %>
@@ -74,7 +78,7 @@
 
 <% content_for :piedepagina do %>
   <p><span class='derechos'>Dominio Público de acuerdo a Legislación Colombiana<br/>
-    Desarrollado para <a href="http://www.sjrlac.org">SJR LAC</a> y <a href="http://www.sjrcol.com">SJR Colombia</a> por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2015-2016. 
+    Desarrollado para <a href="http://www.sjrlac.org">SJR LAC</a> y <a href="http://www.sjrcol.com">SJR Colombia</a> por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2015-2018. 
   </span></p>
 <% end %>
 
