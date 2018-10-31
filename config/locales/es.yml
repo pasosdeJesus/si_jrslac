@@ -34,3 +34,5 @@ es:
         Municipio: Municipio/Cantón
         Municipios: Municipios/Cantones
         id_munlocal: Código dentro del Departamento/Estado/Provincia
+      "sivel2_gen/caso":
+        fecha: Fecha de salida de residencia

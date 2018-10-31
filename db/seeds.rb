@@ -3,7 +3,7 @@
 conexion = ActiveRecord::Base.connection();
 
 # De motores y finalmente de este
-motor = ['sip', 'cor1440_gen', 'sal7711_gen', 'sal7711_web', nil]
+motor = ['sip', 'cor1440_gen', 'sal7711_gen', 'sal7711_web', 'sivel2_gen', 'sivel2_sjr', nil]
 motor.each do |m|
     Sip::carga_semillas_sql(conexion, m, :cambios)
     Sip::carga_semillas_sql(conexion, m, :datos)
