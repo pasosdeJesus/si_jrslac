@@ -25,3 +25,9 @@ public/heb412
 .byebug_history
 public/images/colchon-articulos/
 .env
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+app/views/hogar/_local.html.erb
+config/credentials.yml.enc
+

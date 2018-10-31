@@ -6,8 +6,8 @@
 # See also http://unicorn.bogomips.org/examples/unicorn.conf.rb for
 # a more verbose configuration using more features.
 
-listen 2020 # by default Unicorn listens on port 8080
-APP_PATH = "/var/www/htdocs/cor1440_sjrlac"
+listen 2012 # by default Unicorn listens on port 8080
+APP_PATH = "/var/www/htdocs/si_jrslac"
 working_directory APP_PATH
 worker_processes 4 # this should be >= nr_cpus
 pid APP_PATH + "/tmp/pids/unicorn.pid"
