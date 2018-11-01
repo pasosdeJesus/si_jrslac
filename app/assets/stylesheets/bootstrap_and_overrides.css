@@ -12,13 +12,21 @@
 	margin-right: 2px;
 	background-color: white;
 	border: 1px solid #eee;
+	color: black;
 }
+
+.nav-tabs > li > a:hover {
+	background-color: #eee;
+	color: black;
+}
+
 .nav-tabs > li.active >a, 
-.nav-tabs > li.active >a:hover, 
+.nav-tabs > li.active > a:hover,
 .nav-tabs > li.active>a:focus {
-	color: #555;
+	color: black;
 	background-color: lightgray;
 	border: 1px solid #ddd;
 	border-bottom-color: transparent;
 	cursor: default;
 }
+
