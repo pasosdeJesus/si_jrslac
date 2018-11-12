@@ -6,5 +6,5 @@ Sip.setup do |config|
       if ENV["HEROKU_POSTGRESQL_MAUVE_URL"]
         config.ruta_anexos = "#{Rails.root}/tmp/"
       end
-      config.titulo = "Sistema de Información de JRS-LAC " + Cor1440Gen::VERSION
+      config.titulo = "S.I. JRS-LAC " + Cor1440Gen::VERSION
 end
