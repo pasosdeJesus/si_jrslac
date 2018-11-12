@@ -94,12 +94,12 @@ gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
 # Motor Cor1440_gen
-gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
-#gem "sivel2_sjr", path: '../sivel2_sjr'
+#gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
+gem "sivel2_sjr", path: '../sivel2_sjr'
 
   # Motor Cor1440_gen
-gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
-#gem "sivel2_gen", path: '../sivel2_gen'
+#gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
+gem "sivel2_gen", path: '../sivel2_gen'
 
 # Motor Cor1440_gen
 gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
