@@ -202,6 +202,16 @@ CREATE SEQUENCE public.caso_etiqueta_seq
 
 
 --
+-- Name: caso_factorvulnerabilidad; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caso_factorvulnerabilidad (
+    caso_id bigint NOT NULL,
+    factorvulnerabilidad_id bigint NOT NULL
+);
+
+
+--
 -- Name: caso_presponsable_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -1562,6 +1572,40 @@ CREATE VIEW public.cres1 AS
     public.sivel2_sjr_respuesta respuesta,
     public.sivel2_sjr_aslegal_respuesta aslegal_respuesta
   WHERE ((caso.id = casosjr.id_caso) AND (caso.id = respuesta.id_caso) AND (respuesta.id = aslegal_respuesta.id_respuesta));
+
+
+--
+-- Name: factorvulnerabilidad; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.factorvulnerabilidad (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: factorvulnerabilidad_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.factorvulnerabilidad_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: factorvulnerabilidad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.factorvulnerabilidad_id_seq OWNED BY public.factorvulnerabilidad.id;
 
 
 --
@@ -3921,6 +3965,50 @@ CREATE TABLE public.sivel2_sjr_aslegal (
 
 
 --
+-- Name: sivel2_sjr_aspsicosocial; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sivel2_sjr_aspsicosocial (
+    id bigint NOT NULL,
+    nombre character varying(100) NOT NULL,
+    observaciones character varying(5000),
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sivel2_sjr_aspsicosocial_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sivel2_sjr_aspsicosocial_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sivel2_sjr_aspsicosocial_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.sivel2_sjr_aspsicosocial_id_seq OWNED BY public.sivel2_sjr_aspsicosocial.id;
+
+
+--
+-- Name: sivel2_sjr_aspsicosocial_respuesta; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sivel2_sjr_aspsicosocial_respuesta (
+    id_aspsicosocial bigint NOT NULL,
+    id_respuesta bigint NOT NULL
+);
+
+
+--
 -- Name: sivel2_sjr_ayudaestado_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -4805,6 +4893,13 @@ ALTER TABLE ONLY public.cor1440_gen_valorcampotind ALTER COLUMN id SET DEFAULT n
 
 
 --
+-- Name: factorvulnerabilidad id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.factorvulnerabilidad ALTER COLUMN id SET DEFAULT nextval('public.factorvulnerabilidad_id_seq'::regclass);
+
+
+--
 -- Name: heb412_gen_campohc id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -4949,6 +5044,13 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente ALTER COLUMN id SET DEFAULT nextv
 --
 
 ALTER TABLE ONLY public.sivel2_gen_resagresion ALTER COLUMN id SET DEFAULT nextval('public.sivel2_gen_resagresion_id_seq'::regclass);
+
+
+--
+-- Name: sivel2_sjr_aspsicosocial id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_sjr_aspsicosocial ALTER COLUMN id SET DEFAULT nextval('public.sivel2_sjr_aspsicosocial_id_seq'::regclass);
 
 
 --
@@ -5410,6 +5512,14 @@ ALTER TABLE ONLY public.sivel2_sjr_etiqueta_usuario
 
 ALTER TABLE ONLY public.sivel2_gen_etnia
     ADD CONSTRAINT etnia_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: factorvulnerabilidad factorvulnerabilidad_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.factorvulnerabilidad
+    ADD CONSTRAINT factorvulnerabilidad_pkey PRIMARY KEY (id);
 
 
 --
@@ -6122,6 +6232,14 @@ ALTER TABLE ONLY public.sivel2_gen_victimacolectiva
 
 ALTER TABLE ONLY public.sivel2_sjr_acreditacion
     ADD CONSTRAINT sivel2_sjr_acreditacion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sivel2_sjr_aspsicosocial sivel2_sjr_aspsicosocial_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_sjr_aspsicosocial
+    ADD CONSTRAINT sivel2_sjr_aspsicosocial_pkey PRIMARY KEY (id);
 
 
 --
@@ -7051,6 +7169,22 @@ ALTER TABLE ONLY public.sivel2_sjr_oficina_proyectofinanciero
 
 
 --
+-- Name: sivel2_sjr_aspsicosocial_respuesta fk_rails_389ca79c21; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_sjr_aspsicosocial_respuesta
+    ADD CONSTRAINT fk_rails_389ca79c21 FOREIGN KEY (id_respuesta) REFERENCES public.sivel2_sjr_respuesta(id);
+
+
+--
+-- Name: caso_factorvulnerabilidad fk_rails_3931cad03c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caso_factorvulnerabilidad
+    ADD CONSTRAINT fk_rails_3931cad03c FOREIGN KEY (caso_id) REFERENCES public.sivel2_gen_caso(id);
+
+
+--
 -- Name: cor1440_gen_actividad_proyecto fk_rails_395faa0882; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7275,6 +7409,14 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 
 --
+-- Name: caso_factorvulnerabilidad fk_rails_b274e2fa2d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caso_factorvulnerabilidad
+    ADD CONSTRAINT fk_rails_b274e2fa2d FOREIGN KEY (factorvulnerabilidad_id) REFERENCES public.factorvulnerabilidad(id);
+
+
+--
 -- Name: cor1440_gen_indicadorpf fk_rails_b5b70fb7f7; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7400,6 +7542,14 @@ ALTER TABLE ONLY public.cor1440_gen_valorcampoact
 
 ALTER TABLE ONLY public.sivel2_sjr_ayudasjr_derecho
     ADD CONSTRAINT fk_rails_e645a3e73c FOREIGN KEY (ayudasjr_id) REFERENCES public.sivel2_sjr_ayudasjr(id);
+
+
+--
+-- Name: sivel2_sjr_aspsicosocial_respuesta fk_rails_e8410c8faa; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_sjr_aspsicosocial_respuesta
+    ADD CONSTRAINT fk_rails_e8410c8faa FOREIGN KEY (id_aspsicosocial) REFERENCES public.sivel2_sjr_aspsicosocial(id);
 
 
 --
@@ -8261,6 +8411,11 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181012110629'),
 ('20181017094456'),
 ('20181018003945'),
-('20181021020950');
+('20181021020950'),
+('20181111181411'),
+('20181112033624'),
+('20181112120630'),
+('20181112122927'),
+('20181112135643');
 
 

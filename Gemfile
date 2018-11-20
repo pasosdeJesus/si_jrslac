@@ -150,10 +150,6 @@ group :test do
   # Lanza programas para examinar resultados
   gem "launchy"
 
-  # Para examinar errores
-  gem 'pry-rescue'
-  gem 'pry-stack_explorer'
-
 end
 
 

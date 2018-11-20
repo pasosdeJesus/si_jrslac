@@ -5,6 +5,7 @@ class Ability  < Cor1440Gen::Ability
   ROLSIST = 7 # Igul a ROLSISTACT
 
   BASICAS_PROPIAS = [
+    ['', 'factorvulnerabilidad'],
     ['', 'poa']
   ]
   def tablasbasicas 
