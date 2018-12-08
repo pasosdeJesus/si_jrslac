@@ -93,6 +93,10 @@ gem "tzinfo"
 gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
+# Dominios
+gem 'sipd', git: "https://github.com/pasosdeJesus/sipd.git"
+#gem 'sipd', path: '../sipd'
+
 # Motor Cor1440_gen
 gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
 #gem "sivel2_sjr", path: '../sivel2_sjr'
@@ -126,7 +130,7 @@ end
 
 group :development, :test do
   # Depurar
-  #gem 'byebug'
+  gem 'byebug'
 end
 
 # Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo

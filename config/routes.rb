@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   root 'sip/hogar#index'
   mount Sivel2Sjr::Engine, at: "/", as: 'sivel2_sjr'
   mount Sivel2Gen::Engine, at: "/", as: 'sivel2_gen'
@@ -43,5 +43,6 @@ Rails.application.routes.draw do
   mount Sal7711Gen::Engine, at: "/", as: 'sal7711_gen'
   mount Sal7711Web::Engine, at: "/", as: 'sal7711_web'
   mount Heb412Gen::Engine,  at: "/", as: 'heb412_gen'
+  mount Sipd::Engine, at: "/", as: 'sipd'
   mount Sip::Engine, at: "/", as: 'sip'
 end

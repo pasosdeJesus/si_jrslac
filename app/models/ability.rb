@@ -1,8 +1,10 @@
 # encoding: UTF-8
 
-class Ability  < Cor1440Gen::Ability
+class Ability  < Sipd::Ability
 
   ROLSIST = 7 # Igul a ROLSISTACT
+  ROLSUPERADMIN = 8
+  ROLDESARROLLADOR = 9
 
   BASICAS_PROPIAS = [
     ['', 'factorvulnerabilidad'],
@@ -53,6 +55,8 @@ class Ability  < Cor1440Gen::Ability
   end
 
   ROLES = [
+      ["Desarrollador", ROLDESARROLLADOR], 
+      ["Superadministrador", ROLSUPERADMIN], 
       ["Administrador", ROLADMIN], 
       ["Directivo", ROLDIR], 
       ["Sistematizador", ROLSIST]
@@ -84,7 +88,13 @@ class Ability  < Cor1440Gen::Ability
     'Administrar actividades. ' +
     'Ver convenios financiados. ' +
     'Ver artículos del archivo de prensa. ' +
-    'Ver documentos en nube. ' # ROLSIST
+    'Ver documentos en nube. ', # ROLSIST
+    'Los mismos de los administradores en cualquier dominio. ' +
+    'Crear copias de respaldo cifradas. ' +
+    'Administrar usuarios de cualquier dominio. ' +
+    'Administrar datos de tablas basicas de cualquier dominio. ' +
+    'Administrar actores sociales y personas de cualquier dominio. ', #8
+    'Los mismos del superadministrador' #9
   ]
 
   # Autorizaciones con CanCanCan
@@ -136,7 +146,7 @@ class Ability  < Cor1440Gen::Ability
         #can [:update, :create, :destroy, :edit], Sivel2Gen::Caso#,
           #casosjr: { oficina_id: usuario.oficina_id }
 
-      when Ability::ROLADMIN,Ability::ROLDIR
+      when Ability::ROLADMIN,Ability::ROLDIR, Ability::ROLSUPERADMIN, Ability::ROLDESARROLLADOR
         can :manage, ::Usuario
 
         can :manage, Cor1440Gen::Actividad
@@ -162,6 +172,11 @@ class Ability  < Cor1440Gen::Ability
           c = Ability.tb_clase(t)
           can :manage, c
         end
+        if usuario.rol == Ability::ROLSUPERADMIN || 
+            usuario.rol == Ability::ROLDESARROLLADOR
+          can :manage, Sipd::Dominio
+        end
+        
       end
     end
   end
