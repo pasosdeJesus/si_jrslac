@@ -1,7 +1,7 @@
 language: ruby
 
 rvm:
-        - 2.4.1
+        - 2.5
 
 addons:
         postgresql: '9.6'
@@ -12,8 +12,7 @@ notifications:
 env:
         global:
                 - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-                - CC_TEST_REPORTER_ID=b65b0d22ed899ac338142725c1d6e43c4898584ed51984de2a94db89ea30b706
-
+                - CC_TEST_REPORTER_ID=
 
 before_install: 
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -22,19 +21,19 @@ before_install:
         - sudo locale-gen --no-archive es_CO.UTF-8
         - sudo /etc/init.d/postgresql stop
         - sudo /etc/init.d/postgresql start 9.6
-        - psql -c 'CREATE DATABASE cor1440des_pruebas;' -U postgres
+        - psql -c 'CREATE DATABASE si_jrslac_pru;' -U postgres
         - bundle install
         - cp config/database.travis.yml config/database.yml
         - cp config/initializers/sip.rb.plantilla config/initializers/sip.rb
         - cp config/application.rb.plantilla config/application.rb
         - cp db/structure.sql db/structure.sql.copia # travis no soporta PostreSQL 10
         - sed -e 's/provider = libc,//g' db/structure.sql.copia > db/structure.sql 
-        - bin/rails db:setup 
-        - bin/rails db:migrate
-        - bin/rails sip:indices
+        - cp config/routes.rb.plantilla config/routes.rb
+        - bundle exec rake db:setup
+        - bundle exec rake sip:indices
 
 script: 
-        - bundle exec rails test -b
+        - bundle exec rails test
 
 after_script:
         - ./cc-test-reporter after-build -t simplecov --exit-code $TRAVIS_TEST_RESULT

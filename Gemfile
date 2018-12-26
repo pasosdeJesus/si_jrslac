@@ -7,7 +7,7 @@ gem "rails-i18n"
 
 gem 'bootsnap', '>=1.1.0', require: false
 
-gem 'bigdecimal', '1.3.5'
+gem 'bigdecimal'
 
 # Color en terminal
 gem 'colorize'
