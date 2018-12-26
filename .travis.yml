@@ -12,7 +12,7 @@ notifications:
 env:
         global:
                 - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-                - CC_TEST_REPORTER_ID=
+                - CC_TEST_REPORTER_ID=3b48e9b8833fb4f2c4224b8615190072110fb0085c6af3ff5f470ad61787f460
 
 before_install: 
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
