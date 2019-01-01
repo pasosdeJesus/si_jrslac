@@ -2,6 +2,7 @@
 
 class Ability  < Sipd::Ability
 
+  ROLDIR = 3
   ROLSIST = 7 # Igul a ROLSISTACT
   ROLSUPERADMIN = 8
   ROLDESARROLLADOR = 9
@@ -18,7 +19,6 @@ class Ability  < Sipd::Ability
       Sivel2Sjr::Ability::BASICAS_PROPIAS + 
       BASICAS_PROPIAS - [
         ['Cor1440Gen', 'proyecto'],
-        ['Sip', 'grupo'],
         ['Sivel2Sjr', 'ayudaestado'],
         ['Sivel2Sjr', 'clasifdesp'],
         ['Sivel2Sjr', 'declaroante']

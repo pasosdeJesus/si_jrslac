@@ -66,6 +66,9 @@
         <% if can? :manage, Sip::Respaldo7z %>
           <%= menu_item "Copia de respaldo cifrada", sip.respaldo7z_path %>
         <% end %>
+        <% if can? :manage, Sipd::Dominio %>
+          <%= menu_item "Dominios", sipd.dominios_path %>
+        <% end %>
         <%= menu_item "Ver Control de Acceso", sip.ayuda_controldeacceso_path %>
       <% end %>
       <%= menu_item "Salir #{current_usuario.nusuario}", main_app.sign_out_path %>
