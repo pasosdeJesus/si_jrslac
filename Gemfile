@@ -115,9 +115,13 @@ gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"
 gem 'sal7711_web', git: "https://github.com/pasosdeJesus/sal7711_web.git"
 #gem "sal7711_web", path: '../sal7711_web'
 
-# Motor Heb412_gen
+# Motor de nube y plantillas ods y odt
 gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git"
 #gem 'heb412_gen', path: '../heb412_gen'
+
+# Motor de formularios
+gem 'mr519_gen', git: "https://github.com/pasosdeJesus/mr519_gen.git"
+#gem 'mr519_gen', path: '../mr519_gen'
 
 # Los siguientes son para desarrollo o para pruebas con generadores
 group :development do
