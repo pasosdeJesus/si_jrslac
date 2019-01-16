@@ -12,6 +12,8 @@ es:
         one: Convenio Financiado
         other: Convenios Financiados
     attributes:
+      "cor1440_gen/actividad":
+        proyectofinanciero: Convenio financiado
       "cor1440_gen/actividadarea":
         Actividadarea: Área de actividad
         Actividadareas: Áreas de actividad
@@ -38,6 +40,11 @@ es:
         Municipios: Municipios/Cantones
         id_munlocal: Código dentro del Departamento/Estado/Provincia
       "sivel2_gen/caso":
-        fecha: Fecha de salida de residencia
+        fecha: Fecha de salida/desplazamiento de residencia
+        factorvulnerabilidad: Factor de vulnerabilidad
+      "sivel2_sjr/aslegal":
+        fechacreacion_localizada: Fecha creación
+        fechadeshabilitacion_localizada: Fecha de deshabilitación
       "sivel2_sjr/casosjr":
         Refugio: PNPI
+        Ubicacion: Rutas

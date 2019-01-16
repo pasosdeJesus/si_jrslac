@@ -3,8 +3,10 @@
 class Poa < ActiveRecord::Base
 	include Sip::Basica
 
-  has_many :actividad_poa, dependent: :delete_all,
-    class_name: '::ActividadPoa', foreign_key: 'poa_id'
-  has_many :actividad, through: :actividad_poa,
-    class_name: 'Cor1440Gen::Actividad'
+  has_and_belongs_to_many :actividad, 
+    class_name: 'Cor1440Gen::Actividad',
+    foreign_key: 'poa_id',
+    association_foreign_key: 'actividad_id',
+    join_table: :actividad_poa
+
 end

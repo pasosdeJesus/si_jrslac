@@ -1,0 +1,8 @@
+<%= victima.input :genero, 
+  collection: ::ApplicationHelper::GENERO,
+  include_blank: false,
+  input_html: {
+    value: victima.object.genero ? victima.object.genero : 'S',
+    class: 'chosen-select' 
+  } 
+%>

@@ -1,0 +1,10 @@
+<%= f.association :factorvulnerabilidad,
+  collection: ::Factorvulnerabilidad.habilitados.order(:nombre),
+  include_blank: false,
+  label_method: :nombre, 
+  value_method: :id,
+  input_html: {
+    class: 'chosen-select',
+    "data-toggle" => 'tooltip',
+    title: 'Análisis de vulnerabilidad del grupo familiar'
+  } %>

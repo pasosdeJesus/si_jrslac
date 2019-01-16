@@ -7,6 +7,10 @@ module Sivel2Sjr
 
     include Sivel2Sjr::Concerns::Controllers::CasosController
 
+    def otros_params_victima
+      [:genero]
+    end
+
     def otros_params
       [
         factorvulnerabilidad_ids: []

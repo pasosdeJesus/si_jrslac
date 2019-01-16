@@ -8,12 +8,10 @@ class Sivel2Gen::Caso < ActiveRecord::Base
 
   end
 
-  has_many :caso_factorvulnerabilidad,  validate: true,
-    class_name: '::CasoFactorvulnerabilidad',
-    foreign_key: 'caso_id', 
-    dependent: :delete_all
-  has_many :factorvulnerabilidad, 
+  has_and_belongs_to_many :factorvulnerabilidad, 
     class_name: '::Factorvulnerabilidad',
-    through: :caso_factorvulnerabilidad
+    foreign_key: 'caso_id', 
+    association_foreign_key: 'factorvulnerabilidad_id',
+    join_table: :caso_factorvulnerabilidad
   
 end

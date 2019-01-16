@@ -330,8 +330,8 @@ CREATE TABLE public.sivel2_gen_victima (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
-    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
-    CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
+    genero character varying(1) DEFAULT 'S'::character varying,
+    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100))))
 );
 
 
@@ -3393,12 +3393,11 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
            FROM public.sip_persona persona,
             public.sivel2_gen_victima victima
           WHERE ((persona.id = victima.id_persona) AND (victima.id_caso = caso.id))), ', '::text) AS victimas
-   FROM public.sivel2_sjr_casosjr casosjr,
-    public.sivel2_gen_caso caso,
-    public.sip_oficina oficina,
-    public.usuario,
-    public.sivel2_sjr_statusmigratorio statusmigratorio
-  WHERE ((casosjr.id_caso = caso.id) AND (oficina.id = casosjr.oficina_id) AND (usuario.id = casosjr.asesor) AND (statusmigratorio.id = casosjr.id_statusmigratorio));
+   FROM ((((public.sivel2_sjr_casosjr casosjr
+     JOIN public.sivel2_gen_caso caso ON ((casosjr.id_caso = caso.id)))
+     JOIN public.sip_oficina oficina ON ((oficina.id = casosjr.oficina_id)))
+     JOIN public.usuario ON ((usuario.id = casosjr.asesor)))
+     LEFT JOIN public.sivel2_sjr_statusmigratorio statusmigratorio ON ((statusmigratorio.id = casosjr.id_statusmigratorio)));
 
 
 --
@@ -4211,6 +4210,7 @@ CREATE TABLE public.sivel2_sjr_aslegal (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     observaciones character varying(5000),
+    nivel character varying(1),
     CONSTRAINT aslegal_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -8967,6 +8967,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190109125417'),
 ('20190110191802'),
 ('20190111092816'),
-('20190111102201');
+('20190111102201'),
+('20190116131050'),
+('20190116133230'),
+('20190116135208'),
+('20190116150640');
 
 

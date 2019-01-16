@@ -1,0 +1,9 @@
+<%= victima.input :orientacionsexual, 
+  collection: ::ApplicationHelper::ORIENTACIONSEXUAL,
+  input_html: {
+    value: victima.object.orientacionsexual ? 
+      victima.object.orientacionsexual : 'S',
+    class: 'chosen-select' 
+  } ,
+  include_blank: false 
+%>
