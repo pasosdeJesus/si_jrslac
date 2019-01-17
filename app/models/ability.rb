@@ -146,7 +146,40 @@ class Ability  < Sipd::Ability
         #can [:update, :create, :destroy, :edit], Sivel2Gen::Caso#,
           #casosjr: { oficina_id: usuario.oficina_id }
 
-      when Ability::ROLADMIN,Ability::ROLDIR, Ability::ROLSUPERADMIN, Ability::ROLDESARROLLADOR
+      when Ability::ROLADMIN,Ability::ROLDIR
+        #byebug
+        can :menu, ::Usuario
+        can :manage, ::Usuario
+
+#        can :manage, ::Usuario.where('usuario.id IN (SELECT usuario_id 
+#                                     FROM sipd_dominio_usuario 
+#                                     WHERE dominio_id IN (?))',
+#                                     usuario.dominio.pluck(:id))
+
+        can :manage, Cor1440Gen::Actividad
+        can :manage, Cor1440Gen::Informe
+        can :manage, Cor1440Gen::Proyectofinanciero
+
+        can :manage, Heb412Gen::Doc
+        can :manage, Heb412Gen::Plantilladoc
+        can :manage, Heb412Gen::Plantillahcm
+        can :manage, Heb412Gen::Plantillahcr
+
+        can :manage, Sal7711Gen::Articulo
+
+        can :manage, Sip::Actorsocial
+        can :manage, Sip::Persona
+
+        can :manage, Sivel2Gen::Caso
+        can :manage, Sivel2Gen::Acto
+
+        can :manage, :tablasbasicas
+        tablasbasicas.each do |t|
+          c = Ability.tb_clase(t)
+          can :manage, c
+        end
+
+      when Ability::ROLSUPERADMIN, Ability::ROLDESARROLLADOR
         can :manage, ::Usuario
 
         can :manage, Cor1440Gen::Actividad
@@ -161,7 +194,6 @@ class Ability  < Sipd::Ability
         can :manage, Sal7711Gen::Articulo
 
         can :manage, Sip::Actorsocial
-        can :manage, Sip::Respaldo7z
         can :manage, Sip::Persona
 
         can :manage, Sivel2Gen::Caso
@@ -172,11 +204,8 @@ class Ability  < Sipd::Ability
           c = Ability.tb_clase(t)
           can :manage, c
         end
-        if usuario.rol == Ability::ROLSUPERADMIN || 
-            usuario.rol == Ability::ROLDESARROLLADOR
-          can :manage, Sipd::Dominio
-        end
-        
+        can :manage, Sipd::Dominio
+        can :manage, Sip::Respaldo7z
       end
     end
   end

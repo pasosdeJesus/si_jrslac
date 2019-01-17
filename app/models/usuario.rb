@@ -10,4 +10,5 @@ class Usuario < ActiveRecord::Base
   include Sivel2Sjr::Concerns::Models::Usuario
   include Sal7711Gen::Concerns::Models::Usuario
   include Sipd::Concerns::Models::Usuario
+
 end

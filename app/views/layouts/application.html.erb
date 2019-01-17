@@ -57,7 +57,7 @@
 
       <%= drop_down "Administrar" do %>
         <%= menu_item "Clave", main_app.editar_registro_usuario_path %>
-        <% if can? :manage, ::Usuario %>
+        <% if can?(:manage, ::Usuario) || can?(:menu, ::Usuario)  %>
           <%= menu_item "Usuarios", main_app.usuarios_path %>
         <% end %>
         <% if can? :manage, :tablasbasicas %>
