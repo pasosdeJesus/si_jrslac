@@ -16,6 +16,13 @@ if (test "$PUERTODES" = "") then {
 if (test "$IPDES" = "") then {
 	IPDES=127.0.0.1
 } fi;
+
+if (test "$SININD" != "1") then {
+	bin/rails sip:indices
+	if (test "$?" != "0") then {
+		exit 1;
+	} fi;
+} fi;
 if (test "$RAILS_ENV" = "development") then {
 	bin/rails s -p $PUERTODES -b $IPDES
 } else {
