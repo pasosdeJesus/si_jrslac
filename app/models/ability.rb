@@ -2,7 +2,7 @@
 
 class Ability  < Cor1440Gen::Ability
 
-  ROLSIST = 7 # Igul a ROLSISTACT
+  ROLSIST = 7 # Igual a ROLSISTACT
 
   BASICAS_PROPIAS = [
     ['', 'factorvulnerabilidad'],
