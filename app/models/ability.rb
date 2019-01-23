@@ -3,7 +3,7 @@
 class Ability  < Sipd::Ability
 
   ROLDIR = 3
-  ROLSIST = 7 # Igul a ROLSISTACT
+  ROLOP = 7 # Igual a ROLSISTACT
   ROLSUPERADMIN = 8
   ROLDESARROLLADOR = 9
 
@@ -59,7 +59,7 @@ class Ability  < Sipd::Ability
       ["Superadministrador", ROLSUPERADMIN], 
       ["Administrador", ROLADMIN], 
       ["Directivo", ROLDIR], 
-      ["Sistematizador", ROLSIST]
+      ["Operador", ROLOP]
   ]
 
   ROLES_CA = [
@@ -88,7 +88,7 @@ class Ability  < Sipd::Ability
     'Administrar actividades. ' +
     'Ver convenios financiados. ' +
     'Ver artículos del archivo de prensa. ' +
-    'Ver documentos en nube. ', # ROLSIST
+    'Ver documentos en nube. ', # ROLOP
     'Los mismos de los administradores en cualquier dominio. ' +
     'Crear copias de respaldo cifradas. ' +
     'Administrar usuarios de cualquier dominio. ' +
@@ -124,7 +124,7 @@ class Ability  < Sipd::Ability
       can :nuevo, Cor1440Gen::Actividad
       can :nuevo, Sip::Ubicacion
       case usuario.rol 
-      when Ability::ROLSIST
+      when Ability::ROLOP
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :read, Cor1440Gen::Proyectofinanciero
@@ -147,14 +147,9 @@ class Ability  < Sipd::Ability
           #casosjr: { oficina_id: usuario.oficina_id }
 
       when Ability::ROLADMIN,Ability::ROLDIR
-        #byebug
         can :menu, ::Usuario
-        can :manage, ::Usuario
-
-#        can :manage, ::Usuario.where('usuario.id IN (SELECT usuario_id 
-#                                     FROM sipd_dominio_usuario 
-#                                     WHERE dominio_id IN (?))',
-#                                     usuario.dominio.pluck(:id))
+        can :manage, ::Usuario, dominio: { id: usuario.dominio_ids}
+        can :create, ::Usuario, dominio: { id: usuario.dominio_ids}
 
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
