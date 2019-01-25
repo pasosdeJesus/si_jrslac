@@ -11,4 +11,27 @@ class Usuario < ActiveRecord::Base
   include Sal7711Gen::Concerns::Models::Usuario
   include Sipd::Concerns::Models::Usuario
 
+
+  def rol_usuario
+    # limitar posibilidad de creacion de acuerdo a dominio y grupo
+#    if oficina && (rol == Ability::ROLADMIN ||
+#        rol == Ability::ROLINV || 
+#        rol == Ability::ROLDIR)
+#      errors.add(:oficina, "Oficina debe estar en blanco para el rol elegido")
+#    end
+#    if !oficina && rol != Ability::ROLADMIN && rol != Ability::ROLINV && 
+#        rol != Ability::ROLDIR
+#      errors.add(:oficina, "El rol elegido debe tener oficina")
+#    end
+#    if (etiqueta.count != 0 && rol != Ability::ROLINV) 
+#      errors.add(:etiqueta, "El rol elegido no requiere etiquetas de compartir")
+#    end
+#    if (!current_usuario.nil? && current_usuario.rol == Ability::ROLCOOR)
+#      if (oficina.nil? || 
+#          oficina.id != current_usuario.oficina_id)
+#        errors.add(:oficina, "Solo puede editar usuarios de su oficina")
+#      end
+#    end
+  end
+
 end
