@@ -6,6 +6,8 @@ es:
     poas: Plan Operativo Anual
     proyecto: Proyecto
     proyectos: Proyectos
+    fechacreacion_localizada: Fecha de creación
+    fechadeshabilitacion_localizada: Fecha de deshabilitación
   activerecord:
     models:
       "cor1440_gen/proyectofinanciero":

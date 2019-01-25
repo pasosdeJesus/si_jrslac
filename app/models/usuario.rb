@@ -11,6 +11,7 @@ class Usuario < ActiveRecord::Base
   include Sal7711Gen::Concerns::Models::Usuario
   include Sipd::Concerns::Models::Usuario
 
+
   def rol_usuario
     # limitar posibilidad de creacion de acuerdo a dominio y grupo
 #    if oficina && (rol == Ability::ROLADMIN ||

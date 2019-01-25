@@ -2538,8 +2538,7 @@ CREATE TABLE public.sip_grupo (
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -2904,6 +2903,16 @@ CREATE TABLE public.sipd_dominio (
     mandato character varying(5000) NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sipd_dominio_grupo; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_dominio_grupo (
+    dominio_id bigint NOT NULL,
+    grupo_id bigint NOT NULL
 );
 
 
@@ -3465,12 +3474,11 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
            FROM public.sip_persona persona,
             public.sivel2_gen_victima victima
           WHERE ((persona.id = victima.id_persona) AND (victima.id_caso = caso.id))), ', '::text) AS victimas
-   FROM public.sivel2_sjr_casosjr casosjr,
-    public.sivel2_gen_caso caso,
-    public.sip_oficina oficina,
-    public.usuario,
-    public.sivel2_sjr_statusmigratorio statusmigratorio
-  WHERE ((casosjr.id_caso = caso.id) AND (oficina.id = casosjr.oficina_id) AND (usuario.id = casosjr.asesor) AND (statusmigratorio.id = casosjr.id_statusmigratorio));
+   FROM ((((public.sivel2_sjr_casosjr casosjr
+     JOIN public.sivel2_gen_caso caso ON ((casosjr.id_caso = caso.id)))
+     JOIN public.sip_oficina oficina ON ((oficina.id = casosjr.oficina_id)))
+     JOIN public.usuario ON ((usuario.id = casosjr.asesor)))
+     LEFT JOIN public.sivel2_sjr_statusmigratorio statusmigratorio ON ((statusmigratorio.id = casosjr.id_statusmigratorio)));
 
 
 --
@@ -7588,6 +7596,14 @@ ALTER TABLE ONLY public.sip_persona
 
 
 --
+-- Name: sipd_dominio_grupo fk_rails_1a9738aae8; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_grupo
+    ADD CONSTRAINT fk_rails_1a9738aae8 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
 -- Name: mr519_gen_encuestausuario fk_rails_1b24d10e82; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7745,6 +7761,14 @@ ALTER TABLE ONLY public.cor1440_gen_informe
 
 ALTER TABLE ONLY public.sipd_dominio_operaen_departamento
     ADD CONSTRAINT fk_rails_44dcf582d1 FOREIGN KEY (departamento_id) REFERENCES public.sip_departamento(id);
+
+
+--
+-- Name: sipd_dominio_grupo fk_rails_45459713c7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_grupo
+    ADD CONSTRAINT fk_rails_45459713c7 FOREIGN KEY (grupo_id) REFERENCES public.sip_grupo(id);
 
 
 --
@@ -7945,14 +7969,6 @@ ALTER TABLE ONLY public.mr519_gen_valorcampo
 
 ALTER TABLE ONLY public.sip_grupo_usuario
     ADD CONSTRAINT fk_rails_8d24f7c1c0 FOREIGN KEY (sip_grupo_id) REFERENCES public.sip_grupo(id);
-
-
---
--- Name: sip_grupo fk_rails_8dc1c2d20e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_grupo
-    ADD CONSTRAINT fk_rails_8dc1c2d20e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -9189,6 +9205,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190109125417'),
 ('20190110191802'),
 ('20190111092816'),
-('20190111102201');
+('20190111102201'),
+('20190116133230'),
+('20190123100500'),
+('20190123103833');
 
 

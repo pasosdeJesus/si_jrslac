@@ -148,9 +148,15 @@ class Ability  < Sipd::Ability
 
       when Ability::ROLADMIN,Ability::ROLDIR
         can :menu, ::Usuario
+        can :new, ::Usuario
         can :manage, ::Usuario, dominio: { id: usuario.dominio_ids}
-        can :create, ::Usuario, dominio: { id: usuario.dominio_ids}
 
+        can :new, Sip::Grupo
+        # can :create, Sip::Grupo
+        # Las restricciones para nuevos y edición en model Sip::Grupo
+        # en validación dominio_grupo
+        can :manage, Sip::Grupo, dominio: { id: usuario.dominio_ids}
+        
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
         can :manage, Cor1440Gen::Proyectofinanciero
@@ -169,7 +175,8 @@ class Ability  < Sipd::Ability
         can :manage, Sivel2Gen::Acto
 
         can :manage, :tablasbasicas
-        tablasbasicas.each do |t|
+        t = tablasbasicas - [['Sip', 'grupo']]
+        t.each do |t|
           c = Ability.tb_clase(t)
           can :manage, c
         end

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: bbffb52216db6d9016f993fa30604710e9faca68
+  revision: 70a5576c83c5010dcbcd19a96775490e9bb3297f
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: e6fccfb619385910826bc882d4f28a49ca6f1112
+  revision: 64b72922deff3263804d4a8caf25abf95bba3817
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: b67f4973f59d5bcd7d4b8545e96d9968398b3fb1
+  revision: a875b6cfe237e1a7b9736930976da938f0df0bb7
   specs:
     mr519_gen (0.1.0)
       rails (~> 5.2.2, >= 5.2.2)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 33de721c36e9b709593aaf05fa72cdaaed24de52
+  revision: 66978bd5b7d0c3f922c03452fcfa9a4e0dabff49
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 9f836ef4eb5fc936b4d4e3d330561751776c44a6
+  revision: 596ff46bdae48d37d9c494e41dc12837f661be5b
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -48,7 +48,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 60ef70d22913f2eeeb2dc82ac57fc5fce5d23d4a
+  revision: 30d3261a1f7382140535ba7e435783e79979ffae
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -70,7 +70,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sipd.git
-  revision: 7d6ea13307a6f67b292f28c060c50c2ee9eac6de
+  revision: df6bb7955db8136bd325f9307729708c8aac8f2c
   specs:
     sipd (0.1.0)
       rails (~> 5.2.1, >= 5.2.1.1)
@@ -78,7 +78,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: c153ad619de53aef747cfd04da28a4cbf1c94921
+  revision: 752c9a7cfe8dc8a4185742808caebb2652b22133
   specs:
     sivel2_gen (2.0b8)
       devise
@@ -87,7 +87,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: c1e1464a6922169d85a3a89fa71084c9ec774746
+  revision: 1064359950650c257901aa696e2c19dbc69851fd
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -201,7 +201,7 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    i18n (1.5.2)
+    i18n (1.5.3)
       concurrent-ruby (~> 1.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
@@ -331,9 +331,9 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redcarpet (3.4.0)
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rspreadsheet (0.4.5)
       andand (~> 1.3)
       rubyzip (~> 1.1)
