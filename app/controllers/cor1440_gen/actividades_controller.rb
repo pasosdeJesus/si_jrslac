@@ -69,6 +69,12 @@ module Cor1440Gen
       ]
     end
 
+    def edit
+      edit_cor1440_gen
+      @listadoasistencia = true
+      render layout: 'application'
+    end
+
     # No confiar parametros a Internet, sólo permitir lista blanca
     def actividad_params
       lp = lista_params + [
