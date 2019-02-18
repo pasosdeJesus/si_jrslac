@@ -256,7 +256,6 @@ CREATE TABLE public.sip_persona (
     id_departamento integer,
     id_municipio integer,
     id_clase integer,
-    dominio_id integer DEFAULT 1,
     CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
     CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
     CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
@@ -1301,6 +1300,44 @@ ALTER SEQUENCE public.cor1440_gen_informe_id_seq OWNED BY public.cor1440_gen_inf
 
 
 --
+-- Name: cor1440_gen_mindicadorpf; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.cor1440_gen_mindicadorpf (
+    id bigint NOT NULL,
+    proyectofinanciero_id integer NOT NULL,
+    indicadorpf_id integer NOT NULL,
+    formulacion character varying(512),
+    frecuenciaanual character varying(128),
+    descd1 character varying,
+    descd2 character varying,
+    descd3 character varying,
+    meta double precision,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: cor1440_gen_mindicadorpf_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.cor1440_gen_mindicadorpf_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: cor1440_gen_mindicadorpf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.cor1440_gen_mindicadorpf_id_seq OWNED BY public.cor1440_gen_mindicadorpf.id;
+
+
+--
 -- Name: cor1440_gen_objetivopf; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1329,6 +1366,57 @@ CREATE SEQUENCE public.cor1440_gen_objetivopf_id_seq
 --
 
 ALTER SEQUENCE public.cor1440_gen_objetivopf_id_seq OWNED BY public.cor1440_gen_objetivopf.id;
+
+
+--
+-- Name: cor1440_gen_pmindicadorpf; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.cor1440_gen_pmindicadorpf (
+    id bigint NOT NULL,
+    mindicadorpf_id integer NOT NULL,
+    finicio date,
+    ffin date,
+    restiempo character varying(128),
+    dmed1 double precision,
+    dmed2 double precision,
+    dmed3 double precision,
+    datosmedicion json,
+    rind double precision,
+    meta double precision,
+    resindicador json,
+    porcump double precision,
+    analisis character varying(4096),
+    acciones character varying(4096),
+    responsables character varying(4096),
+    plazo character varying(4096),
+    fecha date,
+    urlev1 character varying(4096),
+    urlev2 character varying(4096),
+    urlev3 character varying(4096),
+    urlevrind character varying(4096),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: cor1440_gen_pmindicadorpf_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.cor1440_gen_pmindicadorpf_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: cor1440_gen_pmindicadorpf_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.cor1440_gen_pmindicadorpf_id_seq OWNED BY public.cor1440_gen_pmindicadorpf.id;
 
 
 --
@@ -2093,7 +2181,7 @@ ALTER SEQUENCE public.mr519_gen_formulario_id_seq OWNED BY public.mr519_gen_form
 
 CREATE TABLE public.mr519_gen_respuestafor (
     id bigint NOT NULL,
-    formulario_id integer NOT NULL,
+    formulario_id integer,
     fechaini date NOT NULL,
     fechacambio date NOT NULL
 );
@@ -2366,7 +2454,7 @@ CREATE TABLE public.sip_actorsocial (
     web character varying(500),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1
+    fechadeshabilitacion date
 );
 
 
@@ -2894,6 +2982,16 @@ CREATE TABLE public.sip_tsitio (
 
 
 --
+-- Name: sipd_actorsocial_dominio; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_actorsocial_dominio (
+    actorsocial_id bigint NOT NULL,
+    dominio_id bigint NOT NULL
+);
+
+
+--
 -- Name: sipd_dominio; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2952,6 +3050,16 @@ CREATE TABLE public.sipd_dominio_operaen_departamento (
 CREATE TABLE public.sipd_dominio_operaen_pais (
     dominio_id bigint NOT NULL,
     pais_id bigint NOT NULL
+);
+
+
+--
+-- Name: sipd_dominio_persona; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_dominio_persona (
+    dominio_id bigint NOT NULL,
+    persona_id bigint NOT NULL
 );
 
 
@@ -5182,10 +5290,24 @@ ALTER TABLE ONLY public.cor1440_gen_informe ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
+-- Name: cor1440_gen_mindicadorpf id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_mindicadorpf ALTER COLUMN id SET DEFAULT nextval('public.cor1440_gen_mindicadorpf_id_seq'::regclass);
+
+
+--
 -- Name: cor1440_gen_objetivopf id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.cor1440_gen_objetivopf ALTER COLUMN id SET DEFAULT nextval('public.cor1440_gen_objetivopf_id_seq'::regclass);
+
+
+--
+-- Name: cor1440_gen_pmindicadorpf id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_pmindicadorpf ALTER COLUMN id SET DEFAULT nextval('public.cor1440_gen_pmindicadorpf_id_seq'::regclass);
 
 
 --
@@ -5774,11 +5896,27 @@ ALTER TABLE ONLY public.cor1440_gen_informe
 
 
 --
+-- Name: cor1440_gen_mindicadorpf cor1440_gen_mindicadorpf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_mindicadorpf
+    ADD CONSTRAINT cor1440_gen_mindicadorpf_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: cor1440_gen_objetivopf cor1440_gen_objetivopf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.cor1440_gen_objetivopf
     ADD CONSTRAINT cor1440_gen_objetivopf_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cor1440_gen_pmindicadorpf cor1440_gen_pmindicadorpf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_pmindicadorpf
+    ADD CONSTRAINT cor1440_gen_pmindicadorpf_pkey PRIMARY KEY (id);
 
 
 --
@@ -7532,6 +7670,14 @@ ALTER TABLE ONLY public.sip_oficina
 
 
 --
+-- Name: cor1440_gen_mindicadorpf fk_rails_06564b910d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_mindicadorpf
+    ADD CONSTRAINT fk_rails_06564b910d FOREIGN KEY (proyectofinanciero_id) REFERENCES public.cor1440_gen_proyectofinanciero(id);
+
+
+--
 -- Name: cor1440_gen_resultadopf fk_rails_06ba24bd54; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7580,19 +7726,19 @@ ALTER TABLE ONLY public.cor1440_gen_financiador_proyectofinanciero
 
 
 --
+-- Name: cor1440_gen_mindicadorpf fk_rails_0fbac6136b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_mindicadorpf
+    ADD CONSTRAINT fk_rails_0fbac6136b FOREIGN KEY (indicadorpf_id) REFERENCES public.cor1440_gen_indicadorpf(id);
+
+
+--
 -- Name: cor1440_gen_caracterizacionpersona fk_rails_119f5dffb4; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.cor1440_gen_caracterizacionpersona
     ADD CONSTRAINT fk_rails_119f5dffb4 FOREIGN KEY (ulteditor_id) REFERENCES public.usuario(id);
-
-
---
--- Name: sip_persona fk_rails_1a0807a32e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_persona
-    ADD CONSTRAINT fk_rails_1a0807a32e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -7644,6 +7790,14 @@ ALTER TABLE ONLY public.cor1440_gen_caracterizacionpersona
 
 
 --
+-- Name: sipd_actorsocial_dominio fk_rails_259bca386f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_actorsocial_dominio
+    ADD CONSTRAINT fk_rails_259bca386f FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
 -- Name: cor1440_gen_anexo_proyectofinanciero fk_rails_26e56f96f9; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7681,6 +7835,14 @@ ALTER TABLE ONLY public.cor1440_gen_informe
 
 ALTER TABLE ONLY public.mr519_gen_encuestausuario
     ADD CONSTRAINT fk_rails_2cb09d778a FOREIGN KEY (respuestafor_id) REFERENCES public.mr519_gen_respuestafor(id);
+
+
+--
+-- Name: sipd_dominio_persona fk_rails_2d6a08d29d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_persona
+    ADD CONSTRAINT fk_rails_2d6a08d29d FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -7892,6 +8054,14 @@ ALTER TABLE ONLY public.actividad_poa
 
 
 --
+-- Name: cor1440_gen_pmindicadorpf fk_rails_701d924c54; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_pmindicadorpf
+    ADD CONSTRAINT fk_rails_701d924c54 FOREIGN KEY (mindicadorpf_id) REFERENCES public.cor1440_gen_mindicadorpf(id);
+
+
+--
 -- Name: sip_grupo_usuario fk_rails_734ee21e62; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8076,6 +8246,14 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 
 --
+-- Name: sipd_dominio_persona fk_rails_b1b0ce97ef; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_persona
+    ADD CONSTRAINT fk_rails_b1b0ce97ef FOREIGN KEY (persona_id) REFERENCES public.sip_persona(id);
+
+
+--
 -- Name: caso_factorvulnerabilidad fk_rails_b274e2fa2d; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8193,14 +8371,6 @@ ALTER TABLE ONLY public.sip_perfilactorsocial
 
 ALTER TABLE ONLY public.cor1440_gen_indicadorpf
     ADD CONSTRAINT fk_rails_d264d408b0 FOREIGN KEY (resultadopf_id) REFERENCES public.cor1440_gen_resultadopf(id);
-
-
---
--- Name: sip_actorsocial fk_rails_d648932ca6; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_actorsocial
-    ADD CONSTRAINT fk_rails_d648932ca6 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -8377,6 +8547,14 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 ALTER TABLE ONLY public.sip_clase
     ADD CONSTRAINT fk_rails_fb09f016e4 FOREIGN KEY (id_municipio) REFERENCES public.sip_municipio(id);
+
+
+--
+-- Name: sipd_actorsocial_dominio fk_rails_fb63f7876b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_actorsocial_dominio
+    ADD CONSTRAINT fk_rails_fb63f7876b FOREIGN KEY (actorsocial_id) REFERENCES public.sip_actorsocial(id);
 
 
 --
@@ -9208,6 +9386,12 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190111102201'),
 ('20190116133230'),
 ('20190123100500'),
-('20190123103833');
+('20190123103833'),
+('20190128032125'),
+('20190205203619'),
+('20190206005635'),
+('20190208103518'),
+('20190215110933'),
+('20190218155153');
 
 
