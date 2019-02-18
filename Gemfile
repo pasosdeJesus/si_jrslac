@@ -92,8 +92,8 @@ gem "paperclip"
 gem "tzinfo"
 
 # Motor generico
-gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
-#gem 'sip', path: '../sip'
+#gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
+gem 'sip', path: '../sip'
 
 # Dominios
 gem 'sipd', git: "https://github.com/pasosdeJesus/sipd.git"
@@ -137,7 +137,7 @@ end
 
 group :development, :test do
   # Depurar
-  #gem 'byebug'
+  gem 'byebug'
 end
 
 # Los siguientes son para pruebas y no tiene generadores requeridos en desarrollo

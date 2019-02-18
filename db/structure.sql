@@ -256,7 +256,6 @@ CREATE TABLE public.sip_persona (
     id_departamento integer,
     id_municipio integer,
     id_clase integer,
-    dominio_id integer DEFAULT 1,
     CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
     CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
     CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
@@ -3051,6 +3050,16 @@ CREATE TABLE public.sipd_dominio_operaen_departamento (
 CREATE TABLE public.sipd_dominio_operaen_pais (
     dominio_id bigint NOT NULL,
     pais_id bigint NOT NULL
+);
+
+
+--
+-- Name: sipd_dominio_persona; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sipd_dominio_persona (
+    dominio_id bigint NOT NULL,
+    persona_id bigint NOT NULL
 );
 
 
@@ -7733,14 +7742,6 @@ ALTER TABLE ONLY public.cor1440_gen_caracterizacionpersona
 
 
 --
--- Name: sip_persona fk_rails_1a0807a32e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_persona
-    ADD CONSTRAINT fk_rails_1a0807a32e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
 -- Name: sipd_dominio_grupo fk_rails_1a9738aae8; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7834,6 +7835,14 @@ ALTER TABLE ONLY public.cor1440_gen_informe
 
 ALTER TABLE ONLY public.mr519_gen_encuestausuario
     ADD CONSTRAINT fk_rails_2cb09d778a FOREIGN KEY (respuestafor_id) REFERENCES public.mr519_gen_respuestafor(id);
+
+
+--
+-- Name: sipd_dominio_persona fk_rails_2d6a08d29d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_persona
+    ADD CONSTRAINT fk_rails_2d6a08d29d FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -8234,6 +8243,14 @@ ALTER TABLE ONLY public.cor1440_gen_beneficiariopf
 
 ALTER TABLE ONLY public.sivel2_gen_combatiente
     ADD CONSTRAINT fk_rails_af43e915a6 FOREIGN KEY (id_filiacion) REFERENCES public.sivel2_gen_filiacion(id);
+
+
+--
+-- Name: sipd_dominio_persona fk_rails_b1b0ce97ef; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sipd_dominio_persona
+    ADD CONSTRAINT fk_rails_b1b0ce97ef FOREIGN KEY (persona_id) REFERENCES public.sip_persona(id);
 
 
 --
@@ -9374,6 +9391,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190205203619'),
 ('20190206005635'),
 ('20190208103518'),
-('20190215110933');
+('20190215110933'),
+('20190218155153');
 
 

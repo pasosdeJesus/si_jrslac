@@ -105,7 +105,7 @@ class Ability  < Sipd::Ability
       return
     end
     can :read, Sip::Actorsocial, dominio: { id: usuario.dominio_ids}
-    can :read, Sip::Persona
+    can :read, Sip::Persona, dominio: { id: usuario.dominio_ids}
     can :contar, Sip::Ubicacion
     can :buscar, Sip::Ubicacion
     can :lista, Sip::Ubicacion
@@ -137,9 +137,13 @@ class Ability  < Sipd::Ability
         can :manage, Sal7711Gen::Articulo
 
         can :new, Sip::Actorsocial
-        can [:read, :create, :edit, :update], Sip::Actorsocial, dominio: { id: usuario.dominio_ids}
+        can [:read, :create, :edit, :update], Sip::Actorsocial, 
+          dominio: { id: usuario.dominio_ids}
         # Restricciones para nuevos/editar en modelo y controlador
-        can :manage, Sip::Persona
+        can :new, Sip::Persona
+        can [:read, :create, :edit, :update], Sip::Persona, 
+          dominio: { id: usuario.dominio_ids}
+        # Restricciones para nuevos/editar en modelo y controlador
 
         can :manage, Sivel2Gen::Acto
         can :manage, Sivel2Gen::Caso
@@ -171,7 +175,10 @@ class Ability  < Sipd::Ability
         # y en controlador con validaciones
         can :new, Sip::Grupo
         can :manage, Sip::Grupo, dominio: { id: usuario.dominio_ids}
-        can :manage, Sip::Persona
+        can :new, Sip::Persona
+        can :manage, Sip::Persona, dominio: { id: usuario.dominio_ids}
+        # Las restricciones para nuevos y edición en modelo con validate
+        # y en controlador con validaciones
 
         can :read, Sipd::Dominio
 
