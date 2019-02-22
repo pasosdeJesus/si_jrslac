@@ -10,6 +10,11 @@ module Sip
     # No autorizamos aquí porque la autorización es más
     # detallada en las funcines de modelos_controller
 
+    # Presenta notificaciones en caso de problema
+    def destroy
+      super("", true)
+    end
+
   end
 end
 
