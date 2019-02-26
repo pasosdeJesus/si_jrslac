@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 58d7b10d82f06619754323f123ac100ff8abfadd
+  revision: 10bc65bf5146b2ac0a41dc3ea8638077e5b98047
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: f5aa8f4eb1d34d886eeb2c214bca09f3955f849b
+  revision: dab81daf1e9cb95d6a69d5a0629d3264ede7c605
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: a577129e1d7e51b35a3690de4b015eb37e857067
+  revision: 6b9cef44cbfd9b3d2aa4c99d09da94a02686b334
   specs:
     mr519_gen (0.1.0)
       rails (~> 5.2.2, >= 5.2.2)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 9cf89d42900d9d6aa9b148d7d956299335257221
+  revision: 5d0152069ae0a4e17df68798dfa4d43eb1f45ece
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 1fd5a667646ee1aacaa1e351a4bd00c454fc938f
+  revision: b11d5821dda6ef6637f5c30574b641ac38abef47
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -48,7 +48,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 8fc591f2c2830967e9774012ef6e32b09ad91688
+  revision: 50a60137c2099ddf41a1ef57420ebc956a1f760f
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -70,7 +70,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sipd.git
-  revision: 5c8195b15fa5ac89656b62af98115b3fae3dfef4
+  revision: f79be7bb686c7cb42c6e7a0b557f4ae96941047d
   specs:
     sipd (0.1.0)
       rails (~> 5.2.1, >= 5.2.1.1)
@@ -78,7 +78,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 57d970932bd84c9a9ed07fd1c5ab7ae793e83655
+  revision: 599cfa4fccbd3b9a567665320704aee289e1ece3
   specs:
     sivel2_gen (2.0b8)
       devise
@@ -86,19 +86,18 @@ GIT
       rails
 
 GIT
-  remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 2aeb368addf7037f37c611b939adf0744d162d82
-  specs:
-    sivel2_sjr (2.0.b1)
-      rails
-      sivel2_gen
-
-GIT
   remote: https://github.com/vtamara/cocoon.git
   revision: 9d29a8abcc5b6ed9aefcad85ca54dd1364262583
   branch: new_id_with_ajax
   specs:
     cocoon (1.2.11)
+
+PATH
+  remote: ../sivel2_sjr
+  specs:
+    sivel2_sjr (2.0.b1)
+      rails
+      sivel2_gen
 
 GEM
   remote: https://rubygems.org/
@@ -152,7 +151,7 @@ GEM
     bcrypt (3.1.12)
     bigdecimal (1.4.3)
     bindex (0.5.0)
-    bootsnap (1.4.0)
+    bootsnap (1.4.1)
       msgpack (~> 1.0)
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)

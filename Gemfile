@@ -100,8 +100,8 @@ gem 'sipd', git: "https://github.com/pasosdeJesus/sipd.git"
 #gem 'sipd', path: '../sipd'
 
 # Motor Cor1440_gen
-gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
-#gem "sivel2_sjr", path: '../sivel2_sjr'
+#gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
+gem "sivel2_sjr", path: '../sivel2_sjr'
 
   # Motor Cor1440_gen
 gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
