@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>Archivos-de-prensa</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Buscar-Archivo</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Archivo de Prensa<datalist><option>link=Archivo de Prensa</option><option>//a[contains(text(),'Archivo de Prensa')]</option><option>xpath=(//a[contains(@href, '#')])[3]</option><option>//li[3]/a</option></datalist></td><td>57,21</td>
+</tr>
+<tr><td>clickAt</td><td>link=Buscar<datalist><option>link=Buscar</option><option>css=li.dropdown.open &gt; ul.dropdown-menu &gt; li &gt; a</option><option>//a[contains(text(),'Buscar')]</option><option>//a[contains(@href, '/buscar')]</option><option>//li[3]/ul/li/a</option></datalist></td><td>58,10</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Buscar-archivo-por-rango-de-fecha</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>id=buscar_fechaini<datalist><option>id=buscar_fechaini</option><option>name=buscar[fechaini]</option><option>css=#buscar_fechaini</option><option>//input[@id='buscar_fechaini']</option><option>//div[@id='filtro']/form/div/div[2]/div/div/div/input</option><option>//div[2]/div/div/div/input</option></datalist></td><td>112,8</td>
+</tr>
+<tr><td>type</td><td>id=buscar_fechaini<datalist><option>id=buscar_fechaini</option><option>name=buscar[fechaini]</option><option>css=#buscar_fechaini</option><option>//input[@id='buscar_fechaini']</option><option>//div[@id='filtro']/form/div/div[2]/div/div/div/input</option><option>//div[2]/div/div/div/input</option></datalist></td><td>2018-10-24</td>
+</tr>
+<tr><td>clickAt</td><td>id=buscar_fechafin<datalist><option>id=buscar_fechafin</option><option>name=buscar[fechafin]</option><option>css=#buscar_fechafin</option><option>//input[@id='buscar_fechafin']</option><option>//div[@id='filtro']/form/div/div[2]/div/div[2]/div/input</option><option>//div[2]/div/div[2]/div/input</option></datalist></td><td>72,11</td>
+</tr>
+<tr><td>type</td><td>id=buscar_fechafin<datalist><option>id=buscar_fechafin</option><option>name=buscar[fechafin]</option><option>css=#buscar_fechafin</option><option>//input[@id='buscar_fechafin']</option><option>//div[@id='filtro']/form/div/div[2]/div/div[2]/div/input</option><option>//div[2]/div/div[2]/div/input</option></datalist></td><td>2018-10-25</td>
+</tr>
+<tr><td>clickAt</td><td>id=buscar<datalist><option>id=buscar</option><option>name=button</option><option>css=#buscar</option><option>//button[@id='buscar']</option><option>//div[@id='filtro']/form/div/div[2]/button</option><option>//div[2]/button</option></datalist></td><td>52,11</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Buscar-por-mes</td></tr>
+</thead>
+<tbody>
+<tr><td>addSelection</td><td>id=buscar_meses_rapido<datalist><option>id=buscar_meses_rapido</option><option>css=#buscar_meses_rapido</option><option>//select[@id='buscar_meses_rapido']</option><option>//div[@id='filtro']/form/div/div[2]/div/div[3]/select</option><option>//select</option></datalist></td><td>label=octubre 2018</td>
+</tr>
+<tr><td>clickAt</td><td>css=option[value="2018-10"]<datalist><option>css=option[value="2018-10"]</option><option>//option[@value='2018-10']</option><option>//select[@id='buscar_meses_rapido']/option[5]</option><option>//option[5]</option></datalist></td><td>67,-41</td>
+</tr>
+<tr><td>clickAt</td><td>id=buscar<datalist><option>id=buscar</option><option>name=button</option><option>css=#buscar</option><option>//button[@id='buscar']</option><option>//div[@id='filtro']/form/div/div[2]/button</option><option>//div[2]/button</option></datalist></td><td>39,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Buscar-por-municipio</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>id=ui-id-351<datalist><option>id=ui-id-351</option><option>css=#ui-id-351</option><option>//div[@id='ui-id-351']</option><option>//ul[@id='ui-id-2']/li/div</option><option>//li/div</option></datalist></td><td>162,13</td>
+</tr>
+<tr><td>type</td><td>id=buscar_mundep<datalist><option>id=buscar_mundep</option><option>name=buscar[mundep]</option><option>css=#buscar_mundep</option><option>//input[@id='buscar_mundep']</option><option>//div[@id='filtro']/form/div/div[2]/div[2]/input</option><option>//div[2]/div[2]/input</option></datalist></td><td>BOGOTÁ, D.C.</td>
+</tr>
+<tr><td>clickAt</td><td>id=buscar<datalist><option>id=buscar</option><option>name=button</option><option>css=#buscar</option><option>//button[@id='buscar']</option><option>//div[@id='filtro']/form/div/div[2]/button</option><option>//div[2]/button</option></datalist></td><td>29,1</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Buscar -por-categoria</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>id=buscar_categoria<datalist><option>id=buscar_categoria</option><option>name=buscar[categoria]</option><option>css=#buscar_categoria</option><option>//input[@id='buscar_categoria']</option><option>//div[@id='filtro']/form/div/div[2]/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>67,9</td>
+</tr>
+<tr><td>type</td><td>id=buscar_categoria<datalist><option>id=buscar_categoria</option><option>name=buscar[categoria]</option><option>css=#buscar_categoria</option><option>//input[@id='buscar_categoria']</option><option>//div[@id='filtro']/form/div/div[2]/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>c3 fronteras</td>
+</tr>
+<tr><td>clickAt</td><td>id=buscar<datalist><option>id=buscar</option><option>name=button</option><option>css=#buscar</option><option>//button[@id='buscar']</option><option>//div[@id='filtro']/form/div/div[2]/button</option><option>//div[2]/button</option></datalist></td><td>64,24</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Buscar-fuente</td></tr>
+</thead>
+<tbody>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>select</td><td>id=buscar_fuente<datalist><option>id=buscar_fuente</option><option>name=buscar[fuente]</option><option>css=#buscar_fuente</option><option>//select[@id='buscar_fuente']</option><option>//div[@id='filtro']/form/div/div[2]/div[4]/select</option><option>//div[4]/select</option></datalist></td><td>label=HHH</td>
+</tr>
+<tr><td>mouseDownAt</td><td>id=buscar_fuente<datalist><option>id=buscar_fuente</option><option>name=buscar[fuente]</option><option>css=#buscar_fuente</option><option>//select[@id='buscar_fuente']</option><option>//div[@id='filtro']/form/div/div[2]/div[4]/select</option><option>//div[4]/select</option></datalist></td><td>-95.1171875,-410.546875</td>
+</tr>
+<tr><td>mouseMoveAt</td><td>id=buscar_fuente<datalist><option>id=buscar_fuente</option><option>name=buscar[fuente]</option><option>css=#buscar_fuente</option><option>//select[@id='buscar_fuente']</option><option>//div[@id='filtro']/form/div/div[2]/div[4]/select</option><option>//div[4]/select</option></datalist></td><td>-95.1171875,-410.546875</td>
+</tr>
+<tr><td>mouseUpAt</td><td>id=buscar_fuente<datalist><option>id=buscar_fuente</option><option>name=buscar[fuente]</option><option>css=#buscar_fuente</option><option>//select[@id='buscar_fuente']</option><option>//div[@id='filtro']/form/div/div[2]/div[4]/select</option><option>//div[4]/select</option></datalist></td><td>-95.1171875,-410.546875</td>
+</tr>
+<tr><td>clickAt</td><td>id=buscar_fuente<datalist><option>id=buscar_fuente</option><option>name=buscar[fuente]</option><option>css=#buscar_fuente</option><option>//select[@id='buscar_fuente']</option><option>//div[@id='filtro']/form/div/div[2]/div[4]/select</option><option>//div[4]/select</option></datalist></td><td>-96,-411</td>
+</tr>
+<tr><td>clickAt</td><td>id=buscar<datalist><option>id=buscar</option><option>name=button</option><option>css=#buscar</option><option>//button[@id='buscar']</option><option>//div[@id='filtro']/form/div/div[2]/button</option><option>//div[2]/button</option></datalist></td><td>50,15</td>
+</tr>
+</tbody></table>
+</body>
+</html>
