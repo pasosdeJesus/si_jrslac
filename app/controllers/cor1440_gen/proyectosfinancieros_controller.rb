@@ -44,6 +44,7 @@ module Cor1440Gen
       [ "compromisos", 
         "monto",
         "observaciones",
+        "objetivogeneral",
         "objetivopf",
         "indicadorobjetivo",
         "resultadopf",
