@@ -25,6 +25,12 @@ es:
       "cor1440_gen/proyecto":
         Proyecto: Proyecto
         Proyectos: Proyectos
+      "cor1440_gen/proyectofinanciero":
+        objetivogeneral: Objetivo general
+        objetivo: Objetivos específicos
+        indicadorobjetivo: Indicador de efecto
+        resultado: Resultados
+        indicadorpf: Indicador de resultado
       "factorvulnerabilidad":
         Factorvulnerabilidad: Factor de vulnerabilidad
         Factoresvulnerabilidad: Factores de vulnerabilidad

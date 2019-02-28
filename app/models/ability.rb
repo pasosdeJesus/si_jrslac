@@ -37,6 +37,7 @@ class Ability  < Cor1440Gen::Ability
   def nobasicas_indice_seq_con_id 
     Sip::Ability::NOBASICAS_INDSEQID +
       Cor1440Gen::Ability::NOBASICAS_INDSEQID +
+      Heb412Gen::Ability::NOBASICAS_INDSEQID +
       Sal7711Gen::Ability::NOBASICAS_INDSEQID + 
       Sivel2Gen::Ability::NOBASICAS_INDSEQID + 
       Sivel2Sjr::Ability::NOBASICAS_INDSEQID + 
@@ -86,6 +87,14 @@ class Ability  < Cor1440Gen::Ability
     'Ver artículos del archivo de prensa. ' +
     'Ver documentos en nube. ' # ROLSIST
   ]
+
+
+  def campos_plantillas 
+    Heb412Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
+      Cor1440Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
+        Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone
+    ))
+  end
 
   # Autorizaciones con CanCanCan
   def initialize(usuario = nil)
@@ -147,6 +156,9 @@ class Ability  < Cor1440Gen::Ability
         can :manage, Heb412Gen::Plantilladoc
         can :manage, Heb412Gen::Plantillahcm
         can :manage, Heb412Gen::Plantillahcr
+
+        can :manage, Mr519Gen::Formulario
+        can :manage, Mr519Gen::Encuestausuario
 
         can :manage, Sal7711Gen::Articulo
 

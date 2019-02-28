@@ -95,13 +95,21 @@ gem "tzinfo"
 gem 'sip', git: "https://github.com/pasosdeJesus/sip.git"
 #gem 'sip', path: '../sip'
 
-# Motor de casos con atención 
-gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
-#gem "sivel2_sjr", path: '../sivel2_sjr'
+# Motor de nube y plantillas ods y odt
+gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git"
+#gem 'heb412_gen', path: '../heb412_gen'
+
+# Motor de formularios
+gem 'mr519_gen', git: "https://github.com/pasosdeJesus/mr519_gen.git"
+#gem 'mr519_gen', path: '../mr519_gen'
 
 # Motor de casos
 gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
 #gem "sivel2_gen", path: '../sivel2_gen'
+
+# Motor de casos con atención 
+gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
+#gem "sivel2_sjr", path: '../sivel2_sjr'
 
 # Motor de actividades y proyectos
 gem 'cor1440_gen', git: "https://github.com/pasosdeJesus/cor1440_gen.git"
@@ -114,14 +122,6 @@ gem 'sal7711_gen', git: "https://github.com/pasosdeJesus/sal7711_gen.git"
 # Motor archivo de prensa web
 gem 'sal7711_web', git: "https://github.com/pasosdeJesus/sal7711_web.git"
 #gem "sal7711_web", path: '../sal7711_web'
-
-# Motor de nube y plantillas ods y odt
-gem 'heb412_gen', git: "https://github.com/pasosdeJesus/heb412_gen.git"
-#gem 'heb412_gen', path: '../heb412_gen'
-
-# Motor de formularios
-gem 'mr519_gen', git: "https://github.com/pasosdeJesus/mr519_gen.git"
-#gem 'mr519_gen', path: '../mr519_gen'
 
 # Los siguientes son para desarrollo o para pruebas con generadores
 group :development do
