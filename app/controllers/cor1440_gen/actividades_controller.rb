@@ -71,8 +71,8 @@ module Cor1440Gen
 
     def edit
       edit_cor1440_gen
-      @listadoasistencia = true
-      render layout: 'application'
+      #@listadoasistencia = true
+      #render layout: 'application'
     end
 
     # No confiar parametros a Internet, sólo permitir lista blanca
