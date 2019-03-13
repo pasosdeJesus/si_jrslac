@@ -15,7 +15,7 @@ if !ENV['PUERTOCONLOC']
   exit 1
 end
 
-listen 2032 # by default Unicorn listens on port 8080
+listen ENV['PUERTOCONLOC'] # by default Unicorn listens on port 8080
 APP_PATH = ENV['DIRAP']
 working_directory APP_PATH
 worker_processes 4 # this should be >= nr_cpus
