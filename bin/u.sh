@@ -17,7 +17,7 @@ DOAS=`which doas 2> /dev/null`
 if (test "$?" != "0") then {
 	        DOAS="sudo"
 } fi;
-$DOAS su ${USUARIO_AP} -c "cd ${DIRAP};  RAILS_ENV=production bin/rails sip:indices; bundle exec rake assets:precompile; echo \"Iniciando unicorn...\"; SECRET_KEY_BASE=${SECRET_KEY_BASE} bundle exec unicorn_rails -c ./config/unicorn.conf.minimal.rb  -E production -D"
+$DOAS su ${USUARIO_AP} -c "cd ${DIRAP};  RAILS_ENV=production bin/rails sip:indices; bundle exec rake assets:precompile; echo \"Iniciando unicorn...\"; SECRET_KEY_BASE=${SECRET_KEY_BASE} bundle exec unicorn_rails -c ${DIRAP}/config/unicorn.conf.minimal.rb  -E production -D"
 
 
   

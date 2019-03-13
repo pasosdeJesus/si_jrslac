@@ -9,9 +9,8 @@ module Cor1440Gen
     def self.filtramas(par, ac, current_usuario)
       @buspoa = param_escapa(par, 'buspoa')
       if @buspoa != '' then
-        ac = ac.joins(:actividad_poa).where(
-          "actividad_poa.poa_id= ?",
-          @buspoa.to_i
+        ac = ac.joins(:poa).where(
+          "poa.id= ?", @buspoa.to_i
         )
       end
       @busactividadtipo = param_escapa(par, 'busactividadtipo')
