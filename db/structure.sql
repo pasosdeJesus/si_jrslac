@@ -9,20 +9,6 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
---
 -- Name: es_co_utf_8; Type: COLLATION; Schema: public; Owner: -
 --
 
@@ -224,6 +210,45 @@ CREATE SEQUENCE public.caso_presponsable_seq
 
 
 --
+-- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sip_persona_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_persona; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_persona (
+    id integer DEFAULT nextval('public.sip_persona_id_seq'::regclass) NOT NULL,
+    nombres character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
+    apellidos character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
+    anionac integer,
+    mesnac integer,
+    dianac integer,
+    sexo character(1) NOT NULL,
+    numerodocumento character varying(100),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_pais integer,
+    nacionalde integer,
+    tdocumento_id integer,
+    id_departamento integer,
+    id_municipio integer,
+    id_clase integer,
+    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
+    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
+    CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
+);
+
+
+--
 -- Name: sivel2_gen_caso_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -348,11 +373,12 @@ CREATE VIEW public.cben1 AS
             ELSE 0
         END AS beneficiario,
     1 AS npersona,
-    'total'::text AS total
+    persona.anionac
    FROM public.sivel2_gen_caso caso,
     public.sivel2_sjr_casosjr casosjr,
-    public.sivel2_gen_victima victima
-  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
+    public.sivel2_gen_victima victima,
+    public.sip_persona persona
+  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso) AND (persona.id = victima.id_persona));
 
 
 --
@@ -565,7 +591,7 @@ CREATE VIEW public.cben2 AS
     cben1.contacto,
     cben1.beneficiario,
     cben1.npersona,
-    cben1.total,
+    cben1.anionac,
     ubicacion.id_departamento,
     departamento.nombre AS departamento_nombre,
     ubicacion.id_municipio,
@@ -2414,9 +2440,7 @@ CREATE TABLE public.sip_actorsocial (
     pais_id integer,
     web character varying(500),
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1,
-    fechadeshabilitacion date
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -2494,8 +2518,7 @@ CREATE TABLE public.sip_anexo (
     adjunto_file_size integer,
     adjunto_updated_at timestamp without time zone,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    dominio_id integer DEFAULT 1
+    updated_at timestamp without time zone
 );
 
 
@@ -2542,7 +2565,6 @@ CREATE TABLE public.sip_etiqueta (
     fechadeshabilitacion date,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    dominio_id integer DEFAULT 1,
     CONSTRAINT etiqueta_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2572,7 +2594,6 @@ CREATE TABLE public.sip_fuenteprensa (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     observaciones character varying(5000),
-    dominio_id integer DEFAULT 1,
     CONSTRAINT sip_fuenteprensa_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2588,8 +2609,7 @@ CREATE TABLE public.sip_grupo (
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -2643,8 +2663,7 @@ CREATE TABLE public.sip_grupoper (
     nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
     anotaciones character varying(1000),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    dominio_id integer DEFAULT 1
+    updated_at timestamp without time zone
 );
 
 
@@ -2702,7 +2721,6 @@ CREATE TABLE public.sip_oficina (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
-    dominio_id integer DEFAULT 1,
     CONSTRAINT regionsjr_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -2761,8 +2779,7 @@ CREATE TABLE public.sip_perfilactorsocial (
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -2783,46 +2800,6 @@ CREATE SEQUENCE public.sip_perfilactorsocial_id_seq
 --
 
 ALTER SEQUENCE public.sip_perfilactorsocial_id_seq OWNED BY public.sip_perfilactorsocial.id;
-
-
---
--- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.sip_persona_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sip_persona; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sip_persona (
-    id integer DEFAULT nextval('public.sip_persona_id_seq'::regclass) NOT NULL,
-    nombres character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
-    apellidos character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
-    anionac integer,
-    mesnac integer,
-    dianac integer,
-    sexo character(1) NOT NULL,
-    numerodocumento character varying(100),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_pais integer,
-    nacionalde integer,
-    tdocumento_id integer,
-    id_departamento integer,
-    id_municipio integer,
-    id_clase integer,
-    dominio_id integer DEFAULT 1,
-    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
-    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
-    CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
-);
 
 
 --
@@ -2863,8 +2840,7 @@ CREATE TABLE public.sip_sectoractor (
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    dominio_id integer DEFAULT 1
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -2981,68 +2957,6 @@ CREATE TABLE public.sip_tsitio (
     updated_at timestamp without time zone,
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
     CONSTRAINT tsitio_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
-);
-
-
---
--- Name: sipd_dominio; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sipd_dominio (
-    id bigint NOT NULL,
-    dominio character varying(500) NOT NULL,
-    mandato character varying(5000) NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: sipd_dominio_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.sipd_dominio_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sipd_dominio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.sipd_dominio_id_seq OWNED BY public.sipd_dominio.id;
-
-
---
--- Name: sipd_dominio_operaen_departamento; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sipd_dominio_operaen_departamento (
-    departamento_id bigint NOT NULL,
-    dominio_id bigint NOT NULL
-);
-
-
---
--- Name: sipd_dominio_operaen_pais; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sipd_dominio_operaen_pais (
-    dominio_id bigint NOT NULL,
-    pais_id bigint NOT NULL
-);
-
-
---
--- Name: sipd_dominio_usuario; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sipd_dominio_usuario (
-    dominio_id bigint NOT NULL,
-    usuario_id bigint NOT NULL
 );
 
 
@@ -5509,13 +5423,6 @@ ALTER TABLE ONLY public.sip_tdocumento ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- Name: sipd_dominio id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio ALTER COLUMN id SET DEFAULT nextval('public.sipd_dominio_id_seq'::regclass);
-
-
---
 -- Name: sivel2_gen_combatiente id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -6574,14 +6481,6 @@ ALTER TABLE ONLY public.sip_sectoractor
 
 
 --
--- Name: sipd_dominio sipd_dominio_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio
-    ADD CONSTRAINT sipd_dominio_pkey PRIMARY KEY (id);
-
-
---
 -- Name: cor1440_gen_actividad sivel2_gen_actividad_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7636,14 +7535,6 @@ ALTER TABLE ONLY public.sivel2_sjr_motivosjr_derecho
 
 
 --
--- Name: sip_oficina fk_rails_06284eb69b; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_oficina
-    ADD CONSTRAINT fk_rails_06284eb69b FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
 -- Name: cor1440_gen_mindicadorpf fk_rails_06564b910d; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -7665,14 +7556,6 @@ ALTER TABLE ONLY public.cor1440_gen_resultadopf
 
 ALTER TABLE ONLY public.sip_municipio
     ADD CONSTRAINT fk_rails_089870a38d FOREIGN KEY (id_departamento) REFERENCES public.sip_departamento(id);
-
-
---
--- Name: sip_etiqueta fk_rails_08b508c1d4; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_etiqueta
-    ADD CONSTRAINT fk_rails_08b508c1d4 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -7713,14 +7596,6 @@ ALTER TABLE ONLY public.cor1440_gen_mindicadorpf
 
 ALTER TABLE ONLY public.cor1440_gen_caracterizacionpersona
     ADD CONSTRAINT fk_rails_119f5dffb4 FOREIGN KEY (ulteditor_id) REFERENCES public.usuario(id);
-
-
---
--- Name: sip_persona fk_rails_1a0807a32e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_persona
-    ADD CONSTRAINT fk_rails_1a0807a32e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -7852,35 +7727,11 @@ ALTER TABLE ONLY public.cor1440_gen_actividad_proyecto
 
 
 --
--- Name: sip_grupoper fk_rails_3c81737399; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_grupoper
-    ADD CONSTRAINT fk_rails_3c81737399 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
--- Name: sipd_dominio_usuario fk_rails_409b6c9cf3; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio_usuario
-    ADD CONSTRAINT fk_rails_409b6c9cf3 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
 -- Name: cor1440_gen_informe fk_rails_40cb623d50; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.cor1440_gen_informe
     ADD CONSTRAINT fk_rails_40cb623d50 FOREIGN KEY (filtroproyectofinanciero) REFERENCES public.cor1440_gen_proyectofinanciero(id);
-
-
---
--- Name: sipd_dominio_operaen_departamento fk_rails_44dcf582d1; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio_operaen_departamento
-    ADD CONSTRAINT fk_rails_44dcf582d1 FOREIGN KEY (departamento_id) REFERENCES public.sip_departamento(id);
 
 
 --
@@ -7905,14 +7756,6 @@ ALTER TABLE ONLY public.cor1440_gen_indicadorpf
 
 ALTER TABLE ONLY public.cor1440_gen_valorcampotind
     ADD CONSTRAINT fk_rails_4f2fc96457 FOREIGN KEY (campotind_id) REFERENCES public.cor1440_gen_campotind(id);
-
-
---
--- Name: sipd_dominio_usuario fk_rails_4f83073a94; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio_usuario
-    ADD CONSTRAINT fk_rails_4f83073a94 FOREIGN KEY (usuario_id) REFERENCES public.usuario(id);
 
 
 --
@@ -8092,27 +7935,11 @@ ALTER TABLE ONLY public.sip_grupo_usuario
 
 
 --
--- Name: sip_grupo fk_rails_8dc1c2d20e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_grupo
-    ADD CONSTRAINT fk_rails_8dc1c2d20e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
 -- Name: sal7711_gen_articulo fk_rails_8e3e0703f9; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sal7711_gen_articulo
     ADD CONSTRAINT fk_rails_8e3e0703f9 FOREIGN KEY (municipio_id) REFERENCES public.sip_municipio(id);
-
-
---
--- Name: sip_fuenteprensa fk_rails_8fecb1ba5c; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_fuenteprensa
-    ADD CONSTRAINT fk_rails_8fecb1ba5c FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -8145,14 +7972,6 @@ ALTER TABLE ONLY public.cor1440_gen_resultadopf
 
 ALTER TABLE ONLY public.sivel2_gen_combatiente
     ADD CONSTRAINT fk_rails_95f4a0b8f6 FOREIGN KEY (id_profesion) REFERENCES public.sivel2_gen_profesion(id);
-
-
---
--- Name: sip_anexo fk_rails_96bffeb735; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_anexo
-    ADD CONSTRAINT fk_rails_96bffeb735 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -8209,22 +8028,6 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 ALTER TABLE ONLY public.caso_factorvulnerabilidad
     ADD CONSTRAINT fk_rails_b274e2fa2d FOREIGN KEY (factorvulnerabilidad_id) REFERENCES public.factorvulnerabilidad(id);
-
-
---
--- Name: sipd_dominio_operaen_departamento fk_rails_b49ea67f2f; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio_operaen_departamento
-    ADD CONSTRAINT fk_rails_b49ea67f2f FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
--- Name: sipd_dominio_operaen_pais fk_rails_b5291ac79e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio_operaen_pais
-    ADD CONSTRAINT fk_rails_b5291ac79e FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -8308,27 +8111,11 @@ ALTER TABLE ONLY public.sivel2_sjr_progestado_derecho
 
 
 --
--- Name: sip_perfilactorsocial fk_rails_d0182d7038; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_perfilactorsocial
-    ADD CONSTRAINT fk_rails_d0182d7038 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
-
-
---
 -- Name: cor1440_gen_indicadorpf fk_rails_d264d408b0; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.cor1440_gen_indicadorpf
     ADD CONSTRAINT fk_rails_d264d408b0 FOREIGN KEY (resultadopf_id) REFERENCES public.cor1440_gen_resultadopf(id);
-
-
---
--- Name: sip_actorsocial fk_rails_d648932ca6; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_actorsocial
-    ADD CONSTRAINT fk_rails_d648932ca6 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -8420,14 +8207,6 @@ ALTER TABLE ONLY public.cor1440_gen_actividad_actorsocial
 
 
 --
--- Name: sipd_dominio_operaen_pais fk_rails_ed1af0ae84; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sipd_dominio_operaen_pais
-    ADD CONSTRAINT fk_rails_ed1af0ae84 FOREIGN KEY (pais_id) REFERENCES public.sip_pais(id);
-
-
---
 -- Name: sip_actorsocial_sectoractor fk_rails_f032bb21a6; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8449,14 +8228,6 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 ALTER TABLE ONLY public.sivel2_gen_antecedente_combatiente
     ADD CONSTRAINT fk_rails_f305297325 FOREIGN KEY (id_combatiente) REFERENCES public.sivel2_gen_combatiente(id);
-
-
---
--- Name: sip_sectoractor fk_rails_f3e34439fd; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_sectoractor
-    ADD CONSTRAINT fk_rails_f3e34439fd FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -9309,14 +9080,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181112122927'),
 ('20181112135643'),
 ('20181113025055'),
-('20181127191845'),
-('20181127192803'),
-('20181127194114'),
-('20181128174519'),
-('20181128183936'),
 ('20181130112320'),
 ('20181213103204'),
-('20181217221137'),
 ('20181218165548'),
 ('20181218165559'),
 ('20181218215222'),
@@ -9329,8 +9094,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181227114431'),
 ('20181227210510'),
 ('20181228014507'),
-('20190102140635'),
-('20190102220733'),
 ('20190109125417'),
 ('20190110191802'),
 ('20190111092816'),

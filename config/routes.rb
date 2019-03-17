@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get "/informes/:id/impreso" => "cor1440_gen/informes#impreso", 
     as: :impresion
 
+  post "/api/recibecaso" => "api/recibecaso",  as: :recibecaso
+
   namespace :admin do
     ab = ::Ability.new
     ab.tablasbasicas.each do |t|
