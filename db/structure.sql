@@ -224,45 +224,6 @@ CREATE SEQUENCE public.caso_presponsable_seq
 
 
 --
--- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.sip_persona_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: sip_persona; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sip_persona (
-    id integer DEFAULT nextval('public.sip_persona_id_seq'::regclass) NOT NULL,
-    nombres character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
-    apellidos character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
-    anionac integer,
-    mesnac integer,
-    dianac integer,
-    sexo character(1) NOT NULL,
-    numerodocumento character varying(100),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone,
-    id_pais integer,
-    nacionalde integer,
-    tdocumento_id integer,
-    id_departamento integer,
-    id_municipio integer,
-    id_clase integer,
-    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
-    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
-    CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
-);
-
-
---
 -- Name: sivel2_gen_caso_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -330,8 +291,8 @@ CREATE TABLE public.sivel2_gen_victima (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
-    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
-    CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
+    genero character varying(1) DEFAULT 'S'::character varying,
+    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100))))
 );
 
 
@@ -346,7 +307,7 @@ CREATE TABLE public.sivel2_sjr_casosjr (
     oficina_id integer DEFAULT 1,
     direccion character varying(1000),
     telefono character varying(1000),
-    contacto_id integer,
+    contacto integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     dependen integer,
@@ -379,20 +340,19 @@ CREATE VIEW public.cben1 AS
  SELECT caso.id AS id_caso,
     victima.id_persona,
         CASE
-            WHEN (casosjr.contacto_id = victima.id_persona) THEN 1
+            WHEN (casosjr.contacto = victima.id_persona) THEN 1
             ELSE 0
         END AS contacto,
         CASE
-            WHEN (casosjr.contacto_id <> victima.id_persona) THEN 1
+            WHEN (casosjr.contacto <> victima.id_persona) THEN 1
             ELSE 0
         END AS beneficiario,
     1 AS npersona,
-    persona.anionac
+    'total'::text AS total
    FROM public.sivel2_gen_caso caso,
     public.sivel2_sjr_casosjr casosjr,
-    public.sivel2_gen_victima victima,
-    public.sip_persona persona
-  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso) AND (persona.id = victima.id_persona));
+    public.sivel2_gen_victima victima
+  WHERE ((casosjr.fecharec >= '2019-01-01'::date) AND (casosjr.fecharec <= '2019-01-31'::date) AND (caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
 
 
 --
@@ -605,7 +565,7 @@ CREATE VIEW public.cben2 AS
     cben1.contacto,
     cben1.beneficiario,
     cben1.npersona,
-    cben1.anionac,
+    cben1.total,
     ubicacion.id_departamento,
     departamento.nombre AS departamento_nombre,
     ubicacion.id_municipio,
@@ -2823,6 +2783,45 @@ ALTER SEQUENCE public.sip_perfilactorsocial_id_seq OWNED BY public.sip_perfilact
 
 
 --
+-- Name: sip_persona_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.sip_persona_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sip_persona; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sip_persona (
+    id integer DEFAULT nextval('public.sip_persona_id_seq'::regclass) NOT NULL,
+    nombres character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
+    apellidos character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
+    anionac integer,
+    mesnac integer,
+    dianac integer,
+    sexo character(1) NOT NULL,
+    numerodocumento character varying(100),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    id_pais integer,
+    nacionalde integer,
+    tdocumento_id integer,
+    id_departamento integer,
+    id_municipio integer,
+    id_clase integer,
+    CONSTRAINT persona_check CHECK (((dianac IS NULL) OR (((dianac >= 1) AND (((mesnac = 1) OR (mesnac = 3) OR (mesnac = 5) OR (mesnac = 7) OR (mesnac = 8) OR (mesnac = 10) OR (mesnac = 12)) AND (dianac <= 31))) OR (((mesnac = 4) OR (mesnac = 6) OR (mesnac = 9) OR (mesnac = 11)) AND (dianac <= 30)) OR ((mesnac = 2) AND (dianac <= 29))))),
+    CONSTRAINT persona_mesnac_check CHECK (((mesnac IS NULL) OR ((mesnac >= 1) AND (mesnac <= 12)))),
+    CONSTRAINT persona_sexo_check CHECK (((sexo = 'S'::bpchar) OR (sexo = 'F'::bpchar) OR (sexo = 'M'::bpchar)))
+);
+
+
+--
 -- Name: sip_persona_trelacion_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -3566,7 +3565,7 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
  SELECT casosjr.id_caso AS caso_id,
     array_to_string(ARRAY( SELECT (((persona.nombres)::text || ' '::text) || (persona.apellidos)::text)
            FROM public.sip_persona persona
-          WHERE (persona.id = casosjr.contacto_id)), ', '::text) AS contacto,
+          WHERE (persona.id = casosjr.contacto)), ', '::text) AS contacto,
     casosjr.fecharec,
     oficina.nombre AS oficina,
     usuario.nusuario,
@@ -4399,6 +4398,7 @@ CREATE TABLE public.sivel2_sjr_aslegal (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     observaciones character varying(5000),
+    nivel character varying(1),
     CONSTRAINT aslegal_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -7442,7 +7442,7 @@ ALTER TABLE ONLY public.sivel2_sjr_casosjr
 --
 
 ALTER TABLE ONLY public.sivel2_sjr_casosjr
-    ADD CONSTRAINT casosjr_contacto_fkey FOREIGN KEY (contacto_id) REFERENCES public.sip_persona(id);
+    ADD CONSTRAINT casosjr_contacto_fkey FOREIGN KEY (contacto) REFERENCES public.sip_persona(id);
 
 
 --
@@ -9384,7 +9384,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190110191802'),
 ('20190111092816'),
 ('20190111102201'),
+('20190116131050'),
 ('20190116133230'),
+('20190116135208'),
+('20190116150640'),
 ('20190123100500'),
 ('20190123103833'),
 ('20190128032125'),
@@ -9392,7 +9395,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190206005635'),
 ('20190208103518'),
 ('20190215110933'),
-('20190218155153'),
-('20190225143501');
+('20190218155153');
 
 
