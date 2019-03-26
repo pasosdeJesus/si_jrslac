@@ -13,6 +13,7 @@
 //= require sip/motor
 //= require cor1440_gen/motor
 //= require heb412_gen/motor
+//= require mr519_gen/motor
 //= require sal7711_web/motor
 //= require sivel2_gen/motor
 //= require sivel2_sjr/motor
@@ -28,6 +29,7 @@ $(document).on('turbolinks:load ready page:load', function() {
     exports : window;	
   sip_prepara_eventos_comunes(root);
   heb412_gen_prepara_eventos_comunes(root);
+  mr519_gen_prepara_eventos_comunes(root);
   sivel2_gen_prepara_eventos_comunes(root,'antecedentes/causas');
   sivel2_sjr_prepara_eventos_comunes(root);
   cor1440_gen_prepara_eventos_comunes(root);
