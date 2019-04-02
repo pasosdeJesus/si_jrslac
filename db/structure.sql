@@ -8654,14 +8654,6 @@ ALTER TABLE ONLY public.sivel2_gen_supracategoria
 
 
 --
--- Name: sip_trelacion trelacion_inverso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_trelacion
-    ADD CONSTRAINT trelacion_inverso_fkey FOREIGN KEY (inverso) REFERENCES public.sip_trelacion(id);
-
-
---
 -- Name: sip_ubicacion ubicacion_id_caso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -9166,6 +9158,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190228140240'),
 ('20190308195346'),
 ('20190322102311'),
-('20190326150948');
+('20190326150948'),
+('20190331111015'),
+('20190401175521');
 
 
