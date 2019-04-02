@@ -10,7 +10,7 @@ motor.each do |m|
 end
 
 # jrslac jrslac
-conexion.execute("INSERT INTO usuario 
+conexion.execute("INSERT INTO public.usuario 
 	(nusuario, nombre, email, encrypted_password, password, 
   fechacreacion, created_at, updated_at, rol) 
 	VALUES ('jrslac', 'jrslac', 'cor1440@localhost', 
