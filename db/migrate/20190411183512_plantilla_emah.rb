@@ -1,7 +1,7 @@
 class PlantillaEmah < ActiveRecord::Migration[5.2]
   def up
     execute <<-SQL
-      INSERT INTO public.heb412_gen_plantillahcm (id, ruta, fuente, licencia, vista, nombremenu, filainicial) VALUES (1, 'Plantillas/Registro_de_casos_atendidos_EMAH_V4.ods', '', '', 'Caso', 'Registro de casos atendidos EMAH', 9);
+      INSERT INTO public.heb412_gen_plantillahcm (id, ruta, fuente, licencia, vista, nombremenu, filainicial) VALUES (1, 'Plantillas/Registro_de_casos_atendidos_EMAH_V4-Colombia.ods', '', '', 'Caso', 'Registro de casos atendidos EMAH', 9);
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (1, 1, 'ultimaatencion_mes', 'A');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (2, 1, 'ultimaatencion_fecha', 'B');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (3, 1, 'contacto_nombres', 'C');
