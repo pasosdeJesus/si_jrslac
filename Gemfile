@@ -105,8 +105,8 @@ gem 'mr519_gen', git: "https://github.com/pasosdeJesus/mr519_gen.git"
 #gem 'mr519_gen', path: '../mr519_gen'
 
 # Motor de casos
-gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
-#gem "sivel2_gen", path: '../sivel2_gen'
+#gem 'sivel2_gen', git: "https://github.com/pasosdeJesus/sivel2_gen.git"
+gem "sivel2_gen", path: '../sivel2_gen'
 
 # Motor de casos con atención 
 gem 'sivel2_sjr', git: "https://github.com/pasosdeJesus/sivel2_sjr.git"
