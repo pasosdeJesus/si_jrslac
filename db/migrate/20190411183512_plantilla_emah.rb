@@ -8,6 +8,7 @@ class PlantillaEmah < ActiveRecord::Migration[5.2]
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (4, 1, 'contacto_apellidos', 'D');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (5, 1, 'contacto_identificacion', 'E');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (6, 1, 'contacto_sexo', 'F');
+      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (35, 1, 'contacto_edad_ultimaatencion', 'G');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (8, 1, 'contacto_etnia', 'H');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (9, 1, 'beneficiarios_0_5', 'I');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (10, 1, 'beneficiarios_6_12', 'J');
@@ -21,13 +22,9 @@ class PlantillaEmah < ActiveRecord::Migration[5.2]
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (18, 1, 'beneficiarias_18_26', 'R');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (19, 1, 'beneficiarias_27_59', 'S');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (20, 1, 'beneficiarias_60_', 'T');
-      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (21, 1, 'ultimaatencion_derechosvul', 'U');
-      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (22, 1, 'ultimaatencion_as_humanitaria', 'V');
-      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (23, 1, 'ultimaatencion_as_juridica', 'W');
-      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (24, 1, 'ultimaatencion_otros_ser_as', 'X');
-      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (25, 1, 'ultimaatencion_descripcion_at', 'Y');
+      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (22, 1, 'ultimaatencion_as_humanitaria', 'U');
+      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (23, 1, 'ultimaatencion_as_juridica', 'V');
       INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (26, 1, 'oficina', 'Z');
-      INSERT INTO public.heb412_gen_campoplantillahcm (id, plantillahcm_id, nombrecampo, columna) VALUES (35, 1, 'contacto_edad_ultimaatencion', 'G');
     SQL
   end
 
