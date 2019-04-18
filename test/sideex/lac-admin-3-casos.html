@@ -535,15 +535,13 @@
 </tr>
 <tr><td>addSelection</td><td>id=caso_acto_id_persona<datalist><option>id=caso_acto_id_persona</option><option>name=caso_acto_id_persona[]</option><option>css=#caso_acto_id_persona</option><option>//select[@id='caso_acto_id_persona']</option><option>//div[@id='antecedentes']/div[3]/select</option><option>//div[8]/div[3]/select</option></datalist></td><td>label=aaa bbb</td>
 </tr>
-<tr><td>clickAt</td><td>css=option[value="459"]<datalist><option>css=option[value="459"]</option><option>//option[@value='459']</option><option>//select[@id='caso_acto_id_persona']/option</option><option>//div[8]/div[3]/select/option</option></datalist></td><td>41,8</td>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
 </tr>
 <tr><td>select</td><td>id=caso_acto_desplazamiento_id<datalist><option>id=caso_acto_desplazamiento_id</option><option>name=caso_acto_desplazamiento_id</option><option>css=#caso_acto_desplazamiento_id</option><option>//select[@id='caso_acto_desplazamiento_id']</option><option>//div[@id='antecedentes']/div[5]/select</option><option>//div[8]/div[5]/select</option></datalist></td><td>label=2019-01-16</td>
 </tr>
-<tr><td>mouseDownAt</td><td>id=caso_acto_desplazamiento_id<datalist><option>id=caso_acto_desplazamiento_id</option><option>name=caso_acto_desplazamiento_id</option><option>css=#caso_acto_desplazamiento_id</option><option>//select[@id='caso_acto_desplazamiento_id']</option><option>//div[@id='antecedentes']/div[5]/select</option><option>//div[8]/div[5]/select</option></datalist></td><td>-182.484375,-450</td>
-</tr>
-<tr><td>mouseMoveAt</td><td>id=caso_acto_desplazamiento_id<datalist><option>id=caso_acto_desplazamiento_id</option><option>name=caso_acto_desplazamiento_id</option><option>css=#caso_acto_desplazamiento_id</option><option>//select[@id='caso_acto_desplazamiento_id']</option><option>//div[@id='antecedentes']/div[5]/select</option><option>//div[8]/div[5]/select</option></datalist></td><td>-182.484375,-450</td>
-</tr>
-<tr><td>mouseUpAt</td><td>id=caso_acto_desplazamiento_id<datalist><option>id=caso_acto_desplazamiento_id</option><option>name=caso_acto_desplazamiento_id</option><option>css=#caso_acto_desplazamiento_id</option><option>//select[@id='caso_acto_desplazamiento_id']</option><option>//div[@id='antecedentes']/div[5]/select</option><option>//div[8]/div[5]/select</option></datalist></td><td>-182.484375,-450</td>
+<tr><td>clickAt</td><td>id=caso_acto_desplazamiento_id<datalist><option>id=caso_acto_desplazamiento_id</option><option>name=caso_acto_desplazamiento_id</option><option>css=#caso_acto_desplazamiento_id</option><option>//select[@id='caso_acto_desplazamiento_id']</option><option>//div[@id='antecedentes']/div[5]/select</option><option>//div[8]/div[5]/select</option></datalist></td><td>-196,-394</td>
 </tr>
 <tr><td>clickAt</td><td>id=caso_acto_desplazamiento_id<datalist><option>id=caso_acto_desplazamiento_id</option><option>name=caso_acto_desplazamiento_id</option><option>css=#caso_acto_desplazamiento_id</option><option>//select[@id='caso_acto_desplazamiento_id']</option><option>//div[@id='antecedentes']/div[5]/select</option><option>//div[8]/div[5]/select</option></datalist></td><td>-182,-450</td>
 </tr>
@@ -654,6 +652,10 @@
 </thead>
 <tbody>
 <tr><td>pause</td><td><datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_caso_293']/div[2]/input</option><option>//div[2]/input</option><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/casos/379')])[2]</option><option>//a[3]</option></datalist></td><td>30,15</td>
 </tr>
 </tbody></table>
 </body>
