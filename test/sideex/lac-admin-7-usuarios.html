@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>lac-admin-11-usuarios</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">usuarios</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>/<datalist><option>http://si.sjrlac.info:5300/</option><option>/</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Administrar<datalist><option>link=Administrar</option><option>//a[contains(text(),'Administrar')]</option><option>xpath=(//a[contains(@href, '#')])[5]</option><option>//ul[2]/li[2]/a</option></datalist></td><td>47,20</td>
+</tr>
+<tr><td>clickAt</td><td>link=Usuarios<datalist><option>link=Usuarios</option><option>//a[contains(text(),'Usuarios')]</option><option>xpath=(//a[contains(@href, '/usuarios')])[2]</option><option>//ul[2]/li[2]/ul/li[2]/a</option></datalist></td><td>71,15</td>
+</tr>
+<tr><td>clickAt</td><td>css=a.btn.btn-primary<datalist><option>css=a.btn.btn-primary</option><option>xpath=(//a[contains(text(),'Nuevo')])[2]</option><option>//a[contains(@href, '/usuarios/nuevo')]</option><option>//div[2]/div/a</option></datalist></td><td>17,25</td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_nusuario<datalist><option>id=usuario_nusuario</option><option>name=usuario[nusuario]</option><option>css=#usuario_nusuario</option><option>//input[@id='usuario_nusuario']</option><option>//form[@id='new_usuario']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>42,15</td>
+</tr>
+<tr><td>type</td><td>id=usuario_nusuario<datalist><option>id=usuario_nusuario</option><option>name=usuario[nusuario]</option><option>css=#usuario_nusuario</option><option>//input[@id='usuario_nusuario']</option><option>//form[@id='new_usuario']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>aaa</td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_nombre<datalist><option>id=usuario_nombre</option><option>name=usuario[nombre]</option><option>css=#usuario_nombre</option><option>//input[@id='usuario_nombre']</option><option>//form[@id='new_usuario']/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>35,14</td>
+</tr>
+<tr><td>type</td><td>id=usuario_nombre<datalist><option>id=usuario_nombre</option><option>name=usuario[nombre]</option><option>css=#usuario_nombre</option><option>//input[@id='usuario_nombre']</option><option>//form[@id='new_usuario']/div[3]/input</option><option>//div[3]/input</option></datalist></td><td>Aaaa</td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_descripcion<datalist><option>id=usuario_descripcion</option><option>name=usuario[descripcion]</option><option>css=#usuario_descripcion</option><option>//input[@id='usuario_descripcion']</option><option>//form[@id='edit_usuario_38']/div[4]/input</option><option>//div[4]/input</option></datalist></td><td>28,24</td>
+</tr>
+<tr><td>type</td><td>id=usuario_descripcion<datalist><option>id=usuario_descripcion</option><option>name=usuario[descripcion]</option><option>css=#usuario_descripcion</option><option>//input[@id='usuario_descripcion']</option><option>//form[@id='edit_usuario_38']/div[4]/input</option><option>//div[4]/input</option></datalist></td><td>ddd</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_usuario_38']/div[15]/input</option><option>//div[15]/input</option></datalist></td><td>34,21</td>
+</tr>
+<tr><td>select</td><td>id=usuario_rol<datalist><option>id=usuario_rol</option><option>name=usuario[rol]</option><option>css=#usuario_rol</option><option>//select[@id='usuario_rol']</option><option>//form[@id='new_usuario']/div[5]/select</option><option>//select</option></datalist></td><td>label=Sistematizador</td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_rol<datalist><option>id=usuario_rol</option><option>name=usuario[rol]</option><option>css=#usuario_rol</option><option>//select[@id='usuario_rol']</option><option>//form[@id='new_usuario']/div[5]/select</option><option>//select</option></datalist></td><td>-32,-264</td>
+</tr>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>select</td><td>id=usuario_oficina_id<datalist><option>id=usuario_oficina_id</option><option>name=usuario[oficina_id]</option><option>css=#usuario_oficina_id</option><option>//select[@id='usuario_oficina_id']</option><option>//form[@id='new_usuario']/div[6]/select</option><option>//div[6]/select</option></datalist></td><td>label=OFICINA REGIONAL BOGOTÁ</td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_oficina_id<datalist><option>id=usuario_oficina_id</option><option>name=usuario[oficina_id]</option><option>css=#usuario_oficina_id</option><option>//select[@id='usuario_oficina_id']</option><option>//form[@id='new_usuario']/div[6]/select</option><option>//div[6]/select</option></datalist></td><td>-32,-433</td>
+</tr>
+<tr><td>runScript</td><td>$('[type=email]').removeAttr('type')<datalist><option>$('[type=email]').removeAttr('type')</option><option>$('[type=number]').removeAttr('type')</option><option>$('#rangoedad_limiteinferior').removeAttr('type')</option><option>$('#pais_codiso').removeAttr('type')</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_email<datalist><option>id=usuario_email</option><option>name=usuario[email]</option><option>css=#usuario_email</option><option>//input[@id='usuario_email']</option><option>//form[@id='new_usuario']/div[7]/input</option><option>//div[7]/input</option></datalist></td><td>77,4</td>
+</tr>
+<tr><td>type</td><td>id=usuario_email<datalist><option>id=usuario_email</option><option>name=usuario[email]</option><option>css=#usuario_email</option><option>//input[@id='usuario_email']</option><option>//form[@id='new_usuario']/div[7]/input</option><option>//div[7]/input</option></datalist></td><td>aaafg@aaa.org</td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_nusuario<datalist><option>id=usuario_nusuario</option><option>name=usuario[nusuario]</option><option>css=#usuario_nusuario</option><option>//input[@id='usuario_nusuario']</option><option>//form[@id='new_usuario']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>50,18</td>
+</tr>
+<tr><td>clickAt</td><td>id=usuario_encrypted_password<datalist><option>id=usuario_encrypted_password</option><option>name=usuario[encrypted_password]</option><option>css=#usuario_encrypted_password</option><option>//input[@id='usuario_encrypted_password']</option><option>//form[@id='new_usuario']/div[9]/input</option><option>//div[9]/input</option></datalist></td><td>30,14</td>
+</tr>
+<tr><td>type</td><td>id=usuario_encrypted_password<datalist><option>id=usuario_encrypted_password</option><option>name=usuario[encrypted_password]</option><option>css=#usuario_encrypted_password</option><option>//input[@id='usuario_encrypted_password']</option><option>//form[@id='new_usuario']/div[9]/input</option><option>//div[9]/input</option></datalist></td><td>aaa</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='new_usuario']/div[15]/input</option><option>//div[15]/input</option></datalist></td><td>26,16</td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>link=Eliminar<datalist><option>link=Eliminar</option><option>css=a.btn.btn-danger</option><option>//a[contains(text(),'Eliminar')]</option><option>xpath=(//a[contains(@href, '/usuarios/38')])[2]</option><option>//div[4]/a</option></datalist></td><td>56,16</td>
+</tr>
+</tbody></table>
+</body>
+</html>

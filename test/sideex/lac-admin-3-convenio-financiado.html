@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>lac-admin-4-convenio-financiado</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-nombre</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Actividades<datalist><option>link=Actividades</option><option>css=a.dropdown-toggle</option><option>//a[contains(text(),'Actividades')]</option><option>//a[contains(@href, '#')]</option><option>//li/a</option></datalist></td><td>33,10</td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>clickAt</td><td>link=Convenios Financiados<datalist><option>link=Convenios Financiados</option><option>css=li.active &gt; a</option><option>//a[contains(text(),'Convenios Financiados')]</option><option>//a[contains(@href, '/proyectosfinancieros')]</option><option>//li/ul/li[2]/a</option></datalist></td><td>93,12</td>
+</tr>
+<tr><td>mouseUp</td><td>css=a.btn.btn-primary<datalist><option>css=a.btn.btn-primary</option><option>xpath=(//a[contains(text(),'Nuevo')])[2]</option><option>//a[contains(@href, '/proyectosfinancieros/nuevo')]</option><option>//div[2]/div/a</option></datalist></td><td></td>
+</tr>
+<tr><td>clickAt</td><td>css=a.btn.btn-primary<datalist><option>css=a.btn.btn-primary</option><option>xpath=(//a[contains(text(),'Nuevo')])[2]</option><option>//a[contains(@href, '/proyectosfinancieros/nuevo')]</option><option>//div[2]/div/a</option></datalist></td><td>42,16</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_nombre<datalist><option>id=proyectofinanciero_nombre</option><option>name=proyectofinanciero[nombre]</option><option>css=#proyectofinanciero_nombre</option><option>//input[@id='proyectofinanciero_nombre']</option><option>//form[@id='edit_proyectofinanciero_184']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>31,22</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_nombre<datalist><option>id=proyectofinanciero_nombre</option><option>name=proyectofinanciero[nombre]</option><option>css=#proyectofinanciero_nombre</option><option>//input[@id='proyectofinanciero_nombre']</option><option>//form[@id='edit_proyectofinanciero_184']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>19,13</td>
+</tr>
+<tr><td>type</td><td>id=proyectofinanciero_nombre<datalist><option>id=proyectofinanciero_nombre</option><option>name=proyectofinanciero[nombre]</option><option>css=#proyectofinanciero_nombre</option><option>//input[@id='proyectofinanciero_nombre']</option><option>//form[@id='edit_proyectofinanciero_184']/div[2]/input</option><option>//div[2]/input</option></datalist></td><td>aaa</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-financiador</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>addSelection</td><td>id=proyectofinanciero_financiador_ids<datalist><option>id=proyectofinanciero_financiador_ids</option><option>css=#proyectofinanciero_financiador_ids</option><option>//select[@id='proyectofinanciero_financiador_ids']</option><option>//form[@id='edit_proyectofinanciero_185']/div[3]/select</option><option>//select</option></datalist></td><td>label=PRM</td>
+</tr>
+<tr><td>clickAt</td><td>css=option[value="106"]<datalist><option>css=option[value="106"]</option><option>//option[@value='106']</option><option>//select[@id='proyectofinanciero_financiador_ids']/option[3]</option><option>//option[3]</option></datalist></td><td>32,2</td>
+</tr>
+<tr><td>clickAt</td><td>css=div.input.select.optional.proyectofinanciero_financiador<datalist><option>css=div.input.select.optional.proyectofinanciero_financiador</option><option>//form[@id='edit_proyectofinanciero_185']/div[3]</option><option>//div[3]</option></datalist></td><td>2,64</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-fecha-de-inicio</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>clickAt</td><td>css=div.input.string.optional.proyectofinanciero_fechainicio_localizada<datalist><option>css=div.input.string.optional.proyectofinanciero_fechainicio_localizada</option><option>//form[@id='edit_proyectofinanciero_185']/div[4]</option><option>//div[4]</option></datalist></td><td>41,25</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_fechainicio_localizada<datalist><option>id=proyectofinanciero_fechainicio_localizada</option><option>name=proyectofinanciero[fechainicio_localizada]</option><option>css=#proyectofinanciero_fechainicio_localizada</option><option>//input[@id='proyectofinanciero_fechainicio_localizada']</option><option>//form[@id='edit_proyectofinanciero_185']/div[4]/input</option><option>//div[4]/input</option></datalist></td><td>31,12</td>
+</tr>
+<tr><td>clickAt</td><td>css=td.today.day<datalist><option>css=td.today.day</option><option>//tr[4]/td</option></datalist></td><td>22,14</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-fecha-de-cierre</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_fechacierre_localizada<datalist><option>id=proyectofinanciero_fechacierre_localizada</option><option>name=proyectofinanciero[fechacierre_localizada]</option><option>css=#proyectofinanciero_fechacierre_localizada</option><option>//input[@id='proyectofinanciero_fechacierre_localizada']</option><option>//form[@id='edit_proyectofinanciero_183']/div[5]/input</option><option>//div[5]/input</option></datalist></td><td>133,10</td>
+</tr>
+<tr><td>clickAt</td><td>css=th.datepicker-switch<datalist><option>css=th.datepicker-switch</option><option>//tr[2]/th[2]</option></datalist></td><td>84,18</td>
+</tr>
+<tr><td>clickAt</td><td>//div[2]/table/thead/tr[2]/th[2]<datalist><option>//div[2]/table/thead/tr[2]/th[2]</option></datalist></td><td>86,14</td>
+</tr>
+<tr><td>clickAt</td><td>css=span.year.new<datalist><option>css=span.year.new</option><option>//div[3]/table/tbody/tr/td/span[12]</option></datalist></td><td>27,27</td>
+</tr>
+<tr><td>clickAt</td><td>//span[12]<datalist><option>//span[12]</option></datalist></td><td>19,32</td>
+</tr>
+<tr><td>clickAt</td><td>//tr[5]/td[3]<datalist><option>//tr[5]/td[3]</option></datalist></td><td>15,12</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-responsable</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/198/edita')]</option><option>//a[2]</option></datalist></td><td>29,19</td>
+</tr>
+<tr><td>clickAt</td><td>css=a.chosen-single &gt; span<datalist><option>css=a.chosen-single &gt; span</option><option>//div[@id='proyectofinanciero_responsable_id_chosen']/a/span</option><option>//a/span</option></datalist></td><td>79,18</td>
+</tr>
+<tr><td>clickAt</td><td>css=li.active-result.result-selected<datalist><option>css=li.active-result.result-selected</option><option>//div[@id='proyectofinanciero_responsable_id_chosen']/div/ul/li[5]</option><option>//div/ul/li[5]</option></datalist></td><td>105,13</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_198']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>48,16</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-compromiso</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_compromisos<datalist><option>id=proyectofinanciero_compromisos</option><option>name=proyectofinanciero[compromisos]</option><option>css=#proyectofinanciero_compromisos</option><option>//textarea[@id='proyectofinanciero_compromisos']</option><option>//form[@id='edit_proyectofinanciero_183']/div[7]/textarea</option><option>//textarea</option></datalist></td><td>62,5</td>
+</tr>
+<tr><td>type</td><td>id=proyectofinanciero_compromisos<datalist><option>id=proyectofinanciero_compromisos</option><option>name=proyectofinanciero[compromisos]</option><option>css=#proyectofinanciero_compromisos</option><option>//textarea[@id='proyectofinanciero_compromisos']</option><option>//form[@id='edit_proyectofinanciero_183']/div[7]/textarea</option><option>//textarea</option></datalist></td><td>ccc</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-monto</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>runScript</td><td>$('[type=number]').removeAttr('type')<datalist><option>$('[type=number]').removeAttr('type')</option><option>$('#rangoedad_limiteinferior').removeAttr('type')</option><option>$('#pais_codiso').removeAttr('type')</option></datalist></td><td></td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_monto<datalist><option>id=proyectofinanciero_monto</option><option>name=proyectofinanciero[monto]</option><option>css=#proyectofinanciero_monto</option><option>//input[@id='proyectofinanciero_monto']</option><option>//form[@id='edit_proyectofinanciero_192']/div[8]/input</option><option>//div[8]/input</option></datalist></td><td>10,17</td>
+</tr>
+<tr><td>type</td><td>id=proyectofinanciero_monto<datalist><option>id=proyectofinanciero_monto</option><option>name=proyectofinanciero[monto]</option><option>css=#proyectofinanciero_monto</option><option>//input[@id='proyectofinanciero_monto']</option><option>//form[@id='edit_proyectofinanciero_192']/div[8]/input</option><option>//div[8]/input</option></datalist></td><td>2000000</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_192']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>27,12</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-observaciones</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_observaciones<datalist><option>id=proyectofinanciero_observaciones</option><option>name=proyectofinanciero[observaciones]</option><option>css=#proyectofinanciero_observaciones</option><option>//textarea[@id='proyectofinanciero_observaciones']</option><option>//form[@id='edit_proyectofinanciero_183']/div[9]/textarea</option><option>//div[9]/textarea</option></datalist></td><td>74,16</td>
+</tr>
+<tr><td>type</td><td>id=proyectofinanciero_observaciones<datalist><option>id=proyectofinanciero_observaciones</option><option>name=proyectofinanciero[observaciones]</option><option>css=#proyectofinanciero_observaciones</option><option>//textarea[@id='proyectofinanciero_observaciones']</option><option>//form[@id='edit_proyectofinanciero_183']/div[9]/textarea</option><option>//div[9]/textarea</option></datalist></td><td>bbb</td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-objetivo-general</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>clickAt</td><td>id=proyectofinanciero_objetivogeneral<datalist><option>id=proyectofinanciero_objetivogeneral</option><option>name=proyectofinanciero[objetivogeneral]</option><option>css=#proyectofinanciero_objetivogeneral</option><option>//textarea[@id='proyectofinanciero_objetivogeneral']</option><option>//form[@id='edit_proyectofinanciero_183']/div[10]/textarea</option><option>//div[10]/textarea</option></datalist></td><td>73,35</td>
+</tr>
+<tr><td>type</td><td>id=proyectofinanciero_objetivogeneral<datalist><option>id=proyectofinanciero_objetivogeneral</option><option>name=proyectofinanciero[objetivogeneral]</option><option>css=#proyectofinanciero_objetivogeneral</option><option>//textarea[@id='proyectofinanciero_objetivogeneral']</option><option>//form[@id='edit_proyectofinanciero_183']/div[10]/textarea</option><option>//div[10]/textarea</option></datalist></td><td>objetivo general</td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-caracterizacion</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>addSelection</td><td>id=proyectofinanciero_caracterizacion_ids<datalist><option>id=proyectofinanciero_caracterizacion_ids</option><option>css=#proyectofinanciero_caracterizacion_ids</option><option>//select[@id='proyectofinanciero_caracterizacion_ids']</option><option>//form[@id='edit_proyectofinanciero_185']/div[17]/select</option><option>//div[17]/select</option></datalist></td><td>label=Formulario encuestas</td>
+</tr>
+<tr><td>clickAt</td><td>css=#proyectofinanciero_caracterizacion_ids &gt; option[value="105"]<datalist><option>css=#proyectofinanciero_caracterizacion_ids &gt; option[value="105"]</option><option>xpath=(//option[@value='105'])[2]</option><option>//select[@id='proyectofinanciero_caracterizacion_ids']/option[4]</option><option>//div[17]/select/option[4]</option></datalist></td><td>95,6</td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-plantilla-caracterizaciones-convenio</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>addSelection</td><td>id=proyectofinanciero_plantillahcm_ids<datalist><option>id=proyectofinanciero_plantillahcm_ids</option><option>css=#proyectofinanciero_plantillahcm_ids</option><option>//select[@id='proyectofinanciero_plantillahcm_ids']</option><option>//form[@id='edit_proyectofinanciero_185']/div[19]/select</option><option>//div[19]/select</option></datalist></td><td>label=Listado de Casos 2018</td>
+</tr>
+<tr><td>clickAt</td><td>css=#proyectofinanciero_plantillahcm_ids &gt; option[value="17"]<datalist><option>css=#proyectofinanciero_plantillahcm_ids &gt; option[value="17"]</option><option>xpath=(//option[@value='17'])[3]</option><option>//select[@id='proyectofinanciero_plantillahcm_ids']/option[5]</option><option>//div[19]/select/option[5]</option></datalist></td><td>130,-29</td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-beneficiarios</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>runScript</td><td>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')<datalist><option>$('.chosen-select').removeAttr('style'); $('.chosen-container').remove(); $('.chosen-select').removeClass('chosen-select')</option></datalist></td><td></td>
+</tr>
+<tr><td>addSelection</td><td>id=proyectofinanciero_beneficiario_ids<datalist><option>id=proyectofinanciero_beneficiario_ids</option><option>css=#proyectofinanciero_beneficiario_ids</option><option>//select[@id='proyectofinanciero_beneficiario_ids']</option><option>//form[@id='edit_proyectofinanciero_185']/div[18]/select</option><option>//div[18]/select</option></datalist></td><td>label=Antonia Salazar (CC:66734521)</td>
+</tr>
+<tr><td>clickAt</td><td>css=#proyectofinanciero_beneficiario_ids &gt; option[value="2"]<datalist><option>css=#proyectofinanciero_beneficiario_ids &gt; option[value="2"]</option><option>xpath=(//option[@value='2'])[2]</option><option>//select[@id='proyectofinanciero_beneficiario_ids']/option[2]</option><option>//div[18]/select/option[2]</option></datalist></td><td>138,11</td>
+</tr>
+<tr><td>addSelection</td><td>id=proyectofinanciero_beneficiario_ids<datalist><option>id=proyectofinanciero_beneficiario_ids</option><option>css=#proyectofinanciero_beneficiario_ids</option><option>//select[@id='proyectofinanciero_beneficiario_ids']</option><option>//form[@id='edit_proyectofinanciero_185']/div[18]/select</option><option>//div[18]/select</option></datalist></td><td>label=Jose Lopez (RC:123236548)</td>
+</tr>
+<tr><td>clickAt</td><td>css=#proyectofinanciero_beneficiario_ids &gt; option[value="3"]<datalist><option>css=#proyectofinanciero_beneficiario_ids &gt; option[value="3"]</option><option>xpath=(//option[@value='3'])[2]</option><option>//select[@id='proyectofinanciero_beneficiario_ids']/option[3]</option><option>//div[18]/select/option[3]</option></datalist></td><td>113,13</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_187']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>45,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-agregar-objetivo-efecto</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/187/edita')]</option><option>//a[2]</option></datalist></td><td>28,15</td>
+</tr>
+<tr><td>clickAt</td><td>link=Agregar objetivo / efecto<datalist><option>link=Agregar objetivo / efecto</option><option>css=a.btn-primary.add_fields</option><option>//a[contains(text(),'Agregar objetivo / efecto')]</option><option>//form[@id='edit_proyectofinanciero_200']/div[12]/div[2]/div/div/a</option><option>xpath=(//a[contains(@href, '#')])[6]</option><option>//div[2]/div/div/a</option></datalist></td><td>94,9</td>
+</tr>
+<tr><td>type</td><td>//tbody[@id='objetivospf']/tr/td/div/input<datalist><option>id=proyectofinanciero_objetivopf_attributes_37_numero</option><option>name=proyectofinanciero[objetivopf_attributes][37][numero]</option><option>css=#proyectofinanciero_objetivopf_attributes_37_numero</option><option>//input[@id='proyectofinanciero_objetivopf_attributes_37_numero']</option><option>//tbody[@id='objetivospf']/tr/td/div/input</option><option>//td/div/input</option></datalist></td><td>C1</td>
+</tr>
+<tr><td>clickAt</td><td>//tbody[@id='objetivospf']/tr/td[2]/div/textarea<datalist><option>id=proyectofinanciero_objetivopf_attributes_37_objetivo</option><option>name=proyectofinanciero[objetivopf_attributes][37][objetivo]</option><option>css=#proyectofinanciero_objetivopf_attributes_37_objetivo</option><option>//textarea[@id='proyectofinanciero_objetivopf_attributes_37_objetivo']</option><option>//tbody[@id='objetivospf']/tr/td[2]/div/textarea</option><option>//td[2]/div/textarea</option></datalist></td><td>104,32</td>
+</tr>
+<tr><td>clickAt</td><td>//tbody[@id='objetivospf']/tr/td[2]/div/textarea<datalist><option>id=proyectofinanciero_objetivopf_attributes_37_objetivo</option><option>name=proyectofinanciero[objetivopf_attributes][37][objetivo]</option><option>css=#proyectofinanciero_objetivopf_attributes_37_objetivo</option><option>//textarea[@id='proyectofinanciero_objetivopf_attributes_37_objetivo']</option><option>//tbody[@id='objetivospf']/tr/td[2]/div/textarea</option><option>//td[2]/div/textarea</option></datalist></td><td>16,17</td>
+</tr>
+<tr><td>type</td><td>//tbody[@id='objetivospf']/tr/td[2]/div/textarea<datalist><option>id=proyectofinanciero_objetivopf_attributes_37_objetivo</option><option>name=proyectofinanciero[objetivopf_attributes][37][objetivo]</option><option>css=#proyectofinanciero_objetivopf_attributes_37_objetivo</option><option>//textarea[@id='proyectofinanciero_objetivopf_attributes_37_objetivo']</option><option>//tbody[@id='objetivospf']/tr/td[2]/div/textarea</option><option>//td[2]/div/textarea</option></datalist></td><td>descripcion</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_192']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>27,12</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-agregar-indicador-de-objetivo-efecto</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/200/edita')]</option><option>//a[2]</option></datalist></td><td>28,16</td>
+</tr>
+<tr><td>clickAt</td><td>link=Agregar indicador de objetivo/efecto<datalist><option>link=Agregar indicador de objetivo/efecto</option><option>css=div.div-indicadoresobjetivos &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Agregar indicador de objetivo/efecto')]</option><option>//form[@id='edit_proyectofinanciero_200']/div[13]/div[2]/div/div/a</option><option>xpath=(//a[contains(@href, '#')])[8]</option><option>//div[13]/div[2]/div/div/a</option></datalist></td><td>99,11</td>
+</tr>
+<tr><td>select</td><td>//td/div/select<datalist><option>id=proyectofinanciero_indicadorobjetivo_attributes_46_objetivopf_id</option><option>name=proyectofinanciero[indicadorobjetivo_attributes][46][objetivopf_id]</option><option>css=#proyectofinanciero_indicadorobjetivo_attributes_46_objetivopf_id</option><option>//select[@id='proyectofinanciero_indicadorobjetivo_attributes_46_objetivopf_id']</option><option>//tbody[@id='indicadoresobjetivos']/tr/td/div/select</option><option>//td/div/select</option></datalist></td><td>label=C1</td>
+</tr>
+<tr><td>clickAt</td><td>//td/div/select<datalist><option>id=proyectofinanciero_indicadorobjetivo_attributes_46_objetivopf_id</option><option>name=proyectofinanciero[indicadorobjetivo_attributes][46][objetivopf_id]</option><option>css=#proyectofinanciero_indicadorobjetivo_attributes_46_objetivopf_id</option><option>//select[@id='proyectofinanciero_indicadorobjetivo_attributes_46_objetivopf_id']</option><option>//tbody[@id='indicadoresobjetivos']/tr/td/div/select</option><option>//td/div/select</option></datalist></td><td>-48,-476</td>
+</tr>
+<tr><td>clickAt</td><td>//td[2]/div/input<datalist><option>id=proyectofinanciero_indicadorobjetivo_attributes_46_numero</option><option>name=proyectofinanciero[indicadorobjetivo_attributes][46][numero]</option><option>css=#proyectofinanciero_indicadorobjetivo_attributes_46_numero</option><option>//input[@id='proyectofinanciero_indicadorobjetivo_attributes_46_numero']</option><option>//tbody[@id='indicadoresobjetivos']/tr/td[2]/div/input</option><option>//td[2]/div/input</option></datalist></td><td>22,12</td>
+</tr>
+<tr><td>type</td><td>//td[2]/div/input<datalist><option>id=proyectofinanciero_indicadorobjetivo_attributes_46_numero</option><option>name=proyectofinanciero[indicadorobjetivo_attributes][46][numero]</option><option>css=#proyectofinanciero_indicadorobjetivo_attributes_46_numero</option><option>//input[@id='proyectofinanciero_indicadorobjetivo_attributes_46_numero']</option><option>//tbody[@id='indicadoresobjetivos']/tr/td[2]/div/input</option><option>//td[2]/div/input</option></datalist></td><td>A1</td>
+</tr>
+<tr><td>clickAt</td><td>//td[3]/div/textarea<datalist><option>id=proyectofinanciero_indicadorobjetivo_attributes_46_indicador</option><option>name=proyectofinanciero[indicadorobjetivo_attributes][46][indicador]</option><option>css=#proyectofinanciero_indicadorobjetivo_attributes_46_indicador</option><option>//textarea[@id='proyectofinanciero_indicadorobjetivo_attributes_46_indicador']</option><option>//tbody[@id='indicadoresobjetivos']/tr/td[3]/div/textarea</option><option>//td[3]/div/textarea</option></datalist></td><td>26,13</td>
+</tr>
+<tr><td>type</td><td>//td[3]/div/textarea<datalist><option>id=proyectofinanciero_indicadorobjetivo_attributes_46_indicador</option><option>name=proyectofinanciero[indicadorobjetivo_attributes][46][indicador]</option><option>css=#proyectofinanciero_indicadorobjetivo_attributes_46_indicador</option><option>//textarea[@id='proyectofinanciero_indicadorobjetivo_attributes_46_indicador']</option><option>//tbody[@id='indicadoresobjetivos']/tr/td[3]/div/textarea</option><option>//td[3]/div/textarea</option></datalist></td><td>indicador</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_200']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>65,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-agregar-resultado</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/200/edita')]</option><option>//a[2]</option></datalist></td><td>31,17</td>
+</tr>
+<tr><td>clickAt</td><td>link=Agregar resultado<datalist><option>link=Agregar resultado</option><option>css=div.div-resultadospf &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Agregar resultado')]</option><option>//form[@id='edit_proyectofinanciero_200']/div[14]/div[2]/div/div/a</option><option>xpath=(//a[contains(@href, '#')])[10]</option><option>//div[14]/div[2]/div/div/a</option></datalist></td><td>56,10</td>
+</tr>
+<tr><td>select</td><td>//tbody[@id='resultadospf']/tr/td/div/select<datalist><option>id=proyectofinanciero_resultadopf_attributes_22_objetivopf_id</option><option>name=proyectofinanciero[resultadopf_attributes][22][objetivopf_id]</option><option>css=#proyectofinanciero_resultadopf_attributes_22_objetivopf_id</option><option>//select[@id='proyectofinanciero_resultadopf_attributes_22_objetivopf_id']</option><option>//tbody[@id='resultadospf']/tr/td/div/select</option><option>//div[14]/div[2]/div/table/tbody/tr/td/div/select</option></datalist></td><td>label=C1</td>
+</tr>
+<tr><td>clickAt</td><td>//tbody[@id='resultadospf']/tr/td/div/select<datalist><option>id=proyectofinanciero_resultadopf_attributes_22_objetivopf_id</option><option>name=proyectofinanciero[resultadopf_attributes][22][objetivopf_id]</option><option>css=#proyectofinanciero_resultadopf_attributes_22_objetivopf_id</option><option>//select[@id='proyectofinanciero_resultadopf_attributes_22_objetivopf_id']</option><option>//tbody[@id='resultadospf']/tr/td/div/select</option><option>//div[14]/div[2]/div/table/tbody/tr/td/div/select</option></datalist></td><td>-48,-348</td>
+</tr>
+<tr><td>clickAt</td><td>//tbody[@id='resultadospf']/tr/td[2]/div/input<datalist><option>id=proyectofinanciero_resultadopf_attributes_22_numero</option><option>name=proyectofinanciero[resultadopf_attributes][22][numero]</option><option>css=#proyectofinanciero_resultadopf_attributes_22_numero</option><option>//input[@id='proyectofinanciero_resultadopf_attributes_22_numero']</option><option>//tbody[@id='resultadospf']/tr/td[2]/div/input</option><option>//div[14]/div[2]/div/table/tbody/tr/td[2]/div/input</option></datalist></td><td>27,26</td>
+</tr>
+<tr><td>type</td><td>//tbody[@id='resultadospf']/tr/td[2]/div/input<datalist><option>id=proyectofinanciero_resultadopf_attributes_22_numero</option><option>name=proyectofinanciero[resultadopf_attributes][22][numero]</option><option>css=#proyectofinanciero_resultadopf_attributes_22_numero</option><option>//input[@id='proyectofinanciero_resultadopf_attributes_22_numero']</option><option>//tbody[@id='resultadospf']/tr/td[2]/div/input</option><option>//div[14]/div[2]/div/table/tbody/tr/td[2]/div/input</option></datalist></td><td>B1</td>
+</tr>
+<tr><td>clickAt</td><td>//tbody[@id='resultadospf']/tr/td[3]/div/textarea<datalist><option>id=proyectofinanciero_resultadopf_attributes_22_resultado</option><option>name=proyectofinanciero[resultadopf_attributes][22][resultado]</option><option>css=#proyectofinanciero_resultadopf_attributes_22_resultado</option><option>//textarea[@id='proyectofinanciero_resultadopf_attributes_22_resultado']</option><option>//tbody[@id='resultadospf']/tr/td[3]/div/textarea</option><option>//div[14]/div[2]/div/table/tbody/tr/td[3]/div/textarea</option></datalist></td><td>50,36</td>
+</tr>
+<tr><td>clickAt</td><td>//div[14]/div[2]/div/table/tbody/tr/td[3]/div/textarea<datalist><option>id=proyectofinanciero_resultadopf_attributes_0_resultado</option><option>name=proyectofinanciero[resultadopf_attributes][0][resultado]</option><option>css=#proyectofinanciero_resultadopf_attributes_0_resultado</option><option>//textarea[@id='proyectofinanciero_resultadopf_attributes_0_resultado']</option><option>//tbody[@id='resultadospf']/tr/td[3]/div/textarea</option><option>//div[14]/div[2]/div/table/tbody/tr/td[3]/div/textarea</option></datalist></td><td>37,22</td>
+</tr>
+<tr><td>type</td><td>//tbody[@id='resultadospf']/tr/td[3]/div/textarea<datalist><option>id=proyectofinanciero_resultadopf_attributes_0_resultado</option><option>name=proyectofinanciero[resultadopf_attributes][0][resultado]</option><option>css=#proyectofinanciero_resultadopf_attributes_0_resultado</option><option>//textarea[@id='proyectofinanciero_resultadopf_attributes_0_resultado']</option><option>//tbody[@id='resultadospf']/tr/td[3]/div/textarea</option><option>//div[14]/div[2]/div/table/tbody/tr/td[3]/div/textarea</option></datalist></td><td>resultado</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_200']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>49,27</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-agregar-indicador</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/200/edita')]</option><option>//a[2]</option></datalist></td><td>24,16</td>
+</tr>
+<tr><td>clickAt</td><td>link=Agregar indicador<datalist><option>link=Agregar indicador</option><option>css=div.div-indicadorespf &gt; div.links &gt; a.btn-primary.add_fields</option><option>xpath=(//a[contains(text(),'Agregar indicador')])[2]</option><option>//form[@id='edit_proyectofinanciero_200']/div[15]/div[2]/div/div/a</option><option>xpath=(//a[contains(@href, '#')])[12]</option><option>//div[15]/div[2]/div/div/a</option></datalist></td><td>34,6</td>
+</tr>
+<tr><td>select</td><td>//div[15]/div[2]/div/table/tbody/tr/td/div/select<datalist><option>id=proyectofinanciero_indicadorpf_attributes_49_resultadopf_id</option><option>name=proyectofinanciero[indicadorpf_attributes][49][resultadopf_id]</option><option>css=#proyectofinanciero_indicadorpf_attributes_49_resultadopf_id</option><option>//select[@id='proyectofinanciero_indicadorpf_attributes_49_resultadopf_id']</option><option>//tbody[@id='indicadorespf']/tr/td/div/select</option><option>//div[15]/div[2]/div/table/tbody/tr/td/div/select</option></datalist></td><td>label=B1</td>
+</tr>
+<tr><td>clickAt</td><td>//div[15]/div[2]/div/table/tbody/tr/td/div/select<datalist><option>id=proyectofinanciero_indicadorpf_attributes_49_resultadopf_id</option><option>name=proyectofinanciero[indicadorpf_attributes][49][resultadopf_id]</option><option>css=#proyectofinanciero_indicadorpf_attributes_49_resultadopf_id</option><option>//select[@id='proyectofinanciero_indicadorpf_attributes_49_resultadopf_id']</option><option>//tbody[@id='indicadorespf']/tr/td/div/select</option><option>//div[15]/div[2]/div/table/tbody/tr/td/div/select</option></datalist></td><td>-48,-379</td>
+</tr>
+<tr><td>clickAt</td><td>//div[15]/div[2]/div/table/tbody/tr/td[2]/div/input<datalist><option>id=proyectofinanciero_indicadorpf_attributes_49_numero</option><option>name=proyectofinanciero[indicadorpf_attributes][49][numero]</option><option>css=#proyectofinanciero_indicadorpf_attributes_49_numero</option><option>//input[@id='proyectofinanciero_indicadorpf_attributes_49_numero']</option><option>//tbody[@id='indicadorespf']/tr/td[2]/div/input</option><option>//div[15]/div[2]/div/table/tbody/tr/td[2]/div/input</option></datalist></td><td>32,15</td>
+</tr>
+<tr><td>type</td><td>//div[15]/div[2]/div/table/tbody/tr/td[2]/div/input<datalist><option>id=proyectofinanciero_indicadorpf_attributes_49_numero</option><option>name=proyectofinanciero[indicadorpf_attributes][49][numero]</option><option>css=#proyectofinanciero_indicadorpf_attributes_49_numero</option><option>//input[@id='proyectofinanciero_indicadorpf_attributes_49_numero']</option><option>//tbody[@id='indicadorespf']/tr/td[2]/div/input</option><option>//div[15]/div[2]/div/table/tbody/tr/td[2]/div/input</option></datalist></td><td>D1</td>
+</tr>
+<tr><td>clickAt</td><td>//div[15]/div[2]/div/table/tbody/tr/td[3]/div/textarea<datalist><option>id=proyectofinanciero_indicadorpf_attributes_49_indicador</option><option>name=proyectofinanciero[indicadorpf_attributes][49][indicador]</option><option>css=#proyectofinanciero_indicadorpf_attributes_49_indicador</option><option>//textarea[@id='proyectofinanciero_indicadorpf_attributes_49_indicador']</option><option>//tbody[@id='indicadorespf']/tr/td[3]/div/textarea</option><option>//div[15]/div[2]/div/table/tbody/tr/td[3]/div/textarea</option></datalist></td><td>109,28</td>
+</tr>
+<tr><td>type</td><td>//div[15]/div[2]/div/table/tbody/tr/td[3]/div/textarea<datalist><option>id=proyectofinanciero_indicadorpf_attributes_49_indicador</option><option>name=proyectofinanciero[indicadorpf_attributes][49][indicador]</option><option>css=#proyectofinanciero_indicadorpf_attributes_49_indicador</option><option>//textarea[@id='proyectofinanciero_indicadorpf_attributes_49_indicador']</option><option>//tbody[@id='indicadorespf']/tr/td[3]/div/textarea</option><option>//div[15]/div[2]/div/table/tbody/tr/td[3]/div/textarea</option></datalist></td><td>indicador</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_200']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>41,19</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-agregar-actividad</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>link=Editar<datalist><option>link=Editar</option><option>//a[contains(text(),'Editar')]</option><option>//a[contains(@href, '/proyectosfinancieros/200/edita')]</option><option>//a[2]</option></datalist></td><td>27,9</td>
+</tr>
+<tr><td>clickAt</td><td>link=Agregar actividad<datalist><option>link=Agregar actividad</option><option>css=div.div-actividadespf &gt; div.links &gt; a.btn-primary.add_fields</option><option>//a[contains(text(),'Agregar actividad')]</option><option>//form[@id='edit_proyectofinanciero_200']/div[16]/div[2]/div/div/a</option><option>xpath=(//a[contains(@href, '#')])[14]</option><option>//div[16]/div[2]/div/div/a</option></datalist></td><td>64,13</td>
+</tr>
+<tr><td>pause</td><td><datalist><option></option></datalist></td><td>1000</td>
+</tr>
+<tr><td>clickAt</td><td>//div[16]/div[2]/div/table/tbody/tr/td/div/select<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_resultadopf_id</option><option>name=proyectofinanciero[actividadpf_attributes][314][resultadopf_id]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_resultadopf_id</option><option>//select[@id='proyectofinanciero_actividadpf_attributes_314_resultadopf_id']</option><option>//tbody[@id='actividadespf']/tr/td/div/select</option><option>//div[16]/div[2]/div/table/tbody/tr/td/div/select</option></datalist></td><td>-48,-305</td>
+</tr>
+<tr><td>clickAt</td><td>//div[16]/div[2]/div/table/tbody/tr/td[2]/div/input<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_nombrecorto</option><option>name=proyectofinanciero[actividadpf_attributes][314][nombrecorto]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_nombrecorto</option><option>//input[@id='proyectofinanciero_actividadpf_attributes_314_nombrecorto']</option><option>//tbody[@id='actividadespf']/tr/td[2]/div/input</option><option>//div[16]/div[2]/div/table/tbody/tr/td[2]/div/input</option></datalist></td><td>52,16</td>
+</tr>
+<tr><td>type</td><td>//div[16]/div[2]/div/table/tbody/tr/td[2]/div/input<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_nombrecorto</option><option>name=proyectofinanciero[actividadpf_attributes][314][nombrecorto]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_nombrecorto</option><option>//input[@id='proyectofinanciero_actividadpf_attributes_314_nombrecorto']</option><option>//tbody[@id='actividadespf']/tr/td[2]/div/input</option><option>//div[16]/div[2]/div/table/tbody/tr/td[2]/div/input</option></datalist></td><td>F1</td>
+</tr>
+<tr><td>select</td><td>//td[3]/div/select<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_actividadtipo_id</option><option>name=proyectofinanciero[actividadpf_attributes][314][actividadtipo_id]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_actividadtipo_id</option><option>//select[@id='proyectofinanciero_actividadpf_attributes_314_actividadtipo_id']</option><option>//tbody[@id='actividadespf']/tr/td[3]/div/select</option><option>//td[3]/div/select</option></datalist></td><td>label=A</td>
+</tr>
+<tr><td>clickAt</td><td>//td[3]/div/select<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_actividadtipo_id</option><option>name=proyectofinanciero[actividadpf_attributes][314][actividadtipo_id]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_actividadtipo_id</option><option>//select[@id='proyectofinanciero_actividadpf_attributes_314_actividadtipo_id']</option><option>//tbody[@id='actividadespf']/tr/td[3]/div/select</option><option>//td[3]/div/select</option></datalist></td><td>-290,-305</td>
+</tr>
+<tr><td>clickAt</td><td>//div[16]/div[2]/div/table/tbody/tr/td[4]/div/input<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_titulo</option><option>name=proyectofinanciero[actividadpf_attributes][314][titulo]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_titulo</option><option>//input[@id='proyectofinanciero_actividadpf_attributes_314_titulo']</option><option>//tbody[@id='actividadespf']/tr/td[4]/div/input</option><option>//div[16]/div[2]/div/table/tbody/tr/td[4]/div/input</option></datalist></td><td>53,16</td>
+</tr>
+<tr><td>type</td><td>//div[16]/div[2]/div/table/tbody/tr/td[4]/div/input<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_titulo</option><option>name=proyectofinanciero[actividadpf_attributes][314][titulo]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_titulo</option><option>//input[@id='proyectofinanciero_actividadpf_attributes_314_titulo']</option><option>//tbody[@id='actividadespf']/tr/td[4]/div/input</option><option>//div[16]/div[2]/div/table/tbody/tr/td[4]/div/input</option></datalist></td><td>Actividad</td>
+</tr>
+<tr><td>clickAt</td><td>//td[5]/div/textarea<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_descripcion</option><option>name=proyectofinanciero[actividadpf_attributes][314][descripcion]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_descripcion</option><option>//textarea[@id='proyectofinanciero_actividadpf_attributes_314_descripcion']</option><option>//tbody[@id='actividadespf']/tr/td[5]/div/textarea</option><option>//td[5]/div/textarea</option></datalist></td><td>85,30</td>
+</tr>
+<tr><td>clickAt</td><td>//td[5]/div/textarea<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_descripcion</option><option>name=proyectofinanciero[actividadpf_attributes][314][descripcion]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_descripcion</option><option>//textarea[@id='proyectofinanciero_actividadpf_attributes_314_descripcion']</option><option>//tbody[@id='actividadespf']/tr/td[5]/div/textarea</option><option>//td[5]/div/textarea</option></datalist></td><td>11,20</td>
+</tr>
+<tr><td>type</td><td>//td[5]/div/textarea<datalist><option>id=proyectofinanciero_actividadpf_attributes_314_descripcion</option><option>name=proyectofinanciero[actividadpf_attributes][314][descripcion]</option><option>css=#proyectofinanciero_actividadpf_attributes_314_descripcion</option><option>//textarea[@id='proyectofinanciero_actividadpf_attributes_314_descripcion']</option><option>//tbody[@id='actividadespf']/tr/td[5]/div/textarea</option><option>//td[5]/div/textarea</option></datalist></td><td>descripcion</td>
+</tr>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_200']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>46,22</td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">convenio-financiado-eliminar</td></tr>
+</thead>
+<tbody>
+<tr><td>clickAt</td><td>name=commit<datalist><option>name=commit</option><option>css=input[name="commit"]</option><option>//input[@name='commit']</option><option>//form[@id='edit_proyectofinanciero_200']/div[21]/input</option><option>//div[21]/input</option></datalist></td><td>65,19</td>
+</tr>
+</tbody></table>
+</body>
+</html>
