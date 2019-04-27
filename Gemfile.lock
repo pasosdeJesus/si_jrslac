@@ -1,6 +1,36 @@
 GIT
-  remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: b36cbd7336faf8c450b1094e5a513703e1bfbafa
+  remote: https://github.com/pasosdeJesus/sal7711_gen.git
+  revision: 55139464057ec2f7147714480aad757acc331a19
+  specs:
+    sal7711_gen (1.0.b1)
+      rails
+      sip
+
+GIT
+  remote: https://github.com/pasosdeJesus/sal7711_web.git
+  revision: 3ec6ed7c42352c509c6c1654e7d37a6fc877779c
+  specs:
+    sal7711_web (1.0.a3)
+      rails
+      sal7711_gen
+
+GIT
+  remote: https://github.com/pasosdeJesus/sivel2_sjr.git
+  revision: b828da0d25bebddbc573f2f6bbb7e467fc2f3400
+  specs:
+    sivel2_sjr (2.0.b1)
+      rails
+      sivel2_gen
+
+GIT
+  remote: https://github.com/vtamara/cocoon.git
+  revision: 088c8d9dcce7f51cf3a968398047eaac7a37718b
+  branch: new_id_with_ajax
+  specs:
+    cocoon (1.2.11)
+
+PATH
+  remote: ../cor1440_gen
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -11,9 +41,8 @@ GIT
       rails
       sip
 
-GIT
-  remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 33191649dab9ff035743c9e9444e39cde089b349
+PATH
+  remote: ../heb412_gen
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -22,33 +51,15 @@ GIT
       rspreadsheet
       sip
 
-GIT
-  remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: b351fff8c758b3dfe5d46a2131d406e60517fd9e
+PATH
+  remote: ../mr519_gen
   specs:
     mr519_gen (0.1.0)
       rails (~> 5.2.2, >= 5.2.2)
       sip
 
-GIT
-  remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 6f3dcbbdfb73297f1f56337cee21a26e2f277b6f
-  specs:
-    sal7711_gen (1.0.b1)
-      rails
-      sip
-
-GIT
-  remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 7b0666576504e91767125dc02b940c6e206d17a2
-  specs:
-    sal7711_web (1.0.a3)
-      rails
-      sal7711_gen
-
-GIT
-  remote: https://github.com/pasosdeJesus/sip.git
-  revision: cb287d1afd2aa195cd3f80a8d587dea6f7a30d4e
+PATH
+  remote: ../sip
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -67,21 +78,6 @@ GIT
       twitter-bootstrap-rails
       twitter_cldr
       will_paginate
-
-GIT
-  remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: dd1eafcbd50165df0b3d8cfde45c4f1e97b33267
-  specs:
-    sivel2_sjr (2.0.b1)
-      rails
-      sivel2_gen
-
-GIT
-  remote: https://github.com/vtamara/cocoon.git
-  revision: 088c8d9dcce7f51cf3a968398047eaac7a37718b
-  branch: new_id_with_ajax
-  specs:
-    cocoon (1.2.11)
 
 PATH
   remote: ../sivel2_gen
@@ -148,6 +144,7 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
+    byebug (11.0.1)
     camertron-eprun (1.1.1)
     cancancan (3.0.1)
     capybara (2.18.0)
@@ -164,9 +161,9 @@ GEM
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.2.0)
     cliver (0.3.2)
-    coffee-rails (4.2.2)
+    coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
+      railties (>= 5.2.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -405,6 +402,7 @@ DEPENDENCIES
   bigdecimal
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
+  byebug
   cancancan
   chosen-rails
   cocoon!
