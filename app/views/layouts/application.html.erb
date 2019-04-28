@@ -44,8 +44,6 @@
         <% if can? :manage, ::Heb412Gen::Plantillahcm %>
           <%= menu_item "Definir plantillas para listados en hojas de cálculo",
             heb412_gen.plantillashcm_path %>
-        <% end %>
-        <% if can? :manage, ::Heb412Gen::Plantillahcm %>
           <%= menu_item "Importar datos de listados en hoja de cálculo",
             heb412_gen.plantillashcm_importadatos_path %>
         <% end %>
