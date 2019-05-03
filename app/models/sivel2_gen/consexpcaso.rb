@@ -33,63 +33,63 @@ class Sivel2Gen::Consexpcaso < ActiveRecord::Base
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='M' 
-          AND id_rangoedad='7') AS beneficiarios_0_5,
+          AND id_rangoedad='101') AS beneficiarios_0_5,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='M' 
-          AND id_rangoedad='8') AS beneficiarios_6_12,
+          AND id_rangoedad='102') AS beneficiarios_6_12,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='M' 
-          AND id_rangoedad='9') AS beneficiarios_13_17,
+          AND id_rangoedad='103') AS beneficiarios_13_17,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='M' 
-          AND id_rangoedad='10') AS beneficiarios_18_26,
+          AND id_rangoedad='104') AS beneficiarios_18_26,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='M' 
-          AND id_rangoedad='10') AS beneficiarios_27_59,
+          AND id_rangoedad='105') AS beneficiarios_27_59,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='M' 
-          AND id_rangoedad='10') AS beneficiarios_60_,
+          AND id_rangoedad='107') AS beneficiarios_60_,
 
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='F' 
-          AND id_rangoedad='7') AS beneficiarias_0_5,
+          AND id_rangoedad='101') AS beneficiarias_0_5,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='F' 
-          AND id_rangoedad='8') AS beneficiarias_6_12,
+          AND id_rangoedad='102') AS beneficiarias_6_12,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='F' 
-          AND id_rangoedad='9') AS beneficiarias_13_17,
+          AND id_rangoedad='103') AS beneficiarias_13_17,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='F' 
-          AND id_rangoedad='10') AS beneficiarias_18_26,
+          AND id_rangoedad='104') AS beneficiarias_18_26,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='F' 
-          AND id_rangoedad='10') AS beneficiarias_27_59,
+          AND id_rangoedad='105') AS beneficiarias_27_59,
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
           WHERE victima.id_caso=caso.id AND sip_persona.sexo='F' 
-          AND id_rangoedad='10') AS beneficiarias_60_,
+          AND id_rangoedad='107') AS beneficiarias_60_,
 
         ARRAY_TO_STRING(ARRAY(SELECT nombre FROM public.sivel2_sjr_derecho 
           JOIN public.sivel2_sjr_derecho_respuesta ON id_derecho=sivel2_sjr_derecho.id
