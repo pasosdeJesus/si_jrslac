@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: b36cbd7336faf8c450b1094e5a513703e1bfbafa
+  revision: ea213b385b208d45c525c37e1743f0626b0213ca
   specs:
     cor1440_gen (1.0b2)
       devise
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 33191649dab9ff035743c9e9444e39cde089b349
+  revision: b4fd5bd50621ee8ab55831ecb632542fbe230c2d
   specs:
     heb412_gen (1.0.a1)
       chosen-rails
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: b351fff8c758b3dfe5d46a2131d406e60517fd9e
+  revision: 28b7dd609da9330f684a6feac3f62977954ee16d
   specs:
     mr519_gen (0.1.0)
       rails (~> 5.2.2, >= 5.2.2)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: 6f3dcbbdfb73297f1f56337cee21a26e2f277b6f
+  revision: 1ed00f02d083ce0260003265b8330585b4c71d85
   specs:
     sal7711_gen (1.0.b1)
       rails
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: 7b0666576504e91767125dc02b940c6e206d17a2
+  revision: 340ffb3a12b5d2389e90ae227aaa08299a3fef22
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -48,7 +48,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: cb287d1afd2aa195cd3f80a8d587dea6f7a30d4e
+  revision: 794883a3a6004da6072c2252d4b2dd28dc755509
   specs:
     sip (2.0.b5)
       bootstrap-datepicker-rails
@@ -69,8 +69,17 @@ GIT
       will_paginate
 
 GIT
+  remote: https://github.com/pasosdeJesus/sivel2_gen.git
+  revision: b1afa18d9f7fe78481c47850ceae4cc6a68bdd0b
+  specs:
+    sivel2_gen (2.0b8)
+      devise
+      jquery-rails
+      rails
+
+GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: dd1eafcbd50165df0b3d8cfde45c4f1e97b33267
+  revision: d1985d85238f489ba5ef5e2372414351a521a52b
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -82,14 +91,6 @@ GIT
   branch: new_id_with_ajax
   specs:
     cocoon (1.2.11)
-
-PATH
-  remote: ../sivel2_gen
-  specs:
-    sivel2_gen (2.0b8)
-      devise
-      jquery-rails
-      rails
 
 GEM
   remote: https://rubygems.org/
@@ -143,7 +144,7 @@ GEM
     bcrypt (3.1.12)
     bigdecimal (1.4.3)
     bindex (0.7.0)
-    bootsnap (1.4.3)
+    bootsnap (1.4.4)
       msgpack (~> 1.0)
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
@@ -164,9 +165,9 @@ GEM
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.2.0)
     cliver (0.3.2)
-    coffee-rails (4.2.2)
+    coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
+      railties (>= 5.2.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
