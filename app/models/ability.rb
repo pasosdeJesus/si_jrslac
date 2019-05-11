@@ -21,7 +21,9 @@ class Ability  < Sipd::Ability
         ['Cor1440Gen', 'proyecto'],
         ['Sivel2Sjr', 'ayudaestado'],
         ['Sivel2Sjr', 'clasifdesp'],
-        ['Sivel2Sjr', 'declaroante']
+        ['Sivel2Sjr', 'declaroante'],
+        ['Sivel2Sjr', 'personadesea'],
+        ['Sivel2Sjr', 'progestado']
       ]
   end
 
@@ -162,11 +164,11 @@ class Ability  < Sipd::Ability
         can :manage, Cor1440Gen::Informe
         can :manage, Cor1440Gen::Proyectofinanciero
 
-        can :manage, Heb412Gen::Doc
-        can :manage, Heb412Gen::Plantilladoc
-        can :manage, Heb412Gen::Plantillahcm
-        can :manage, Heb412Gen::Plantillahcr
-
+        can :read, Heb412Gen::Doc
+        can :read, Heb412Gen::Plantilladoc
+        can :read, Heb412Gen::Plantillahcm
+        can :read, Heb412Gen::Plantillahcr
+ 
         can :manage, Sal7711Gen::Articulo
 
         can :new, Sip::Actorsocial
@@ -189,7 +191,7 @@ class Ability  < Sipd::Ability
         t = tablasbasicas - [['Sip', 'grupo']]
         t.each do |t|
           c = Ability.tb_clase(t)
-          can :manage, c
+          can [:read, :index], c
         end
 
       when Ability::ROLSUPERADMIN, Ability::ROLDESARROLLADOR

@@ -25,6 +25,13 @@ Rails.application.routes.draw do
   get "/informes/:id/impreso" => "cor1440_gen/informes#impreso", 
     as: :impresion
 
+
+  # Controlador hogar
+  get '/acercade' => 'hogar#acercade'
+  get "/fichacasovertical" => 'hogar#fichacasovertical'
+  get "/hogar" => 'hogar#index'
+  get "/tablasbasicas" => 'hogar#tablasbasicas'
+
   namespace :admin do
     ab = ::Ability.new
     ab.tablasbasicas.each do |t|
