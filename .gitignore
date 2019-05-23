@@ -31,3 +31,10 @@ public/images/colchon-articulos/
 app/views/hogar/_local.html.erb
 config/credentials.yml.enc
 
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
