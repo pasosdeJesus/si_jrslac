@@ -9,20 +9,6 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
---
 -- Name: es_co_utf_8; Type: COLLATION; Schema: public; Owner: -
 --
 
@@ -253,7 +239,8 @@ CREATE TABLE public.sivel2_gen_caso (
     bienes text,
     id_intervalo integer DEFAULT 5,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    ubicacion_id integer
 );
 
 
@@ -291,8 +278,8 @@ CREATE TABLE public.sivel2_gen_victima (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
-    genero character varying(1) DEFAULT 'S'::character varying,
-    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100))))
+    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
+    CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
 );
 
 
@@ -307,7 +294,7 @@ CREATE TABLE public.sivel2_sjr_casosjr (
     oficina_id integer DEFAULT 1,
     direccion character varying(1000),
     telefono character varying(1000),
-    contacto integer,
+    contacto_id integer,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     dependen integer,
@@ -340,11 +327,11 @@ CREATE VIEW public.cben1 AS
  SELECT caso.id AS id_caso,
     victima.id_persona,
         CASE
-            WHEN (casosjr.contacto = victima.id_persona) THEN 1
+            WHEN (casosjr.contacto_id = victima.id_persona) THEN 1
             ELSE 0
         END AS contacto,
         CASE
-            WHEN (casosjr.contacto <> victima.id_persona) THEN 1
+            WHEN (casosjr.contacto_id <> victima.id_persona) THEN 1
             ELSE 0
         END AS beneficiario,
     1 AS npersona,
@@ -352,7 +339,7 @@ CREATE VIEW public.cben1 AS
    FROM public.sivel2_gen_caso caso,
     public.sivel2_sjr_casosjr casosjr,
     public.sivel2_gen_victima victima
-  WHERE ((casosjr.fecharec >= '2019-01-01'::date) AND (casosjr.fecharec <= '2019-01-31'::date) AND (caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
+  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
 
 
 --
@@ -1082,7 +1069,6 @@ ALTER SEQUENCE public.cor1440_gen_campotind_id_seq OWNED BY public.cor1440_gen_c
 
 CREATE TABLE public.cor1440_gen_caracterizacionpersona (
     id bigint NOT NULL,
-    proyectofinanciero_id integer NOT NULL,
     persona_id integer NOT NULL,
     respuestafor_id integer NOT NULL,
     ulteditor_id integer NOT NULL
@@ -1326,6 +1312,36 @@ CREATE SEQUENCE public.cor1440_gen_objetivopf_id_seq
 --
 
 ALTER SEQUENCE public.cor1440_gen_objetivopf_id_seq OWNED BY public.cor1440_gen_objetivopf.id;
+
+
+--
+-- Name: cor1440_gen_plantillahcm_proyectofinanciero; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.cor1440_gen_plantillahcm_proyectofinanciero (
+    id bigint NOT NULL,
+    plantillahcm_id integer,
+    proyectofinanciero_id integer
+);
+
+
+--
+-- Name: cor1440_gen_plantillahcm_proyectofinanciero_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.cor1440_gen_plantillahcm_proyectofinanciero_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: cor1440_gen_plantillahcm_proyectofinanciero_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.cor1440_gen_plantillahcm_proyectofinanciero_id_seq OWNED BY public.cor1440_gen_plantillahcm_proyectofinanciero.id;
 
 
 --
@@ -1750,6 +1766,35 @@ ALTER SEQUENCE public.factorvulnerabilidad_id_seq OWNED BY public.factorvulnerab
 
 
 --
+-- Name: formulariocaso; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.formulariocaso (
+    id bigint NOT NULL,
+    dominio_id integer
+);
+
+
+--
+-- Name: formulariocaso_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.formulariocaso_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: formulariocaso_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.formulariocaso_id_seq OWNED BY public.formulariocaso.id;
+
+
+--
 -- Name: fotra_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -1800,7 +1845,7 @@ ALTER SEQUENCE public.heb412_gen_campohc_id_seq OWNED BY public.heb412_gen_campo
 CREATE TABLE public.heb412_gen_campoplantillahcm (
     id integer NOT NULL,
     plantillahcm_id integer,
-    nombrecampo character varying(127),
+    nombrecampo character varying(183),
     columna character varying(5)
 );
 
@@ -2049,7 +2094,8 @@ CREATE TABLE public.mr519_gen_campo (
     ayudauso character varying(1024),
     tipo integer DEFAULT 1 NOT NULL,
     obligatorio boolean,
-    formulario_id integer NOT NULL
+    formulario_id integer NOT NULL,
+    nombreinterno character varying(60)
 );
 
 
@@ -2112,7 +2158,8 @@ ALTER SEQUENCE public.mr519_gen_encuestausuario_id_seq OWNED BY public.mr519_gen
 
 CREATE TABLE public.mr519_gen_formulario (
     id bigint NOT NULL,
-    nombre character varying(500) NOT NULL
+    nombre character varying(500) NOT NULL,
+    nombreinterno character varying(60)
 );
 
 
@@ -2133,6 +2180,37 @@ CREATE SEQUENCE public.mr519_gen_formulario_id_seq
 --
 
 ALTER SEQUENCE public.mr519_gen_formulario_id_seq OWNED BY public.mr519_gen_formulario.id;
+
+
+--
+-- Name: mr519_gen_opcioncs; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.mr519_gen_opcioncs (
+    id bigint NOT NULL,
+    campo_id integer NOT NULL,
+    nombre character varying(1024) NOT NULL,
+    valor character varying(60) NOT NULL
+);
+
+
+--
+-- Name: mr519_gen_opcioncs_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.mr519_gen_opcioncs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: mr519_gen_opcioncs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.mr519_gen_opcioncs_id_seq OWNED BY public.mr519_gen_opcioncs.id;
 
 
 --
@@ -2174,7 +2252,8 @@ CREATE TABLE public.mr519_gen_valorcampo (
     id bigint NOT NULL,
     campo_id integer NOT NULL,
     valor character varying(5000),
-    respuestafor_id integer NOT NULL
+    respuestafor_id integer NOT NULL,
+    valorjson json
 );
 
 
@@ -2207,6 +2286,37 @@ CREATE SEQUENCE public.personadesea_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
+
+
+--
+-- Name: pestanafc; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.pestanafc (
+    id bigint NOT NULL,
+    formulariocaso_id integer,
+    titulo character varying(63),
+    parcial character varying(63)
+);
+
+
+--
+-- Name: pestanafc_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.pestanafc_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: pestanafc_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.pestanafc_id_seq OWNED BY public.pestanafc.id;
 
 
 --
@@ -3565,7 +3675,7 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
  SELECT casosjr.id_caso AS caso_id,
     array_to_string(ARRAY( SELECT (((persona.nombres)::text || ' '::text) || (persona.apellidos)::text)
            FROM public.sip_persona persona
-          WHERE (persona.id = casosjr.contacto)), ', '::text) AS contacto,
+          WHERE (persona.id = casosjr.contacto_id)), ', '::text) AS contacto,
     casosjr.fecharec,
     oficina.nombre AS oficina,
     usuario.nusuario,
@@ -4398,7 +4508,6 @@ CREATE TABLE public.sivel2_sjr_aslegal (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     observaciones character varying(5000),
-    nivel character varying(1),
     CONSTRAINT aslegal_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -5304,6 +5413,13 @@ ALTER TABLE ONLY public.cor1440_gen_objetivopf ALTER COLUMN id SET DEFAULT nextv
 
 
 --
+-- Name: cor1440_gen_plantillahcm_proyectofinanciero id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_plantillahcm_proyectofinanciero ALTER COLUMN id SET DEFAULT nextval('public.cor1440_gen_plantillahcm_proyectofinanciero_id_seq'::regclass);
+
+
+--
 -- Name: cor1440_gen_pmindicadorpf id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5364,6 +5480,13 @@ ALTER TABLE ONLY public.cor1440_gen_valorcampotind ALTER COLUMN id SET DEFAULT n
 --
 
 ALTER TABLE ONLY public.factorvulnerabilidad ALTER COLUMN id SET DEFAULT nextval('public.factorvulnerabilidad_id_seq'::regclass);
+
+
+--
+-- Name: formulariocaso id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.formulariocaso ALTER COLUMN id SET DEFAULT nextval('public.formulariocaso_id_seq'::regclass);
 
 
 --
@@ -5437,6 +5560,13 @@ ALTER TABLE ONLY public.mr519_gen_formulario ALTER COLUMN id SET DEFAULT nextval
 
 
 --
+-- Name: mr519_gen_opcioncs id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_opcioncs ALTER COLUMN id SET DEFAULT nextval('public.mr519_gen_opcioncs_id_seq'::regclass);
+
+
+--
 -- Name: mr519_gen_respuestafor id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -5448,6 +5578,13 @@ ALTER TABLE ONLY public.mr519_gen_respuestafor ALTER COLUMN id SET DEFAULT nextv
 --
 
 ALTER TABLE ONLY public.mr519_gen_valorcampo ALTER COLUMN id SET DEFAULT nextval('public.mr519_gen_valorcampo_id_seq'::regclass);
+
+
+--
+-- Name: pestanafc id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pestanafc ALTER COLUMN id SET DEFAULT nextval('public.pestanafc_id_seq'::regclass);
 
 
 --
@@ -5912,6 +6049,14 @@ ALTER TABLE ONLY public.cor1440_gen_objetivopf
 
 
 --
+-- Name: cor1440_gen_plantillahcm_proyectofinanciero cor1440_gen_plantillahcm_proyectofinanciero_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_plantillahcm_proyectofinanciero
+    ADD CONSTRAINT cor1440_gen_plantillahcm_proyectofinanciero_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: cor1440_gen_pmindicadorpf cor1440_gen_pmindicadorpf_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6069,6 +6214,14 @@ ALTER TABLE ONLY public.factorvulnerabilidad
 
 ALTER TABLE ONLY public.sivel2_gen_filiacion
     ADD CONSTRAINT filiacion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: formulariocaso formulariocaso_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.formulariocaso
+    ADD CONSTRAINT formulariocaso_pkey PRIMARY KEY (id);
 
 
 --
@@ -6256,6 +6409,14 @@ ALTER TABLE ONLY public.mr519_gen_formulario
 
 
 --
+-- Name: mr519_gen_opcioncs mr519_gen_opcioncs_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_opcioncs
+    ADD CONSTRAINT mr519_gen_opcioncs_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: mr519_gen_respuestafor mr519_gen_respuestafor_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6301,6 +6462,14 @@ ALTER TABLE ONLY public.sip_persona
 
 ALTER TABLE ONLY public.sivel2_sjr_personadesea
     ADD CONSTRAINT personadesea_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: pestanafc pestanafc_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pestanafc
+    ADD CONSTRAINT pestanafc_pkey PRIMARY KEY (id);
 
 
 --
@@ -7442,7 +7611,7 @@ ALTER TABLE ONLY public.sivel2_sjr_casosjr
 --
 
 ALTER TABLE ONLY public.sivel2_sjr_casosjr
-    ADD CONSTRAINT casosjr_contacto_fkey FOREIGN KEY (contacto) REFERENCES public.sip_persona(id);
+    ADD CONSTRAINT casosjr_contacto_fkey FOREIGN KEY (contacto_id) REFERENCES public.sip_persona(id);
 
 
 --
@@ -8014,11 +8183,35 @@ ALTER TABLE ONLY public.cor1440_gen_actividad_actividadtipo
 
 
 --
+-- Name: cor1440_gen_plantillahcm_proyectofinanciero fk_rails_62c9243a43; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_plantillahcm_proyectofinanciero
+    ADD CONSTRAINT fk_rails_62c9243a43 FOREIGN KEY (plantillahcm_id) REFERENCES public.heb412_gen_plantillahcm(id);
+
+
+--
+-- Name: pestanafc fk_rails_644e10c47d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.pestanafc
+    ADD CONSTRAINT fk_rails_644e10c47d FOREIGN KEY (formulariocaso_id) REFERENCES public.formulariocaso(id);
+
+
+--
 -- Name: sivel2_gen_combatiente fk_rails_6485d06d37; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.sivel2_gen_combatiente
     ADD CONSTRAINT fk_rails_6485d06d37 FOREIGN KEY (id_vinculoestado) REFERENCES public.sivel2_gen_vinculoestado(id);
+
+
+--
+-- Name: mr519_gen_opcioncs fk_rails_656b4a3ca7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.mr519_gen_opcioncs
+    ADD CONSTRAINT fk_rails_656b4a3ca7 FOREIGN KEY (campo_id) REFERENCES public.mr519_gen_campo(id);
 
 
 --
@@ -8118,6 +8311,14 @@ ALTER TABLE ONLY public.mr519_gen_valorcampo
 
 
 --
+-- Name: sivel2_gen_caso fk_rails_850036942a; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_gen_caso
+    ADD CONSTRAINT fk_rails_850036942a FOREIGN KEY (ubicacion_id) REFERENCES public.sip_ubicacion(id);
+
+
+--
 -- Name: cor1440_gen_actividad_actorsocial fk_rails_8ba599a224; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8131,6 +8332,14 @@ ALTER TABLE ONLY public.cor1440_gen_actividad_actorsocial
 
 ALTER TABLE ONLY public.mr519_gen_valorcampo
     ADD CONSTRAINT fk_rails_8bb7650018 FOREIGN KEY (respuestafor_id) REFERENCES public.mr519_gen_respuestafor(id);
+
+
+--
+-- Name: formulariocaso fk_rails_8c11ee9a10; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.formulariocaso
+    ADD CONSTRAINT fk_rails_8c11ee9a10 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
 
 
 --
@@ -8374,6 +8583,14 @@ ALTER TABLE ONLY public.cor1440_gen_indicadorpf
 
 
 --
+-- Name: cor1440_gen_plantillahcm_proyectofinanciero fk_rails_d56d245f70; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_plantillahcm_proyectofinanciero
+    ADD CONSTRAINT fk_rails_d56d245f70 FOREIGN KEY (proyectofinanciero_id) REFERENCES public.cor1440_gen_proyectofinanciero(id);
+
+
+--
 -- Name: cor1440_gen_informe fk_rails_daf0af8605; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8515,14 +8732,6 @@ ALTER TABLE ONLY public.cor1440_gen_actividad_actividadtipo
 
 ALTER TABLE ONLY public.sivel2_gen_combatiente
     ADD CONSTRAINT fk_rails_f77dda7a40 FOREIGN KEY (id_organizacion) REFERENCES public.sivel2_gen_organizacion(id);
-
-
---
--- Name: cor1440_gen_caracterizacionpersona fk_rails_f910288399; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.cor1440_gen_caracterizacionpersona
-    ADD CONSTRAINT fk_rails_f910288399 FOREIGN KEY (proyectofinanciero_id) REFERENCES public.cor1440_gen_proyectofinanciero(id);
 
 
 --
@@ -8875,14 +9084,6 @@ ALTER TABLE ONLY public.sivel2_gen_victimacolectiva_vinculoestado
 
 ALTER TABLE ONLY public.sivel2_gen_supracategoria
     ADD CONSTRAINT supracategoria_id_tviolencia_fkey FOREIGN KEY (id_tviolencia) REFERENCES public.sivel2_gen_tviolencia(id);
-
-
---
--- Name: sip_trelacion trelacion_inverso_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.sip_trelacion
-    ADD CONSTRAINT trelacion_inverso_fkey FOREIGN KEY (inverso) REFERENCES public.sip_trelacion(id);
 
 
 --
@@ -9384,10 +9585,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190110191802'),
 ('20190111092816'),
 ('20190111102201'),
-('20190116131050'),
 ('20190116133230'),
-('20190116135208'),
-('20190116150640'),
 ('20190123100500'),
 ('20190123103833'),
 ('20190128032125'),
@@ -9395,6 +9593,24 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190206005635'),
 ('20190208103518'),
 ('20190215110933'),
-('20190218155153');
+('20190218155153'),
+('20190225143501'),
+('20190308195346'),
+('20190322102311'),
+('20190326150948'),
+('20190331111015'),
+('20190401175521'),
+('20190403202049'),
+('20190406141156'),
+('20190406164301'),
+('20190418011743'),
+('20190418014012'),
+('20190418123920'),
+('20190418142712'),
+('20190426125052'),
+('20190430112229'),
+('20190523163457'),
+('20190523164103'),
+('20190523165345');
 
 

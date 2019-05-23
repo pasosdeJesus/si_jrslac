@@ -34,4 +34,7 @@ class Usuario < ActiveRecord::Base
 #    end
   end
 
+  def dominio_principal
+    dominio.count > 0 ?  dominio[0] : nil
+  end
 end
