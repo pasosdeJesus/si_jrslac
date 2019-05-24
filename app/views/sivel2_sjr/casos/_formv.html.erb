@@ -1,0 +1,51 @@
+<%- if current_usuario.nil?  %>
+  <li><a href="usuarios/sign_in">Iniciar Sesión</a>
+<%- else  %>
+  <article>
+  <script>
+    $(document).ready(function() {
+      window.sivel2_enviarFichaCasoCada60()  ;
+    });
+  </script>
+  <%= simple_form_for @caso, :html => { :class => 'form-horizontal' } do |f| %>
+    <div data-role="content" class="form-inputs">
+
+      <%= render partial: 'sip/hogar/errores', locals: { f: f } %> 
+      <%= render partial: 'sivel2_gen/casos/datos_interjs', locals: { f: f } %>
+
+      <div class="accordion" id="acordeon">
+
+        <%= f.simple_fields_for :casosjr do |s| %>
+          <% cin = 'in' %>
+          <% current_usuario.dominio_principal.formulariocaso.pestanafc.each do |p| %>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle fichacambia" data-toggle="collapse" 
+                  href="#<%= Mr519Gen::ApplicationHelper.nombre_a_nombreinterno(p.parcial) %>"><%= Sivel2Sjr::Casosjr.human_attribute_name(p.titulo) %></a>
+              </div>
+              <div id="<%= Mr519Gen::ApplicationHelper.nombre_a_nombreinterno(p.parcial)%>" class="accordion-body collapse <%= cin %>">
+                <div class="accordion-inner">
+                  <%= render p.parcial, f: f, s: s %>
+                </div>
+              </div> 
+            </div> <! -- accordion-group -->
+            <% cin = '' %>
+          <% end %>
+      </div> <!-- accordion -->
+    </div> <!-- form-inputs -->
+
+    <div class="form-actions">
+      <%= f.button :submit, 'Validar y Guardar', {
+        class: 'btn-primary',
+        onclick: 'window.sivel2_detenerEnviarCada60()'
+      } %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+        casos_path, :class => 'btn' 
+      %>
+    </div> <!-- form-action -->
+
+    <% end %> <!-- simple_form_for @caso -->
+  <% end %> <!-- simple_fields_for -->
+  </article>
+<% end -%> <!-- else -->
+

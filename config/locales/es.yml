@@ -42,6 +42,6 @@ es:
       "sivel2_gen/caso":
         fecha: Fecha de salida de residencia
       "sivel2_sjr/casosjr":
-        Refugio: PNPI
+        Refugio: Refugio
       "usuario":
         dominio_ids: Dominios

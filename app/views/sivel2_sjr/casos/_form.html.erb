@@ -15,7 +15,7 @@
 
       <div role="tabpanel">       
         <ul class="nav nav-tabs" role="tablist">
-          <% cac = 'class="active"' %>
+          <% cac = 'class=active' %>
           <% current_usuario.dominio_principal.formulariocaso.pestanafc.each do |p| %>
             <li role="presentation" <%= cac %>><a href="#<%= Mr519Gen::ApplicationHelper.nombre_a_nombreinterno(p.parcial) %>" 
               class="fichacambia" aria-controls="<%= Mr519Gen::ApplicationHelper.nombre_a_nombreinterno(p.parcial) %>" role="tab" 

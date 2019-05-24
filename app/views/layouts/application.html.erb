@@ -69,6 +69,11 @@
         <% if can? :manage, Sipd::Dominio %>
           <%= menu_item "Dominios", sipd.dominios_path %>
         <% end %>
+        <% if session[:capturacaso_acordeon] %>
+          <li><a id="fichacasovertical" href="<%= sivel2_gen.fichacasovertical_path %>">Ficha caso vertical ✓</a></li>
+        <% else %>
+          <li><a id="fichacasovertical" href="<%= sivel2_gen.fichacasovertical_path %>">Ficha caso vertical</a></li>
+        <% end %>
         <%= menu_item "Ver Control de Acceso", sip.ayuda_controldeacceso_path %>
       <% end %>
       <%= menu_item "Salir #{current_usuario.nusuario}", main_app.sign_out_path %>
