@@ -53,9 +53,9 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 0adebaf74e5cae9ef3538a7ee74b1d437206e304
+  revision: af6aadb3643fdec37a72d55972f35aa3e50396ac
   specs:
-    sip (2.0.b5)
+    sip (2.0.b6)
       bootstrap-datepicker-rails
       cancancan
       chosen-rails
@@ -177,7 +177,6 @@ GEM
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
     builder (3.2.3)
-    byebug (11.0.1)
     camertron-eprun (1.1.1)
     cancancan (3.0.1)
     capybara (3.21.0)
@@ -420,7 +419,6 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
-  byebug
   cancancan
   chosen-rails!
   cocoon!
