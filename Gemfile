@@ -93,7 +93,7 @@ gem 'paperclip'
 gem 'tzinfo'
 
 # Motor generico
-gem 'sip', git: 'https://github.com/pasosdeJesus/sip.git', branch: :rails6
+gem 'sip', git: 'https://github.com/pasosdeJesus/sip.git'
 #gem 'sip', path: '../sip'
 
 # Motor de nube y plantillas ods y odt
