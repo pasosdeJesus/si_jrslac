@@ -6,9 +6,8 @@ module Cor1440Gen
   class Informe < ActiveRecord::Base
         include Cor1440Gen::Concerns::Models::Informe
 
-        belongs_to :poa, 
-          class_name: '::Poa', 
-          foreign_key: 'filtropoa', validate: true
+        belongs_to :poa, class_name: '::Poa', 
+          foreign_key: 'filtropoa', validate: true, optional: true
 
         def gen_descfiltro_post(descfiltro)
           if (poa)
