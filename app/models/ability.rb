@@ -56,6 +56,14 @@ class Ability  < Sipd::Ability
       Sal7711Gen::Ability::BASICAS_PRIO + BASICAS_PRIO
   end
 
+  def self.parciales_fichacaso
+    ['basicos', 'contacto', 'victimas', 'ubicaciones',
+      'refugio', 'desplazamientos', 'sivel2_gen/casos/presponsables',
+      'antecedentes', 'respuestas', 'sivel2_gen/casos/anexos',
+      'sivel2_gen/casos/etiquetas'
+    ]
+  end
+
   ROLES = [
       ["Desarrollador", ROLDESARROLLADOR], 
       ["Superadministrador", ROLSUPERADMIN], 
@@ -158,7 +166,10 @@ class Ability  < Sipd::Ability
         can :menu, ::Usuario
         can :new, ::Usuario
         can :manage, ::Usuario, dominio: { id: usuario.dominio_ids}
-
+        
+        can :menu, ::Formulariocaso 
+        can :new, ::Formulariocaso 
+        can :manage, ::Formulariocaso, dominio: { id: usuario.dominio_ids}
        
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
@@ -196,6 +207,7 @@ class Ability  < Sipd::Ability
 
       when Ability::ROLSUPERADMIN, Ability::ROLDESARROLLADOR
         can :manage, ::Usuario
+        can :manage, ::Formulariocaso
 
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe

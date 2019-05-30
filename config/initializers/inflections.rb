@@ -16,5 +16,6 @@
 # end
 ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'factorvulnerabilidad', 'factoresvulnerabilidad'
+	inflect.irregular 'formulariocaso', 'formularioscaso'
 	inflect.irregular 'perfilactorsocial', 'perfilesactorsocial'
 end

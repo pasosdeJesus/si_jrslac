@@ -28,6 +28,10 @@ es:
       "factorvulnerabilidad":
         Factorvulnerabilidad: Factor de vulnerabilidad
         Factoresvulnerabilidad: Factores de vulnerabilidad
+      "formulariocaso":
+        Formulariocaso: Diseño del formulario para casos
+        Formularioscaso: Diseños de formularios para casos
+        pestanafc: Pestañas
       "poa":
         Poa: Plan Operativo Anual
         Poas: Plan Operativo Anual

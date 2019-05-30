@@ -1,0 +1,35 @@
+<%= f.input :id, as: :hidden %>
+<div class="panel panel-default">
+  <div class="panel-heading">Pestañas</div>
+  <div class="panel-body">
+
+    <div class="div-campos">
+      <table border=1 width="100%">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Orden</th>
+            <th>Parcial</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="pestanasfc">
+          <% if f.object.pestanafc.count > 0 %>
+            <%= f.simple_fields_for :pestanafc, 
+                f.object.pestanafc.order(:orden) do |p| %>
+              <%= render 'fila_pestanafc', f:  p %>
+            <% end %>
+         <% end %>
+        </tbody>
+      </table>
+      <div class="links">
+        <%= link_to_add_association 'Agregar pestaña', f, :pestanafc, {
+          :"data-association-insertion-node" => "tbody#pestanasfc", 
+          :"data-association-insertion-method" => "append", 
+          partial: 'fila_pestanafc',
+          class: 'btn-primary'
+        } %>
+      </div> <!-- links -->
+    </div> <!-- .div-campos -->
+  </div><!-- panel-body -->
+</div><!-- panel -->

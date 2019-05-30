@@ -69,6 +69,10 @@
         <% if can? :manage, Sipd::Dominio %>
           <%= menu_item "Dominios", sipd.dominios_path %>
         <% end %>
+        <% if can? :manage, ::Formulariocaso %>
+          <%= menu_item "Diseño del formulario para casos", 
+            main_app.formularioscaso_path %>
+        <% end %>
         <% if session[:capturacaso_acordeon] %>
           <li><a id="fichacasovertical" href="<%= sivel2_gen.fichacasovertical_path %>">Formulario de caso vertical ✓</a></li>
         <% else %>

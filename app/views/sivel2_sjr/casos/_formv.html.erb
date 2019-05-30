@@ -17,7 +17,8 @@
 
         <%= f.simple_fields_for :casosjr do |s| %>
           <% cin = 'in' %>
-          <% current_usuario.dominio_principal.formulariocaso.pestanafc.each do |p| %>
+          <% current_usuario.dominio_principal.formulariocaso.pestanafc.
+            order(:orden).each do |p| %>
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle fichacambia" data-toggle="collapse" 

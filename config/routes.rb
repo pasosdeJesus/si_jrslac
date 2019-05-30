@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "/informes/:id/impreso" => "cor1440_gen/informes#impreso", 
     as: :impresion
 
+  resources :formularioscaso, path_names: { new: 'nuevo', edit: 'edita' } 
 
   # Controlador hogar
   get '/acercade' => 'hogar#acercade'
