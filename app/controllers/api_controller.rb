@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 class ApiController < ActionController::Base
-  protect_from_forgery
+  protect_from_forgery with: :exception
 
   def recibecaso
     puts request
