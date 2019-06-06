@@ -9,6 +9,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+--
 -- Name: es_co_utf_8; Type: COLLATION; Schema: public; Owner: -
 --
 
@@ -278,8 +292,8 @@ CREATE TABLE public.sivel2_gen_victima (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
-    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
-    CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
+    genero character varying(1) DEFAULT 'S'::character varying,
+    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100))))
 );
 
 
@@ -339,7 +353,7 @@ CREATE VIEW public.cben1 AS
    FROM public.sivel2_gen_caso caso,
     public.sivel2_sjr_casosjr casosjr,
     public.sivel2_gen_victima victima
-  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
+  WHERE ((casosjr.fecharec >= '2019-01-01'::date) AND (casosjr.fecharec <= '2019-01-31'::date) AND (caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
 
 
 --
@@ -4509,6 +4523,7 @@ CREATE TABLE public.sivel2_sjr_aslegal (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     observaciones character varying(5000),
+    nivel character varying(1),
     CONSTRAINT aslegal_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -9586,7 +9601,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190110191802'),
 ('20190111092816'),
 ('20190111102201'),
+('20190116131050'),
 ('20190116133230'),
+('20190116135208'),
+('20190116150640'),
 ('20190123100500'),
 ('20190123103833'),
 ('20190128032125'),

@@ -20,5 +20,9 @@ class Formulariocasoinicial < ActiveRecord::Migration[6.0]
     SQL
   end
   def down
+    execute <<-SQL
+      DELETE FROM formulariocaso WHERE id=1;
+    SQL
+
   end
 end
