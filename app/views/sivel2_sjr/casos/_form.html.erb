@@ -1,17 +1,20 @@
 <%- if current_usuario.nil?  %>
   <li><a href="usuarios/sign_in">Iniciar Sesión</a>
-<%- else  %>
+<%- elsif !current_usuario.dominio_principal.formulariocaso.nil? then %> 
   <article>
   <script>
     $(document).ready(function() {
       window.sivel2_enviarFichaCasoCada60()  ;
     });
   </script>
+
+
   <%= simple_form_for @caso, html: { class: 'form-horizontal' } do |f| %>
     <div data-role="content" class="form-inputs">
 
       <%= render partial: 'sip/hogar/errores', locals: { f: f } %> 
       <%= render partial: 'sivel2_gen/casos/datos_interjs', locals: { f: f } %>
+
 
       <div role="tabpanel">       
         <ul class="nav nav-tabs" role="tablist">
@@ -51,5 +54,7 @@
     </div> <!-- form-action -->
   <% end %> <!-- simple_form_for @caso -->
   </article>
-<% end %> <!-- else -->
+<% else %>
+  <p>El dominio del usuario no tiene definidas pestañas del formulario Caso</p>
+<% end %> <!-- elseif  -->
 
