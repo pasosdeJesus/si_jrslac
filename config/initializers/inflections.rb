@@ -15,6 +15,7 @@
 #   inflect.acronym 'RESTful'
 # end
 ActiveSupport::Inflector.inflections do |inflect|
+	inflect.irregular 'estadocaso', 'estadoscaso'
 	inflect.irregular 'factorvulnerabilidad', 'factoresvulnerabilidad'
 	inflect.irregular 'formulariocaso', 'formularioscaso'
 	inflect.irregular 'perfilactorsocial', 'perfilesactorsocial'

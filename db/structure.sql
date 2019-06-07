@@ -315,7 +315,10 @@ CREATE TABLE public.sivel2_sjr_casosjr (
     id_llegada integer,
     categoriaref integer,
     observacionesref character varying(5000),
-    comosupo_id integer DEFAULT 1
+    comosupo_id integer DEFAULT 1,
+    numregfamilia character varying(128),
+    fechafinaliza date,
+    estadocaso_id integer DEFAULT 1 NOT NULL
 );
 
 
@@ -1729,6 +1732,41 @@ CREATE VIEW public.cres1 AS
     public.sivel2_sjr_respuesta respuesta,
     public.sivel2_sjr_aslegal_respuesta aslegal_respuesta
   WHERE ((caso.id = casosjr.id_caso) AND (caso.id = respuesta.id_caso) AND (respuesta.id = aslegal_respuesta.id_respuesta));
+
+
+--
+-- Name: estadocaso; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.estadocaso (
+    id bigint NOT NULL,
+    nombre character varying(500) NOT NULL,
+    observaciones character varying(5000),
+    dominio_id integer,
+    fechacreacion date NOT NULL,
+    fechadeshabilitacion date,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: estadocaso_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.estadocaso_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: estadocaso_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.estadocaso_id_seq OWNED BY public.estadocaso.id;
 
 
 --
@@ -5477,6 +5515,13 @@ ALTER TABLE ONLY public.cor1440_gen_valorcampotind ALTER COLUMN id SET DEFAULT n
 
 
 --
+-- Name: estadocaso id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.estadocaso ALTER COLUMN id SET DEFAULT nextval('public.estadocaso_id_seq'::regclass);
+
+
+--
 -- Name: factorvulnerabilidad id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -6167,6 +6212,14 @@ ALTER TABLE ONLY public.sivel2_sjr_desplazamiento
 
 ALTER TABLE ONLY public.sivel2_gen_escolaridad
     ADD CONSTRAINT escolaridad_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: estadocaso estadocaso_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.estadocaso
+    ADD CONSTRAINT estadocaso_pkey PRIMARY KEY (id);
 
 
 --
@@ -8200,6 +8253,14 @@ ALTER TABLE ONLY public.pestanafc
 
 
 --
+-- Name: estadocaso fk_rails_6454876624; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.estadocaso
+    ADD CONSTRAINT fk_rails_6454876624 FOREIGN KEY (dominio_id) REFERENCES public.sipd_dominio(id);
+
+
+--
 -- Name: sivel2_gen_combatiente fk_rails_6485d06d37; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8725,6 +8786,14 @@ ALTER TABLE ONLY public.sip_sectoractor
 
 ALTER TABLE ONLY public.cor1440_gen_actividad_actividadtipo
     ADD CONSTRAINT fk_rails_f5cc75f581 FOREIGN KEY (actividad_id) REFERENCES public.cor1440_gen_actividad(id);
+
+
+--
+-- Name: sivel2_sjr_casosjr fk_rails_f737d0a1a1; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sivel2_sjr_casosjr
+    ADD CONSTRAINT fk_rails_f737d0a1a1 FOREIGN KEY (estadocaso_id) REFERENCES public.estadocaso(id);
 
 
 --
@@ -9612,6 +9681,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190430112229'),
 ('20190523163457'),
 ('20190523164103'),
-('20190523165345');
+('20190523165345'),
+('20190607030442'),
+('20190607095956'),
+('20190607111705'),
+('20190607112743');
 
 

@@ -25,6 +25,9 @@ es:
       "cor1440_gen/proyecto":
         Proyecto: Proyecto
         Proyectos: Proyectos
+      'estadocaso':
+        Estadocaso: Estado del caso
+        Estadoscaso: Estados de caso
       "factorvulnerabilidad":
         Factorvulnerabilidad: Factor de vulnerabilidad
         Factoresvulnerabilidad: Factores de vulnerabilidad
@@ -46,6 +49,9 @@ es:
       "sivel2_gen/caso":
         fecha: Fecha de salida de residencia
       "sivel2_sjr/casosjr":
+        estadocaso: Estado del caso
+        fechafinaliza: Fecha de finalización
+        numregfamilia: Número de registro de la familia
         Refugio: Refugio
       "usuario":
         dominio_ids: Dominios

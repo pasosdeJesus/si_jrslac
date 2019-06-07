@@ -8,6 +8,7 @@ class Ability  < Sipd::Ability
   ROLDESARROLLADOR = 9
 
   BASICAS_PROPIAS = [
+    ['', 'estadocaso'],
     ['', 'factorvulnerabilidad'],
     ['', 'poa']
   ]
@@ -57,9 +58,18 @@ class Ability  < Sipd::Ability
   end
 
   def self.parciales_fichacaso
-    ['basicos', 'contacto', 'victimas', 'ubicaciones',
-      'refugio', 'desplazamientos', 'sivel2_gen/casos/presponsables',
-      'antecedentes', 'respuestas', 'sivel2_gen/casos/anexos',
+    [
+      'basicos', 
+      'basicos_mex', 
+      'contacto', 
+      'victimas', 
+      'ubicaciones',
+      'refugio', 
+      'desplazamientos', 
+      'sivel2_gen/casos/presponsables',
+      'antecedentes', 
+      'respuestas', 
+      'sivel2_gen/casos/anexos',
       'sivel2_gen/casos/etiquetas'
     ]
   end
@@ -170,6 +180,9 @@ class Ability  < Sipd::Ability
         can :menu, ::Formulariocaso 
         can :new, ::Formulariocaso 
         can :manage, ::Formulariocaso, dominio: { id: usuario.dominio_ids}
+ 
+        can :new, ::Estadocaso
+        can :manage, ::Estadocaso, dominio: { id: usuario.dominio_ids}
        
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
@@ -198,8 +211,9 @@ class Ability  < Sipd::Ability
         can :manage, Sivel2Gen::Caso
         can :manage, Sivel2Gen::Acto
 
+
         can :manage, :tablasbasicas
-        t = tablasbasicas - [['Sip', 'grupo']]
+        t = tablasbasicas - [['Sip', 'grupo'], ['', 'estadocaso']]
         t.each do |t|
           c = Ability.tb_clase(t)
           can [:read, :index], c
