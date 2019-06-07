@@ -2128,7 +2128,7 @@ CREATE SEQUENCE public.motivoconsulta_seq
 
 CREATE TABLE public.mr519_gen_campo (
     id bigint NOT NULL,
-    nombre character varying(128) NOT NULL,
+    nombre character varying(512) NOT NULL,
     ayudauso character varying(1024),
     tipo integer DEFAULT 1 NOT NULL,
     obligatorio boolean,
@@ -9682,6 +9682,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190523163457'),
 ('20190523164103'),
 ('20190523165345'),
+('20190605143420'),
 ('20190607030442'),
 ('20190607095956'),
 ('20190607111705'),
