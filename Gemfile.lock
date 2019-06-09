@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: db70eed188055067f4b9ca1c22de06a7fd99ba59
+  revision: 92bd4ff0ffbb9d26df05968f901a99a6ea111b43
   specs:
     cor1440_gen (1.0b3)
       devise
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 39780368a89c42ee4a153211bcd68f830d0ac05f
+  revision: 72feec5a6c59d1353908c6f13752bf9c37fe718b
   specs:
     heb412_gen (1.0.b6)
       chosen-rails
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: 32779aac68e4969dfa21955f8a23bf0ee58a5892
+  revision: 8e24cf5003643dae1cf872aaf8c14752135f4956
   specs:
     mr519_gen (0.2.0)
       rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
@@ -32,7 +32,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_gen.git
-  revision: c62f58eba669a2ed6cbb8fc76b4cafdcbf2bb991
+  revision: b9009d3f78fd54521cb10d753553ed4dc432408a
   specs:
     sal7711_gen (1.0.b2)
       rails
@@ -48,7 +48,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: a5f25a7441d45b2df62d4c28d2c99e6c9107abaf
+  revision: 21ceed7f10f515b63835ed7a30b0729aa4380e16
   specs:
     sip (2.0.b6)
       bootstrap-datepicker-rails
@@ -70,16 +70,16 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: 8580f6065724498d270271fdea8cd21b3149fb93
+  revision: 5ff86b77e40e9029576d2b920205590e878bac5a
   specs:
-    sivel2_gen (2.0b8)
+    sivel2_gen (2.0b9)
       devise
       jquery-rails
       rails
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 39aa4fa70f10a85171f9934ca60bd83ade4c2567
+  revision: 1d23d914384d5a3d35fbe78967ff2aff876aca4a
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -163,7 +163,7 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     andand (1.3.3)
-    bcrypt (3.1.12)
+    bcrypt (3.1.13)
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -185,6 +185,7 @@ GEM
     cldr-plurals-runtime-rb (1.0.1)
     climate_control (0.2.0)
     cliver (0.3.2)
+    coderay (1.1.2)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -277,6 +278,9 @@ GEM
     prawnto_2 (0.3.0)
       prawn (>= 1.0.0)
       rails (>= 3.2)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.1.0)
     puma (3.12.1)
     rack (2.0.7)
@@ -328,7 +332,7 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
-    rspreadsheet (0.4.8)
+    rspreadsheet (0.4.9)
       andand (~> 1.3)
       rubyzip (~> 1.1)
     rubyzip (1.2.3)
@@ -393,7 +397,7 @@ GEM
       activemodel (>= 6.0.0.a)
       bindex (>= 0.4.0)
       railties (>= 6.0.0.a)
-    webpacker (4.0.4)
+    webpacker (4.0.7)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -436,6 +440,7 @@ DEPENDENCIES
   prawn
   prawn-table
   prawnto_2
+  pry
   puma
   rails (~> 6.0.0.rc1)
   rails-i18n

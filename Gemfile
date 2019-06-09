@@ -128,6 +128,7 @@ group :development do
 
   # Consola irb en páginas con excepciones o usando <%= console %> en vistas
   gem 'web-console'
+  gem 'pry' # Lo exije rspreadsheet
 end
 
 group :development, :test do
