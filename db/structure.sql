@@ -9,20 +9,6 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
---
 -- Name: es_co_utf_8; Type: COLLATION; Schema: public; Owner: -
 --
 
@@ -292,8 +278,8 @@ CREATE TABLE public.sivel2_gen_victima (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     id integer DEFAULT nextval('public.victima_seq'::regclass) NOT NULL,
-    genero character varying(1) DEFAULT 'S'::character varying,
-    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100))))
+    CONSTRAINT victima_hijos_check CHECK (((hijos IS NULL) OR ((hijos >= 0) AND (hijos <= 100)))),
+    CONSTRAINT victima_orientacionsexual_check CHECK (((orientacionsexual = 'L'::bpchar) OR (orientacionsexual = 'G'::bpchar) OR (orientacionsexual = 'B'::bpchar) OR (orientacionsexual = 'T'::bpchar) OR (orientacionsexual = 'H'::bpchar) OR (orientacionsexual = 'S'::bpchar)))
 );
 
 
@@ -356,7 +342,7 @@ CREATE VIEW public.cben1 AS
    FROM public.sivel2_gen_caso caso,
     public.sivel2_sjr_casosjr casosjr,
     public.sivel2_gen_victima victima
-  WHERE ((casosjr.fecharec >= '2019-01-01'::date) AND (casosjr.fecharec <= '2019-01-31'::date) AND (caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
+  WHERE ((caso.id = victima.id_caso) AND (caso.id = casosjr.id_caso) AND (caso.id = victima.id_caso));
 
 
 --
@@ -745,6 +731,16 @@ ALTER SEQUENCE public.cor1440_gen_actividad_rangoedadac_id_seq OWNED BY public.c
 
 
 --
+-- Name: cor1440_gen_actividad_respuestafor; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.cor1440_gen_actividad_respuestafor (
+    actividad_id integer NOT NULL,
+    respuestafor_id integer NOT NULL
+);
+
+
+--
 -- Name: cor1440_gen_actividad_sip_anexo_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -920,6 +916,16 @@ CREATE TABLE public.cor1440_gen_actividadtipo (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     listadoasistencia boolean
+);
+
+
+--
+-- Name: cor1440_gen_actividadtipo_formulario; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.cor1440_gen_actividadtipo_formulario (
+    actividadtipo_id integer NOT NULL,
+    formulario_id integer NOT NULL
 );
 
 
@@ -1336,29 +1342,9 @@ ALTER SEQUENCE public.cor1440_gen_objetivopf_id_seq OWNED BY public.cor1440_gen_
 --
 
 CREATE TABLE public.cor1440_gen_plantillahcm_proyectofinanciero (
-    id bigint NOT NULL,
     plantillahcm_id integer,
     proyectofinanciero_id integer
 );
-
-
---
--- Name: cor1440_gen_plantillahcm_proyectofinanciero_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.cor1440_gen_plantillahcm_proyectofinanciero_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: cor1440_gen_plantillahcm_proyectofinanciero_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.cor1440_gen_plantillahcm_proyectofinanciero_id_seq OWNED BY public.cor1440_gen_plantillahcm_proyectofinanciero.id;
 
 
 --
@@ -4561,7 +4547,6 @@ CREATE TABLE public.sivel2_sjr_aslegal (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     observaciones character varying(5000),
-    nivel character varying(1),
     CONSTRAINT aslegal_check CHECK (((fechadeshabilitacion IS NULL) OR (fechadeshabilitacion >= fechacreacion)))
 );
 
@@ -5467,13 +5452,6 @@ ALTER TABLE ONLY public.cor1440_gen_objetivopf ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- Name: cor1440_gen_plantillahcm_proyectofinanciero id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.cor1440_gen_plantillahcm_proyectofinanciero ALTER COLUMN id SET DEFAULT nextval('public.cor1440_gen_plantillahcm_proyectofinanciero_id_seq'::regclass);
-
-
---
 -- Name: cor1440_gen_pmindicadorpf id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -6107,14 +6085,6 @@ ALTER TABLE ONLY public.cor1440_gen_mindicadorpf
 
 ALTER TABLE ONLY public.cor1440_gen_objetivopf
     ADD CONSTRAINT cor1440_gen_objetivopf_pkey PRIMARY KEY (id);
-
-
---
--- Name: cor1440_gen_plantillahcm_proyectofinanciero cor1440_gen_plantillahcm_proyectofinanciero_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.cor1440_gen_plantillahcm_proyectofinanciero
-    ADD CONSTRAINT cor1440_gen_plantillahcm_proyectofinanciero_pkey PRIMARY KEY (id);
 
 
 --
@@ -7956,6 +7926,14 @@ ALTER TABLE ONLY public.cor1440_gen_actividadpf
 
 
 --
+-- Name: cor1440_gen_actividad_respuestafor fk_rails_0b4fb6fceb; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_actividad_respuestafor
+    ADD CONSTRAINT fk_rails_0b4fb6fceb FOREIGN KEY (actividad_id) REFERENCES public.cor1440_gen_actividad(id);
+
+
+--
 -- Name: cor1440_gen_financiador_proyectofinanciero fk_rails_0cd09d688c; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8516,6 +8494,14 @@ ALTER TABLE ONLY public.cor1440_gen_actividad_proyectofinanciero
 
 
 --
+-- Name: cor1440_gen_actividad_respuestafor fk_rails_abc0cafc05; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_actividad_respuestafor
+    ADD CONSTRAINT fk_rails_abc0cafc05 FOREIGN KEY (respuestafor_id) REFERENCES public.mr519_gen_respuestafor(id);
+
+
+--
 -- Name: cor1440_gen_beneficiariopf fk_rails_ac70e973ee; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8780,6 +8766,14 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 
 --
+-- Name: cor1440_gen_actividadtipo_formulario fk_rails_f17af6bf9c; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_actividadtipo_formulario
+    ADD CONSTRAINT fk_rails_f17af6bf9c FOREIGN KEY (actividadtipo_id) REFERENCES public.cor1440_gen_actividadtipo(id);
+
+
+--
 -- Name: sivel2_gen_antecedente_combatiente fk_rails_f305297325; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -8825,6 +8819,14 @@ ALTER TABLE ONLY public.sivel2_gen_combatiente
 
 ALTER TABLE ONLY public.cor1440_gen_actividadpf
     ADD CONSTRAINT fk_rails_f941b0c512 FOREIGN KEY (proyectofinanciero_id) REFERENCES public.cor1440_gen_proyectofinanciero(id);
+
+
+--
+-- Name: cor1440_gen_actividadtipo_formulario fk_rails_faf663ab7f; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_actividadtipo_formulario
+    ADD CONSTRAINT fk_rails_faf663ab7f FOREIGN KEY (formulario_id) REFERENCES public.mr519_gen_formulario(id);
 
 
 --
@@ -9670,10 +9672,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190110191802'),
 ('20190111092816'),
 ('20190111102201'),
-('20190116131050'),
 ('20190116133230'),
-('20190116135208'),
-('20190116150640'),
 ('20190123100500'),
 ('20190123103833'),
 ('20190128032125'),
@@ -9696,10 +9695,13 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190418123920'),
 ('20190418142712'),
 ('20190426125052'),
+('20190426131119'),
 ('20190430112229'),
 ('20190523163457'),
 ('20190523164103'),
 ('20190523165345'),
+('20190603213842'),
+('20190603234145'),
 ('20190605143420'),
 ('20190607030442'),
 ('20190607095956'),
