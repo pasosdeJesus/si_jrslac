@@ -95,7 +95,7 @@ module Cor1440Gen
         :actividadareas,
         :responsable,
         :corresponsables,
-        :valorcampoact,
+        :respuestafor,
         :objetivo,
         :resultado,
 #        :descripcion, # ven
