@@ -16,6 +16,7 @@ class Sivel2Gen::Consexpcaso < ActiveRecord::Base
         conscaso.memo AS descripcion,
         CAST(EXTRACT(MONTH FROM ultimaatencion.fechaatencion) AS INTEGER) AS ultimaatencion_mes,
         conscaso.ultimaatencion_fecha,
+        TO_CHAR(conscaso.ultimaatencion_fecha, 'DD/MM/YYYY') AS ultimaatencion_fecha_localizada,
         conscaso.contacto,
         contacto.nombres AS contacto_nombres,
         contacto.apellidos AS contacto_apellidos,

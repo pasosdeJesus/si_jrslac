@@ -3945,6 +3945,7 @@ CREATE MATERIALIZED VIEW public.sivel2_gen_consexpcaso AS
     conscaso.memo AS descripcion,
     (date_part('month'::text, ultimaatencion.fechaatencion))::integer AS ultimaatencion_mes,
     conscaso.ultimaatencion_fecha,
+    to_char((conscaso.ultimaatencion_fecha)::timestamp with time zone, 'DD/MM/YYYY'::text) AS ultimaatencion_fecha_localizada,
     conscaso.contacto,
     contacto.nombres AS contacto_nombres,
     contacto.apellidos AS contacto_apellidos,
