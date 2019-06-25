@@ -10,7 +10,8 @@ class Ability  < Sipd::Ability
   BASICAS_PROPIAS = [
     ['', 'estadocaso'],
     ['', 'factorvulnerabilidad'],
-    ['', 'poa']
+    ['', 'poa'],
+    ['', 'senaparticular']
   ]
   def tablasbasicas 
     Sip::Ability::BASICAS_PROPIAS + 
@@ -212,13 +213,15 @@ class Ability  < Sipd::Ability
         can :manage, Sivel2Gen::Acto
 
 
+
         can :manage, :tablasbasicas
-        t = tablasbasicas - [['Sip', 'grupo'], ['', 'estadocaso']]
+        t = tablasbasicas - [['Sip', 'grupo'], ['', 'estadocaso'], ['', 'senaparticular']]
         t.each do |t|
           c = Ability.tb_clase(t)
           can [:read, :index], c
         end
 
+        can :manage, ::Senaparticular
       when Ability::ROLSUPERADMIN, Ability::ROLDESARROLLADOR
         can :manage, ::Usuario
         can :manage, ::Formulariocaso

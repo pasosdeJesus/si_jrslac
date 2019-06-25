@@ -1,0 +1,19 @@
+<%= victima.association :iglesia,
+	collection: Sivel2Gen::Iglesia.habilitados,
+	include_blank: false,
+	label: "Religión/Iglesia",
+	label_method: :nombre, 
+	value_method: :id 
+%>
+<div class='row'>
+  <div class='col-md-6'>
+    <%= victima.input :hijos %>
+  </div>
+  <div class='col-md-6'>
+    <%= victimasjr.input :dependientes %>
+  </div>
+</div>
+
+
+
+

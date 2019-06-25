@@ -38,6 +38,9 @@ es:
       "poa":
         Poa: Plan Operativo Anual
         Poas: Plan Operativo Anual
+      "senaparticular":
+        Senaparticular: Seña particular
+        Senasparticulares: Señas particulares
       "sip/departamento":
         Departamento: Departamento/Estado/Provincia
         Departamentos: Departamentos/Estados/Provincias
@@ -48,10 +51,18 @@ es:
         id_munlocal: Código dentro del Departamento/Estado/Provincia
       "sivel2_gen/caso":
         fecha: Fecha de salida de residencia
+      "sivel2_gen/victima":
+        hijos: No. de hijos
       "sivel2_sjr/casosjr":
         estadocaso: Estado del caso
         fechafinaliza: Fecha de finalización
         numregfamilia: Número de registro de la familia
         Refugio: Refugio
+      "sivel2_sjr/victimasjr":
+        apellidomaterno: Apellido materno
+        nombrenooficial: Nombre no oficial
+        descripcionsenas: Descripción de señas particulares
+        dependientes: No. de dependientes
+        razon: Razón
       "usuario":
         dominio_ids: Dominios

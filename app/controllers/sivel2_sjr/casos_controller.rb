@@ -15,6 +15,22 @@ module Sivel2Sjr
       ] 
     end
 
+    def otros_params_victima
+      [
+        :hijos
+      ]
+    end
+ 
+    def otros_params_victimasjr
+      [
+        :apellidomaterno,
+        :nombrenooficial,
+        :descripcionsenas,
+        :dependientes,
+        :razon
+      ]
+    end 
+
     def otros_params
       [
         factorvulnerabilidad_ids: []

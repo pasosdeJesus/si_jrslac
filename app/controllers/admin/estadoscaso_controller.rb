@@ -4,7 +4,7 @@ module Admin
   class EstadoscasoController < Sip::Admin::BasicasController
     before_action :set_estadocaso, 
       only: [:show, :edit, :update, :destroy]
-    load_and_authorize_resource  class: ::Estadocaso
+    load_and_authorize_resource  class: ::Estadocaso, except: [:create]
 
     def clase 
       "::Estadocaso"
@@ -29,8 +29,17 @@ module Admin
       'M'
     end
 
+    def create(registro = nil)
+      # create autoriza primera, create_gen valida primero
+      create_gen(registro)
+    end
+
+    def lista_params
+      atributos_form - [:dominio] + [:dominio_id]
+    end
+
     def estadocaso_params
-      params.require(:estadocaso).permit(*atributos_form)
+      params.require(:estadocaso).permit(lista_params)
     end
 
   end

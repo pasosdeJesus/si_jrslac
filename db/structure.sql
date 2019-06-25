@@ -5304,7 +5304,12 @@ CREATE TABLE public.sivel2_sjr_victimasjr (
     id_victima integer NOT NULL,
     id_pais integer,
     enfermedad character varying(5000),
-    ndiscapacidad character varying(100)
+    ndiscapacidad character varying(100),
+    apellidomaterno character varying(100),
+    nombrenooficial character varying(100),
+    descripcionsenas character varying(1000),
+    dependientes integer,
+    razon character varying(1000)
 );
 
 
@@ -9706,6 +9711,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190607030442'),
 ('20190607095956'),
 ('20190607111705'),
-('20190607112743');
+('20190607112743'),
+('20190612111043'),
+('20190624103537');
 
 
