@@ -11,8 +11,11 @@
     %>
   </td>
   <td>
+    <% op = ::Ability.parciales_fichacaso %>
+    <% op += Mr519Gen::Formulario.all.map { |f| 
+      "Formulario::#{f.nombre}" } %>
     <%= f.input :parcial, 
-      collection: ::Ability.parciales_fichacaso,
+      collection: op,
       label: false 
     %>
   </td>

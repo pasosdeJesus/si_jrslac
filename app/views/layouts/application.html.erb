@@ -69,6 +69,10 @@
         <% if can? :manage, Sipd::Dominio %>
           <%= menu_item "Dominios", sipd.dominios_path %>
         <% end %>
+        <% if can? :manage, Mr519Gen::Formulario %>
+          <%= menu_item "Formularios", 
+            mr519_gen.formularios_path %>
+        <% end %>
         <% if can? :manage, ::Formulariocaso %>
           <%= menu_item "Diseño del formulario para casos", 
             main_app.formularioscaso_path %>

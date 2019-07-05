@@ -19,8 +19,8 @@
       <div role="tabpanel">       
         <ul class="nav nav-tabs" role="tablist">
           <% cac = 'class=active' %>
-          <% current_usuario.dominio_principal.formulariocaso.pestanafc.
-            order(:orden).each do |p| %>
+          <% current_usuario.dominio_principal.formulariocaso.
+            pestanafc.order(:orden).each do |p| %>
             <li role="presentation" <%= cac %>><a href="#<%= Mr519Gen::ApplicationHelper.nombre_a_nombreinterno(p.parcial) %>" 
               class="fichacambia" aria-controls="<%= Mr519Gen::ApplicationHelper.nombre_a_nombreinterno(p.parcial) %>" role="tab" 
             data-toggle="tab"><%= Sivel2Sjr::Casosjr.human_attribute_name(p.titulo) %></a></li>
@@ -32,8 +32,17 @@
             <% cac = ' active' %>
             <% current_usuario.dominio_principal.formulariocaso.pestanafc.
               order(:orden).each do |p| %>
-              <div role="tabpanel" class="tab-pane<%= cac %>" id="<%= Mr519Gen::ApplicationHelper.nombre_a_nombreinterno(p.parcial) %>" > 
-                <%= render p.parcial, f: f, s: s %>
+              <div role="tabpanel" class="tab-pane<%= cac %>" 
+                id="<%= Mr519Gen::ApplicationHelper.
+                  nombre_a_nombreinterno(p.parcial) %>" > 
+                <% if p.parcial.starts_with?('Formulario::') %>
+                  <%= f.simple_fields_for :respuestafor, 
+                    f.object.respuestafor.joins(:formulario).where('mr519_gen_formulario.nombre = ?', p.parcial[12..-1]) do |r| %>
+                    <%= render partial: 'mr519_gen/encuestasusuario/campo_valorcampo', locals: {f: r}  %>
+                  <% end %>
+                <% else %>
+                  <%= render p.parcial, f: f, s: s %>
+                <% end %>
               </div> 
               <% cac = '' %>
             <% end %>

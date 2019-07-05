@@ -180,10 +180,17 @@ class Ability  < Sipd::Ability
         
         can :menu, ::Formulariocaso 
         can :new, ::Formulariocaso 
-        can :manage, ::Formulariocaso, dominio: { id: usuario.dominio_ids}
+        can :manage, ::Formulariocaso, 
+          dominio: { id: usuario.dominio_ids}
+
+        can :menu, Mr519Gen::Formulario
+        can :new, Mr519Gen::Formulario
+        can :manage, Mr519Gen::Formulario
+        #, dominio: { id: usuario.dominio_ids}
  
         can :new, ::Estadocaso
-        can :manage, ::Estadocaso, dominio: { id: usuario.dominio_ids}
+        can :manage, ::Estadocaso, 
+          dominio: { id: usuario.dominio_ids}
        
         can :manage, Cor1440Gen::Actividad
         can :manage, Cor1440Gen::Informe
@@ -197,7 +204,8 @@ class Ability  < Sipd::Ability
         can :manage, Sal7711Gen::Articulo
 
         can :new, Sip::Actorsocial
-        can :manage, Sip::Actorsocial, dominio: { id: usuario.dominio_ids}
+        can :manage, Sip::Actorsocial, 
+          dominio: { id: usuario.dominio_ids}
         # Las restricciones para nuevos y edición en modelo con validate
         # y en controlador con validaciones
         can :new, Sip::Grupo

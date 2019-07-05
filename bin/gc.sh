@@ -1,31 +1,19 @@
 #!/bin/sh
 # Hace pruebas, pruebas de regresión, envia a github y sube a heroku
 
-grep "^ *gem *.sip.*, *path:" Gemfile > /dev/null 2> /dev/null
-if (test "$?" = "0") then {
-	echo "Gemfile incluye un sip cableado al sistema de archivos"
-	exit 1;
-} fi;
-grep "^ *gem *.cor1440_gen.*, *path:" Gemfile > /dev/null 2> /dev/null
-if (test "$?" = "0") then {
-	echo "Gemfile incluye un cor1440_gen cableado al sistema de archivos"
-	exit 1;
-} fi;
-grep "^ *gem *.sal7711_gen.*, *path:" Gemfile > /dev/null 2> /dev/null
-if (test "$?" = "0") then {
-	echo "Gemfile incluye un sal7711_gen cableado al sistema de archivos"
-	exit 1;
-} fi;
-grep "^ *gem.*.sal7711_web.*,.*path:" Gemfile > /dev/null 2> /dev/null
-if (test "$?" = "0") then {
-	echo "Gemfile incluye un sal7711_web cableado al sistema de archivos"
-	exit 1;
-} fi;
-grep "^ *gem.*.heb412_gen.*,.*path:" Gemfile > /dev/null 2> /dev/null
-if (test "$?" = "0") then {
-	echo "Gemfile incluye un heb412_gen cableado al sistema de archivos"
-	exit 1;
-} fi;
+function cableado {
+	for n in $*; do 
+		echo "Revisando $n"
+		grep "^ *gem *.${n}.*, *path:" Gemfile > /dev/null 2> /dev/null
+		if (test "$?" = "0") then {
+			echo "Gemfile incluye un ${n} cableado al sistema de archivos"
+			exit 1;
+		} fi;
+	done
+}
+
+d=`grep "gem.*pasosdeJesus" Gemfile | sed -e "s/.*gem ['\"]//g;s/['\"].*//g"`
+cableado $d
 
 grep "^ *gem *.debugger*" Gemfile > /dev/null 2> /dev/null
 if (test "$?" = "0") then {
