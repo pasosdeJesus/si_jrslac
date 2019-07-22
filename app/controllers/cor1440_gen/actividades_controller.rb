@@ -1,10 +1,10 @@
 # encoding: UTF-8
-require_dependency "cor1440_gen/concerns/controllers/actividades_controller"
+require_dependency "sivel2_sjr/concerns/controllers/actividades_controller"
 
 module Cor1440Gen
   class ActividadesController < Heb412Gen::ModelosController
 
-    include Cor1440Gen::Concerns::Controllers::ActividadesController
+    include Sivel2Sjr::Concerns::Controllers::ActividadesController
 
     def self.filtramas(par, ac, current_usuario)
       @buspoa = param_escapa(par, 'buspoa')
@@ -76,7 +76,7 @@ module Cor1440Gen
 
     # No confiar parametros a Internet, sólo permitir lista blanca
     def actividad_params
-      lp = lista_params + [
+      lp = lista_params_sivel2_sjr + [
         :poa_ids => []
       ]
       params.require(:actividad).permit(lp)
