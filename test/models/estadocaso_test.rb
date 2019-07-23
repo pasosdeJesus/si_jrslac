@@ -10,7 +10,27 @@ class EstadocasoTest < ActiveSupport::TestCase
     created_at: "2019-06-07"
   }
 
+  # Usuario para ingresar y hacer pruebas
+  PRUEBA_USUARIO = {
+    nusuario: "admin",
+    password: "sjrven123",
+    nombre: "admin",
+    descripcion: "admin",
+    rol: 1,
+    idioma: "es_CO",
+    email: "usuario1@localhost",
+    encrypted_password: '$2a$10$uMAciEcJuUXDnpelfSH6He7BxW0yBeq6VMemlWc5xEl6NZRDYVA3G',
+    sign_in_count: 0,
+    fechacreacion: "2014-08-05",
+    fechadeshabilitacion: nil,
+    oficina_id: nil
+  }
+
   test "valido" do
+    skip
+    @current_usuario = ::Usuario.create(PRUEBA_USUARIO)
+    # sign_in no opera con modelo talvez toca desde controlador
+    sign_in @current_usuario
     Estadocaso = ::Estadocaso.create(
       PRUEBA_ESTADOCASO)
     assert(Estadocaso.valid?)
