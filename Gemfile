@@ -154,7 +154,7 @@ group :test do
   # Acelera ejecutando en fondo.  https://github.com/jonleighton/spring
   gem 'spring'
 
-  gem 'poltergeist'
+  gem 'capybara'
   gem 'selenium-webdriver'
   # Pruebas de regresión que no requieren javascript
   gem 'simplecov'
@@ -169,7 +169,7 @@ end
 
 group :production do
   # Para despliegue
-  gem 'unicorn', '~> 5.5.0.1.g6836'
+  gem 'unicorn'
 
   # Requerido por heroku para usar stdout como bitacora
   gem 'rails_12factor'
