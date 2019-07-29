@@ -147,7 +147,8 @@ group :test do
   # Envia resultados de pruebas desde travis a codeclimate
   #gem 'codeclimate-test-reporter', require: nil
 
-  gem 'poltergeist'
+  gem 'capybara'
+
   gem 'selenium-webdriver'
   # Pruebas de regresión que no requieren javascript
   gem 'simplecov'
@@ -162,7 +163,7 @@ end
 
 group :production do
   # Para despliegue
-  gem 'unicorn', '~> 5.5.0.1.g6836'
+  gem 'unicorn'
 
   # Requerido por heroku para usar stdout como bitacora
   gem 'rails_12factor'
