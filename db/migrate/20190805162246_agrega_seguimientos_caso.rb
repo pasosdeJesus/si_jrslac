@@ -17,10 +17,7 @@ class AgregaSeguimientosCaso < ActiveRecord::Migration[6.0]
         (id, nombre, nombreinterno, tipo, formulario_id, fila) VALUES
         ('102', 'Compromisos del SJR', 'compromisos_del_sjr',
         '2', 10, 3);
-      INSERT INTO mr519_gen_campo 
-        (id, nombre, nombreinterno, tipo, formulario_id, fila) VALUES
-        ('103', 'Observaciones', 'observaciones',
-        '2', 10, 4);
+      -- Observaciones ya está entre los campos de una actividad
       INSERT INTO cor1440_gen_actividadtipo_formulario 
         (actividadtipo_id, formulario_id)
         VALUES ('12', '10');
@@ -100,7 +97,7 @@ class AgregaSeguimientosCaso < ActiveRecord::Migration[6.0]
       DELETE FROM cor1440_gen_actividadtipo_formulario 
         WHERE actividadtipo_id='12' AND formulario_id='10';
       DELETE FROM mr519_gen_campo
-        WHERE id>='100' and id<='103';
+        WHERE id>='100' and id<='102';
       DELETE FROM mr519_gen_formulario WHERE id='10';
       
       DELETE FROM cor1440_gen_actividadpf WHERE id='116';
