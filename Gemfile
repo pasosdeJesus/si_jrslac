@@ -30,7 +30,7 @@ gem 'prawnto_2',  :require => 'prawnto'
 gem 'prawn-table'
 
 # Plantilla ODT
-gem 'odf-report'
+gem 'odf-report', '>= 0.6.0'
 
 
 # Plantilla ODS
@@ -55,7 +55,7 @@ gem 'uglifier'
 gem 'coffee-rails'
 
 # jquery como librería JavaScript
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.5'
 
 gem 'jquery-ui-rails'
 
@@ -68,7 +68,7 @@ gem 'bootstrap-datepicker-rails'
 
 
 # Facilita elegir colores en tema
-gem 'pick-a-color-rails'
+gem 'pick-a-color-rails', '>= 0.0.1'
 gem 'tiny-color-rails'
 
 # Formularios simples 
@@ -147,7 +147,7 @@ group :test do
   # Envia resultados de pruebas desde travis a codeclimate
   #gem 'codeclimate-test-reporter', require: nil
 
-  gem 'capybara'
+  gem 'capybara', '>= 3.28.0'
 
   gem 'selenium-webdriver'
   # Pruebas de regresión que no requieren javascript
