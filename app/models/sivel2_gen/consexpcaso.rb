@@ -153,7 +153,7 @@ class Sivel2Gen::Consexpcaso < ActiveRecord::Base
             ultimaatencion.id_caso = caso.id
       "
   end
-  
+
   def self.porsjrc
     "porsjrc"
   end

@@ -1,6 +1,10 @@
 #!/bin/sh
 # Revisa errore comunes, ejecuta pruebas de regresión y del sistema y envia a github 
 
+if (test -f ".env") then {
+	. ./.env
+} fi;
+
 function cableado {
 	for n in $*; do 
 		echo "Revisando $n"
@@ -12,7 +16,8 @@ function cableado {
 	done
 }
 
-cableado sip mr519_gen heb412_gen cor1440_gen sal7711_gen sal7711_web
+d=`grep "gem.*pasosdeJesus" Gemfile | sed -e "s/.*gem ['\"]//g;s/['\"].*//g"`
+cableado $d
 
 grep "^ *gem *.debugger*" Gemfile > /dev/null 2> /dev/null
 if (test "$?" = "0") then {
@@ -58,9 +63,15 @@ if (test "$?" != "0") then {
 	exit 1;
 } fi;
 
-CONFIG_HOSTS=127.0.0.1 bin/rails test
+bin/rails test
 if (test "$?" != "0") then {
-	echo "No pasaron pruebas de regresión";
+	echo "No pasaron pruebas";
+	exit 1;
+} fi;
+
+RAILS_ENV=test CONFIG_HOSTS=127.0.0.1 bin/rails test:system
+if (test "$?" != "0") then {
+	echo "No pasaron pruebas de sistema";
 	exit 1;
 } fi;
 
@@ -75,5 +86,11 @@ git push origin ${b}
 if (test "$?" != "0") then {
 	echo "No pudo subirse el cambio a github";
 	exit 1;
+} fi;
+
+
+if (test "$CONH" != "") then {
+	git push heroku master
+	heroku run rake db:migrate sip:indices
 } fi;
 

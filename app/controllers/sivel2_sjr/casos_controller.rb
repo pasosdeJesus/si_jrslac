@@ -16,5 +16,27 @@ module Sivel2Sjr
         factorvulnerabilidad_ids: []
       ]
     end
+   
+   def otros_params_persona
+     [
+        proyectofinanciero_ids: [],
+        "caracterizacionpersona_attributes" =>
+        [ :id,
+          "respuestafor_attributes" => [
+            :id,
+            "valorcampo_attributes" => [
+              :valor,
+              :campo_id,
+              :id 
+            ] + [:valor_ids => []],
+        ] ]
+     ] 
+    end
+
+    def self.valor_campo_compuesto(registro, campo)
+      cs = Sivel2Sjr::Casosjr.find(registro.caso_id)
+      Sip::PersonasController.valor_campo_compuesto(cs.contacto, campo)
+    end
+
   end
 end

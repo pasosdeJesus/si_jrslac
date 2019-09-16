@@ -1,4 +1,9 @@
-# Be sure to restart your server when you modify this file.
+# encoding: utf-8
 
-# Add new mime types for use in respond_to blocks:
-# Mime::Type.register "text/richtext", :rtf
+
+Mime::Type.register "application/vnd.oasis.opendocument.text", :odt
+Mime::Type.register "application/vnd.oasis.opendocument.spreadsheet", :ods
+Mime::Type.register "application/vnd.oasis.opendocument.presentation", :odp
+Mime::Type.register "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", :xlsx
+Mime::Type.register "application/vnd.openxmlformats-officedocument.wordprocessingml.document", :docx
+
