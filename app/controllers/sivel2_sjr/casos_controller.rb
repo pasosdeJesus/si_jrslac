@@ -38,5 +38,16 @@ module Sivel2Sjr
       Sip::PersonasController.valor_campo_compuesto(cs.contacto, campo)
     end
 
+    def self.asegura_camposdinamicos(caso, current_usuario_id)
+      p = caso.casosjr.contacto
+      Sip::PersonasController.asegura_camposdinamicos(p, current_usuario_id)
+    end
+
+    def importa_dato(datosent, datossal, menserror, registro = nil, opciones = {})
+      importa_dato_gen(datosent, datossal, menserror, registro, opciones)
+      # byebug
+      # Aqui si el parametro incluia crear caso, crearlo
+    end
+
   end
 end

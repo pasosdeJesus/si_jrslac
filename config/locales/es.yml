@@ -6,11 +6,13 @@ es:
     poas: Plan Operativo Anual
     proyecto: Proyecto
     proyectos: Proyectos
+    proyectosfinancieros: Convenios financiados
+    proyectofinanciero: Convenio financiado
   activerecord:
     models:
       "cor1440_gen/proyectofinanciero":
-        one: Convenio Financiado
-        other: Convenios Financiados
+        one: Convenio financiado
+        other: Convenios financiados
     attributes:
       "cor1440_gen/actividad":
         proyectofinanciero: Convenio financiado
@@ -31,9 +33,17 @@ es:
         indicadorobjetivo: Indicador de efecto
         resultado: Resultados
         indicadorpf: Indicador de resultado
+        Proyectofinanciero: Convenio financiado
+        proyectofinanciero: Convenio financiado
+        Proyectosfinancieros: Convenios financiados
+        proyectosfinancieros: Convenios financiados
       "factorvulnerabilidad":
         Factorvulnerabilidad: Factor de vulnerabilidad
         Factoresvulnerabilidad: Factores de vulnerabilidad
+      "heb412_gen/plantillahcm":
+        proyectofinanciero: Convenios financiados que exportan/importan con la plantilla
+      'mr519_gen/formulario':
+        caracterizacion: Caracterizacion en convenios financiados
       "poa":
         Poa: Plan Operativo Anual
         Poas: Plan Operativo Anual
@@ -45,6 +55,9 @@ es:
         Municipio: Municipio/Cantón
         Municipios: Municipios/Cantones
         id_munlocal: Código dentro del Departamento/Estado/Provincia
+      "sip/persona":
+        proyectofinanciero_ids: Convenios financiados que caracterizan
+        proyectofinanciero: Convenios financiados que caracterizan
       "sivel2_gen/caso":
         fecha: Fecha de salida/desplazamiento de residencia
         factorvulnerabilidad: Factor de vulnerabilidad
