@@ -80,7 +80,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: fc3e6e8be98b961d8651c09b68bcdcd17c542308
+  revision: ec09fdf196e457857c9ace852b1dfa1b1651141f
   specs:
     sivel2_sjr (2.0.b1)
       rails
@@ -251,7 +251,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.12.0)
     msgpack (1.3.1)
-    nio4r (2.5.1)
+    nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     odf-report (0.6.0)
