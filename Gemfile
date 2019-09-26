@@ -29,16 +29,19 @@ gem 'prawn'
 gem 'prawnto_2',  :require => 'prawnto'
 gem 'prawn-table'
 
-# Plantilla ODT
-gem 'odf-report'
 
+gem 'rubyzip', '>= 2.0'
 
-# Plantilla ODS
-gem 'rspreadsheet'
+# Genera ODT
+gem 'odf-report', git: 'https://github.com/vtamara/odf-report.git', branch: 'rubyzip-1.3'
+
+# Genera ODS
 gem 'libxml-ruby'
-gem 'rubyzip', '~> 1.2'  # Por odf-report al pasar a 1.2 con zip-zip genera mal documento
+gem 'rspreadsheet', git: 'https://github.com/vtamara/rspreadsheet.git', branch: 'rubyzip-1.3'
 
+# Markdown
 gem 'redcarpet'
+
 # Postgresql
 gem 'pg'#, '~> 0.21'
 
@@ -149,7 +152,7 @@ group :test do
 
   gem 'capybara'
 
-  gem 'selenium-webdriver'
+  #gem 'selenium-webdriver'
   # Pruebas de regresión que no requieren javascript
   gem 'simplecov'
 
