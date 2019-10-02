@@ -89,10 +89,61 @@ class Ability  < Cor1440Gen::Ability
   ]
 
 
+  CAMPOS_PLANTILLAS_PROPIAS = { 
+    'Caso' => { 
+      campos: [
+        :caso_id,
+        :fecharec,
+        :asesor,
+        :oficina,
+        :fechadespemb,
+        :expulsion,
+        :llegada,
+        :descripcion,
+        :ultimaatencion_mes,
+        :ultimaatencion_fecha,
+        :contacto,
+        :contacto_nombres,
+        :contacto_apellidos,
+        :contacto_identificacion,
+        :contacto_sexo,
+        :contacto_genero,
+        :contacto_orientacionsexual,
+        :contacto_etnia,
+        :contacto_edad_ultimaatencion,
+        :contacto_rangoedad_ultimaatencion,
+        :beneficiarios_0_5,
+        :beneficiarios_6_12,
+        :beneficiarios_13_17,
+        :beneficiarios_18_26,
+        :beneficiarios_27_59,
+        :beneficiarios_60_,
+        :beneficiarias_0_5,
+        :beneficiarias_6_12,
+        :beneficiarias_13_17,
+        :beneficiarias_18_26,
+        :beneficiarias_27_59,
+        :beneficiarias_60_,
+        :ultimaatencion_derechosvul,
+        :ultimaatencion_as_humanitaria,
+        :ultimaatencion_as_juridica,
+        :ultimaatencion_otros_ser_as,
+        :tipificacion,
+        :victimas, 
+        :ubicaciones, 
+        :presponsables
+      ],
+      controlador: 'Sivel2Sjr::CasosController',
+        ruta: '/casos'
+    }
+  }
+
   def campos_plantillas 
     Heb412Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
       Cor1440Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
-        Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone
+        Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
+          CAMPOS_PLANTILLAS_PROPIAS.clone
+        )
     ))
   end
 

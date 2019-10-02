@@ -4093,6 +4093,8 @@ CREATE MATERIALIZED VIEW public.sivel2_gen_consexpcaso AS
     contacto.apellidos AS contacto_apellidos,
     (((COALESCE(tdocumento.sigla, ''::character varying))::text || ' '::text) || (contacto.numerodocumento)::text) AS contacto_identificacion,
     contacto.sexo AS contacto_sexo,
+    contactov.genero AS contacto_genero,
+    contactov.orientacionsexual AS contacto_orientacionsexual,
     COALESCE(etnia.nombre, ''::character varying) AS contacto_etnia,
     ultimaatencion.contacto_edad AS contacto_edad_ultimaatencion,
     ( SELECT sivel2_gen_rangoedad.rango
@@ -4181,12 +4183,13 @@ CREATE MATERIALIZED VIEW public.sivel2_gen_consexpcaso AS
            FROM public.sivel2_gen_presponsable presponsable,
             public.sivel2_gen_caso_presponsable caso_presponsable
           WHERE ((presponsable.id = caso_presponsable.id_presponsable) AND (caso_presponsable.id_caso = caso.id))), ', '::text) AS presponsables
-   FROM (((((((((public.sivel2_gen_conscaso conscaso
+   FROM ((((((((((public.sivel2_gen_conscaso conscaso
      JOIN public.sivel2_sjr_casosjr casosjr ON ((casosjr.id_caso = conscaso.caso_id)))
      JOIN public.sivel2_gen_caso caso ON ((casosjr.id_caso = caso.id)))
      JOIN public.sip_oficina oficina ON ((oficina.id = casosjr.oficina_id)))
      JOIN public.usuario ON ((usuario.id = casosjr.asesor)))
      JOIN public.sip_persona contacto ON ((contacto.id = casosjr.contacto_id)))
+     JOIN public.sivel2_gen_victima contactov ON (((contacto.id = casosjr.contacto_id) AND (contactov.id_caso = caso.id))))
      LEFT JOIN public.sip_tdocumento tdocumento ON ((tdocumento.id = contacto.tdocumento_id)))
      JOIN public.sivel2_gen_victima vcontacto ON (((vcontacto.id_persona = contacto.id) AND (vcontacto.id_caso = caso.id))))
      LEFT JOIN public.sivel2_gen_etnia etnia ON ((vcontacto.id_etnia = etnia.id)))
