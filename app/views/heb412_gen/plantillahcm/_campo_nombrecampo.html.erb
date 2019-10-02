@@ -1,0 +1,39 @@
+<% 
+  ab = ::Ability.new 
+  v = defined?(vista) ? vista : 
+    defined?(@vista) ? @vista :
+    defined?(f.object.plantillahcm.vista) ? 
+    f.object.plantillahcm.vista :
+    defined?(ab.campos_plantillas['Usuario']) ? 'Usuario' : nil
+  if v.nil? || ab.campos_plantillas[v].nil?
+    col = [['','']]
+  else
+    col = ab.campos_plantillas[v][:campos]
+  end
+  if f.object.plantillahcm
+    f.object.plantillahcm.proyectofinanciero.each do |pf|
+      puts "pf=#{pf.nombre}"
+      pf.caracterizacion.each do |fm|
+        nf=fm.nombreinterno
+        puts "nf=#{nf}"
+        col << "#{nf}.ultimo_editor"
+        col << "#{nf}.fecha_ultimaedicion"
+        fm.campo.each do |c|
+          puts "c=#{c.nombreinterno}"
+          col << "#{nf}.#{c.nombreinterno}"
+          if c.tipo == Mr519Gen::ApplicationHelper::SELECCIONMULTIPLE
+            c.opcioncs.each do |op|
+              col << "#{nf}.#{c.nombreinterno}.#{op.valor}"
+            end
+          end
+        end
+      end
+    end
+  end
+  col = col.map(&:to_s).localize(:es).sort.to_a.uniq
+  puts "OJO campoplantillahcm. col=#{col.to_s}"
+%>
+<%= f.input :nombrecampo,
+  collection: col,
+  label: false
+%>
