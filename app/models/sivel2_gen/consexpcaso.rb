@@ -23,6 +23,8 @@ class Sivel2Gen::Consexpcaso < ActiveRecord::Base
         (COALESCE(tdocumento.sigla, '') || ' ' || contacto.numerodocumento) 
           AS contacto_identificacion,
         contacto.sexo AS contacto_sexo,
+        contactov.genero AS contacto_genero,
+        contactov.orientacionsexual AS contacto_orientacionsexual,
         COALESCE(etnia.nombre, '') AS contacto_etnia,
         ultimaatencion.contacto_edad AS contacto_edad_ultimaatencion,
         (SELECT rango FROM public.sivel2_gen_rangoedad 
@@ -142,7 +144,9 @@ class Sivel2Gen::Consexpcaso < ActiveRecord::Base
         JOIN public.sivel2_gen_caso AS caso ON casosjr.id_caso = caso.id 
         JOIN public.sip_oficina AS oficina ON oficina.id=casosjr.oficina_id
         JOIN public.usuario ON usuario.id = casosjr.asesor
-        JOIN public.sip_persona as contacto ON contacto.id=casosjr.contacto_id
+        JOIN public.sip_persona AS contacto ON contacto.id=casosjr.contacto_id
+        JOIN public.sivel2_gen_victima AS contactov ON 
+          contacto.id=casosjr.contacto_id AND contactov.id_caso=caso.id
         LEFT JOIN public.sip_tdocumento AS tdocumento ON 
             tdocumento.id=contacto.tdocumento_id
         JOIN public.sivel2_gen_victima AS vcontacto ON 
