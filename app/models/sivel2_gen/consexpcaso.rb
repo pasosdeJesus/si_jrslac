@@ -32,6 +32,7 @@ class Sivel2Gen::Consexpcaso < ActiveRecord::Base
           AND limiteinferior<=ultimaatencion.contacto_edad AND 
           ultimaatencion.contacto_edad<=limitesuperior LIMIT 1) 
         AS contacto_rangoedad_ultimaatencion,
+        maternidad.nombre AS contacto_maternidad
         (SELECT COUNT(*) FROM 
           public.sivel2_gen_victima AS victima JOIN public.sip_persona ON
             sip_persona.id=victima.id_persona
@@ -155,6 +156,11 @@ class Sivel2Gen::Consexpcaso < ActiveRecord::Base
             vcontacto.id_etnia=etnia.id
         LEFT JOIN public.sivel2_sjr_ultimaatencion AS ultimaatencion ON
             ultimaatencion.id_caso = caso.id
+        LEFT JOIN public.sivel2_sjr_victimasjr AS vscontacto ON
+            vscontacto.id_victima=vcontacto.id
+        LEFT JOIN public.sivel2_gen_maternidad AS maternidad ON
+            vscontacto.id_maternidad=maternidad.id
+
       "
   end
 
