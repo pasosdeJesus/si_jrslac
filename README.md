@@ -3,6 +3,7 @@
 
 Proyectos, actividades, casos, seguimiento y monitoreo en JRS LAC.
 
+
 ### Requerimientos
 * Ruby version >= 2.5
 * PostgreSQL >= 10.5 con extensión unaccent disponible
