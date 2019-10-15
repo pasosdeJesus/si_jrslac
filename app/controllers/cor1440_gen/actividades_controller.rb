@@ -6,6 +6,11 @@ module Cor1440Gen
 
     include Sivel2Sjr::Concerns::Controllers::ActividadesController
 
+    before_action :set_actividad, 
+      only: [:show, :edit, :update, :destroy],
+      exclude: [:contar]
+    load_and_authorize_resource class: Cor1440Gen::Actividad
+
     def self.filtramas(par, ac, current_usuario)
       @buspoa = param_escapa(par, 'buspoa')
       if @buspoa != '' then
@@ -66,6 +71,34 @@ module Cor1440Gen
         :observaciones,
         :anexos
       ]
+    end
+
+    def self.posibles_nuevaresp
+      return {
+        ahumanitaria: ['Asistenia humanitaria', 116],
+        apsicosocial: ['Asistencia psicosocial', 117],
+        alegal: ['Asistencia legal', 118]
+      } 
+    end
+
+    # Retorna datos por enviar a nuevo de este controlador
+    # desde javascript cuando se añade una respuesta a un caso
+    def self.datos_nuevaresp(caso, controller)
+      return {
+        nombre: "Seguimiento/Respuesta a caso #{caso.id}",
+        oficina_id: caso.casosjr.oficina_id,
+        caso_id: caso.id, 
+        proyecto_id: 101,
+        usuario_id: controller.current_usuario.id 
+      } 
+    end
+
+    def self.pf_planest_id
+      10
+    end
+    
+    def self.actividadpf_segcas_id
+      112
     end
 
     def edit
