@@ -1,10 +1,10 @@
 # encoding: UTF-8
-require_dependency "cor1440_gen/concerns/controllers/actividades_controller"
+require_dependency "sivel2_sjr/concerns/controllers/actividades_controller"
 
 module Cor1440Gen
   class ActividadesController < Heb412Gen::ModelosController
 
-    include Cor1440Gen::Concerns::Controllers::ActividadesController
+    include Sivel2Sjr::Concerns::Controllers::ActividadesController
 
     def self.filtramas(par, ac, current_usuario)
       @buspoa = param_escapa(par, 'buspoa')
@@ -23,65 +23,6 @@ module Cor1440Gen
       end
       return ac
     end
-
-#    # Encabezado comun para HTML y PDF (primeras filas)
-#    def encabezado_comun
-#      return [ Cor1440Gen::Actividad.human_attribute_name(:id), 
-#               @actividades.human_attribute_name(:fecha),
-#               @actividades.human_attribute_name(:oficina),
-#               @actividades.human_attribute_name(:responsable),
-#               @actividades.human_attribute_name(:nombre),
-#               @actividades.human_attribute_name(:actividadtipos),
-#               @actividades.human_attribute_name(:actividadareas),
-#               @actividades.human_attribute_name(:proyectosfinancieros),
-#               @actividades.human_attribute_name(:objetivo),
-#               @actividades.human_attribute_name(:poblacion)
-#      ]
-#    end
-#
-#    def fila_comun(actividad)
-#      pob = actividad.actividad_rangoedadac.map { |i| 
-#        (i.ml ? i.ml : 0) + (i.mr ? i.mr : 0) +
-#          (i.fl ? i.fl : 0) + (i.fr ? i.fr : 0)
-#      } 
-#
-#      return [actividad.id,
-#              actividad.fecha , 
-#              actividad.oficina ? actividad.oficina.nombre : "",
-#              actividad.responsable ? actividad.responsable.nusuario : "",
-#              actividad.nombre ? actividad.nombre : "",
-#              actividad.actividadtipo.inject("") { |memo, i| 
-#                (memo == "" ? "" : memo + "; ") + i.nombre },
-#              actividad.actividadareas.inject("") { |memo, i| 
-#                  (memo == "" ? "" : memo + "; ") + i.nombre },
-#              actividad.proyectofinanciero.inject("") { |memo, i| 
-#                    (memo == "" ? "" : memo + "; ") + i.nombre },
-#              actividad.objetivo, 
-#              pob.reduce(:+)
-#      ]
-#    end
-#
-#    def vector_a_registro(a, ac)
-#      return {
-#        id: a[0],
-#        fecha: a[1],
-#        oficina: a[2],
-#        responsable: a[3],
-#        nombre: a[4],
-#        tipos_de_actividad: a[5],
-#        areas: a[6],
-#        convenios_financieros: a[7],
-#        objetivo: a[8],
-#        poblacion: a[9],
-#        observaciones: ac.observaciones,
-#        resultado: ac.resultado,
-#        creacion: ac.created_at,
-#        actualizacion: ac.updated_at,
-#        lugar: ac.lugar,
-#        corresponsables: ac.usuario.inject("") { |memo, i| 
-#          (memo == "" ? "" : memo + "; ") + i.nusuario },
-#      }
-#    end
 
     def atributos_show
       [ :id, 
@@ -105,6 +46,34 @@ module Cor1440Gen
         :observaciones,
         :anexos
       ]
+    end
+
+    def self.posibles_nuevaresp
+      return {
+        ahumanitaria: ['Asistenia humanitaria', 11],
+        apsicosocial: ['Asistencia psicosocial', 13],
+        alegal: ['Asistencia legal', 14]
+      } 
+    end
+
+    # Retorna datos por enviar a nuevo de este controlador
+    # desde javascript cuando se añade una respuesta a un caso
+    def self.datos_nuevaresp(caso, controller)
+      return {
+        nombre: "Seguimiento/Respuesta a caso #{caso.id}",
+        oficina_id: caso.casosjr.oficina_id,
+        caso_id: caso.id, 
+        proyecto_id: 101,
+        usuario_id: controller.current_usuario.id 
+      } 
+    end
+
+    def self.pf_planest_id
+      10
+    end
+    
+    def self.actividadpf_segcas_id
+      10
     end
 
     # No confiar parametros a Internet, sólo permitir lista blanca

@@ -3,7 +3,7 @@
 require_dependency 'sivel2_sjr/concerns/controllers/casos_controller'
 
 module Sivel2Sjr
-  class CasosController < ApplicationController
+  class CasosController < Heb412Gen::ModelosController
 
     include Sivel2Sjr::Concerns::Controllers::CasosController
 
@@ -51,7 +51,7 @@ module Sivel2Sjr
       redirect_to sivel2_gen.edit_caso_path(@registro) 
     end
 
-    def asegura_camposdinamicos(caso)
+    def asegura_camposdinamicos(caso, current_usuario_id)
       vfid = []  # ids de formularios que deben presentarse
       current_usuario.dominio_principal.formulariocaso.pestanafc.
         order(:orden).each do |p|
@@ -77,7 +77,8 @@ module Sivel2Sjr
                 respuestafor_id: r.id,
               ).take
             end
-            Mr519Gen::ApplicationHelper::asegura_camposdinamicos(cr)
+            Mr519Gen::ApplicationHelper::asegura_camposdinamicos(
+              cr, current_usuario_id)
           end
         end
       end
