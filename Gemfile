@@ -102,6 +102,10 @@ gem 'sal7711_gen', # Motor para archivo de prensa
   git: 'https://github.com/pasosdeJesus/sal7711_gen.git'
 #gem 'sal7711_gen', path: '../sal7711_gen'
 
+gem 'sal7711_web', # Motor para archivo de prensa
+  git: 'https://github.com/pasosdeJesus/sal7711_web.git'
+#gem 'sal7711_web', path: '../sal7711_web'
+
 gem 'cor1440_gen',  # Motor de proyectos con marco lógico y actividades 
   git: 'https://github.com/pasosdeJesus/cor1440_gen.git'
 #gem 'cor1440_gen', path: '../cor1440_gen'
