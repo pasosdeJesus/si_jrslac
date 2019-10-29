@@ -19,19 +19,11 @@ gem 'coffee-rails' # CoffeeScript para recuersos .js.coffee y vistas
 # Color en terminal
 gem 'colorize'
 
-# Motor de actividades y proyectos
-gem 'cor1440_gen', git: 'https://github.com/pasosdeJesus/cor1440_gen.git'
-#gem 'cor1440_gen', path: '../cor1440_gen'
-
 gem 'devise' # Autenticación 
 
 gem 'devise-i18n'
 
 gem 'font-awesome-rails'
-
-# Motor de nube y plantillas ods y odt
-gem 'heb412_gen', git: 'https://github.com/pasosdeJesus/heb412_gen.git'
-#gem 'heb412_gen', path: '../heb412_gen'
 
 gem 'jbuilder' # API JSON facil. Ver: https://github.com/rails/jbuilder
 
@@ -42,10 +34,6 @@ gem 'jquery-ui-rails'
 gem 'lazybox' # Dialogo modal
 
 gem 'libxml-ruby'
-
-# Motor de formularios
-gem 'mr519_gen', git: 'https://github.com/pasosdeJesus/mr519_gen.git'
-#gem 'mr519_gen', path: '../mr519_gen'
 
 gem 'odf-report' # Genera ODT
 
@@ -77,26 +65,6 @@ gem 'sass-rails' # CSS
 
 gem 'simple_form' # Formularios simples 
 
-# Motor generico
-gem 'sip', git: 'https://github.com/pasosdeJesus/sip.git'
-#gem 'sip', path: '../sip'
-
-# Motor archivo de prensa
-gem 'sal7711_gen', git: 'https://github.com/pasosdeJesus/sal7711_gen.git'
-#gem 'sal7711_gen', path: '../sal7711_gen'
-
-# Motor archivo de prensa web
-gem 'sal7711_web', git: 'https://github.com/pasosdeJesus/sal7711_web.git'
-#gem 'sal7711_web', path: '../sal7711_web'
-
-# Motor de casos
-gem 'sivel2_gen', git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
-#gem 'sivel2_gen', path: '../sivel2_gen'
-
-# Motor de casos con atención 
-gem 'sivel2_sjr', git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
-#gem 'sivel2_sjr', path: '../sivel2_sjr'
-
 gem 'tiny-color-rails'
 
 gem 'turbolinks' # Seguir enlaces más rápido. 
@@ -114,6 +82,37 @@ gem 'webpacker'
 gem 'will_paginate' # Listados en páginas
 
 
+#####
+# Motores que se sobrecargan vistas (deben ponerse en orden de apilamiento 
+# lógico y no alfabetico como las gemas anteriores)
+
+gem 'sip', # Motor generico
+  git: 'https://github.com/pasosdeJesus/sip.git'
+#gem 'sip', path: '../sip'
+
+gem 'mr519_gen', # Motor de gestion de formularios y encuestas
+  git: 'https://github.com/pasosdeJesus/mr519_gen.git'
+#gem 'mr519_gen', path: '../mr519_gen'
+
+gem 'heb412_gen',  # Motor de nube y llenado de plantillas
+  git: 'https://github.com/pasosdeJesus/heb412_gen.git'
+#gem 'heb412_gen', path: '../heb412_gen'
+
+gem 'sal7711_gen', # Motor para archivo de prensa
+  git: 'https://github.com/pasosdeJesus/sal7711_gen.git'
+#gem 'sal7711_gen', path: '../sal7711_gen'
+
+gem 'cor1440_gen',  # Motor de proyectos con marco lógico y actividades 
+  git: 'https://github.com/pasosdeJesus/cor1440_gen.git'
+#gem 'cor1440_gen', path: '../cor1440_gen'
+
+gem 'sivel2_gen',  # Motor de casos
+  git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
+#gem 'sivel2_gen', path: '../sivel2_gen'
+
+gem 'sivel2_sjr',  # Motor de atención a casos
+  git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
+#gem 'sivel2_sjr', path: '../sivel2_sjr'
 
 
 group :development do
