@@ -42,7 +42,7 @@ gem 'prawn-table'
 
 gem 'puma'
 
-gem 'rails', '~> 6.0.0.rc1' 
+gem 'rails', '~> 6.0.0' 
 
 gem 'rails-i18n'
 
