@@ -16,3 +16,13 @@
 // const imagePath = (name) => images(name, true)
 
 console.log('Hello World from Webpacker')
+
+require("@rails/ujs").start()
+require("turbolinks").start()
+
+import {$, jQuery} from "jquery";
+
+import "popper.js"
+import "bootstrap"
+import "chosen-js/chosen.jquery"
+

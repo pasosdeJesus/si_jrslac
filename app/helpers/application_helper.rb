@@ -2,7 +2,6 @@
 
 module ApplicationHelper
   include Sal7711Gen::ApplicationHelper
-  include FontAwesome::Rails::IconHelper
 
   NIVEL_ASLEGAL=[
     ['ASESORIA', :A],
