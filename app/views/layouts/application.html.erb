@@ -10,96 +10,117 @@
 <% content_for :menu do %>
   <%= grupo_menus do %>
     <% if !current_usuario.nil? %>
-      <%= despliega_abajo "Actividades" do %>
-        <%= opcion_menu "Listado", cor1440_gen.actividades_path, false %>
-        <%= opcion_menu "Convenios Financiados", 
-          cor1440_gen.proyectosfinancieros_path, false %>
-        <%= opcion_menu "Informes", cor1440_gen.informes_path, false %>
-        <%= opcion_menu "Conteo por actividad de convenio", 
-          cor1440_gen.contar_actividades_path, false %>
-        <%= opcion_menu "Conteo por beneficiario y actividad de convenio", 
-          cor1440_gen.contar_actividades_beneficiarios_path, false %>
-        <%= opcion_menu "Convenios Financiados", 
-          cor1440_gen.proyectosfinancieros_path, false %>
-        <%= opcion_menu "Actores sociales", 
-          sip.actoressociales_path, false %>
-        <%= opcion_menu "Beneficiarios", sip.personas_path, false %>
+      <%= despliega_abajo 'Actividades' do %>
+        <%= opcion_menu 'Listado', cor1440_gen.actividades_path, 
+          desplegable: true %>
+        <%= opcion_menu 'Convenios Financiados', 
+          cor1440_gen.proyectosfinancieros_path, desplegable: true %>
+        <%= opcion_menu 'Informes', cor1440_gen.informes_path, 
+          desplegable: true %>
+        <%= opcion_menu 'Conteo por actividad de convenio', 
+          cor1440_gen.contar_actividades_path, desplegable: true %>
+        <%= opcion_menu 'Conteo por beneficiario y actividad de convenio', 
+          cor1440_gen.contar_actividades_beneficiarios_path, 
+          desplegable: true %>
+        <%= opcion_menu 'Convenios Financiados', 
+          cor1440_gen.proyectosfinancieros_path, desplegable: true %>
+        <%= opcion_menu 'Actores sociales', 
+          sip.actoressociales_path, desplegable: true %>
+        <%= opcion_menu 'Beneficiarios', sip.personas_path, 
+          desplegable: true %>
       <% end %>
       <% if can? :read, Sivel2Gen::Caso then %>
-        <%= despliega_abajo "Casos" do %>
-          <%= opcion_menu "Listado", sivel2_gen.casos_path, false %>
+        <%= despliega_abajo 'Casos' do %>
+          <%= opcion_menu 'Listado', sivel2_gen.casos_path, 
+            desplegable: true %>
           <% if can? :edit, Sivel2Gen::Caso then %>
-            <%= opcion_menu "Nuevo", sivel2_gen.new_caso_path, false %>
-            <%= opcion_menu "Validaciones", 
-              sivel2_gen.validarcasos_path, false %>
+            <%= opcion_menu 'Nuevo', sivel2_gen.new_caso_path, 
+              desplegable: true %>
+            <%= opcion_menu 'Validaciones', 
+              sivel2_gen.validarcasos_path, desplegable: true %>
           <% end %>
-          <%= opcion_menu "Conteo Personas Atendidas", 
-            '/conteos/personas', false %>
+          <%= opcion_menu 'Conteo Personas Atendidas', 
+            '/conteos/personas', desplegable: true %>
         <% end %>
       <% end %>
 
-      <%= despliega_abajo "Archivo de Prensa" do %>
-        <%= opcion_menu "Buscar", sal7711_gen.buscar_path, false %>
-        <%= opcion_menu "Añadir Artículo", 
-          sal7711_gen.new_articulo_path, false %>
+      <%= despliega_abajo 'Archivo de Prensa' do %>
+        <%= opcion_menu 'Buscar', sal7711_gen.buscar_path, desplegable: true %>
+        <%= opcion_menu 'Añadir Artículo', 
+          sal7711_gen.new_articulo_path, desplegable: true %>
       <% end %>
     <% end %>
   <% end %>
   <%= grupo_menus :pull => :right do %>
     <% if !current_usuario.nil? %>
-      <%= despliega_abajo "Documentos" do %>
+      <%= despliega_abajo 'Documentos' do %>
         <% if can? :read, Heb412Gen::Doc %>
-          <%= opcion_menu "Manual", 'https://docs.google.com/document/d/1-465_FK-oApJTwvBu5bio1LAM_YYRMM0Co9SCacR5pE/edit?usp=sharing', false %>
-          <%= opcion_menu "Nube", heb412_gen.sisini_path, false %>
+          <%= opcion_menu 'Manual', 
+            'https://docs.google.com/document/d/1-465_FK-oApJTwvBu5bio1LAM_YYRMM0Co9SCacR5pE/edit?usp=sharing', 
+            desplegable: true %>
+          <%= opcion_menu 'Nube', heb412_gen.sisini_path, 
+            desplegable: true %>
         <% end %>
         <% if can? :manage, ::Heb412Gen::Plantillahcm %>
-          <%= opcion_menu "Definir plantillas para listados en hojas de cálculo",
-            heb412_gen.plantillashcm_path, false %>
-          <%= opcion_menu "Importar datos de listados en hoja de cálculo",
-            heb412_gen.plantillashcm_importadatos_path, false %>
+          <%= opcion_menu 'Definir plantillas para listados en hojas de cálculo',
+            heb412_gen.plantillashcm_path, desplegable: true %>
+          <%= opcion_menu 'Importar datos de listados en hoja de cálculo',
+            heb412_gen.plantillashcm_importadatos_path, desplegable: true %>
         <% end %>
         <% if can? :manage, ::Heb412Gen::Plantillahcr %>
-          <%= opcion_menu "Definir plantillas para un registro en hoja de cálculo",
-            heb412_gen.plantillashcr_path, false %>
+          <%= opcion_menu 'Definir plantillas para un registro en hoja de cálculo',
+            heb412_gen.plantillashcr_path, desplegable: true %>
         <% end %>
         <% if can? :manage, ::Heb412Gen::Plantilladoc %>
-          <%= opcion_menu "Definir plantillas para un registro en documento",
-            heb412_gen.plantillasdoc_path, false %>
+          <%= opcion_menu 'Definir plantillas para un registro en documento',
+            heb412_gen.plantillasdoc_path, desplegable: true %>
         <% end %>
       <% end %>
 
-      <%= despliega_abajo "Administrar" do %>
-        <%= opcion_menu "Clave", main_app.editar_registro_usuario_path, 
-          false %>
+      <%= despliega_abajo 'Administrar' do %>
+        <%= opcion_menu 'Clave', main_app.editar_registro_usuario_path, 
+          desplegable: true %>
+        <% if session[:capturacaso_acordeon] %> 
+          <%= opcion_menu 'Ficha caso vertical ✓', 
+            sivel2_gen.fichacasovertical_path,
+            desplegable: true, id: 'fichacasovertical' 
+          %>
+        <% else %>
+          <%= opcion_menu 'Ficha caso vertical', 
+            sivel2_gen.fichacasovertical_path,
+            desplegable: true, id: 'fichacasovertical' 
+          %>
+        <% end %>
         <% if can? :manage, ::Usuario %>
-          <%= opcion_menu "Usuarios", main_app.usuarios_path, false %>
+          <%= opcion_menu 'Usuarios', main_app.usuarios_path, desplegable: true %>
         <% end %>
         <% if can? :manage, Mr519Gen::Formulario %>
-          <%= opcion_menu "Formularios", mr519_gen.formularios_path, false %>
+          <%= opcion_menu 'Formularios', mr519_gen.formularios_path, desplegable: true %>
         <% end %>
         <% if can? :manage, :tablasbasicas %>
-          <%= opcion_menu "Tablas Básicas", sip.tablasbasicas_path, false %>
+          <%= opcion_menu 'Tablas Básicas', sip.tablasbasicas_path, desplegable: true %>
         <% end %>
         <% if can? :manage, Sip::Respaldo7z %>
-          <%= opcion_menu "Copia de respaldo cifrada", sip.respaldo7z_path,
-            false%>
+          <%= opcion_menu 'Copia de respaldo cifrada', sip.respaldo7z_path,
+            desplegable: true%>
         <% end %>
-        <%= opcion_menu "Ver Control de Acceso", 
-          sip.ayuda_controldeacceso_path, false %>
+        <%= opcion_menu 'Ver Control de Acceso', 
+          sip.ayuda_controldeacceso_path, desplegable: true %>
       <% end %>
       <%= opcion_menu "Salir #{current_usuario.nusuario}", 
         main_app.sign_out_path %>
+
     <% else %>
-      <%= opcion_menu "Acerca de", sip.acercade_path %>
-      <%= opcion_menu "Iniciar Sesión", main_app.new_usuario_session_path %> 
+      <%= opcion_menu 'Acerca de', sip.acercade_path %>
+      <%= opcion_menu 'Iniciar Sesión', main_app.new_usuario_session_path %> 
     <% end %>
   <% end %>
 <% end %>
 
 <% content_for :piedepagina do %>
   <p><span class='derechos'>Dominio Público de acuerdo a Legislación Colombiana<br/>
-    Desarrollado para <a href="http://www.sjrlac.org">SJR LAC</a> y <a href="http://www.sjrcol.com">SJR Colombia</a> por <a href="http://www.pasosdeJesus.org" target="_blank">Pasos de Jesús</a>. 2015-2019. 
+    Desarrollado para <a href='http://www.sjrlac.org'>SJR LAC</a> y <a href='http://www.sjrcol.com'>SJR Colombia</a> por <a href='http://www.pasosdeJesus.org' target='_blank'>Pasos de Jesús</a>. 2015-2019. 
   </span></p>
 <% end %>
 
-<%= render template: "layouts/sal7711_gen/application" %>
+<%= render template: 'layouts/sal7711_gen/application' %>

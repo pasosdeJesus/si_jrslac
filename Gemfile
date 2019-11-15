@@ -4,13 +4,12 @@ gem 'bcrypt'
 
 gem 'bootsnap', '>=1.1.0', require: false
 
-gem 'bootstrap-datepicker-rails'# Control para elegir fechas 
-
 gem 'cancancan'
 
 # Formularios anidados (algunos con ajax)
-gem 'cocoon', git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax'
-#gem 'cocoon', path: '../cocoon'
+gem 'cocoon', 
+  git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax'
+  # path: '../cocoon'
 
 gem 'coffee-rails' # CoffeeScript para recuersos .js.coffee y vistas
 
@@ -31,8 +30,6 @@ gem 'odf-report' # Genera ODT
 gem 'paperclip' # Maneja adjuntos
 
 gem 'pg' # Postgresql
-
-gem 'pick-a-color-rails' # Facilita elegir colores en tema
 
 gem 'prawn' # Generación de PDF
 
@@ -56,8 +53,6 @@ gem 'sassc-rails' # CSS
 
 gem 'simple_form' # Formularios simples 
 
-gem 'tiny-color-rails'
-
 gem 'twitter_cldr' # ICU con CLDR
 
 gem 'tzinfo' # Zonas horarias
@@ -73,7 +68,7 @@ gem 'will_paginate' # Listados en páginas
 
 gem 'sip', # Motor generico
   git: 'https://github.com/pasosdeJesus/sip.git', branch: :bs4
-#  path: '../sip'
+  #path: '../sip'
 
 gem 'mr519_gen', # Motor de gestion de formularios y encuestas
   git: 'https://github.com/pasosdeJesus/mr519_gen.git', branch: :bs4
@@ -96,8 +91,8 @@ gem 'cor1440_gen',  # Motor de proyectos con marco lógico y actividades
   # path: '../cor1440_gen'
 
 gem 'sivel2_gen',  # Motor de casos
-  git: 'https://github.com/pasosdeJesus/sivel2_gen.git', branch: :bs4
-  #path: '../sivel2_gen'
+  #git: 'https://github.com/pasosdeJesus/sivel2_gen.git', branch: :bs4
+  path: '../sivel2_gen'
 
 gem 'sivel2_sjr',  # Motor de atención a casos
   git: 'https://github.com/pasosdeJesus/sivel2_sjr.git', branch: :bs4
