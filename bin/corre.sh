@@ -17,6 +17,7 @@ if (test "$IPDES" = "") then {
 	IPDES=127.0.0.1
 } fi;
 if (test "$RAILS_ENV" = "development") then {
+	bin/rails assets:precompile --trace
 	CONFIG_HOSTS=$CONFIG_HOSTS bin/rails s -p $PUERTODES -b $IPDES
 } else {
 	if (test ! -f /etc/rc.d/$RC) then {
