@@ -87,35 +87,42 @@ gem 'will_paginate' # Listados en páginas
 # lógico y no alfabetico como las gemas anteriores)
 
 gem 'sip', # Motor generico
-  git: 'https://github.com/pasosdeJesus/sip.git'
+  git: 'https://github.com/pasosdeJesus/sip.git', branch: 'r2.0b6'
 #gem 'sip', path: '../sip'
 
 gem 'mr519_gen', # Motor de gestion de formularios y encuestas
-  git: 'https://github.com/pasosdeJesus/mr519_gen.git'
+  git: 'https://github.com/pasosdeJesus/mr519_gen.git',
+  branch: :sinbs4
 #gem 'mr519_gen', path: '../mr519_gen'
 
 gem 'heb412_gen',  # Motor de nube y llenado de plantillas
-  git: 'https://github.com/pasosdeJesus/heb412_gen.git'
+  git: 'https://github.com/pasosdeJesus/heb412_gen.git',
+  branch: :sinbs4
 #gem 'heb412_gen', path: '../heb412_gen'
 
 gem 'sal7711_gen', # Motor para archivo de prensa
-  git: 'https://github.com/pasosdeJesus/sal7711_gen.git'
+  git: 'https://github.com/pasosdeJesus/sal7711_gen.git',
+  branch: :sinbs4
 #gem 'sal7711_gen', path: '../sal7711_gen'
 
 gem 'sal7711_web', # Motor para archivo de prensa
-  git: 'https://github.com/pasosdeJesus/sal7711_web.git'
+  git: 'https://github.com/pasosdeJesus/sal7711_web.git',
+  branch: :sinbs4
 #gem 'sal7711_web', path: '../sal7711_web'
 
 gem 'cor1440_gen',  # Motor de proyectos con marco lógico y actividades 
-  git: 'https://github.com/pasosdeJesus/cor1440_gen.git'
+  git: 'https://github.com/pasosdeJesus/cor1440_gen.git',
+  branch: :sinbs4
 #gem 'cor1440_gen', path: '../cor1440_gen'
 
 gem 'sivel2_gen',  # Motor de casos
-  git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
+  git: 'https://github.com/pasosdeJesus/sivel2_gen.git',
+  branch: :sinbs4
 #gem 'sivel2_gen', path: '../sivel2_gen'
 
 gem 'sivel2_sjr',  # Motor de atención a casos
-  git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
+  git: 'https://github.com/pasosdeJesus/sivel2_sjr.git',
+  branch: :sinbs4
 #gem 'sivel2_sjr', path: '../sivel2_sjr'
 
 
