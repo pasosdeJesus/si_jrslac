@@ -27,6 +27,8 @@ if (test "$?" != "0") then {
 } fi;
 CXX=c++ yarn install
 
+RAILS_ENV=${RAILS_ENV} bin/rails assets:precompile --trace
+
 bundle exec rails db:migrate RAILS_ENV=${RAILS_ENV}
 if (test "$?" != "0") then { 
 	echo "Problema con db:migrate"; 

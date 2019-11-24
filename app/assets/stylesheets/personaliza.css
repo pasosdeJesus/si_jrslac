@@ -1,0 +1,81 @@
+body { background-color: #fff; color: #333; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 1rem;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 1rem;
+  list-style: square;
+}
+
+.modal-texto {
+	border-color: black;
+	border-width: 1px;
+	border-style: solid;
+	margin: 10px;
+	padding: 10px;
+}
+.nav-tabs > li > a {
+	padding: 10px 15px;
+	border-radius: 4px 4px 0 0;
+	line-height: 1.42857143;
+	margin-right: 2px;
+	background-color: white;
+	border: 1px solid #eee;
+	color: black;
+}
+
+.nav-tabs > li > a:hover {
+	background-color: #eee;
+	color: black;
+}
+
+.nav-tabs > li.active >a, 
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active>a:focus {
+	color: black;
+	background-color: lightgray;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+	cursor: default;
+}
+
+#sortable1, #sortable2 {
+	border: 1px solid #eee;
+	width: 142px;
+	min-height: 20px;
+	list-style-type: none;
+	margin: 0;
+	padding: 5px 0 0 0;
+	float: left;
+	margin-right: 10px;
+}
+#sortable1 li, #sortable2 li {
+	margin: 0 5px 5px 5px;
+	padding: 5px;
+	font-size: 1.2em;
+	width: 120px;
+}

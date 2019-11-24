@@ -18,12 +18,9 @@
 //= require sivel2_gen/motor
 //= require sivel2_sjr/motor
 //= require lazybox
-//= require chosen-jquery
-//= require jquery-ui/widgets/sortable
-//= require jquery-ui/widgets/autocomplete
 //= require_tree .
 
-$(document).on('turbolinks:load ready page:load', function() {
+document.addEventListener('turbolinks:load', function() {
   var root;
   root = typeof exports !== "undefined" && exports !== null ? 
     exports : window;	
