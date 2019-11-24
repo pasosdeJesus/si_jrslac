@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: 4002b72e1b76a987146449418ee0f4627998bf02
+  revision: cf85292fca6516835edf2d83b8b746e1e922505d
   branch: bs4
   specs:
     cor1440_gen (1.0b3)
@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 48611954c0b8c8820d102652ee7ef58630f4c8f0
+  revision: 13a76ec75be01bf4485b34f77185e930dea086af
   branch: bs4
   specs:
     heb412_gen (1.0.b6)
@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: bae44288a12363b473997ee394405fa41962d2cb
+  revision: ac0a5d326ac70340d1a58c7f03c73f6d7e8730c6
   branch: bs4
   specs:
     sal7711_web (1.0.a3)
@@ -52,7 +52,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: 93f7cf6930b72e5a1db54e0c1370ab6f245ba590
+  revision: b9c2e339ff1f3ae90cd462d6a13bf062ff4669bf
   branch: bs4
   specs:
     sip (2.0.b7)
@@ -329,7 +329,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     ttfunk (1.5.1)
-    twitter_cldr (5.0.0)
+    twitter_cldr (5.1.0)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
