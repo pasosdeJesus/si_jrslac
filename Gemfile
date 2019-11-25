@@ -95,8 +95,8 @@ gem 'sivel2_gen',  # Motor de casos
   #path: '../sivel2_gen'
 
 gem 'sivel2_sjr',  # Motor de atención a casos
-  git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
-  # path: '../sivel2_sjr'
+  #git: 'https://github.com/pasosdeJesus/sivel2_sjr.git'
+  path: '../sivel2_sjr'
 
 
 group :development do
