@@ -53,7 +53,7 @@
         <td><%= truncate(informe.recomendaciones, length: 50) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-            cor1440_gen.edit_informe_path(informe.id), :class => 'btn btn-xs' 
+            cor1440_gen.edit_informe_path(informe.id), :class => 'btn btn-sm' 
           %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
             cor1440_gen.informe_path(informe.id),
@@ -64,7 +64,7 @@
                 "helpers.links.confirm", 
                 :default => 'Are you sure?')) 
           },
-            :class => 'btn btn-xs btn-danger' 
+            :class => 'btn btn-sm btn-danger' 
           %>
         </td>
       </tr>
@@ -75,7 +75,8 @@
   </tfoot>
 </table>
 
-<%= will_paginate @informes, { param_name: :pagina }  %>
+<%= will_paginate @informes, { param_name: :pagina,
+  class: 'page-link' }  %>
 <%= link_to t('.new', :default => 'Nuevo'),
   cor1440_gen.new_informe_path,
   :class => 'btn btn-primary' 
