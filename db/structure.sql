@@ -3567,6 +3567,37 @@ CREATE TABLE public.sivel2_gen_victima (
 
 
 --
+-- Name: sivel2_sjr_actividad_casosjr; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sivel2_sjr_actividad_casosjr (
+    id bigint NOT NULL,
+    actividad_id integer,
+    casosjr_id integer
+);
+
+
+--
+-- Name: sivel2_gen_consactividadcaso; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW public.sivel2_gen_consactividadcaso AS
+ SELECT ac.casosjr_id AS caso_id,
+    ac.actividad_id,
+    actividad.fecha AS actividad_fecha,
+    victima.id AS victima_id,
+    persona.id AS persona_id,
+    persona.nombres AS persona_nombres,
+    persona.apellidos AS persona_apellidos
+   FROM ((((public.sivel2_sjr_actividad_casosjr ac
+     JOIN public.cor1440_gen_actividad actividad ON ((ac.actividad_id = actividad.id)))
+     JOIN public.sivel2_gen_caso caso ON ((caso.id = ac.casosjr_id)))
+     JOIN public.sivel2_gen_victima victima ON ((victima.id_caso = caso.id)))
+     JOIN public.sip_persona persona ON ((persona.id = victima.id_persona)))
+  WITH NO DATA;
+
+
+--
 -- Name: sivel2_sjr_desplazamiento; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -4446,17 +4477,6 @@ CREATE TABLE public.sivel2_sjr_acreditacion (
 
 
 --
--- Name: sivel2_sjr_actividad_casosjr; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.sivel2_sjr_actividad_casosjr (
-    id bigint NOT NULL,
-    actividad_id integer,
-    casosjr_id integer
-);
-
-
---
 -- Name: sivel2_sjr_actividad_casosjr_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -4734,6 +4754,26 @@ CREATE SEQUENCE public.sivel2_sjr_comosupo_id_seq
 --
 
 ALTER SEQUENCE public.sivel2_sjr_comosupo_id_seq OWNED BY public.sivel2_sjr_comosupo.id;
+
+
+--
+-- Name: sivel2_sjr_consactividadcaso; Type: MATERIALIZED VIEW; Schema: public; Owner: -
+--
+
+CREATE MATERIALIZED VIEW public.sivel2_sjr_consactividadcaso AS
+ SELECT ac.casosjr_id AS caso_id,
+    ac.actividad_id,
+    actividad.fecha AS actividad_fecha,
+    victima.id AS victima_id,
+    persona.id AS persona_id,
+    persona.nombres AS persona_nombres,
+    persona.apellidos AS persona_apellidos
+   FROM ((((public.sivel2_sjr_actividad_casosjr ac
+     JOIN public.cor1440_gen_actividad actividad ON ((ac.actividad_id = actividad.id)))
+     JOIN public.sivel2_gen_caso caso ON ((caso.id = ac.casosjr_id)))
+     JOIN public.sivel2_gen_victima victima ON ((victima.id_caso = caso.id)))
+     JOIN public.sip_persona persona ON ((persona.id = victima.id_persona)))
+  WITH NO DATA;
 
 
 --
