@@ -191,7 +191,10 @@ class Ability  < Cor1440Gen::Ability
 
         can :manage, Sivel2Gen::Acto
         can :manage, Sivel2Gen::Caso
+
         can :manage, Sivel2Sjr::Casosjr
+        can :read, Sivel2Sjr::Consactividadcaso
+
         #can :new, Sivel2Gen::Caso
         #can [:update, :create, :destroy, :edit], Sivel2Gen::Caso#,
           #casosjr: { oficina_id: usuario.oficina_id }
@@ -219,6 +222,8 @@ class Ability  < Cor1440Gen::Ability
 
         can :manage, Sivel2Gen::Caso
         can :manage, Sivel2Gen::Acto
+
+        can :read, Sivel2Sjr::Consactividadcaso
 
         can :manage, :tablasbasicas
         tablasbasicas.each do |t|
