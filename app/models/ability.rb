@@ -19,7 +19,8 @@ class Ability  < Cor1440Gen::Ability
         ['Sip', 'grupo'],
         ['Sivel2Sjr', 'ayudaestado'],
         ['Sivel2Sjr', 'clasifdesp'],
-        ['Sivel2Sjr', 'declaroante']
+        ['Sivel2Sjr', 'declaroante'],
+        ['Sivel2Sjr', 'progestado']
       ]
   end
 
