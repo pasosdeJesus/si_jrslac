@@ -67,3 +67,6 @@ es:
       "sivel2_sjr/casosjr":
         Refugio: PNPI
         Ubicacion: Rutas
+      "sivel2_sjr/consactividadcaso":
+        actividad_proyectofinanciero: Convenio financiado
+
