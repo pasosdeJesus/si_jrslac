@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pasosdeJesus/cor1440_gen.git
-  revision: b05dcb2c90eb65e0b665d558a349caca8e26ea95
+  revision: 219cd5d3b2b8c7c3d825bf1525de09d25e4eee90
   specs:
     cor1440_gen (1.0b3)
       devise
@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/heb412_gen.git
-  revision: 42ea787858bd8b315ec01ec1ac5537ec8dee2adf
+  revision: 5b4b263f28fc41064f5a7b1641b522a331a39eb0
   specs:
     heb412_gen (1.0.b6)
       mr519_gen
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/mr519_gen.git
-  revision: edf83c22a608a4b850ce7833db7d167e9bf55570
+  revision: fc50bb0155b2946eae87c9e8f8a4ffda3eb76aca
   specs:
     mr519_gen (0.2.0)
       rails (~> 6.0.0.rc1, >= 6.0.0.rc1)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sal7711_web.git
-  revision: ce23cf29efabaae26ff81a507692ae596d9cfaad
+  revision: 42047fd2063e630efc92d3916834ba04755c294d
   specs:
     sal7711_web (1.0.a3)
       rails
@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sip.git
-  revision: b8648ee5a1b462bbbf2ddcb175bac3301386f76b
+  revision: 29243da56463193b21f9fc5d7d8ba24f07a30ae4
   specs:
     sip (2.0.b7)
       cancancan
@@ -65,7 +65,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sipd.git
-  revision: e3e8d06df1453884c861d31fb25adfe51b8932e1
+  revision: 14e1ba25cc509ae4e3d192d4c293bb5b366805bf
   specs:
     sipd (2.0.b6)
       rails (~> 6.0.0.rc1)
@@ -73,7 +73,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_gen.git
-  revision: deda5f93da1d40b2b78da3a3824d24d8602f27de
+  revision: e66dc1a57a77078028c7c413d1afcc2af643b664
   specs:
     sivel2_gen (2.0b10)
       devise
@@ -82,7 +82,7 @@ GIT
 
 GIT
   remote: https://github.com/pasosdeJesus/sivel2_sjr.git
-  revision: 83b8cca46d948317b4bf5ce3ea6fa926a1b035a1
+  revision: e214e62b8fdd7cd539c5f8664d3cf3e5a549c7fe
   specs:
     sivel2_sjr (2.0b10)
       rails
@@ -108,56 +108,56 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (6.0.1)
-      actionpack (= 6.0.1)
+    actioncable (6.0.2.rc2)
+      actionpack (= 6.0.2.rc2)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
-    actionmailbox (6.0.1)
-      actionpack (= 6.0.1)
-      activejob (= 6.0.1)
-      activerecord (= 6.0.1)
-      activestorage (= 6.0.1)
-      activesupport (= 6.0.1)
+    actionmailbox (6.0.2.rc2)
+      actionpack (= 6.0.2.rc2)
+      activejob (= 6.0.2.rc2)
+      activerecord (= 6.0.2.rc2)
+      activestorage (= 6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
       mail (>= 2.7.1)
-    actionmailer (6.0.1)
-      actionpack (= 6.0.1)
-      actionview (= 6.0.1)
-      activejob (= 6.0.1)
+    actionmailer (6.0.2.rc2)
+      actionpack (= 6.0.2.rc2)
+      actionview (= 6.0.2.rc2)
+      activejob (= 6.0.2.rc2)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (6.0.1)
-      actionview (= 6.0.1)
-      activesupport (= 6.0.1)
+    actionpack (6.0.2.rc2)
+      actionview (= 6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
       rack (~> 2.0)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.2.0)
-    actiontext (6.0.1)
-      actionpack (= 6.0.1)
-      activerecord (= 6.0.1)
-      activestorage (= 6.0.1)
-      activesupport (= 6.0.1)
+    actiontext (6.0.2.rc2)
+      actionpack (= 6.0.2.rc2)
+      activerecord (= 6.0.2.rc2)
+      activestorage (= 6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
       nokogiri (>= 1.8.5)
-    actionview (6.0.1)
-      activesupport (= 6.0.1)
+    actionview (6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    activejob (6.0.1)
-      activesupport (= 6.0.1)
+    activejob (6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
       globalid (>= 0.3.6)
-    activemodel (6.0.1)
-      activesupport (= 6.0.1)
-    activerecord (6.0.1)
-      activemodel (= 6.0.1)
-      activesupport (= 6.0.1)
-    activestorage (6.0.1)
-      actionpack (= 6.0.1)
-      activejob (= 6.0.1)
-      activerecord (= 6.0.1)
+    activemodel (6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
+    activerecord (6.0.2.rc2)
+      activemodel (= 6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
+    activestorage (6.0.2.rc2)
+      actionpack (= 6.0.2.rc2)
+      activejob (= 6.0.2.rc2)
+      activerecord (= 6.0.2.rc2)
       marcel (~> 0.3.1)
-    activesupport (6.0.1)
+    activesupport (6.0.2.rc2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -172,7 +172,7 @@ GEM
       msgpack (~> 1.0)
     bootstrap-datepicker-rails (1.8.0.1)
       railties (>= 3.0)
-    builder (3.2.3)
+    builder (3.2.4)
     camertron-eprun (1.1.1)
     cancancan (3.0.1)
     capybara (3.29.0)
@@ -204,12 +204,12 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.8.2)
-      devise (>= 4.6)
+    devise-i18n (1.9.0)
+      devise (>= 4.7.1)
     docile (1.3.2)
     erubi (1.9.0)
     execjs (2.7.0)
-    ffi (1.11.2)
+    ffi (1.11.3)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     globalid (0.4.2)
@@ -224,7 +224,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.2.0)
+    json (2.3.0)
     kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -236,7 +236,7 @@ GEM
       less (~> 2.6.0)
       sprockets (>= 2)
     libxml-ruby (3.1.0)
-    loofah (2.3.1)
+    loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -253,7 +253,7 @@ GEM
     minitest (5.13.0)
     msgpack (1.3.1)
     nio4r (2.5.2)
-    nokogiri (1.10.5)
+    nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     odf-report (0.6.1)
       nokogiri (>= 1.5.0)
@@ -283,27 +283,27 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (4.0.1)
-    puma (4.3.0)
+    puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.0.7)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rails (6.0.1)
-      actioncable (= 6.0.1)
-      actionmailbox (= 6.0.1)
-      actionmailer (= 6.0.1)
-      actionpack (= 6.0.1)
-      actiontext (= 6.0.1)
-      actionview (= 6.0.1)
-      activejob (= 6.0.1)
-      activemodel (= 6.0.1)
-      activerecord (= 6.0.1)
-      activestorage (= 6.0.1)
-      activesupport (= 6.0.1)
+    rails (6.0.2.rc2)
+      actioncable (= 6.0.2.rc2)
+      actionmailbox (= 6.0.2.rc2)
+      actionmailer (= 6.0.2.rc2)
+      actionpack (= 6.0.2.rc2)
+      actiontext (= 6.0.2.rc2)
+      actionview (= 6.0.2.rc2)
+      activejob (= 6.0.2.rc2)
+      activemodel (= 6.0.2.rc2)
+      activerecord (= 6.0.2.rc2)
+      activestorage (= 6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
       bundler (>= 1.3.0)
-      railties (= 6.0.1)
+      railties (= 6.0.2.rc2)
       sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
@@ -318,9 +318,9 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
-    railties (6.0.1)
-      actionpack (= 6.0.1)
-      activesupport (= 6.0.1)
+    railties (6.0.2.rc2)
+      actionpack (= 6.0.2.rc2)
+      activesupport (= 6.0.2.rc2)
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
@@ -380,7 +380,7 @@ GEM
       execjs (>= 2.2.2, >= 2.2)
       less-rails (>= 2.5.0)
       railties (>= 3.1)
-    twitter_cldr (5.1.0)
+    twitter_cldr (5.2.0)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
@@ -398,7 +398,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (4.2.0)
+    webpacker (4.2.2)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -408,7 +408,7 @@ GEM
     will_paginate (3.2.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.2.1)
+    zeitwerk (2.2.2)
 
 PLATFORMS
   ruby
