@@ -141,11 +141,11 @@ class Ability  < Cor1440Gen::Ability
 
   def campos_plantillas 
     Heb412Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
+      Sivel2Sjr::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
       Cor1440Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
         Sivel2Gen::Ability::CAMPOS_PLANTILLAS_PROPIAS.clone.merge(
           CAMPOS_PLANTILLAS_PROPIAS.clone
-        )
-    ))
+        ))))
   end
 
   # Autorizaciones con CanCanCan
