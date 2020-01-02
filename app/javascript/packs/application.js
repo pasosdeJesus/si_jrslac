@@ -29,6 +29,4 @@ import 'bootstrap-datepicker/dist/locales/bootstrap-datepicker.es.min.js'
 import 'jquery-ui'
 import 'jquery-ui/ui/widgets/autocomplete'
 import 'jquery-ui/ui/widgets/sortable'
-import 'pick-a-color'
-import tinycolor from 'tinycolor2'
 
