@@ -8,28 +8,30 @@
   if v.nil? || ab.campos_plantillas[v].nil?
     col = [['','']]
   else
-    col = ab.campos_plantillas[v][:campos]
+    col = Heb412Gen::PlantillaHelper.campos_vista_formulario(
+      v, f.object.plantillahcm ? f.object.plantillahcm.formulario : nil,
+      true)
   end
-  if f.object.plantillahcm
-    f.object.plantillahcm.proyectofinanciero.each do |pf|
-      puts "pf=#{pf.nombre}"
-      pf.caracterizacion.each do |fm|
-        nf=fm.nombreinterno
-        puts "nf=#{nf}"
-        col << "#{nf}.ultimo_editor"
-        col << "#{nf}.fecha_ultimaedicion"
-        fm.campo.each do |c|
-          puts "c=#{c.nombreinterno}"
-          col << "#{nf}.#{c.nombreinterno}"
-          if c.tipo == Mr519Gen::ApplicationHelper::SELECCIONMULTIPLE
-            c.opcioncs.each do |op|
-              col << "#{nf}.#{c.nombreinterno}.#{op.valor}"
-            end
-          end
-        end
-      end
-    end
-  end
+#  if f.object.plantillahcm
+#    f.object.plantillahcm.proyectofinanciero.each do |pf|
+#      puts "pf=#{pf.nombre}"
+#      pf.caracterizacion.each do |fm|
+#        nf=fm.nombreinterno
+#        puts "nf=#{nf}"
+#        col << "#{nf}.ultimo_editor"
+#        col << "#{nf}.fecha_ultimaedicion"
+#        fm.campo.each do |c|
+#          puts "c=#{c.nombreinterno}"
+#          col << "#{nf}.#{c.nombreinterno}"
+#          if c.tipo == Mr519Gen::ApplicationHelper::SELECCIONMULTIPLE
+#            c.opcioncs.each do |op|
+#              col << "#{nf}.#{c.nombreinterno}.#{op.valor}"
+#            end
+#          end
+#        end
+#      end
+#    end
+#  end
   col = col.map(&:to_s).localize(:es).sort.to_a.uniq
   puts "OJO campoplantillahcm. col=#{col.to_s}"
 %>

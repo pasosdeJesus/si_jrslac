@@ -140,7 +140,7 @@ $$;
 
 SET default_tablespace = '';
 
-SET default_with_oids = false;
+SET default_table_access_method = heap;
 
 --
 -- Name: actividad_poa; Type: TABLE; Schema: public; Owner: -
@@ -373,7 +373,7 @@ CREATE SEQUENCE public.sip_clase_id_seq
 
 CREATE TABLE public.sip_clase (
     id_clalocal integer,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     id_tclase character varying(10) DEFAULT 'CP'::character varying NOT NULL,
     latitud double precision,
     longitud double precision,
@@ -406,7 +406,7 @@ CREATE SEQUENCE public.sip_departamento_id_seq
 
 CREATE TABLE public.sip_departamento (
     id_deplocal integer,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     latitud double precision,
     longitud double precision,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
@@ -438,7 +438,7 @@ CREATE SEQUENCE public.sip_municipio_id_seq
 
 CREATE TABLE public.sip_municipio (
     id_munlocal integer,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     latitud double precision,
     longitud double precision,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
@@ -579,7 +579,7 @@ CREATE TABLE public.cor1440_gen_actividad (
     nombre character varying(500),
     objetivo character varying(5000),
     resultado character varying(5000),
-    fecha date,
+    fecha date NOT NULL,
     observaciones character varying(5000),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
@@ -599,7 +599,7 @@ CREATE TABLE public.cor1440_gen_actividad (
     convocante character varying(500),
     lugar character varying(500),
     valora integer,
-    usuario_id integer
+    usuario_id integer NOT NULL
 );
 
 
@@ -683,12 +683,25 @@ ALTER SEQUENCE public.cor1440_gen_actividad_proyecto_id_seq OWNED BY public.cor1
 
 
 --
+-- Name: cor1440_gen_actividad_proyectofinanciero_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.cor1440_gen_actividad_proyectofinanciero_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
 -- Name: cor1440_gen_actividad_proyectofinanciero; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.cor1440_gen_actividad_proyectofinanciero (
     actividad_id integer NOT NULL,
-    proyectofinanciero_id integer NOT NULL
+    proyectofinanciero_id integer NOT NULL,
+    id integer DEFAULT nextval('public.cor1440_gen_actividad_proyectofinanciero_id_seq'::regclass) NOT NULL
 );
 
 
@@ -705,7 +718,8 @@ CREATE TABLE public.cor1440_gen_actividad_rangoedadac (
     fl integer,
     fr integer,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    s integer
 );
 
 
@@ -2676,7 +2690,8 @@ CREATE TABLE public.sip_actorsocial_persona (
     actorsocial_id integer,
     perfilactorsocial_id integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    correo character varying(100)
 );
 
 
@@ -2762,7 +2777,7 @@ CREATE SEQUENCE public.sip_etiqueta_id_seq
 
 CREATE TABLE public.sip_etiqueta (
     id integer DEFAULT nextval('public.sip_etiqueta_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
     fechadeshabilitacion date,
@@ -2790,7 +2805,7 @@ CREATE SEQUENCE public.sip_fuenteprensa_id_seq
 
 CREATE TABLE public.sip_fuenteprensa (
     id integer DEFAULT nextval('public.sip_fuenteprensa_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     tfuente character varying(25),
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
@@ -2807,7 +2822,7 @@ CREATE TABLE public.sip_fuenteprensa (
 
 CREATE TABLE public.sip_grupo (
     id integer NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     observaciones character varying(5000),
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
@@ -2863,7 +2878,7 @@ CREATE SEQUENCE public.sip_grupoper_id_seq
 
 CREATE TABLE public.sip_grupoper (
     id integer DEFAULT nextval('public.sip_grupoper_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     anotaciones character varying(1000),
     created_at timestamp without time zone,
     updated_at timestamp without time zone
@@ -2918,7 +2933,7 @@ CREATE SEQUENCE public.sip_oficina_id_seq
 
 CREATE TABLE public.sip_oficina (
     id integer DEFAULT nextval('public.sip_oficina_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -3023,8 +3038,8 @@ CREATE SEQUENCE public.sip_persona_id_seq
 
 CREATE TABLE public.sip_persona (
     id integer DEFAULT nextval('public.sip_persona_id_seq'::regclass) NOT NULL,
-    nombres character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
-    apellidos character varying(100) COLLATE public.es_co_utf_8 NOT NULL,
+    nombres character varying(100) NOT NULL COLLATE public.es_co_utf_8,
+    apellidos character varying(100) NOT NULL COLLATE public.es_co_utf_8,
     anionac integer,
     mesnac integer,
     dianac integer,
@@ -3111,7 +3126,7 @@ ALTER SEQUENCE public.sip_sectoractor_id_seq OWNED BY public.sip_sectoractor.id;
 
 CREATE TABLE public.sip_tclase (
     id character varying(10) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -3127,7 +3142,7 @@ CREATE TABLE public.sip_tclase (
 
 CREATE TABLE public.sip_tdocumento (
     id integer NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     sigla character varying(100),
     formatoregex character varying(500),
     fechacreacion date NOT NULL,
@@ -3218,7 +3233,7 @@ ALTER SEQUENCE public.sip_tema_id_seq OWNED BY public.sip_tema.id;
 
 CREATE TABLE public.sip_trelacion (
     id character(2) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     observaciones character varying(5000) COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
@@ -3281,7 +3296,7 @@ CREATE SEQUENCE public.sip_tsitio_id_seq
 
 CREATE TABLE public.sip_tsitio (
     id integer DEFAULT nextval('public.sip_tsitio_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -3408,7 +3423,7 @@ CREATE SEQUENCE public.sivel2_gen_antecedente_id_seq
 
 CREATE TABLE public.sivel2_gen_antecedente (
     id integer DEFAULT nextval('public.sivel2_gen_antecedente_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -3542,7 +3557,7 @@ CREATE TABLE public.sivel2_gen_caso_fotra (
     tfuente character varying(25),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     id integer DEFAULT nextval('public.sivel2_gen_caso_fotra_seq'::regclass) NOT NULL,
     anexo_caso_id integer
 );
@@ -3641,7 +3656,7 @@ CREATE TABLE public.sivel2_gen_caso_usuario (
 
 CREATE TABLE public.sivel2_gen_categoria (
     id integer NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
     fechadeshabilitacion date,
     id_pconsolidado integer,
@@ -3843,26 +3858,6 @@ CREATE VIEW public.sivel2_gen_conscaso1 AS
 
 
 --
--- Name: sivel2_gen_conscaso; Type: MATERIALIZED VIEW; Schema: public; Owner: -
---
-
-CREATE MATERIALIZED VIEW public.sivel2_gen_conscaso AS
- SELECT sivel2_gen_conscaso1.caso_id,
-    sivel2_gen_conscaso1.contacto,
-    sivel2_gen_conscaso1.fecharec,
-    sivel2_gen_conscaso1.oficina,
-    sivel2_gen_conscaso1.nusuario,
-    sivel2_gen_conscaso1.fecha,
-    sivel2_gen_conscaso1.expulsion,
-    sivel2_gen_conscaso1.llegada,
-    sivel2_gen_conscaso1.ultimaatencion_fecha,
-    sivel2_gen_conscaso1.memo,
-    to_tsvector('spanish'::regconfig, public.unaccent(((((((((((((((((((sivel2_gen_conscaso1.caso_id || ' '::text) || sivel2_gen_conscaso1.contacto) || ' '::text) || replace(((sivel2_gen_conscaso1.fecharec)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || (sivel2_gen_conscaso1.oficina)::text) || ' '::text) || (sivel2_gen_conscaso1.nusuario)::text) || ' '::text) || replace(((sivel2_gen_conscaso1.fecha)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || sivel2_gen_conscaso1.expulsion) || ' '::text) || sivel2_gen_conscaso1.llegada) || ' '::text) || replace(((sivel2_gen_conscaso1.ultimaatencion_fecha)::character varying)::text, '-'::text, ' '::text)) || ' '::text) || sivel2_gen_conscaso1.memo))) AS q
-   FROM public.sivel2_gen_conscaso1
-  WITH NO DATA;
-
-
---
 -- Name: sivel2_gen_contexto_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -3880,7 +3875,7 @@ CREATE SEQUENCE public.sivel2_gen_contexto_id_seq
 
 CREATE TABLE public.sivel2_gen_contexto (
     id integer DEFAULT nextval('public.sivel2_gen_contexto_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -3964,7 +3959,7 @@ CREATE SEQUENCE public.sivel2_gen_etnia_id_seq
 
 CREATE TABLE public.sivel2_gen_etnia (
     id integer DEFAULT nextval('public.sivel2_gen_etnia_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     descripcion character varying(1000),
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
@@ -3993,7 +3988,7 @@ CREATE SEQUENCE public.sivel2_gen_filiacion_id_seq
 
 CREATE TABLE public.sivel2_gen_filiacion (
     id integer DEFAULT nextval('public.sivel2_gen_filiacion_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4021,7 +4016,7 @@ CREATE TABLE public.sivel2_gen_filiacion_victimacolectiva (
 
 CREATE TABLE public.sivel2_gen_fotra (
     id integer DEFAULT nextval('public.fotra_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
@@ -4045,7 +4040,7 @@ CREATE SEQUENCE public.sivel2_gen_frontera_id_seq
 
 CREATE TABLE public.sivel2_gen_frontera (
     id integer DEFAULT nextval('public.sivel2_gen_frontera_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4073,7 +4068,7 @@ CREATE SEQUENCE public.sivel2_gen_iglesia_id_seq
 
 CREATE TABLE public.sivel2_gen_iglesia (
     id integer DEFAULT nextval('public.sivel2_gen_iglesia_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     descripcion character varying(1000),
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
     fechadeshabilitacion date,
@@ -4102,7 +4097,7 @@ CREATE SEQUENCE public.sivel2_gen_intervalo_id_seq
 
 CREATE TABLE public.sivel2_gen_intervalo (
     id integer DEFAULT nextval('public.sivel2_gen_intervalo_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     rango character varying(25) NOT NULL,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
@@ -4159,7 +4154,7 @@ CREATE SEQUENCE public.sivel2_gen_organizacion_id_seq
 
 CREATE TABLE public.sivel2_gen_organizacion (
     id integer DEFAULT nextval('public.sivel2_gen_organizacion_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4199,7 +4194,7 @@ CREATE SEQUENCE public.sivel2_gen_pconsolidado_id_seq
 
 CREATE TABLE public.sivel2_gen_pconsolidado (
     id integer DEFAULT nextval('public.sivel2_gen_pconsolidado_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     tipoviolencia character varying(25) NOT NULL,
     clasificacion character varying(25) NOT NULL,
     peso integer DEFAULT 0,
@@ -4230,7 +4225,7 @@ CREATE SEQUENCE public.sivel2_gen_presponsable_id_seq
 
 CREATE TABLE public.sivel2_gen_presponsable (
     id integer DEFAULT nextval('public.sivel2_gen_presponsable_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     papa integer,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
     fechadeshabilitacion date,
@@ -4259,7 +4254,7 @@ CREATE SEQUENCE public.sivel2_gen_profesion_id_seq
 
 CREATE TABLE public.sivel2_gen_profesion (
     id integer DEFAULT nextval('public.sivel2_gen_profesion_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT ('now'::text)::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4299,7 +4294,7 @@ CREATE SEQUENCE public.sivel2_gen_rangoedad_id_seq
 
 CREATE TABLE public.sivel2_gen_rangoedad (
     id integer DEFAULT nextval('public.sivel2_gen_rangoedad_id_seq'::regclass) NOT NULL,
-    nombre character varying(20) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(20) NOT NULL COLLATE public.es_co_utf_8,
     rango character varying(20),
     limiteinferior integer DEFAULT 0 NOT NULL,
     limitesuperior integer DEFAULT 0 NOT NULL,
@@ -4342,7 +4337,7 @@ CREATE SEQUENCE public.sivel2_gen_region_id_seq
 
 CREATE TABLE public.sivel2_gen_region (
     id integer DEFAULT nextval('public.sivel2_gen_region_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4405,7 +4400,7 @@ CREATE SEQUENCE public.sivel2_gen_sectorsocial_id_seq
 
 CREATE TABLE public.sivel2_gen_sectorsocial (
     id integer DEFAULT nextval('public.sivel2_gen_sectorsocial_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4445,7 +4440,7 @@ CREATE SEQUENCE public.sivel2_gen_supracategoria_id_seq
 
 CREATE TABLE public.sivel2_gen_supracategoria (
     codigo integer,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     id_tviolencia character varying(1) NOT NULL,
@@ -4463,7 +4458,7 @@ CREATE TABLE public.sivel2_gen_supracategoria (
 
 CREATE TABLE public.sivel2_gen_tviolencia (
     id character(1) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     nomcorto character varying(10) NOT NULL,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
@@ -4531,7 +4526,7 @@ CREATE SEQUENCE public.sivel2_gen_vinculoestado_id_seq
 
 CREATE TABLE public.sivel2_gen_vinculoestado (
     id integer DEFAULT nextval('public.sivel2_gen_vinculoestado_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4559,7 +4554,7 @@ CREATE SEQUENCE public.sivel2_sjr_acreditacion_id_seq
 
 CREATE TABLE public.sivel2_sjr_acreditacion (
     id integer DEFAULT nextval('public.sivel2_sjr_acreditacion_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT '2013-05-24'::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4805,7 +4800,7 @@ CREATE SEQUENCE public.sivel2_sjr_clasifdesp_id_seq
 
 CREATE TABLE public.sivel2_sjr_clasifdesp (
     id integer DEFAULT nextval('public.sivel2_sjr_clasifdesp_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT '2013-05-24'::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -4909,7 +4904,7 @@ CREATE SEQUENCE public.sivel2_sjr_declaroante_id_seq
 
 CREATE TABLE public.sivel2_sjr_declaroante (
     id integer DEFAULT nextval('public.sivel2_sjr_declaroante_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT '2013-05-24'::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -5037,7 +5032,7 @@ CREATE SEQUENCE public.sivel2_sjr_inclusion_id_seq
 
 CREATE TABLE public.sivel2_sjr_inclusion (
     id integer DEFAULT nextval('public.sivel2_sjr_inclusion_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT '2013-05-24'::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -5095,7 +5090,7 @@ CREATE SEQUENCE public.sivel2_sjr_modalidadtierra_id_seq
 
 CREATE TABLE public.sivel2_sjr_modalidadtierra (
     id integer DEFAULT nextval('public.sivel2_sjr_modalidadtierra_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT '2013-05-24'::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -5344,7 +5339,7 @@ CREATE TABLE public.sivel2_sjr_regimensalud (
 
 CREATE TABLE public.sivel2_sjr_resagresion (
     id integer DEFAULT nextval('public.resagresion_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -5427,7 +5422,7 @@ CREATE SEQUENCE public.sivel2_sjr_tipodesp_id_seq
 
 CREATE TABLE public.sivel2_sjr_tipodesp (
     id integer DEFAULT nextval('public.sivel2_sjr_tipodesp_id_seq'::regclass) NOT NULL,
-    nombre character varying(500) COLLATE public.es_co_utf_8 NOT NULL,
+    nombre character varying(500) NOT NULL COLLATE public.es_co_utf_8,
     fechacreacion date DEFAULT '2013-05-24'::date NOT NULL,
     fechadeshabilitacion date,
     created_at timestamp without time zone,
@@ -6148,6 +6143,22 @@ ALTER TABLE ONLY public.sivel2_gen_contexto
 
 ALTER TABLE ONLY public.cor1440_gen_actividad_proyecto
     ADD CONSTRAINT cor1440_gen_actividad_proyecto_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cor1440_gen_actividad_proyectofinanciero cor1440_gen_actividad_proyectofinanciero_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_actividad_proyectofinanciero
+    ADD CONSTRAINT cor1440_gen_actividad_proyectofinanciero_id_key UNIQUE (id);
+
+
+--
+-- Name: cor1440_gen_actividad_proyectofinanciero cor1440_gen_actividad_proyectofinanciero_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cor1440_gen_actividad_proyectofinanciero
+    ADD CONSTRAINT cor1440_gen_actividad_proyectofinanciero_pkey PRIMARY KEY (id);
 
 
 --
@@ -7359,10 +7370,24 @@ ALTER TABLE ONLY public.sivel2_gen_vinculoestado
 
 
 --
--- Name: busca_conscaso; Type: INDEX; Schema: public; Owner: -
+-- Name: cor1440_gen_actividad_oficina_id_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX busca_conscaso ON public.sivel2_gen_conscaso USING gin (q);
+CREATE INDEX cor1440_gen_actividad_oficina_id_idx ON public.cor1440_gen_actividad USING btree (oficina_id);
+
+
+--
+-- Name: cor1440_gen_actividad_proyectofinanci_proyectofinanciero_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX cor1440_gen_actividad_proyectofinanci_proyectofinanciero_id_idx ON public.cor1440_gen_actividad_proyectofinanciero USING btree (proyectofinanciero_id);
+
+
+--
+-- Name: cor1440_gen_actividad_proyectofinanciero_actividad_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX cor1440_gen_actividad_proyectofinanciero_actividad_id_idx ON public.cor1440_gen_actividad_proyectofinanciero USING btree (actividad_id);
 
 
 --
@@ -7629,6 +7654,20 @@ CREATE INDEX indice_sivel2_sjr_respuesta_on_fechaatencion ON public.sivel2_sjr_r
 --
 
 CREATE INDEX sip_busca_mundep ON public.sip_mundep USING gin (mundep);
+
+
+--
+-- Name: sivel2_sjr_actividad_casosjr_actividad_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_sjr_actividad_casosjr_actividad_id_idx ON public.sivel2_sjr_actividad_casosjr USING btree (actividad_id);
+
+
+--
+-- Name: sivel2_sjr_actividad_casosjr_casosjr_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sivel2_sjr_actividad_casosjr_casosjr_id_idx ON public.sivel2_sjr_actividad_casosjr USING btree (casosjr_id);
 
 
 --
@@ -10141,6 +10180,16 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20191205204511'),
 ('20191206154511'),
 ('20191219011910'),
-('20191231102721');
+('20191231102721'),
+('20200116003807'),
+('20200211105331'),
+('20200211112230'),
+('20200212103617'),
+('20200221181049'),
+('20200224134339'),
+('20200228235200'),
+('20200229005951'),
+('20200302194744'),
+('20200314033958');
 
 

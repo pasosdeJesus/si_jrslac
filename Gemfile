@@ -9,7 +9,7 @@ gem 'cancancan'
 # Formularios anidados (algunos con ajax)
 gem 'cocoon', 
   git: 'https://github.com/vtamara/cocoon.git', branch: 'new_id_with_ajax'
-  # path: '../cocoon'
+  #path: '../cocoon'
 
 gem 'coffee-rails' # CoffeeScript para recuersos .js.coffee y vistas
 
@@ -80,15 +80,15 @@ gem 'heb412_gen',  # Motor de nube y llenado de plantillas
 
 gem 'sal7711_gen', # Motor para archivo de prensa
   git: 'https://github.com/pasosdeJesus/sal7711_gen.git'
-  # path: '../sal7711_gen'
+  #path: '../sal7711_gen'
 
 gem 'sal7711_web', # Motor para archivo de prensa
   git: 'https://github.com/pasosdeJesus/sal7711_web.git'
-  # path: '../sal7711_web'
+  #path: '../sal7711_web'
 
 gem 'cor1440_gen',  # Motor de proyectos con marco lógico y actividades 
   git: 'https://github.com/pasosdeJesus/cor1440_gen.git'
-  # path: '../cor1440_gen'
+   #path: '../cor1440_gen'
 
 gem 'sivel2_gen',  # Motor de casos
   git: 'https://github.com/pasosdeJesus/sivel2_gen.git'
