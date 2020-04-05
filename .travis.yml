@@ -1,10 +1,15 @@
 language: ruby
 
 rvm:
-        - 2.6.1
+        - 2.7.1
 
 addons:
-        postgresql: '9.6'
+        postgresql: '10'
+
+apt:
+        packages:
+                - postgresql-10
+                - postgresql-client-10
 
 notifications:
         email: false
@@ -13,6 +18,7 @@ env:
         global:
                 - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
                 - CC_TEST_REPORTER_ID=3b48e9b8833fb4f2c4224b8615190072110fb0085c6af3ff5f470ad61787f460
+                - PGPORT=5432
 
 before_install: 
         - nvm install node
@@ -33,8 +39,8 @@ before_install:
         - cp config/application.rb.plantilla config/application.rb
         - cp db/structure.sql db/structure.sql.copia # travis no soporta PostreSQL 10
         - sed -e 's/provider = libc,//g;s/SET default_table_access_method.*/-- &/g' db/structure.sql.copia > db/structure.sql 
-        - bundle exec rake db:setup
-        - bundle exec rake sip:indices
+        - bundle exec rails db:setup
+        - bundle exec rails sip:indices
 
 script: 
         - bundle exec rails test
